@@ -223,7 +223,7 @@ public class InterjectionPartImpl extends MinimalEObjectImpl.Container implement
 	@SuppressWarnings("unchecked")
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case RelexidPackage.INTERJECTION_PART___GENERATE__LOCALE:
+			case RelexidPackage.INTERJECTION_PART___GENERATE__LOCALE_MAP:
 				return generate((Locale)arguments.get(0), (Map<String, String>)arguments.get(1));
 		}
 		return super.eInvoke(operationID, arguments);

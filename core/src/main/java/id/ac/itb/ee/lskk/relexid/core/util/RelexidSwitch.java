@@ -142,10 +142,10 @@ public class RelexidSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case RelexidPackage.RESOURCE_ELEMENT: {
-				ResourceElement resourceElement = (ResourceElement)theEObject;
-				T result = caseResourceElement(resourceElement);
-				if (result == null) result = caseLexElement(resourceElement);
+			case RelexidPackage.TYPED_RESOURCE_ELEMENT: {
+				TypedResourceElement typedResourceElement = (TypedResourceElement)theEObject;
+				T result = caseTypedResourceElement(typedResourceElement);
+				if (result == null) result = caseLexElement(typedResourceElement);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -235,6 +235,26 @@ public class RelexidSwitch<T> extends Switch<T> {
 			case RelexidPackage.GENERATED_LITERAL: {
 				GeneratedLiteral generatedLiteral = (GeneratedLiteral)theEObject;
 				T result = caseGeneratedLiteral(generatedLiteral);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case RelexidPackage.LEX_RULES: {
+				LexRules lexRules = (LexRules)theEObject;
+				T result = caseLexRules(lexRules);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case RelexidPackage.RESOURCE_ELEMENT: {
+				ResourceElement resourceElement = (ResourceElement)theEObject;
+				T result = caseResourceElement(resourceElement);
+				if (result == null) result = caseLexElement(resourceElement);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case RelexidPackage.PRONOUN_REPLACEMENT: {
+				PronounReplacement pronounReplacement = (PronounReplacement)theEObject;
+				T result = casePronounReplacement(pronounReplacement);
+				if (result == null) result = caseLexReplacement(pronounReplacement);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -408,6 +428,21 @@ public class RelexidSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Typed Resource Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Typed Resource Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTypedResourceElement(TypedResourceElement object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Resource Element</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -419,6 +454,21 @@ public class RelexidSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseResourceElement(ResourceElement object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Pronoun Replacement</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Pronoun Replacement</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePronounReplacement(PronounReplacement object) {
 		return null;
 	}
 
@@ -614,6 +664,21 @@ public class RelexidSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseGeneratedLiteral(GeneratedLiteral object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Lex Rules</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Lex Rules</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseLexRules(LexRules object) {
 		return null;
 	}
 

@@ -69,7 +69,7 @@ public class RelexidFactoryImpl extends EFactoryImpl implements RelexidFactory {
 			case RelexidPackage.CONJUNCTION_PART: return createConjunctionPart();
 			case RelexidPackage.INTERJECTION_PART: return createInterjectionPart();
 			case RelexidPackage.PART_OF_SPEECH_ELEMENT: return createPartOfSpeechElement();
-			case RelexidPackage.RESOURCE_ELEMENT: return createResourceElement();
+			case RelexidPackage.TYPED_RESOURCE_ELEMENT: return createTypedResourceElement();
 			case RelexidPackage.LITERAL_ELEMENT: return createLiteralElement();
 			case RelexidPackage.CLASS_ELEMENT: return createClassElement();
 			case RelexidPackage.LITERAL_REPLACEMENT: return createLiteralReplacement();
@@ -80,6 +80,9 @@ public class RelexidFactoryImpl extends EFactoryImpl implements RelexidFactory {
 			case RelexidPackage.ADVERB_PART: return createAdverbPart();
 			case RelexidPackage.ADJECTIVE_PART: return createAdjectivePart();
 			case RelexidPackage.GENERATED_LITERAL: return createGeneratedLiteral();
+			case RelexidPackage.LEX_RULES: return createLexRules();
+			case RelexidPackage.RESOURCE_ELEMENT: return createResourceElement();
+			case RelexidPackage.PRONOUN_REPLACEMENT: return createPronounReplacement();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -238,9 +241,29 @@ public class RelexidFactoryImpl extends EFactoryImpl implements RelexidFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public TypedResourceElement createTypedResourceElement() {
+		TypedResourceElementImpl typedResourceElement = new TypedResourceElementImpl();
+		return typedResourceElement;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ResourceElement createResourceElement() {
 		ResourceElementImpl resourceElement = new ResourceElementImpl();
 		return resourceElement;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public PronounReplacement createPronounReplacement() {
+		PronounReplacementImpl pronounReplacement = new PronounReplacementImpl();
+		return pronounReplacement;
 	}
 
 	/**
@@ -341,6 +364,16 @@ public class RelexidFactoryImpl extends EFactoryImpl implements RelexidFactory {
 	public GeneratedLiteral createGeneratedLiteral() {
 		GeneratedLiteralImpl generatedLiteral = new GeneratedLiteralImpl();
 		return generatedLiteral;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public LexRules createLexRules() {
+		LexRulesImpl lexRules = new LexRulesImpl();
+		return lexRules;
 	}
 
 	/**

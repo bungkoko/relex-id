@@ -242,7 +242,7 @@ public class SentenceImpl extends MinimalEObjectImpl.Container implements Senten
 	@SuppressWarnings("unchecked")
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case RelexidPackage.SENTENCE___GENERATE__LOCALE:
+			case RelexidPackage.SENTENCE___GENERATE__LOCALE_MAP:
 				return generate((Locale)arguments.get(0), (Map<String, String>)arguments.get(1));
 		}
 		return super.eInvoke(operationID, arguments);

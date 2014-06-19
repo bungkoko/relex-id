@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="ASCII"?>
+<relexid:LexRules
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:relexid="http://relexid/1.0"
+    xsi:schemaLocation="http://relexid/1.0 relexid.ecore">
+  <rules>
+    <patterns
+        xsi:type="relexid:LiteralElement">
+      <literals>aku</literals>
+    </patterns>
+    <patterns
+        xsi:type="relexid:ResourceElement"
+        resource="dbpedia:Love"/>
+    <patterns
+        xsi:type="relexid:LiteralElement">
+      <literals>kamu</literals>
+    </patterns>
+    <replacements
+        xsi:type="relexid:PronounReplacement"
+        partOfSpeech="pronoun"/>
+    <replacements
+        xsi:type="relexid:ResourceReplacement"
+        partOfSpeech="verb"/>
+    <replacements
+        xsi:type="relexid:PronounReplacement"
+        partOfSpeech="pronoun"
+        person="second"
+        case="object"/>
+  </rules>
+</relexid:LexRules>

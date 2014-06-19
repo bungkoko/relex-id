@@ -30,7 +30,7 @@ public interface ResourceReplacement extends LexReplacement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Semantic resource.
+	 * Semantic resource, which is optional only if the pattern is from {@link ResourceElement} or {@link TypedResourceElement}, otherwise required.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Resource</em>' attribute.
 	 * @see #setResource(QName)

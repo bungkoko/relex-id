@@ -112,8 +112,8 @@ public class RelexidAdapterFactory extends AdapterFactoryImpl {
 				return createPartOfSpeechElementAdapter();
 			}
 			@Override
-			public Adapter caseResourceElement(ResourceElement object) {
-				return createResourceElementAdapter();
+			public Adapter caseTypedResourceElement(TypedResourceElement object) {
+				return createTypedResourceElementAdapter();
 			}
 			@Override
 			public Adapter caseLiteralElement(LiteralElement object) {
@@ -166,6 +166,18 @@ public class RelexidAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseGeneratedLiteral(GeneratedLiteral object) {
 				return createGeneratedLiteralAdapter();
+			}
+			@Override
+			public Adapter caseLexRules(LexRules object) {
+				return createLexRulesAdapter();
+			}
+			@Override
+			public Adapter caseResourceElement(ResourceElement object) {
+				return createResourceElementAdapter();
+			}
+			@Override
+			public Adapter casePronounReplacement(PronounReplacement object) {
+				return createPronounReplacementAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -342,6 +354,20 @@ public class RelexidAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link id.ac.itb.ee.lskk.relexid.core.TypedResourceElement <em>Typed Resource Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see id.ac.itb.ee.lskk.relexid.core.TypedResourceElement
+	 * @generated
+	 */
+	public Adapter createTypedResourceElementAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link id.ac.itb.ee.lskk.relexid.core.ResourceElement <em>Resource Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -352,6 +378,20 @@ public class RelexidAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createResourceElementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link id.ac.itb.ee.lskk.relexid.core.PronounReplacement <em>Pronoun Replacement</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see id.ac.itb.ee.lskk.relexid.core.PronounReplacement
+	 * @generated
+	 */
+	public Adapter createPronounReplacementAdapter() {
 		return null;
 	}
 
@@ -534,6 +574,20 @@ public class RelexidAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createGeneratedLiteralAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link id.ac.itb.ee.lskk.relexid.core.LexRules <em>Lex Rules</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see id.ac.itb.ee.lskk.relexid.core.LexRules
+	 * @generated
+	 */
+	public Adapter createLexRulesAdapter() {
 		return null;
 	}
 

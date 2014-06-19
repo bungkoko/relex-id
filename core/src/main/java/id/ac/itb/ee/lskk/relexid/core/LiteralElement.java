@@ -2,6 +2,8 @@
  */
 package id.ac.itb.ee.lskk.relexid.core;
 
+import org.eclipse.emf.common.util.EList;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -11,6 +13,7 @@ package id.ac.itb.ee.lskk.relexid.core;
  * <p>
  * The following features are supported:
  * <ul>
+ *   <li>{@link id.ac.itb.ee.lskk.relexid.core.LiteralElement#getLiterals <em>Literals</em>}</li>
  *   <li>{@link id.ac.itb.ee.lskk.relexid.core.LiteralElement#isCaseSensitive <em>Case Sensitive</em>}</li>
  * </ul>
  * </p>
@@ -46,5 +49,20 @@ public interface LiteralElement extends LexElement {
 	 * @generated
 	 */
 	void setCaseSensitive(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Literals</b></em>' attribute list.
+	 * The list contents are of type {@link java.lang.String}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Any of the literals will match this element.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Literals</em>' attribute list.
+	 * @see id.ac.itb.ee.lskk.relexid.core.RelexidPackage#getLiteralElement_Literals()
+	 * @model required="true"
+	 * @generated
+	 */
+	EList<String> getLiterals();
 
 } // LiteralElement

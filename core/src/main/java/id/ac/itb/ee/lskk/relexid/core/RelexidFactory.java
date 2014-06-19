@@ -103,6 +103,15 @@ public interface RelexidFactory extends EFactory {
 	PartOfSpeechElement createPartOfSpeechElement();
 
 	/**
+	 * Returns a new object of class '<em>Typed Resource Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Typed Resource Element</em>'.
+	 * @generated
+	 */
+	TypedResourceElement createTypedResourceElement();
+
+	/**
 	 * Returns a new object of class '<em>Resource Element</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -110,6 +119,15 @@ public interface RelexidFactory extends EFactory {
 	 * @generated
 	 */
 	ResourceElement createResourceElement();
+
+	/**
+	 * Returns a new object of class '<em>Pronoun Replacement</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Pronoun Replacement</em>'.
+	 * @generated
+	 */
+	PronounReplacement createPronounReplacement();
 
 	/**
 	 * Returns a new object of class '<em>Literal Element</em>'.
@@ -200,6 +218,15 @@ public interface RelexidFactory extends EFactory {
 	 * @generated
 	 */
 	GeneratedLiteral createGeneratedLiteral();
+
+	/**
+	 * Returns a new object of class '<em>Lex Rules</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Lex Rules</em>'.
+	 * @generated
+	 */
+	LexRules createLexRules();
 
 	/**
 	 * Returns the package supported by this factory.

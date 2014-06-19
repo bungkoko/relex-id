@@ -3,53 +3,57 @@
 package id.ac.itb.ee.lskk.relexid.core.impl;
 
 import id.ac.itb.ee.lskk.relexid.core.RelexidPackage;
-import id.ac.itb.ee.lskk.relexid.core.ResourceElement;
+import id.ac.itb.ee.lskk.relexid.core.TypedResourceElement;
+
 import javax.xml.namespace.QName;
+
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.ecore.EClass;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Resource Element</b></em>'.
+ * An implementation of the model object '<em><b>Typed Resource Element</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link id.ac.itb.ee.lskk.relexid.core.impl.ResourceElementImpl#getResource <em>Resource</em>}</li>
+ *   <li>{@link id.ac.itb.ee.lskk.relexid.core.impl.TypedResourceElementImpl#getSemanticClass <em>Semantic Class</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class ResourceElementImpl extends MinimalEObjectImpl.Container implements ResourceElement {
+public class TypedResourceElementImpl extends MinimalEObjectImpl.Container implements TypedResourceElement {
 	/**
-	 * The default value of the '{@link #getResource() <em>Resource</em>}' attribute.
+	 * The default value of the '{@link #getSemanticClass() <em>Semantic Class</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getResource()
+	 * @see #getSemanticClass()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final QName RESOURCE_EDEFAULT = null;
+	protected static final QName SEMANTIC_CLASS_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getResource() <em>Resource</em>}' attribute.
+	 * The cached value of the '{@link #getSemanticClass() <em>Semantic Class</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getResource()
+	 * @see #getSemanticClass()
 	 * @generated
 	 * @ordered
 	 */
-	protected QName resource = RESOURCE_EDEFAULT;
+	protected QName semanticClass = SEMANTIC_CLASS_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ResourceElementImpl() {
+	protected TypedResourceElementImpl() {
 		super();
 	}
 
@@ -60,7 +64,7 @@ public class ResourceElementImpl extends MinimalEObjectImpl.Container implements
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return RelexidPackage.Literals.RESOURCE_ELEMENT;
+		return RelexidPackage.Literals.TYPED_RESOURCE_ELEMENT;
 	}
 
 	/**
@@ -68,8 +72,8 @@ public class ResourceElementImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public QName getResource() {
-		return resource;
+	public QName getSemanticClass() {
+		return semanticClass;
 	}
 
 	/**
@@ -77,11 +81,11 @@ public class ResourceElementImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setResource(QName newResource) {
-		QName oldResource = resource;
-		resource = newResource;
+	public void setSemanticClass(QName newSemanticClass) {
+		QName oldSemanticClass = semanticClass;
+		semanticClass = newSemanticClass;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RelexidPackage.RESOURCE_ELEMENT__RESOURCE, oldResource, resource));
+			eNotify(new ENotificationImpl(this, Notification.SET, RelexidPackage.TYPED_RESOURCE_ELEMENT__SEMANTIC_CLASS, oldSemanticClass, semanticClass));
 	}
 
 	/**
@@ -92,8 +96,8 @@ public class ResourceElementImpl extends MinimalEObjectImpl.Container implements
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case RelexidPackage.RESOURCE_ELEMENT__RESOURCE:
-				return getResource();
+			case RelexidPackage.TYPED_RESOURCE_ELEMENT__SEMANTIC_CLASS:
+				return getSemanticClass();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -106,8 +110,8 @@ public class ResourceElementImpl extends MinimalEObjectImpl.Container implements
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case RelexidPackage.RESOURCE_ELEMENT__RESOURCE:
-				setResource((QName)newValue);
+			case RelexidPackage.TYPED_RESOURCE_ELEMENT__SEMANTIC_CLASS:
+				setSemanticClass((QName)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -121,8 +125,8 @@ public class ResourceElementImpl extends MinimalEObjectImpl.Container implements
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case RelexidPackage.RESOURCE_ELEMENT__RESOURCE:
-				setResource(RESOURCE_EDEFAULT);
+			case RelexidPackage.TYPED_RESOURCE_ELEMENT__SEMANTIC_CLASS:
+				setSemanticClass(SEMANTIC_CLASS_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -136,8 +140,8 @@ public class ResourceElementImpl extends MinimalEObjectImpl.Container implements
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case RelexidPackage.RESOURCE_ELEMENT__RESOURCE:
-				return RESOURCE_EDEFAULT == null ? resource != null : !RESOURCE_EDEFAULT.equals(resource);
+			case RelexidPackage.TYPED_RESOURCE_ELEMENT__SEMANTIC_CLASS:
+				return SEMANTIC_CLASS_EDEFAULT == null ? semanticClass != null : !SEMANTIC_CLASS_EDEFAULT.equals(semanticClass);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -152,10 +156,10 @@ public class ResourceElementImpl extends MinimalEObjectImpl.Container implements
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (resource: ");
-		result.append(resource);
+		result.append(" (semanticClass: ");
+		result.append(semanticClass);
 		result.append(')');
 		return result.toString();
 	}
 
-} //ResourceElementImpl
+} //TypedResourceElementImpl

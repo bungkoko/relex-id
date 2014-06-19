@@ -11,6 +11,7 @@ import id.ac.itb.ee.lskk.relexid.core.InterjectionPart;
 import id.ac.itb.ee.lskk.relexid.core.LexElement;
 import id.ac.itb.ee.lskk.relexid.core.LexReplacement;
 import id.ac.itb.ee.lskk.relexid.core.LexRule;
+import id.ac.itb.ee.lskk.relexid.core.LexRules;
 import id.ac.itb.ee.lskk.relexid.core.LiteralElement;
 import id.ac.itb.ee.lskk.relexid.core.LiteralReplacement;
 import id.ac.itb.ee.lskk.relexid.core.NounPart;
@@ -23,6 +24,7 @@ import id.ac.itb.ee.lskk.relexid.core.PronounCase;
 import id.ac.itb.ee.lskk.relexid.core.PronounNumber;
 import id.ac.itb.ee.lskk.relexid.core.PronounPart;
 import id.ac.itb.ee.lskk.relexid.core.PronounPerson;
+import id.ac.itb.ee.lskk.relexid.core.PronounReplacement;
 import id.ac.itb.ee.lskk.relexid.core.Punctuation;
 import id.ac.itb.ee.lskk.relexid.core.PunctuationPart;
 import id.ac.itb.ee.lskk.relexid.core.PunctuationReplacement;
@@ -34,6 +36,7 @@ import id.ac.itb.ee.lskk.relexid.core.RelexidPackage;
 import id.ac.itb.ee.lskk.relexid.core.ResourceElement;
 import id.ac.itb.ee.lskk.relexid.core.ResourceReplacement;
 import id.ac.itb.ee.lskk.relexid.core.Sentence;
+import id.ac.itb.ee.lskk.relexid.core.TypedResourceElement;
 import id.ac.itb.ee.lskk.relexid.core.VerbPart;
 
 import java.util.Locale;
@@ -139,7 +142,21 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass typedResourceElementEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass resourceElementEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass pronounReplacementEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -231,6 +248,13 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * @generated
 	 */
 	private EClass generatedLiteralEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass lexRulesEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -372,7 +396,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getSentence__Generate__Locale() {
+	public EOperation getSentence__Generate__Locale_Map() {
 		return sentenceEClass.getEOperations().get(0);
 	}
 
@@ -408,7 +432,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getPartOfSpeech__Generate__Locale() {
+	public EOperation getPartOfSpeech__Generate__Locale_Map() {
 		return partOfSpeechEClass.getEOperations().get(0);
 	}
 
@@ -552,6 +576,24 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getTypedResourceElement() {
+		return typedResourceElementEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTypedResourceElement_SemanticClass() {
+		return (EAttribute)typedResourceElementEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getResourceElement() {
 		return resourceElementEClass;
 	}
@@ -561,7 +603,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getResourceElement_SemanticClass() {
+	public EAttribute getResourceElement_Resource() {
 		return (EAttribute)resourceElementEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -570,8 +612,35 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getResourceElement_SemanticClassRef() {
-		return (EAttribute)resourceElementEClass.getEStructuralFeatures().get(1);
+	public EClass getPronounReplacement() {
+		return pronounReplacementEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPronounReplacement_Person() {
+		return (EAttribute)pronounReplacementEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPronounReplacement_Number() {
+		return (EAttribute)pronounReplacementEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPronounReplacement_Case() {
+		return (EAttribute)pronounReplacementEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -589,6 +658,15 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * @generated
 	 */
 	public EAttribute getLiteralElement_CaseSensitive() {
+		return (EAttribute)literalElementEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getLiteralElement_Literals() {
 		return (EAttribute)literalElementEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -804,6 +882,24 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getLexRules() {
+		return lexRulesEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getLexRules_Rules() {
+		return (EReference)lexRulesEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getPartOfSpeechType() {
 		return partOfSpeechTypeEEnum;
 	}
@@ -901,12 +997,12 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 		// Create classes and their features
 		sentenceEClass = createEClass(SENTENCE);
 		createEAttribute(sentenceEClass, SENTENCE__LITERAL);
-		createEOperation(sentenceEClass, SENTENCE___GENERATE__LOCALE);
+		createEOperation(sentenceEClass, SENTENCE___GENERATE__LOCALE_MAP);
 
 		partOfSpeechEClass = createEClass(PART_OF_SPEECH);
 		createEAttribute(partOfSpeechEClass, PART_OF_SPEECH__LITERAL);
 		createEAttribute(partOfSpeechEClass, PART_OF_SPEECH__RESOURCE);
-		createEOperation(partOfSpeechEClass, PART_OF_SPEECH___GENERATE__LOCALE);
+		createEOperation(partOfSpeechEClass, PART_OF_SPEECH___GENERATE__LOCALE_MAP);
 
 		nounPartEClass = createEClass(NOUN_PART);
 
@@ -932,11 +1028,11 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 		partOfSpeechElementEClass = createEClass(PART_OF_SPEECH_ELEMENT);
 		createEAttribute(partOfSpeechElementEClass, PART_OF_SPEECH_ELEMENT__PART_OF_SPEECH);
 
-		resourceElementEClass = createEClass(RESOURCE_ELEMENT);
-		createEAttribute(resourceElementEClass, RESOURCE_ELEMENT__SEMANTIC_CLASS);
-		createEAttribute(resourceElementEClass, RESOURCE_ELEMENT__SEMANTIC_CLASS_REF);
+		typedResourceElementEClass = createEClass(TYPED_RESOURCE_ELEMENT);
+		createEAttribute(typedResourceElementEClass, TYPED_RESOURCE_ELEMENT__SEMANTIC_CLASS);
 
 		literalElementEClass = createEClass(LITERAL_ELEMENT);
+		createEAttribute(literalElementEClass, LITERAL_ELEMENT__LITERALS);
 		createEAttribute(literalElementEClass, LITERAL_ELEMENT__CASE_SENSITIVE);
 
 		classElementEClass = createEClass(CLASS_ELEMENT);
@@ -973,6 +1069,17 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 		generatedLiteralEClass = createEClass(GENERATED_LITERAL);
 		createEAttribute(generatedLiteralEClass, GENERATED_LITERAL__LITERAL);
 		createEAttribute(generatedLiteralEClass, GENERATED_LITERAL__PRE_SEPARATED);
+
+		lexRulesEClass = createEClass(LEX_RULES);
+		createEReference(lexRulesEClass, LEX_RULES__RULES);
+
+		resourceElementEClass = createEClass(RESOURCE_ELEMENT);
+		createEAttribute(resourceElementEClass, RESOURCE_ELEMENT__RESOURCE);
+
+		pronounReplacementEClass = createEClass(PRONOUN_REPLACEMENT);
+		createEAttribute(pronounReplacementEClass, PRONOUN_REPLACEMENT__PERSON);
+		createEAttribute(pronounReplacementEClass, PRONOUN_REPLACEMENT__NUMBER);
+		createEAttribute(pronounReplacementEClass, PRONOUN_REPLACEMENT__CASE);
 
 		// Create enums
 		partOfSpeechTypeEEnum = createEEnum(PART_OF_SPEECH_TYPE);
@@ -1025,7 +1132,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 		conjunctionPartEClass.getESuperTypes().add(this.getPartOfSpeech());
 		interjectionPartEClass.getESuperTypes().add(this.getPartOfSpeech());
 		partOfSpeechElementEClass.getESuperTypes().add(this.getLexElement());
-		resourceElementEClass.getESuperTypes().add(this.getLexElement());
+		typedResourceElementEClass.getESuperTypes().add(this.getLexElement());
 		literalElementEClass.getESuperTypes().add(this.getLexElement());
 		classElementEClass.getESuperTypes().add(this.getLexElement());
 		literalReplacementEClass.getESuperTypes().add(this.getLexReplacement());
@@ -1037,12 +1144,14 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 		adverbPartEClass.getESuperTypes().add(this.getQuestionable());
 		adjectivePartEClass.getESuperTypes().add(this.getPartOfSpeech());
 		adjectivePartEClass.getESuperTypes().add(this.getQuestionable());
+		resourceElementEClass.getESuperTypes().add(this.getLexElement());
+		pronounReplacementEClass.getESuperTypes().add(this.getLexReplacement());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(sentenceEClass, Sentence.class, "Sentence", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSentence_Literal(), ecorePackage.getEString(), "literal", null, 1, 1, Sentence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		EOperation op = initEOperation(getSentence__Generate__Locale(), ecorePackage.getEString(), "generate", 1, 1, IS_UNIQUE, IS_ORDERED);
+		EOperation op = initEOperation(getSentence__Generate__Locale_Map(), ecorePackage.getEString(), "generate", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getLocale(), "locale", 0, 1, IS_UNIQUE, IS_ORDERED);
 		EGenericType g1 = createEGenericType(ecorePackage.getEMap());
 		EGenericType g2 = createEGenericType(ecorePackage.getEString());
@@ -1055,7 +1164,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 		initEAttribute(getPartOfSpeech_Literal(), ecorePackage.getEString(), "literal", null, 1, 1, PartOfSpeech.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPartOfSpeech_Resource(), this.getQName(), "resource", null, 0, 1, PartOfSpeech.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		op = initEOperation(getPartOfSpeech__Generate__Locale(), this.getGeneratedLiteral(), "generate", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getPartOfSpeech__Generate__Locale_Map(), this.getGeneratedLiteral(), "generate", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getLocale(), "locale", 0, 1, IS_UNIQUE, IS_ORDERED);
 		g1 = createEGenericType(ecorePackage.getEMap());
 		g2 = createEGenericType(ecorePackage.getEString());
@@ -1088,11 +1197,11 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 		initEClass(partOfSpeechElementEClass, PartOfSpeechElement.class, "PartOfSpeechElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPartOfSpeechElement_PartOfSpeech(), this.getPartOfSpeechType(), "partOfSpeech", null, 1, 1, PartOfSpeechElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(resourceElementEClass, ResourceElement.class, "ResourceElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getResourceElement_SemanticClass(), this.getQName(), "semanticClass", null, 0, 1, ResourceElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getResourceElement_SemanticClassRef(), ecorePackage.getEString(), "semanticClassRef", null, 0, 1, ResourceElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(typedResourceElementEClass, TypedResourceElement.class, "TypedResourceElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getTypedResourceElement_SemanticClass(), this.getQName(), "semanticClass", null, 0, 1, TypedResourceElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(literalElementEClass, LiteralElement.class, "LiteralElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getLiteralElement_Literals(), ecorePackage.getEString(), "literals", null, 1, -1, LiteralElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getLiteralElement_CaseSensitive(), ecorePackage.getEBoolean(), "caseSensitive", "false", 0, 1, LiteralElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(classElementEClass, ClassElement.class, "ClassElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1129,6 +1238,17 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 		initEClass(generatedLiteralEClass, GeneratedLiteral.class, "GeneratedLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getGeneratedLiteral_Literal(), ecorePackage.getEString(), "literal", null, 1, 1, GeneratedLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGeneratedLiteral_PreSeparated(), ecorePackage.getEBoolean(), "preSeparated", "true", 1, 1, GeneratedLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(lexRulesEClass, LexRules.class, "LexRules", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getLexRules_Rules(), this.getLexRule(), null, "rules", null, 0, -1, LexRules.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(resourceElementEClass, ResourceElement.class, "ResourceElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getResourceElement_Resource(), this.getQName(), "resource", null, 1, 1, ResourceElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(pronounReplacementEClass, PronounReplacement.class, "PronounReplacement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getPronounReplacement_Person(), this.getPronounPerson(), "person", null, 1, 1, PronounReplacement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPronounReplacement_Number(), this.getPronounNumber(), "number", null, 1, 1, PronounReplacement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPronounReplacement_Case(), this.getPronounCase(), "case", null, 1, 1, PronounReplacement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(partOfSpeechTypeEEnum, PartOfSpeechType.class, "PartOfSpeechType");
@@ -1188,7 +1308,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	protected void createGenModelAnnotations() {
 		String source = "http://www.eclipse.org/emf/2002/GenModel";		
 		addAnnotation
-		  (getSentence__Generate__Locale(), 
+		  (getSentence__Generate__Locale_Map(), 
 		   source, 
 		   new String[] {
 			 "documentation", "Generate a readable sentence in the specified locale.\n\n@param The translations of resources in this locale\'s language/variant. Note that informal dictionaries (i.e. bahasa gaul/alay) is a valid use case. Key is resource URI and value is literal."
@@ -1200,7 +1320,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 			 "documentation", "Raw literal sentence without preprocessing."
 		   });		
 		addAnnotation
-		  (getPartOfSpeech__Generate__Locale(), 
+		  (getPartOfSpeech__Generate__Locale_Map(), 
 		   source, 
 		   new String[] {
 			 "documentation", "Generate a readable {@link GeneratedLiteral} in the specified locale.\n\n@param The translations of resources in this locale\'s language. Note that informal dictionaries (i.e. bahasa gaul/alay) is a valid use case. Key is resource URI and value is literal."
@@ -1242,16 +1362,16 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 			 "documentation", "any emotional greeting (or \"exclamation\") (ow)"
 		   });		
 		addAnnotation
-		  (resourceElementEClass, 
+		  (typedResourceElementEClass, 
 		   source, 
 		   new String[] {
 			 "documentation", "Refers to an RDF resource (e.g. {@code dbpedia:Elephant}) of a specific class (e.g. {@code dbpedia-owl:Animal})."
 		   });		
 		addAnnotation
-		  (getResourceElement_SemanticClassRef(), 
+		  (getLiteralElement_Literals(), 
 		   source, 
 		   new String[] {
-			 "documentation", "Since semanticClass is hard to ser/deser as XMI, this is a convenience attribute."
+			 "documentation", "Any of the literals will match this element."
 		   });		
 		addAnnotation
 		  (classElementEClass, 
@@ -1281,13 +1401,19 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 		  (getResourceReplacement_Resource(), 
 		   source, 
 		   new String[] {
-			 "documentation", "Semantic resource."
+			 "documentation", "Semantic resource, which is optional only if the pattern is from {@link ResourceElement} or {@link TypedResourceElement}, otherwise required."
 		   });		
 		addAnnotation
 		  (getGeneratedLiteral_PreSeparated(), 
 		   source, 
 		   new String[] {
 			 "documentation", "Whether it needs to be separated from the previous literal by whitespace. All part of speeches require this, except {@link PunctuationPart}."
+		   });		
+		addAnnotation
+		  (getResourceElement_Resource(), 
+		   source, 
+		   new String[] {
+			 "documentation", "QName or URI of the resource to match."
 		   });
 	}
 

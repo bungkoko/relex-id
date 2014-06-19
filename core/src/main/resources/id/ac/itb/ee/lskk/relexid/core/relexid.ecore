@@ -83,19 +83,20 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="partOfSpeech" lowerBound="1"
         eType="#//PartOfSpeechType"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ResourceElement" eSuperTypes="#//LexElement">
+  <eClassifiers xsi:type="ecore:EClass" name="TypedResourceElement" eSuperTypes="#//LexElement">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Refers to an RDF resource (e.g. {@code dbpedia:Elephant}) of a specific class (e.g. {@code dbpedia-owl:Animal})."/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="semanticClass" eType="#//QName"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="semanticClassRef" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Since semanticClass is hard to ser/deser as XMI, this is a convenience attribute."/>
-      </eAnnotations>
-    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="QName" instanceClassName="javax.xml.namespace.QName"/>
   <eClassifiers xsi:type="ecore:EClass" name="LiteralElement" eSuperTypes="#//LexElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="literals" lowerBound="1"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Any of the literals will match this element."/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="caseSensitive" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         defaultValueLiteral="false"/>
   </eClassifiers>
@@ -145,7 +146,7 @@
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="resource" eType="#//QName">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Semantic resource."/>
+        <details key="documentation" value="Semantic resource, which is optional only if the pattern is from {@link ResourceElement} or {@link TypedResourceElement}, otherwise required."/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
@@ -195,5 +196,24 @@
         <details key="documentation" value="Whether it needs to be separated from the previous literal by whitespace. All part of speeches require this, except {@link PunctuationPart}."/>
       </eAnnotations>
     </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LexRules">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rules" upperBound="-1"
+        eType="#//LexRule" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ResourceElement" eSuperTypes="#//LexElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="resource" lowerBound="1"
+        eType="#//QName">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="QName or URI of the resource to match."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PronounReplacement" eSuperTypes="#//LexReplacement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="person" lowerBound="1"
+        eType="#//PronounPerson"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="number" lowerBound="1"
+        eType="#//PronounNumber"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="case" lowerBound="1" eType="#//PronounCase"/>
   </eClassifiers>
 </ecore:EPackage>
