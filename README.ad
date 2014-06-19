@@ -1,0 +1,122 @@
+= relex-id
+
+Semantic dependency relationship extractor untuk bahasa Indonesia (termasuk bahasa gaul dan alay ;))
+
+Optional: mendukung ekstraksi dari bahasa Indonesia ke struktur sentence RelEx (English).
+
+== Dictionary
+
+=== Noun
+
+----
+i(first, singular) 'aku', saya'
+you(second, singular) 'kamu', 'Anda'
+he(third, singular) 'dia', 'ia'
+she(third, singular) 'dia', 'ia'
+we_sm(first, plural) 'kami'
+we_lg(first, plural) 'kita'
+you_plural(second, plural) 'kalian'
+they(third, plural) 'mereka'
+----
+
+=== Verb
+
+(belum memakai stemming)
+
+----
+see 'lihat', 'melihat', 'pandang', 'memandang'
+----
+
+=== Kata Hubung
+
+1. `at`: di
+
+=== Question
+
+----
+what 'apa'
+----
+
+Question variable extraction digunakan untuk mendapatkan variabel apa yang ditanyakan.
+
+== RDF Dataset
+
+=== Namespaces
+
+----
+@prefix dbpedia-owl:	<http://dbpedia.org/ontology/> .
+@prefix dbpedia:	<http://dbpedia.org/resource/> .
+@prefix schema:		<http://schema.org> .
+----
+
+=== Animal
+
+Semua resources di sini diasumsikan `a dbpedia-owl:Animal`. 
+
+----
+dbpedia:Elephant 'gajah'
+----
+
+=== Place
+
+Semua resources di sini diasumsikan `a http://schema.org/Place`.
+
+----
+dbpedia:Zoo 'kebun binatang'
+----
+
+== Format
+
+Aku melihat binatang gajah di kebun binatang.
+
+    noun verb 'binatang' dbpedia-owl:Animal 'di' 'kebun binatang' . =>
+      S( (NP 1) (VP 2 (NP 3 4)) (at dbpedia:Zoo) . )
+
+Kamu melihat binatang apa di kebun binatang?
+
+    noun verb 'binatang' 'apa' 'di' 'kebun binatang' ? =>
+      S( (NP 1) (VP 2 (NP 3 what=dbpedia-owl:Animal)) (at dbpedia:Zoo) ? )
+
+`what` di sini ditentukan memiliki jenis `dbpedia-owl:Animal`,
+untuk membatasi search space jawaban.
+
+Gajah memiliki 4 jumlah kaki.
+
+    Animal 'memiliki' int 'jumlah' 'kaki' . =>
+      S( (NP 1) (VP has (NP 4 feet)) .)
+
+Gajah suaranya "auuuk..."
+
+Gajah memiliki hidung panjang yang sering disebut belalai.
+
+Hewan di samping namanya ular.
+
+Tubuhnya panjang dan tidak memiliki kaki dan tangan.
+
+Ular memiliki racun yang sering disebut bisa.
+
+Warna ular disamping adalah hijau.
+
+Kakak menunggangi hewan yang bernama kuda.
+
+Kuda suaranya "yihheeekk".
+
+Kuda suka mengangkut andong / bendi.
+
+Kuda suka makan rumput.
+
+Tubuh Nelly berwarna oranye/jingga/oren/kuning yang indah.
+
+Nelly memiliki kuku/cakar yang runcing/tajam untuk mencakar mangsa.
+
+Nelly suka makan ikan asin.
+
+Hewan di samping namanya adalah kucing.
+
+Cuicit adalah burung pipit Kesayangan Icha
+
+Warnanya kuning dan oranye.
+
+Cuicit suka berkicau/bernyanyi/bersuara di pagi hari.
+
+Suara nya cit cit cit / cuit cuit cuit / merdu. :)
