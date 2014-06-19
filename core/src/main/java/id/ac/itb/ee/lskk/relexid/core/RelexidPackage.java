@@ -417,6 +417,43 @@ public interface RelexidPackage extends EPackage {
 	int VERB_PART_OPERATION_COUNT = PART_OF_SPEECH_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link id.ac.itb.ee.lskk.relexid.core.ReplacementContainer <em>Replacement Container</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see id.ac.itb.ee.lskk.relexid.core.ReplacementContainer
+	 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getReplacementContainer()
+	 * @generated
+	 */
+	int REPLACEMENT_CONTAINER = 29;
+
+	/**
+	 * The feature id for the '<em><b>Replacements</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REPLACEMENT_CONTAINER__REPLACEMENTS = 0;
+
+	/**
+	 * The number of structural features of the '<em>Replacement Container</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REPLACEMENT_CONTAINER_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Replacement Container</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REPLACEMENT_CONTAINER_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link id.ac.itb.ee.lskk.relexid.core.impl.LexRuleImpl <em>Lex Rule</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -427,22 +464,22 @@ public interface RelexidPackage extends EPackage {
 	int LEX_RULE = 5;
 
 	/**
-	 * The feature id for the '<em><b>Patterns</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LEX_RULE__PATTERNS = 0;
-
-	/**
 	 * The feature id for the '<em><b>Replacements</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LEX_RULE__REPLACEMENTS = 1;
+	int LEX_RULE__REPLACEMENTS = REPLACEMENT_CONTAINER__REPLACEMENTS;
+
+	/**
+	 * The feature id for the '<em><b>Patterns</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LEX_RULE__PATTERNS = REPLACEMENT_CONTAINER_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Lex Rule</em>' class.
@@ -451,7 +488,7 @@ public interface RelexidPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LEX_RULE_FEATURE_COUNT = 2;
+	int LEX_RULE_FEATURE_COUNT = REPLACEMENT_CONTAINER_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Lex Rule</em>' class.
@@ -460,7 +497,7 @@ public interface RelexidPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LEX_RULE_OPERATION_COUNT = 0;
+	int LEX_RULE_OPERATION_COUNT = REPLACEMENT_CONTAINER_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link id.ac.itb.ee.lskk.relexid.core.impl.PrepositionPartImpl <em>Preposition Part</em>}' class.
@@ -1072,13 +1109,31 @@ public interface RelexidPackage extends EPackage {
 	int RESOURCE_REPLACEMENT__PART_OF_SPEECH = LEX_REPLACEMENT__PART_OF_SPEECH;
 
 	/**
+	 * The feature id for the '<em><b>Replacements</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_REPLACEMENT__REPLACEMENTS = LEX_REPLACEMENT_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Resource</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RESOURCE_REPLACEMENT__RESOURCE = LEX_REPLACEMENT_FEATURE_COUNT + 0;
+	int RESOURCE_REPLACEMENT__RESOURCE = LEX_REPLACEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Capture Group</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_REPLACEMENT__CAPTURE_GROUP = LEX_REPLACEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Resource Replacement</em>' class.
@@ -1087,7 +1142,7 @@ public interface RelexidPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESOURCE_REPLACEMENT_FEATURE_COUNT = LEX_REPLACEMENT_FEATURE_COUNT + 1;
+	int RESOURCE_REPLACEMENT_FEATURE_COUNT = LEX_REPLACEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Resource Replacement</em>' class.
@@ -1509,7 +1564,7 @@ public interface RelexidPackage extends EPackage {
 	 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getPartOfSpeechType()
 	 * @generated
 	 */
-	int PART_OF_SPEECH_TYPE = 29;
+	int PART_OF_SPEECH_TYPE = 30;
 
 	/**
 	 * The meta object id for the '{@link id.ac.itb.ee.lskk.relexid.core.Punctuation <em>Punctuation</em>}' enum.
@@ -1519,7 +1574,7 @@ public interface RelexidPackage extends EPackage {
 	 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getPunctuation()
 	 * @generated
 	 */
-	int PUNCTUATION = 30;
+	int PUNCTUATION = 31;
 
 	/**
 	 * The meta object id for the '{@link id.ac.itb.ee.lskk.relexid.core.Question <em>Question</em>}' enum.
@@ -1529,7 +1584,7 @@ public interface RelexidPackage extends EPackage {
 	 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getQuestion()
 	 * @generated
 	 */
-	int QUESTION = 31;
+	int QUESTION = 32;
 
 	/**
 	 * The meta object id for the '{@link id.ac.itb.ee.lskk.relexid.core.PronounPerson <em>Pronoun Person</em>}' enum.
@@ -1539,7 +1594,7 @@ public interface RelexidPackage extends EPackage {
 	 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getPronounPerson()
 	 * @generated
 	 */
-	int PRONOUN_PERSON = 32;
+	int PRONOUN_PERSON = 33;
 
 	/**
 	 * The meta object id for the '{@link id.ac.itb.ee.lskk.relexid.core.PronounNumber <em>Pronoun Number</em>}' enum.
@@ -1549,7 +1604,7 @@ public interface RelexidPackage extends EPackage {
 	 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getPronounNumber()
 	 * @generated
 	 */
-	int PRONOUN_NUMBER = 33;
+	int PRONOUN_NUMBER = 34;
 
 	/**
 	 * The meta object id for the '{@link id.ac.itb.ee.lskk.relexid.core.PronounCase <em>Pronoun Case</em>}' enum.
@@ -1559,7 +1614,7 @@ public interface RelexidPackage extends EPackage {
 	 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getPronounCase()
 	 * @generated
 	 */
-	int PRONOUN_CASE = 34;
+	int PRONOUN_CASE = 35;
 
 	/**
 	 * The meta object id for the '<em>QName</em>' data type.
@@ -1569,7 +1624,7 @@ public interface RelexidPackage extends EPackage {
 	 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getQName()
 	 * @generated
 	 */
-	int QNAME = 35;
+	int QNAME = 36;
 
 
 	/**
@@ -1580,7 +1635,7 @@ public interface RelexidPackage extends EPackage {
 	 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getLocale()
 	 * @generated
 	 */
-	int LOCALE = 36;
+	int LOCALE = 37;
 
 
 	/**
@@ -1741,17 +1796,6 @@ public interface RelexidPackage extends EPackage {
 	EReference getLexRule_Patterns();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link id.ac.itb.ee.lskk.relexid.core.LexRule#getReplacements <em>Replacements</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Replacements</em>'.
-	 * @see id.ac.itb.ee.lskk.relexid.core.LexRule#getReplacements()
-	 * @see #getLexRule()
-	 * @generated
-	 */
-	EReference getLexRule_Replacements();
-
-	/**
 	 * Returns the meta object for class '{@link id.ac.itb.ee.lskk.relexid.core.PrepositionPart <em>Preposition Part</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1906,6 +1950,27 @@ public interface RelexidPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getUnrecognizedPart();
+
+	/**
+	 * Returns the meta object for class '{@link id.ac.itb.ee.lskk.relexid.core.ReplacementContainer <em>Replacement Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Replacement Container</em>'.
+	 * @see id.ac.itb.ee.lskk.relexid.core.ReplacementContainer
+	 * @generated
+	 */
+	EClass getReplacementContainer();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link id.ac.itb.ee.lskk.relexid.core.ReplacementContainer#getReplacements <em>Replacements</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Replacements</em>'.
+	 * @see id.ac.itb.ee.lskk.relexid.core.ReplacementContainer#getReplacements()
+	 * @see #getReplacementContainer()
+	 * @generated
+	 */
+	EReference getReplacementContainer_Replacements();
 
 	/**
 	 * Returns the meta object for class '{@link id.ac.itb.ee.lskk.relexid.core.LiteralElement <em>Literal Element</em>}'.
@@ -2085,6 +2150,17 @@ public interface RelexidPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getResourceReplacement_Resource();
+
+	/**
+	 * Returns the meta object for the attribute '{@link id.ac.itb.ee.lskk.relexid.core.ResourceReplacement#getCaptureGroup <em>Capture Group</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Capture Group</em>'.
+	 * @see id.ac.itb.ee.lskk.relexid.core.ResourceReplacement#getCaptureGroup()
+	 * @see #getResourceReplacement()
+	 * @generated
+	 */
+	EAttribute getResourceReplacement_CaptureGroup();
 
 	/**
 	 * Returns the meta object for class '{@link id.ac.itb.ee.lskk.relexid.core.QuestionReplacement <em>Question Replacement</em>}'.
@@ -2439,14 +2515,6 @@ public interface RelexidPackage extends EPackage {
 		EReference LEX_RULE__PATTERNS = eINSTANCE.getLexRule_Patterns();
 
 		/**
-		 * The meta object literal for the '<em><b>Replacements</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference LEX_RULE__REPLACEMENTS = eINSTANCE.getLexRule_Replacements();
-
-		/**
 		 * The meta object literal for the '{@link id.ac.itb.ee.lskk.relexid.core.impl.PrepositionPartImpl <em>Preposition Part</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2583,6 +2651,24 @@ public interface RelexidPackage extends EPackage {
 		 * @generated
 		 */
 		EClass UNRECOGNIZED_PART = eINSTANCE.getUnrecognizedPart();
+
+		/**
+		 * The meta object literal for the '{@link id.ac.itb.ee.lskk.relexid.core.ReplacementContainer <em>Replacement Container</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see id.ac.itb.ee.lskk.relexid.core.ReplacementContainer
+		 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getReplacementContainer()
+		 * @generated
+		 */
+		EClass REPLACEMENT_CONTAINER = eINSTANCE.getReplacementContainer();
+
+		/**
+		 * The meta object literal for the '<em><b>Replacements</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference REPLACEMENT_CONTAINER__REPLACEMENTS = eINSTANCE.getReplacementContainer_Replacements();
 
 		/**
 		 * The meta object literal for the '{@link id.ac.itb.ee.lskk.relexid.core.impl.LiteralElementImpl <em>Literal Element</em>}' class.
@@ -2735,6 +2821,14 @@ public interface RelexidPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute RESOURCE_REPLACEMENT__RESOURCE = eINSTANCE.getResourceReplacement_Resource();
+
+		/**
+		 * The meta object literal for the '<em><b>Capture Group</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RESOURCE_REPLACEMENT__CAPTURE_GROUP = eINSTANCE.getResourceReplacement_CaptureGroup();
 
 		/**
 		 * The meta object literal for the '{@link id.ac.itb.ee.lskk.relexid.core.impl.QuestionReplacementImpl <em>Question Replacement</em>}' class.

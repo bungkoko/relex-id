@@ -1,5 +1,7 @@
 package id.ac.itb.ee.lskk.relexid.core;
 
+import id.ac.itb.ee.lskk.relexid.core.impl.PunctuationPartImpl;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,10 +9,13 @@ import javax.annotation.Nullable;
 import javax.xml.namespace.QName;
 
 import org.apache.commons.lang3.StringUtils;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.soluvas.commons.OnDemandXmiLoader;
 
+import com.google.common.base.Preconditions;
 import com.google.common.base.Predicate;
 import com.google.common.base.Strings;
 import com.google.common.collect.FluentIterable;
@@ -133,6 +138,71 @@ public class RelEx {
 			return ref.getLocalPart();
 		}
 	}
+	
+	protected List<PartOfSpeech> createReplacementParts(EList<LexReplacement> replacements,
+			List<LexElement> patterns) {
+		List<PartOfSpeech> replacementParts = new ArrayList<>();
+		for (int replacementIdx = 0; replacementIdx < replacements.size(); replacementIdx++) {
+			final LexReplacement replacement = replacements.get(replacementIdx);
+			if (replacement instanceof PronounReplacement) {
+				PronounPart pronoun = RelexidFactory.eINSTANCE.createPronounPart();
+				final PronounReplacement pronounRepl = (PronounReplacement) replacement;
+				pronoun.setPerson(pronounRepl.getPerson());
+				pronoun.setNumber(pronounRepl.getNumber());
+				pronoun.setCase(pronounRepl.getCase());
+				replacementParts.add(pronoun);
+			} else if (replacement instanceof ResourceReplacement) {
+				final PartOfSpeech part;
+				switch (replacement.getPartOfSpeech()) {
+				case NOUN:
+					part = RelexidFactory.eINSTANCE.createNounPart();
+					break;
+				case VERB:
+					part = RelexidFactory.eINSTANCE.createVerbPart();
+					break;
+				default:
+					throw new UnsupportedOperationException("Unhandled part of speech: " +replacement.getPartOfSpeech());
+				}
+				final ResourceReplacement resourceRepl = (ResourceReplacement) replacement;
+				if (resourceRepl.getResource() != null) {
+					part.setResource(expandRef(resourceRepl.getResource()));
+				} else {
+					final ResourceElement resEl = (ResourceElement) patterns.get(resourceRepl.getCaptureGroup() - 1);
+					log.trace("resourceElement.resource = {}", resEl.getResource());
+					part.setResource(expandRef(resEl.getResource()));
+				}
+				part.setLiteral(part.getResource().toString());
+				
+				// sub-replacements
+				if (!resourceRepl.getReplacements().isEmpty()) {
+					Preconditions.checkArgument(part instanceof PartContainer,
+							"Cannot create sub-replacements because {} is not a PartContainer", part);
+					List<PartOfSpeech> subParts = createReplacementParts(resourceRepl.getReplacements(), patterns);
+					((PartContainer) part).getParts().addAll(subParts);
+				}
+				
+				replacementParts.add(part);
+			} else if (replacement instanceof PunctuationReplacement) {
+				switch (((PunctuationReplacement) replacement).getPunctuation()) {
+					case FULL_STOP:
+						replacementParts.add(EcoreUtil.copy(PunctuationPartImpl.FULL_STOP));
+						break;
+					case COMMA:
+						replacementParts.add(EcoreUtil.copy(PunctuationPartImpl.COMMA));
+						break;
+					case QUESTION:
+						replacementParts.add(EcoreUtil.copy(PunctuationPartImpl.QUESTION));
+						break;
+					case EXCLAMATION:
+						replacementParts.add(EcoreUtil.copy(PunctuationPartImpl.EXCLAMATION));
+						break;
+				}
+			} else {
+				throw new UnsupportedOperationException("Unknown replacement: " + replacement);
+			}
+		}
+		return replacementParts;
+	}
 
 	public Sentence parse(String originalLiteral) {
 //		StrTokenizer tokenizer = new StrTokenizer(originalLiteral);
@@ -241,50 +311,9 @@ public class RelEx {
 				for (int i = matchRange.upperEndpoint(); i >= matchRange.lowerEndpoint(); i--) {
 					sentence.getParts().remove(i);
 				}
-				List<PartOfSpeech> replacementParts = new ArrayList<>();
-				for (int replacementIdx = 0; replacementIdx < rule.getReplacements().size(); replacementIdx++) {
-					final PartOfSpeech replacedPart = replacedParts.get(replacementIdx);
-					final LexReplacement replacement = rule.getReplacements().get(replacementIdx);
-					final LexElement el = rule.getPatterns().get(replacementIdx);
-					if (replacement instanceof PronounReplacement) {
-						PronounPart pronoun = RelexidFactory.eINSTANCE.createPronounPart();
-						final PronounReplacement pronounRepl = (PronounReplacement) replacement;
-						pronoun.setPerson(pronounRepl.getPerson());
-						pronoun.setNumber(pronounRepl.getNumber());
-						pronoun.setCase(pronounRepl.getCase());
-						pronoun.setLiteral(replacedPart.getLiteral());
-						replacementParts.add(pronoun);
-					} else if (replacement instanceof ResourceReplacement) {
-						final PartOfSpeech part;
-						switch (replacement.getPartOfSpeech()) {
-						case NOUN:
-							part = RelexidFactory.eINSTANCE.createNounPart();
-							break;
-						case VERB:
-							part = RelexidFactory.eINSTANCE.createVerbPart();
-							break;
-						default:
-							throw new UnsupportedOperationException("Unhandled part of speech: " +replacement.getPartOfSpeech());
-						}
-						final ResourceReplacement resourceRepl = (ResourceReplacement) replacement;
-						if (resourceRepl.getResource() != null) {
-							part.setResource(expandRef(resourceRepl.getResource()));
-						} else {
-							final ResourceElement resEl = (ResourceElement) el;
-							log.debug("Resource el.resource = {}", resEl.getResource());
-							part.setResource(expandRef(resEl.getResource()));
-						}
-						part.setLiteral(replacedPart.getLiteral());
-						replacementParts.add(part);
-					} else if (replacement instanceof PunctuationReplacement) {
-						PunctuationPart punctuation = RelexidFactory.eINSTANCE.createPunctuationPart();
-						punctuation.setPunctuation(((PunctuationReplacement) replacement).getPunctuation());
-						punctuation.setLiteral(replacedPart.getLiteral());
-						replacementParts.add(punctuation);
-					} else {
-						throw new UnsupportedOperationException("Unknown replacement: " + replacement);
-					}
-				}
+				
+				List<PartOfSpeech> replacementParts = createReplacementParts(rule.getReplacements(), rule.getPatterns());
+
 				log.debug("Replacing with {} parts at index #{}: {}",
 						replacementParts.size(), startMatchIdx, replacementParts);
 				sentence.getParts().addAll(startMatchIdx, replacementParts);

@@ -38,12 +38,27 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 public class PunctuationPartImpl extends MinimalEObjectImpl.Container implements PunctuationPart {
 	
 	public static final PunctuationPart FULL_STOP;
+	public static final PunctuationPart COMMA;
+	public static final PunctuationPart QUESTION;
+	public static final PunctuationPart EXCLAMATION;
 	
 	static {
 		FULL_STOP = RelexidFactory.eINSTANCE.createPunctuationPart();
 		FULL_STOP.setPunctuation(Punctuation.FULL_STOP);
 		FULL_STOP.setLiteral(".");
 		FULL_STOP.setResource(new QName("http://dbpedia.org/resource/", "Full_stop", "dbpedia"));
+		COMMA = RelexidFactory.eINSTANCE.createPunctuationPart();
+		COMMA.setPunctuation(Punctuation.COMMA);
+		COMMA.setLiteral(".");
+		COMMA.setResource(new QName("http://dbpedia.org/resource/", "Comma", "dbpedia"));
+		QUESTION = RelexidFactory.eINSTANCE.createPunctuationPart();
+		QUESTION.setPunctuation(Punctuation.QUESTION);
+		QUESTION.setLiteral(".");
+		QUESTION.setResource(new QName("http://dbpedia.org/resource/", "Question_mark", "dbpedia"));
+		EXCLAMATION = RelexidFactory.eINSTANCE.createPunctuationPart();
+		EXCLAMATION.setPunctuation(Punctuation.EXCLAMATION);
+		EXCLAMATION.setLiteral(".");
+		EXCLAMATION.setResource(new QName("http://dbpedia.org/resource/", "Exclamation_mark", "dbpedia"));
 	}
 	
 	/**

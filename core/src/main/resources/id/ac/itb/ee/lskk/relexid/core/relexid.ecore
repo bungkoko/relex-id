@@ -53,17 +53,11 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="case" eType="#//PronounCase"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="VerbPart" eSuperTypes="#//PartOfSpeech #//PartContainer"/>
-  <eClassifiers xsi:type="ecore:EClass" name="LexRule">
+  <eClassifiers xsi:type="ecore:EClass" name="LexRule" eSuperTypes="#//ReplacementContainer">
     <eStructuralFeatures xsi:type="ecore:EReference" name="patterns" upperBound="-1"
         eType="#//LexElement" containment="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Patterns to match.&#xA;Each pattern is usually separated by whitespace, but sometimes it's not necessary to distinguish, for example, in &quot;I love you.&quot; there is no separator between &quot;you&quot; and &quot;.&quot;."/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="replacements" upperBound="-1"
-        eType="#//LexReplacement" containment="true">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Replacements to be made when the patterns match.&#xA;Note that LexRules can be repeated for multiple iterations."/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
@@ -140,13 +134,18 @@
   <eClassifiers xsi:type="ecore:EClass" name="PunctuationReplacement" eSuperTypes="#//LexReplacement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="punctuation" eType="#//Punctuation"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ResourceReplacement" eSuperTypes="#//LexReplacement">
+  <eClassifiers xsi:type="ecore:EClass" name="ResourceReplacement" eSuperTypes="#//LexReplacement #//ReplacementContainer">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Replaces with a semantic resource."/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="resource" eType="#//QName">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Semantic resource, which is optional only if the pattern is from {@link ResourceElement} or {@link TypedResourceElement}, otherwise required."/>
+        <details key="documentation" value="Semantic resource, which is optional only if the pattern is from {@link ResourceElement} or {@link TypedResourceElement} and {@link #captureGroup} is set, otherwise required."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="captureGroup" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="To get the resource {@link QName} from {@link ResourceElement}, put the pattern capture group number here (note: like regex, first group is 1) and leave {@link #resource} attribute null."/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
@@ -220,5 +219,14 @@
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="A part that's yet to be recognized. At the start of the parsing, all tokens first become UnrecognizedPart."/>
     </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ReplacementContainer" abstract="true"
+      interface="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="replacements" upperBound="-1"
+        eType="#//LexReplacement" containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Replacements to be made when the patterns match.&#xA;Note that LexRules can be repeated for multiple iterations."/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
 </ecore:EPackage>

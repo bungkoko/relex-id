@@ -6,6 +6,19 @@
     xmlns:relexid="http://relexid/1.0"
     xsi:schemaLocation="http://relexid/1.0 relexid.ecore">
   <rules>
+    <replacements
+        xsi:type="relexid:PronounReplacement"
+        partOfSpeech="pronoun"/>
+    <replacements
+        xsi:type="relexid:ResourceReplacement"
+        partOfSpeech="verb"
+        captureGroup="2">
+      <replacements
+          xsi:type="relexid:PronounReplacement"
+          partOfSpeech="pronoun"
+          person="second"
+          case="object"/>
+    </replacements>
     <patterns
         xsi:type="relexid:LiteralElement">
       <literals>aku</literals>
@@ -17,24 +30,13 @@
         xsi:type="relexid:LiteralElement">
       <literals>kamu</literals>
     </patterns>
-    <replacements
-        xsi:type="relexid:PronounReplacement"
-        partOfSpeech="pronoun"/>
-    <replacements
-        xsi:type="relexid:ResourceReplacement"
-        partOfSpeech="verb"/>
-    <replacements
-        xsi:type="relexid:PronounReplacement"
-        partOfSpeech="pronoun"
-        person="second"
-        case="object"/>
   </rules>
   <rules>
+    <replacements
+        xsi:type="relexid:PunctuationReplacement"/>
     <patterns
         xsi:type="relexid:LiteralElement">
       <literals>.</literals>
     </patterns>
-    <replacements
-        xsi:type="relexid:PunctuationReplacement"/>
   </rules>
 </relexid:LexRules>

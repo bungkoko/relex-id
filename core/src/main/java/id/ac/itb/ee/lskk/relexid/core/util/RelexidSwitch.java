@@ -105,6 +105,7 @@ public class RelexidSwitch<T> extends Switch<T> {
 			case RelexidPackage.LEX_RULE: {
 				LexRule lexRule = (LexRule)theEObject;
 				T result = caseLexRule(lexRule);
+				if (result == null) result = caseReplacementContainer(lexRule);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -200,6 +201,7 @@ public class RelexidSwitch<T> extends Switch<T> {
 				ResourceReplacement resourceReplacement = (ResourceReplacement)theEObject;
 				T result = caseResourceReplacement(resourceReplacement);
 				if (result == null) result = caseLexReplacement(resourceReplacement);
+				if (result == null) result = caseReplacementContainer(resourceReplacement);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -262,6 +264,12 @@ public class RelexidSwitch<T> extends Switch<T> {
 				UnrecognizedPart unrecognizedPart = (UnrecognizedPart)theEObject;
 				T result = caseUnrecognizedPart(unrecognizedPart);
 				if (result == null) result = casePartOfSpeech(unrecognizedPart);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case RelexidPackage.REPLACEMENT_CONTAINER: {
+				ReplacementContainer replacementContainer = (ReplacementContainer)theEObject;
+				T result = caseReplacementContainer(replacementContainer);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -491,6 +499,21 @@ public class RelexidSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseUnrecognizedPart(UnrecognizedPart object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Replacement Container</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Replacement Container</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseReplacementContainer(ReplacementContainer object) {
 		return null;
 	}
 

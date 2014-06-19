@@ -28,24 +28,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link id.ac.itb.ee.lskk.relexid.core.impl.LexRuleImpl#getPatterns <em>Patterns</em>}</li>
  *   <li>{@link id.ac.itb.ee.lskk.relexid.core.impl.LexRuleImpl#getReplacements <em>Replacements</em>}</li>
+ *   <li>{@link id.ac.itb.ee.lskk.relexid.core.impl.LexRuleImpl#getPatterns <em>Patterns</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
 public class LexRuleImpl extends MinimalEObjectImpl.Container implements LexRule {
-	/**
-	 * The cached value of the '{@link #getPatterns() <em>Patterns</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPatterns()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<LexElement> patterns;
-
 	/**
 	 * The cached value of the '{@link #getReplacements() <em>Replacements</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -55,6 +45,16 @@ public class LexRuleImpl extends MinimalEObjectImpl.Container implements LexRule
 	 * @ordered
 	 */
 	protected EList<LexReplacement> replacements;
+
+	/**
+	 * The cached value of the '{@link #getPatterns() <em>Patterns</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPatterns()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<LexElement> patterns;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -107,10 +107,10 @@ public class LexRuleImpl extends MinimalEObjectImpl.Container implements LexRule
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case RelexidPackage.LEX_RULE__PATTERNS:
-				return ((InternalEList<?>)getPatterns()).basicRemove(otherEnd, msgs);
 			case RelexidPackage.LEX_RULE__REPLACEMENTS:
 				return ((InternalEList<?>)getReplacements()).basicRemove(otherEnd, msgs);
+			case RelexidPackage.LEX_RULE__PATTERNS:
+				return ((InternalEList<?>)getPatterns()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -123,10 +123,10 @@ public class LexRuleImpl extends MinimalEObjectImpl.Container implements LexRule
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case RelexidPackage.LEX_RULE__PATTERNS:
-				return getPatterns();
 			case RelexidPackage.LEX_RULE__REPLACEMENTS:
 				return getReplacements();
+			case RelexidPackage.LEX_RULE__PATTERNS:
+				return getPatterns();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -140,13 +140,13 @@ public class LexRuleImpl extends MinimalEObjectImpl.Container implements LexRule
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case RelexidPackage.LEX_RULE__PATTERNS:
-				getPatterns().clear();
-				getPatterns().addAll((Collection<? extends LexElement>)newValue);
-				return;
 			case RelexidPackage.LEX_RULE__REPLACEMENTS:
 				getReplacements().clear();
 				getReplacements().addAll((Collection<? extends LexReplacement>)newValue);
+				return;
+			case RelexidPackage.LEX_RULE__PATTERNS:
+				getPatterns().clear();
+				getPatterns().addAll((Collection<? extends LexElement>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -160,11 +160,11 @@ public class LexRuleImpl extends MinimalEObjectImpl.Container implements LexRule
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case RelexidPackage.LEX_RULE__PATTERNS:
-				getPatterns().clear();
-				return;
 			case RelexidPackage.LEX_RULE__REPLACEMENTS:
 				getReplacements().clear();
+				return;
+			case RelexidPackage.LEX_RULE__PATTERNS:
+				getPatterns().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -178,10 +178,10 @@ public class LexRuleImpl extends MinimalEObjectImpl.Container implements LexRule
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case RelexidPackage.LEX_RULE__PATTERNS:
-				return patterns != null && !patterns.isEmpty();
 			case RelexidPackage.LEX_RULE__REPLACEMENTS:
 				return replacements != null && !replacements.isEmpty();
+			case RelexidPackage.LEX_RULE__PATTERNS:
+				return patterns != null && !patterns.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

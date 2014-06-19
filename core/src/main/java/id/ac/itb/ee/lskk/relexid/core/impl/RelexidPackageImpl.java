@@ -33,6 +33,7 @@ import id.ac.itb.ee.lskk.relexid.core.QuestionReplacement;
 import id.ac.itb.ee.lskk.relexid.core.Questionable;
 import id.ac.itb.ee.lskk.relexid.core.RelexidFactory;
 import id.ac.itb.ee.lskk.relexid.core.RelexidPackage;
+import id.ac.itb.ee.lskk.relexid.core.ReplacementContainer;
 import id.ac.itb.ee.lskk.relexid.core.ResourceElement;
 import id.ac.itb.ee.lskk.relexid.core.ResourceReplacement;
 import id.ac.itb.ee.lskk.relexid.core.Sentence;
@@ -165,6 +166,13 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * @generated
 	 */
 	private EClass unrecognizedPartEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass replacementContainerEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -521,15 +529,6 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getLexRule_Replacements() {
-		return (EReference)lexRuleEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getPrepositionPart() {
 		return prepositionPartEClass;
 	}
@@ -658,6 +657,24 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 */
 	public EClass getUnrecognizedPart() {
 		return unrecognizedPartEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getReplacementContainer() {
+		return replacementContainerEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getReplacementContainer_Replacements() {
+		return (EReference)replacementContainerEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -811,6 +828,15 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 */
 	public EAttribute getResourceReplacement_Resource() {
 		return (EAttribute)resourceReplacementEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getResourceReplacement_CaptureGroup() {
+		return (EAttribute)resourceReplacementEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1032,7 +1058,6 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 
 		lexRuleEClass = createEClass(LEX_RULE);
 		createEReference(lexRuleEClass, LEX_RULE__PATTERNS);
-		createEReference(lexRuleEClass, LEX_RULE__REPLACEMENTS);
 
 		prepositionPartEClass = createEClass(PREPOSITION_PART);
 
@@ -1072,6 +1097,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 
 		resourceReplacementEClass = createEClass(RESOURCE_REPLACEMENT);
 		createEAttribute(resourceReplacementEClass, RESOURCE_REPLACEMENT__RESOURCE);
+		createEAttribute(resourceReplacementEClass, RESOURCE_REPLACEMENT__CAPTURE_GROUP);
 
 		questionReplacementEClass = createEClass(QUESTION_REPLACEMENT);
 		createEAttribute(questionReplacementEClass, QUESTION_REPLACEMENT__QUESTION);
@@ -1099,6 +1125,9 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 		createEAttribute(pronounReplacementEClass, PRONOUN_REPLACEMENT__CASE);
 
 		unrecognizedPartEClass = createEClass(UNRECOGNIZED_PART);
+
+		replacementContainerEClass = createEClass(REPLACEMENT_CONTAINER);
+		createEReference(replacementContainerEClass, REPLACEMENT_CONTAINER__REPLACEMENTS);
 
 		// Create enums
 		partOfSpeechTypeEEnum = createEEnum(PART_OF_SPEECH_TYPE);
@@ -1147,6 +1176,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 		pronounPartEClass.getESuperTypes().add(this.getQuestionable());
 		verbPartEClass.getESuperTypes().add(this.getPartOfSpeech());
 		verbPartEClass.getESuperTypes().add(this.getPartContainer());
+		lexRuleEClass.getESuperTypes().add(this.getReplacementContainer());
 		prepositionPartEClass.getESuperTypes().add(this.getPartOfSpeech());
 		conjunctionPartEClass.getESuperTypes().add(this.getPartOfSpeech());
 		interjectionPartEClass.getESuperTypes().add(this.getPartOfSpeech());
@@ -1158,6 +1188,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 		punctuationPartEClass.getESuperTypes().add(this.getPartOfSpeech());
 		punctuationReplacementEClass.getESuperTypes().add(this.getLexReplacement());
 		resourceReplacementEClass.getESuperTypes().add(this.getLexReplacement());
+		resourceReplacementEClass.getESuperTypes().add(this.getReplacementContainer());
 		questionReplacementEClass.getESuperTypes().add(this.getLexReplacement());
 		adverbPartEClass.getESuperTypes().add(this.getPartOfSpeech());
 		adverbPartEClass.getESuperTypes().add(this.getQuestionable());
@@ -1204,7 +1235,6 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 
 		initEClass(lexRuleEClass, LexRule.class, "LexRule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getLexRule_Patterns(), this.getLexElement(), null, "patterns", null, 0, -1, LexRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getLexRule_Replacements(), this.getLexReplacement(), null, "replacements", null, 0, -1, LexRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(prepositionPartEClass, PrepositionPart.class, "PrepositionPart", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1244,6 +1274,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 
 		initEClass(resourceReplacementEClass, ResourceReplacement.class, "ResourceReplacement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getResourceReplacement_Resource(), this.getQName(), "resource", null, 0, 1, ResourceReplacement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getResourceReplacement_CaptureGroup(), ecorePackage.getEIntegerObject(), "captureGroup", null, 0, 1, ResourceReplacement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(questionReplacementEClass, QuestionReplacement.class, "QuestionReplacement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getQuestionReplacement_Question(), this.getQuestion(), "question", null, 1, 1, QuestionReplacement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1271,6 +1302,9 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 		initEAttribute(getPronounReplacement_Case(), this.getPronounCase(), "case", null, 1, 1, PronounReplacement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(unrecognizedPartEClass, UnrecognizedPart.class, "UnrecognizedPart", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(replacementContainerEClass, ReplacementContainer.class, "ReplacementContainer", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getReplacementContainer_Replacements(), this.getLexReplacement(), null, "replacements", null, 0, -1, ReplacementContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(partOfSpeechTypeEEnum, PartOfSpeechType.class, "PartOfSpeechType");
@@ -1366,12 +1400,6 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 			 "documentation", "Patterns to match.\nEach pattern is usually separated by whitespace, but sometimes it\'s not necessary to distinguish, for example, in \"I love you.\" there is no separator between \"you\" and \".\"."
 		   });		
 		addAnnotation
-		  (getLexRule_Replacements(), 
-		   source, 
-		   new String[] {
-			 "documentation", "Replacements to be made when the patterns match.\nNote that LexRules can be repeated for multiple iterations."
-		   });		
-		addAnnotation
 		  (conjunctionPartEClass, 
 		   source, 
 		   new String[] {
@@ -1423,7 +1451,13 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 		  (getResourceReplacement_Resource(), 
 		   source, 
 		   new String[] {
-			 "documentation", "Semantic resource, which is optional only if the pattern is from {@link ResourceElement} or {@link TypedResourceElement}, otherwise required."
+			 "documentation", "Semantic resource, which is optional only if the pattern is from {@link ResourceElement} or {@link TypedResourceElement} and {@link #captureGroup} is set, otherwise required."
+		   });		
+		addAnnotation
+		  (getResourceReplacement_CaptureGroup(), 
+		   source, 
+		   new String[] {
+			 "documentation", "To get the resource {@link QName} from {@link ResourceElement}, put the pattern capture group number here (note: like regex, first group is 1) and leave {@link #resource} attribute null."
 		   });		
 		addAnnotation
 		  (getGeneratedLiteral_PreSeparated(), 
@@ -1442,6 +1476,12 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 		   source, 
 		   new String[] {
 			 "documentation", "A part that\'s yet to be recognized. At the start of the parsing, all tokens first become UnrecognizedPart."
+		   });		
+		addAnnotation
+		  (getReplacementContainer_Replacements(), 
+		   source, 
+		   new String[] {
+			 "documentation", "Replacements to be made when the patterns match.\nNote that LexRules can be repeated for multiple iterations."
 		   });
 	}
 
