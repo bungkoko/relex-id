@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/id.ac.itb.ee.lskk.relexid.core/src/main/java"
+    modelPluginID="id.ac.itb.ee.lskk.relexid.core" modelName="Relexid" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" bundleManifest="false" complianceLevel="7.0"
+    suppressGenModelAnnotations="false" copyrightFields="false" operationReflection="true"
+    importOrganizing="true">
+  <foreignModel>relexid.ecore</foreignModel>
+  <genPackages prefix="Relexid" basePackage="id.ac.itb.ee.lskk.relexid" disposableProviderFactory="true"
+      ecorePackage="relexid.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="relexid.ecore#//PartOfSpeechType">
+      <genEnumLiterals ecoreEnumLiteral="relexid.ecore#//PartOfSpeechType/unknown"/>
+      <genEnumLiterals ecoreEnumLiteral="relexid.ecore#//PartOfSpeechType/noun"/>
+      <genEnumLiterals ecoreEnumLiteral="relexid.ecore#//PartOfSpeechType/verb"/>
+      <genEnumLiterals ecoreEnumLiteral="relexid.ecore#//PartOfSpeechType/pronoun"/>
+      <genEnumLiterals ecoreEnumLiteral="relexid.ecore#//PartOfSpeechType/preposition"/>
+      <genEnumLiterals ecoreEnumLiteral="relexid.ecore#//PartOfSpeechType/conjunction"/>
+      <genEnumLiterals ecoreEnumLiteral="relexid.ecore#//PartOfSpeechType/interjection"/>
+      <genEnumLiterals ecoreEnumLiteral="relexid.ecore#//PartOfSpeechType/question"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="relexid.ecore#//Punctuation">
+      <genEnumLiterals ecoreEnumLiteral="relexid.ecore#//Punctuation/period"/>
+      <genEnumLiterals ecoreEnumLiteral="relexid.ecore#//Punctuation/exclamation"/>
+      <genEnumLiterals ecoreEnumLiteral="relexid.ecore#//Punctuation/question"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="relexid.ecore#//Question">
+      <genEnumLiterals ecoreEnumLiteral="relexid.ecore#//Question/what"/>
+      <genEnumLiterals ecoreEnumLiteral="relexid.ecore#//Question/who"/>
+      <genEnumLiterals ecoreEnumLiteral="relexid.ecore#//Question/when"/>
+      <genEnumLiterals ecoreEnumLiteral="relexid.ecore#//Question/where"/>
+      <genEnumLiterals ecoreEnumLiteral="relexid.ecore#//Question/how"/>
+    </genEnums>
+    <genDataTypes ecoreDataType="relexid.ecore#//QName"/>
+    <genClasses ecoreClass="relexid.ecore#//Sentence">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference relexid.ecore#//Sentence/parts"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute relexid.ecore#//Sentence/literal"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="relexid.ecore#//PartOfSpeech">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute relexid.ecore#//PartOfSpeech/literal"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute relexid.ecore#//PartOfSpeech/resource"/>
+    </genClasses>
+    <genClasses ecoreClass="relexid.ecore#//NounPart"/>
+    <genClasses ecoreClass="relexid.ecore#//PronounPart"/>
+    <genClasses ecoreClass="relexid.ecore#//VerbPart"/>
+    <genClasses ecoreClass="relexid.ecore#//LexRule">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference relexid.ecore#//LexRule/patterns"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference relexid.ecore#//LexRule/replacements"/>
+    </genClasses>
+    <genClasses ecoreClass="relexid.ecore#//PrepositionPart"/>
+    <genClasses ecoreClass="relexid.ecore#//ConjunctionPart"/>
+    <genClasses ecoreClass="relexid.ecore#//InterjectionPart"/>
+    <genClasses image="false" ecoreClass="relexid.ecore#//LexElement"/>
+    <genClasses ecoreClass="relexid.ecore#//PartOfSpeechElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute relexid.ecore#//PartOfSpeechElement/partOfSpeech"/>
+    </genClasses>
+    <genClasses ecoreClass="relexid.ecore#//ResourceElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute relexid.ecore#//ResourceElement/semanticClass"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute relexid.ecore#//ResourceElement/semanticClassRef"/>
+    </genClasses>
+    <genClasses ecoreClass="relexid.ecore#//LiteralElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute relexid.ecore#//LiteralElement/caseSensitive"/>
+    </genClasses>
+    <genClasses ecoreClass="relexid.ecore#//ClassElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute relexid.ecore#//ClassElement/semanticClass"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="relexid.ecore#//Questionable">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute relexid.ecore#//Questionable/questioning"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="relexid.ecore#//LexReplacement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute relexid.ecore#//LexReplacement/partOfSpeech"/>
+    </genClasses>
+    <genClasses ecoreClass="relexid.ecore#//LiteralReplacement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute relexid.ecore#//LiteralReplacement/literal"/>
+    </genClasses>
+    <genClasses ecoreClass="relexid.ecore#//PunctuationPart">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute relexid.ecore#//PunctuationPart/punctuation"/>
+    </genClasses>
+    <genClasses ecoreClass="relexid.ecore#//PunctuationReplacement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute relexid.ecore#//PunctuationReplacement/punctuation"/>
+    </genClasses>
+    <genClasses ecoreClass="relexid.ecore#//ResourceReplacement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute relexid.ecore#//ResourceReplacement/resource"/>
+    </genClasses>
+    <genClasses ecoreClass="relexid.ecore#//QuestionReplacement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute relexid.ecore#//QuestionReplacement/question"/>
+    </genClasses>
+    <genClasses ecoreClass="relexid.ecore#//AdverbPart"/>
+    <genClasses ecoreClass="relexid.ecore#//AdjectivePart"/>
+  </genPackages>
+</genmodel:GenModel>

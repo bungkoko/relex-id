@@ -51,6 +51,10 @@ Question variable extraction digunakan untuk mendapatkan variabel apa yang ditan
 
 === Animal
 
+----
+dbpedia-owl:Animal 'binatang', 'hewan'
+----
+
 Semua resources di sini diasumsikan `a dbpedia-owl:Animal`. 
 
 ----
@@ -120,3 +124,23 @@ Warnanya kuning dan oranye.
 Cuicit suka berkicau/bernyanyi/bersuara di pagi hari.
 
 Suara nya cit cit cit / cuit cuit cuit / merdu. :)
+
+== References
+
+1. [Lexical Resources & NLP Tools Bahasa Indonesia - Universitas Indonesia](http://bahasa.cs.ui.ac.id/resources.php)
+2. [Membangun Tree Parse untuk Parsing di Stanford Parser Menggunakan Java - Yuita Arum Sari](http://arumsha.wordpress.com/2012/12/15/membangun-tree-parse-untuk-parsing-di-stanford-parser-menggunakan-java/)
+
+=== Lexical resources
+
+1. [Indonesian WordNet](http://bahasa.cs.ui.ac.id/iwn)
+2. [Indonesian Dictionary (Kamus Besar Bahasa Indonesia)](http://bahasa.cs.ui.ac.id/kbbi)
+
+=== NLP tools
+
+1. Porter stemmer for Indonesian
+2. [Symbolic Parser](http://bahasa.cs.ui.ac.id/tools/SymbolicParser.zip) -- Bahasa Indonesia Symbolic Parser is a parser is a tool that will create a parse tree structures for Indonesian sentences. Developed by defining Context-Free Grammar (CFG) Rules for Bahasa Indonesia grammar, complete with a simple lexicon of words in Bahasa Indonesia, and run on PCPATR application, available at "http://www.sil.org/pcpatr/".
+3. Statistical parser
+4. Named entity tagger
+5. [Semantic Analyzer](http://bahasa.cs.ui.ac.id/tools/SemanticAnalyzer.zip) -- Bahasa Indonesia Semantic Analyzer is a tool that will create a semantic representation of Bahasa Indonesia sentences in first order predicate logic form. This Semantic Analyzer uses Syntax-Driven Semantic Analysis approach and developed using Indonesian Grammar (Symbolic Parser) that has been translated into PROLOG source. It runs in SWI-PROLOG application available at "http://www.swi-prolog.org/".
+6. Semantic Analyzer with Axioms
+7. [Morphological Analyzer](http://bahasa.cs.ui.ac.id/tools/MorphologicalAnalyzerIndonesia.zip) -- Morphological Analyzer is a words recognition tools that split word into one or more morphems and also make the corresponding morphological analysis.
