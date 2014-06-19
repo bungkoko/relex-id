@@ -2,6 +2,8 @@ package id.ac.itb.ee.lskk.relexid.core;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.Locale;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -22,10 +24,18 @@ public class RelExTest {
 	@Before
 	public void setUp() throws Exception {
 		DICT_EN_US = ImmutableMap.<String, String>builder()
+			// Verb
 			.put(DBPEDIA_NS + "Love", "love")
+			.put(DBPEDIA_NS + "Like", "like")
+			// Animal
+			.put(DBPEDIA_NS + "Elephant", "elephant")
 			.build();
 		DICT_ID_ID = ImmutableMap.<String, String>builder()
+				// Verb
 				.put(DBPEDIA_NS + "Love", "cinta")
+				.put(DBPEDIA_NS + "Like", "suka")
+				// Animal
+				.put(DBPEDIA_NS + "Elephant", "gajah")
 				.build();
 		relex = new RelEx();
 		relex.setDictionary(DICT_ID_ID);
@@ -39,8 +49,20 @@ public class RelExTest {
 	public void akuCintaKamu() {
 		relex.loadRules(RelExTest.class, "lumen.LexRules.xmi");
 		final Sentence sentence = relex.parse("Aku cinta kamu.");
-		log.info("Sentence: {}", sentence);
+		log.info("Sentence structure: {}", sentence);
+		log.info("Sentence in English: {}", sentence.generate(Locale.ENGLISH, DICT_EN_US));
+		log.info("Sentence in Indonesian: {}", sentence.generate(RelEx.INDONESIAN, DICT_ID_ID));
 		assertEquals("(S (PP i) (VP dbpedia:Love (PP you_o)) . )", sentence.toString());
+	}
+	
+	@Test
+	public void akuSukaGajah() {
+		relex.loadRules(RelExTest.class, "lumen.LexRules.xmi");
+		final Sentence sentence = relex.parse("Aku suka gajah.");
+		log.info("Sentence structure: {}", sentence);
+		log.info("Sentence in English: {}", sentence.generate(Locale.ENGLISH, DICT_EN_US));
+		log.info("Sentence in Indonesian: {}", sentence.generate(RelEx.INDONESIAN, DICT_ID_ID));
+		assertEquals("(S (PP i) (VP dbpedia:Like (NP dbpedia:Elephant)) . )", sentence.toString());
 	}
 	
 	@Test

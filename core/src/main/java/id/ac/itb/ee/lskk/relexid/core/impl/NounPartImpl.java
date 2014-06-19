@@ -4,20 +4,22 @@ package id.ac.itb.ee.lskk.relexid.core.impl;
 
 import id.ac.itb.ee.lskk.relexid.core.GeneratedLiteral;
 import id.ac.itb.ee.lskk.relexid.core.NounPart;
+import id.ac.itb.ee.lskk.relexid.core.RelexidFactory;
 import id.ac.itb.ee.lskk.relexid.core.RelexidPackage;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Locale;
 import java.util.Map;
+
 import javax.xml.namespace.QName;
 
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * <!-- begin-user-doc -->
@@ -34,6 +36,10 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * @generated
  */
 public class NounPartImpl extends MinimalEObjectImpl.Container implements NounPart {
+	
+	private static final Logger log = LoggerFactory
+			.getLogger(NounPartImpl.class);
+	
 	/**
 	 * The default value of the '{@link #getLiteral() <em>Literal</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -98,6 +104,7 @@ public class NounPartImpl extends MinimalEObjectImpl.Container implements NounPa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getLiteral() {
 		return literal;
 	}
@@ -107,6 +114,7 @@ public class NounPartImpl extends MinimalEObjectImpl.Container implements NounPa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setLiteral(String newLiteral) {
 		String oldLiteral = literal;
 		literal = newLiteral;
@@ -119,6 +127,7 @@ public class NounPartImpl extends MinimalEObjectImpl.Container implements NounPa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public QName getResource() {
 		return resource;
 	}
@@ -128,6 +137,7 @@ public class NounPartImpl extends MinimalEObjectImpl.Container implements NounPa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setResource(QName newResource) {
 		QName oldResource = resource;
 		resource = newResource;
@@ -138,12 +148,28 @@ public class NounPartImpl extends MinimalEObjectImpl.Container implements NounPa
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
+	@Override
 	public GeneratedLiteral generate(Locale locale, Map<String, String> dict) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		String result = "";
+		final String resourceUri = getResource().getNamespaceURI() + getResource().getLocalPart();
+		if (dict.containsKey(resourceUri)) {
+			result += dict.get(resourceUri);
+		} else {
+			result += getResource().toString();
+			log.warn("Resource {} not in dictionary for {} with {} entries",
+					getResource(), locale, dict.size());
+		}
+//		for (PartOfSpeech part : getParts()) {
+//			final GeneratedLiteral literal = part.generate(locale, dict);
+//			if (literal.isPreSeparated() && !result.isEmpty()) {
+//				result += " ";
+//			}
+//			result += literal.getLiteral();
+//		}
+		GeneratedLiteral generatedLiteral = RelexidFactory.eINSTANCE.createGeneratedLiteral();
+		generatedLiteral.setLiteral(result);
+		return generatedLiteral;
 	}
 
 	/**
@@ -232,19 +258,11 @@ public class NounPartImpl extends MinimalEObjectImpl.Container implements NounPa
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (literal: ");
-		result.append(literal);
-		result.append(", resource: ");
-		result.append(resource);
-		result.append(')');
-		return result.toString();
+		return "(NP " + getResource().getPrefix() + ":" + getResource().getLocalPart() + /*" " +
+				Joiner.on(' ').join(FluentIterable.from(getParts()).transform(new ToStringFunction<>())) +*/ ")";
 	}
 
 } //NounPartImpl

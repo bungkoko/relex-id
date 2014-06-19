@@ -4,6 +4,7 @@ import id.ac.itb.ee.lskk.relexid.core.impl.PunctuationPartImpl;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import javax.annotation.Nullable;
 import javax.xml.namespace.QName;
@@ -28,6 +29,7 @@ import com.hp.hpl.jena.rdf.model.ModelFactory;
 public class RelEx {
 	
 	private static final Logger log = LoggerFactory.getLogger(RelEx.class);
+	public static final Locale INDONESIAN = Locale.forLanguageTag("id-ID");
 	
 	private LexRules rules;
 	private ImmutableMap<String, String> dictionary;

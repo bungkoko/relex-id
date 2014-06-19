@@ -33,6 +33,30 @@
   </rules>
   <rules>
     <replacements
+        xsi:type="relexid:PronounReplacement"
+        partOfSpeech="pronoun"/>
+    <replacements
+        xsi:type="relexid:ResourceReplacement"
+        partOfSpeech="verb"
+        captureGroup="2">
+      <replacements
+          xsi:type="relexid:ResourceReplacement"
+          partOfSpeech="noun"
+          captureGroup="3"/>
+    </replacements>
+    <patterns
+        xsi:type="relexid:LiteralElement">
+      <literals>aku</literals>
+    </patterns>
+    <patterns
+        xsi:type="relexid:ResourceElement"
+        resource="dbpedia:Like"/>
+    <patterns
+        xsi:type="relexid:ResourceElement"
+        resource="dbpedia:Elephant"/>
+  </rules>
+  <rules>
+    <replacements
         xsi:type="relexid:PunctuationReplacement"/>
     <patterns
         xsi:type="relexid:LiteralElement">
