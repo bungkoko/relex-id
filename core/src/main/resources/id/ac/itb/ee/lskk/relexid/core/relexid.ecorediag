@@ -450,7 +450,7 @@
     <children xmi:type="notation:Node" xmi:id="_-r4b4_euEeOA-u0gZbgVZw" type="4010"/>
     <children xmi:type="notation:Node" xmi:id="_-r5C8PeuEeOA-u0gZbgVZw" type="5008">
       <children xmi:type="notation:Node" xmi:id="__VYE0PeuEeOA-u0gZbgVZw" type="2006">
-        <element xmi:type="ecore:EEnumLiteral" href="relexid.ecore#//Punctuation/period"/>
+        <element xmi:type="ecore:EEnumLiteral" href="relexid.ecore#//Punctuation/full_stop"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="__VYE0feuEeOA-u0gZbgVZw"/>
       </children>
       <children xmi:type="notation:Node" xmi:id="_BAKysPevEeOA-u0gZbgVZw" type="2006">
@@ -460,6 +460,10 @@
       <children xmi:type="notation:Node" xmi:id="_CckfQPevEeOA-u0gZbgVZw" type="2006">
         <element xmi:type="ecore:EEnumLiteral" href="relexid.ecore#//Punctuation/question"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_CckfQfevEeOA-u0gZbgVZw"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_guK3sPe-EeOA-u0gZbgVZw" type="2006">
+        <element xmi:type="ecore:EEnumLiteral" href="relexid.ecore#//Punctuation/comma"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_guK3sfe-EeOA-u0gZbgVZw"/>
       </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_-r5C8feuEeOA-u0gZbgVZw"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_-r5C8veuEeOA-u0gZbgVZw"/>

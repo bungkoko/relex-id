@@ -54,7 +54,7 @@ public interface Sentence extends PartContainer {
 	 * <!-- begin-model-doc -->
 	 * Generate a readable sentence in the specified locale.
 	 * 
-	 * @param The translations of resources in this locale's language. Key is resource URI and value is literal.
+	 * @param The translations of resources in this locale's language/variant. Note that informal dictionaries (i.e. bahasa gaul/alay) is a valid use case. Key is resource URI and value is literal.
 	 * <!-- end-model-doc -->
 	 * @model required="true" localeDataType="id.ac.itb.ee.lskk.relexid.core.Locale"
 	 * @generated

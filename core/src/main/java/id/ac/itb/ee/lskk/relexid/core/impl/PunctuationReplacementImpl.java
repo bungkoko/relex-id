@@ -57,7 +57,7 @@ public class PunctuationReplacementImpl extends MinimalEObjectImpl.Container imp
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Punctuation PUNCTUATION_EDEFAULT = Punctuation.PERIOD;
+	protected static final Punctuation PUNCTUATION_EDEFAULT = Punctuation.FULL_STOP;
 
 	/**
 	 * The cached value of the '{@link #getPunctuation() <em>Punctuation</em>}' attribute.

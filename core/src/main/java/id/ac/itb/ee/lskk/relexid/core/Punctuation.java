@@ -19,16 +19,14 @@ import org.eclipse.emf.common.util.Enumerator;
  */
 public enum Punctuation implements Enumerator {
 	/**
-	 * The '<em><b>Period</b></em>' literal object.
+	 * The '<em><b>Full stop</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #PERIOD_VALUE
+	 * @see #FULL_STOP_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	PERIOD(0, "period", "period"),
-
-	/**
+	FULL_STOP(0, "full_stop", "full_stop"), /**
 	 * The '<em><b>Exclamation</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -46,22 +44,30 @@ public enum Punctuation implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	QUESTION(1, "question", "question");
-
-	/**
-	 * The '<em><b>Period</b></em>' literal value.
+	QUESTION(1, "question", "question"), /**
+	 * The '<em><b>Comma</b></em>' literal object.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>Period</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #PERIOD
-	 * @model name="period"
+	 * @see #COMMA_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	public static final int PERIOD_VALUE = 0;
+	COMMA(3, "comma", "comma");
+
+	/**
+	 * The '<em><b>Full stop</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>Full stop</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #FULL_STOP
+	 * @model name="full_stop"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int FULL_STOP_VALUE = 0;
 
 	/**
 	 * The '<em><b>Exclamation</b></em>' literal value.
@@ -94,6 +100,21 @@ public enum Punctuation implements Enumerator {
 	public static final int QUESTION_VALUE = 1;
 
 	/**
+	 * The '<em><b>Comma</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>Comma</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #COMMA
+	 * @model name="comma"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int COMMA_VALUE = 3;
+
+	/**
 	 * An array of all the '<em><b>Punctuation</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -101,9 +122,10 @@ public enum Punctuation implements Enumerator {
 	 */
 	private static final Punctuation[] VALUES_ARRAY =
 		new Punctuation[] {
-			PERIOD,
+			FULL_STOP,
 			EXCLAMATION,
 			QUESTION,
+			COMMA,
 		};
 
 	/**
@@ -154,9 +176,10 @@ public enum Punctuation implements Enumerator {
 	 */
 	public static Punctuation get(int value) {
 		switch (value) {
-			case PERIOD_VALUE: return PERIOD;
+			case FULL_STOP_VALUE: return FULL_STOP;
 			case EXCLAMATION_VALUE: return EXCLAMATION;
 			case QUESTION_VALUE: return QUESTION;
+			case COMMA_VALUE: return COMMA;
 		}
 		return null;
 	}

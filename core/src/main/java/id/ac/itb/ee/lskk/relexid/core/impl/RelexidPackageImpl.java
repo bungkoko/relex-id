@@ -1142,9 +1142,10 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 		addEEnumLiteral(partOfSpeechTypeEEnum, PartOfSpeechType.QUESTION);
 
 		initEEnum(punctuationEEnum, Punctuation.class, "Punctuation");
-		addEEnumLiteral(punctuationEEnum, Punctuation.PERIOD);
+		addEEnumLiteral(punctuationEEnum, Punctuation.FULL_STOP);
 		addEEnumLiteral(punctuationEEnum, Punctuation.EXCLAMATION);
 		addEEnumLiteral(punctuationEEnum, Punctuation.QUESTION);
+		addEEnumLiteral(punctuationEEnum, Punctuation.COMMA);
 
 		initEEnum(questionEEnum, Question.class, "Question");
 		addEEnumLiteral(questionEEnum, Question.WHAT);
@@ -1190,7 +1191,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 		  (getSentence__Generate__Locale(), 
 		   source, 
 		   new String[] {
-			 "documentation", "Generate a readable sentence in the specified locale.\n\n@param The translations of resources in this locale\'s language. Key is resource URI and value is literal."
+			 "documentation", "Generate a readable sentence in the specified locale.\n\n@param The translations of resources in this locale\'s language/variant. Note that informal dictionaries (i.e. bahasa gaul/alay) is a valid use case. Key is resource URI and value is literal."
 		   });		
 		addAnnotation
 		  (getSentence_Literal(), 
@@ -1202,7 +1203,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 		  (getPartOfSpeech__Generate__Locale(), 
 		   source, 
 		   new String[] {
-			 "documentation", "Generate a readable {@link GeneratedLiteral} in the specified locale.\n\n@param The translations of resources in this locale\'s language. Key is resource URI and value is literal."
+			 "documentation", "Generate a readable {@link GeneratedLiteral} in the specified locale.\n\n@param The translations of resources in this locale\'s language. Note that informal dictionaries (i.e. bahasa gaul/alay) is a valid use case. Key is resource URI and value is literal."
 		   });		
 		addAnnotation
 		  (getPartOfSpeech_Literal(), 

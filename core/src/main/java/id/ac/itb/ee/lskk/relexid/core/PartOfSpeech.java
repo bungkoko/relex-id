@@ -82,7 +82,7 @@ public interface PartOfSpeech extends EObject {
 	 * <!-- begin-model-doc -->
 	 * Generate a readable {@link GeneratedLiteral} in the specified locale.
 	 * 
-	 * @param The translations of resources in this locale's language. Key is resource URI and value is literal.
+	 * @param The translations of resources in this locale's language. Note that informal dictionaries (i.e. bahasa gaul/alay) is a valid use case. Key is resource URI and value is literal.
 	 * <!-- end-model-doc -->
 	 * @model required="true" localeDataType="id.ac.itb.ee.lskk.relexid.core.Locale"
 	 * @generated

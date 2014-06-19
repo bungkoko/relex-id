@@ -150,9 +150,10 @@
     </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="Punctuation">
-    <eLiterals name="period"/>
+    <eLiterals name="full_stop"/>
     <eLiterals name="exclamation" value="2"/>
     <eLiterals name="question" value="1"/>
+    <eLiterals name="comma" value="3"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="QuestionReplacement" eSuperTypes="#//LexReplacement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="question" lowerBound="1"

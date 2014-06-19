@@ -41,7 +41,7 @@ public class PunctuationPartImpl extends MinimalEObjectImpl.Container implements
 	
 	static {
 		FULL_STOP = RelexidFactory.eINSTANCE.createPunctuationPart();
-		FULL_STOP.setPunctuation(Punctuation.PERIOD);
+		FULL_STOP.setPunctuation(Punctuation.FULL_STOP);
 		FULL_STOP.setLiteral(".");
 		FULL_STOP.setResource(new QName("http://dbpedia.org/resource/", "Full_stop", "dbpedia"));
 	}
@@ -94,7 +94,7 @@ public class PunctuationPartImpl extends MinimalEObjectImpl.Container implements
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Punctuation PUNCTUATION_EDEFAULT = Punctuation.PERIOD;
+	protected static final Punctuation PUNCTUATION_EDEFAULT = Punctuation.FULL_STOP;
 
 	/**
 	 * The cached value of the '{@link #getPunctuation() <em>Punctuation</em>}' attribute.
