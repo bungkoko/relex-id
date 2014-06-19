@@ -2,13 +2,18 @@
  */
 package id.ac.itb.ee.lskk.relexid.core.impl;
 
+import id.ac.itb.ee.lskk.relexid.core.GeneratedLiteral;
 import id.ac.itb.ee.lskk.relexid.core.InterjectionPart;
 import id.ac.itb.ee.lskk.relexid.core.RelexidPackage;
 
+import java.lang.reflect.InvocationTargetException;
+import java.util.Locale;
+import java.util.Map;
 import javax.xml.namespace.QName;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -135,6 +140,17 @@ public class InterjectionPartImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public GeneratedLiteral generate(Locale locale, Map<String, String> dict) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -196,6 +212,21 @@ public class InterjectionPartImpl extends MinimalEObjectImpl.Container implement
 				return RESOURCE_EDEFAULT == null ? resource != null : !RESOURCE_EDEFAULT.equals(resource);
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	@SuppressWarnings("unchecked")
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case RelexidPackage.INTERJECTION_PART___GENERATE__LOCALE:
+				return generate((Locale)arguments.get(0), (Map<String, String>)arguments.get(1));
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	/**

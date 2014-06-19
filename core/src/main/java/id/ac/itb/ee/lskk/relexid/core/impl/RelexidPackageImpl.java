@@ -6,6 +6,7 @@ import id.ac.itb.ee.lskk.relexid.core.AdjectivePart;
 import id.ac.itb.ee.lskk.relexid.core.AdverbPart;
 import id.ac.itb.ee.lskk.relexid.core.ClassElement;
 import id.ac.itb.ee.lskk.relexid.core.ConjunctionPart;
+import id.ac.itb.ee.lskk.relexid.core.GeneratedLiteral;
 import id.ac.itb.ee.lskk.relexid.core.InterjectionPart;
 import id.ac.itb.ee.lskk.relexid.core.LexElement;
 import id.ac.itb.ee.lskk.relexid.core.LexReplacement;
@@ -35,12 +36,15 @@ import id.ac.itb.ee.lskk.relexid.core.ResourceReplacement;
 import id.ac.itb.ee.lskk.relexid.core.Sentence;
 import id.ac.itb.ee.lskk.relexid.core.VerbPart;
 
+import java.util.Locale;
 import javax.xml.namespace.QName;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EEnum;
+import org.eclipse.emf.ecore.EGenericType;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -226,6 +230,13 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass generatedLiteralEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EEnum partOfSpeechTypeEEnum = null;
 
 	/**
@@ -269,6 +280,13 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * @generated
 	 */
 	private EDataType qNameEDataType = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EDataType localeEDataType = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -354,6 +372,15 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getSentence__Generate__Locale() {
+		return sentenceEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getPartOfSpeech() {
 		return partOfSpeechEClass;
 	}
@@ -374,6 +401,15 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 */
 	public EAttribute getPartOfSpeech_Resource() {
 		return (EAttribute)partOfSpeechEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getPartOfSpeech__Generate__Locale() {
+		return partOfSpeechEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -741,6 +777,33 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getGeneratedLiteral() {
+		return generatedLiteralEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getGeneratedLiteral_Literal() {
+		return (EAttribute)generatedLiteralEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getGeneratedLiteral_PreSeparated() {
+		return (EAttribute)generatedLiteralEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getPartOfSpeechType() {
 		return partOfSpeechTypeEEnum;
 	}
@@ -804,6 +867,15 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EDataType getLocale() {
+		return localeEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public RelexidFactory getRelexidFactory() {
 		return (RelexidFactory)getEFactoryInstance();
 	}
@@ -829,10 +901,12 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 		// Create classes and their features
 		sentenceEClass = createEClass(SENTENCE);
 		createEAttribute(sentenceEClass, SENTENCE__LITERAL);
+		createEOperation(sentenceEClass, SENTENCE___GENERATE__LOCALE);
 
 		partOfSpeechEClass = createEClass(PART_OF_SPEECH);
 		createEAttribute(partOfSpeechEClass, PART_OF_SPEECH__LITERAL);
 		createEAttribute(partOfSpeechEClass, PART_OF_SPEECH__RESOURCE);
+		createEOperation(partOfSpeechEClass, PART_OF_SPEECH___GENERATE__LOCALE);
 
 		nounPartEClass = createEClass(NOUN_PART);
 
@@ -896,6 +970,10 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 		partContainerEClass = createEClass(PART_CONTAINER);
 		createEReference(partContainerEClass, PART_CONTAINER__PARTS);
 
+		generatedLiteralEClass = createEClass(GENERATED_LITERAL);
+		createEAttribute(generatedLiteralEClass, GENERATED_LITERAL__LITERAL);
+		createEAttribute(generatedLiteralEClass, GENERATED_LITERAL__PRE_SEPARATED);
+
 		// Create enums
 		partOfSpeechTypeEEnum = createEEnum(PART_OF_SPEECH_TYPE);
 		punctuationEEnum = createEEnum(PUNCTUATION);
@@ -906,6 +984,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 
 		// Create data types
 		qNameEDataType = createEDataType(QNAME);
+		localeEDataType = createEDataType(LOCALE);
 	}
 
 	/**
@@ -963,9 +1042,27 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 		initEClass(sentenceEClass, Sentence.class, "Sentence", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSentence_Literal(), ecorePackage.getEString(), "literal", null, 1, 1, Sentence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		EOperation op = initEOperation(getSentence__Generate__Locale(), ecorePackage.getEString(), "generate", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getLocale(), "locale", 0, 1, IS_UNIQUE, IS_ORDERED);
+		EGenericType g1 = createEGenericType(ecorePackage.getEMap());
+		EGenericType g2 = createEGenericType(ecorePackage.getEString());
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(ecorePackage.getEString());
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "dict", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(partOfSpeechEClass, PartOfSpeech.class, "PartOfSpeech", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPartOfSpeech_Literal(), ecorePackage.getEString(), "literal", null, 1, 1, PartOfSpeech.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPartOfSpeech_Resource(), this.getQName(), "resource", null, 0, 1, PartOfSpeech.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		op = initEOperation(getPartOfSpeech__Generate__Locale(), this.getGeneratedLiteral(), "generate", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getLocale(), "locale", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(ecorePackage.getEMap());
+		g2 = createEGenericType(ecorePackage.getEString());
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(ecorePackage.getEString());
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "dict", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(nounPartEClass, NounPart.class, "NounPart", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1029,6 +1126,10 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 		initEClass(partContainerEClass, PartContainer.class, "PartContainer", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getPartContainer_Parts(), this.getPartOfSpeech(), null, "parts", null, 0, -1, PartContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(generatedLiteralEClass, GeneratedLiteral.class, "GeneratedLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getGeneratedLiteral_Literal(), ecorePackage.getEString(), "literal", null, 1, 1, GeneratedLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGeneratedLiteral_PreSeparated(), ecorePackage.getEBoolean(), "preSeparated", "true", 1, 1, GeneratedLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		// Initialize enums and add enum literals
 		initEEnum(partOfSpeechTypeEEnum, PartOfSpeechType.class, "PartOfSpeechType");
 		addEEnumLiteral(partOfSpeechTypeEEnum, PartOfSpeechType.UNKNOWN);
@@ -1067,6 +1168,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 
 		// Initialize data types
 		initEDataType(qNameEDataType, QName.class, "QName", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(localeEDataType, Locale.class, "Locale", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);
@@ -1085,10 +1187,22 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	protected void createGenModelAnnotations() {
 		String source = "http://www.eclipse.org/emf/2002/GenModel";		
 		addAnnotation
+		  (getSentence__Generate__Locale(), 
+		   source, 
+		   new String[] {
+			 "documentation", "Generate a readable sentence in the specified locale.\n\n@param The translations of resources in this locale\'s language. Key is resource URI and value is literal."
+		   });		
+		addAnnotation
 		  (getSentence_Literal(), 
 		   source, 
 		   new String[] {
 			 "documentation", "Raw literal sentence without preprocessing."
+		   });		
+		addAnnotation
+		  (getPartOfSpeech__Generate__Locale(), 
+		   source, 
+		   new String[] {
+			 "documentation", "Generate a readable {@link GeneratedLiteral} in the specified locale.\n\n@param The translations of resources in this locale\'s language. Key is resource URI and value is literal."
 		   });		
 		addAnnotation
 		  (getPartOfSpeech_Literal(), 
@@ -1167,6 +1281,12 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 		   source, 
 		   new String[] {
 			 "documentation", "Semantic resource."
+		   });		
+		addAnnotation
+		  (getGeneratedLiteral_PreSeparated(), 
+		   source, 
+		   new String[] {
+			 "documentation", "Whether it needs to be separated from the previous literal by whitespace. All part of speeches require this, except {@link PunctuationPart}."
 		   });
 	}
 

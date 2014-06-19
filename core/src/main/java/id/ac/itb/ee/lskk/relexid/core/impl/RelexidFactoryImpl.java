@@ -4,6 +4,7 @@ package id.ac.itb.ee.lskk.relexid.core.impl;
 
 import id.ac.itb.ee.lskk.relexid.core.*;
 
+import java.util.Locale;
 import javax.xml.namespace.QName;
 
 import org.eclipse.emf.ecore.EClass;
@@ -78,6 +79,7 @@ public class RelexidFactoryImpl extends EFactoryImpl implements RelexidFactory {
 			case RelexidPackage.QUESTION_REPLACEMENT: return createQuestionReplacement();
 			case RelexidPackage.ADVERB_PART: return createAdverbPart();
 			case RelexidPackage.ADJECTIVE_PART: return createAdjectivePart();
+			case RelexidPackage.GENERATED_LITERAL: return createGeneratedLiteral();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -105,6 +107,8 @@ public class RelexidFactoryImpl extends EFactoryImpl implements RelexidFactory {
 				return createPronounCaseFromString(eDataType, initialValue);
 			case RelexidPackage.QNAME:
 				return createQNameFromString(eDataType, initialValue);
+			case RelexidPackage.LOCALE:
+				return createLocaleFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -132,6 +136,8 @@ public class RelexidFactoryImpl extends EFactoryImpl implements RelexidFactory {
 				return convertPronounCaseToString(eDataType, instanceValue);
 			case RelexidPackage.QNAME:
 				return convertQNameToString(eDataType, instanceValue);
+			case RelexidPackage.LOCALE:
+				return convertLocaleToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -332,6 +338,16 @@ public class RelexidFactoryImpl extends EFactoryImpl implements RelexidFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public GeneratedLiteral createGeneratedLiteral() {
+		GeneratedLiteralImpl generatedLiteral = new GeneratedLiteralImpl();
+		return generatedLiteral;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public PartOfSpeechType createPartOfSpeechTypeFromString(EDataType eDataType, String initialValue) {
 		PartOfSpeechType result = PartOfSpeechType.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
@@ -462,6 +478,24 @@ public class RelexidFactoryImpl extends EFactoryImpl implements RelexidFactory {
 	 * @generated
 	 */
 	public String convertQNameToString(EDataType eDataType, Object instanceValue) {
+		return super.convertToString(eDataType, instanceValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Locale createLocaleFromString(EDataType eDataType, String initialValue) {
+		return (Locale)super.createFromString(eDataType, initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertLocaleToString(EDataType eDataType, Object instanceValue) {
 		return super.convertToString(eDataType, instanceValue);
 	}
 

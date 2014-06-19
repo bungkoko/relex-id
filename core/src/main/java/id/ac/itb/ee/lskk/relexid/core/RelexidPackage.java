@@ -6,6 +6,7 @@ import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EEnum;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -133,13 +134,22 @@ public interface RelexidPackage extends EPackage {
 	int SENTENCE_FEATURE_COUNT = PART_CONTAINER_FEATURE_COUNT + 1;
 
 	/**
+	 * The operation id for the '<em>Generate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SENTENCE___GENERATE__LOCALE = PART_CONTAINER_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>Sentence</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SENTENCE_OPERATION_COUNT = PART_CONTAINER_OPERATION_COUNT + 0;
+	int SENTENCE_OPERATION_COUNT = PART_CONTAINER_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link id.ac.itb.ee.lskk.relexid.core.PartOfSpeech <em>Part Of Speech</em>}' class.
@@ -179,13 +189,22 @@ public interface RelexidPackage extends EPackage {
 	int PART_OF_SPEECH_FEATURE_COUNT = 2;
 
 	/**
+	 * The operation id for the '<em>Generate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PART_OF_SPEECH___GENERATE__LOCALE = 0;
+
+	/**
 	 * The number of operations of the '<em>Part Of Speech</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PART_OF_SPEECH_OPERATION_COUNT = 0;
+	int PART_OF_SPEECH_OPERATION_COUNT = 1;
 
 	/**
 	 * The meta object id for the '{@link id.ac.itb.ee.lskk.relexid.core.impl.NounPartImpl <em>Noun Part</em>}' class.
@@ -223,6 +242,15 @@ public interface RelexidPackage extends EPackage {
 	 * @ordered
 	 */
 	int NOUN_PART_FEATURE_COUNT = PART_OF_SPEECH_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Generate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NOUN_PART___GENERATE__LOCALE = PART_OF_SPEECH___GENERATE__LOCALE;
 
 	/**
 	 * The number of operations of the '<em>Noun Part</em>' class.
@@ -307,6 +335,15 @@ public interface RelexidPackage extends EPackage {
 	int PRONOUN_PART_FEATURE_COUNT = PART_OF_SPEECH_FEATURE_COUNT + 4;
 
 	/**
+	 * The operation id for the '<em>Generate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRONOUN_PART___GENERATE__LOCALE = PART_OF_SPEECH___GENERATE__LOCALE;
+
+	/**
 	 * The number of operations of the '<em>Pronoun Part</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -360,6 +397,15 @@ public interface RelexidPackage extends EPackage {
 	 * @ordered
 	 */
 	int VERB_PART_FEATURE_COUNT = PART_OF_SPEECH_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Generate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VERB_PART___GENERATE__LOCALE = PART_OF_SPEECH___GENERATE__LOCALE;
 
 	/**
 	 * The number of operations of the '<em>Verb Part</em>' class.
@@ -454,6 +500,15 @@ public interface RelexidPackage extends EPackage {
 	int PREPOSITION_PART_FEATURE_COUNT = PART_OF_SPEECH_FEATURE_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Generate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PREPOSITION_PART___GENERATE__LOCALE = PART_OF_SPEECH___GENERATE__LOCALE;
+
+	/**
 	 * The number of operations of the '<em>Preposition Part</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -500,6 +555,15 @@ public interface RelexidPackage extends EPackage {
 	int CONJUNCTION_PART_FEATURE_COUNT = PART_OF_SPEECH_FEATURE_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Generate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONJUNCTION_PART___GENERATE__LOCALE = PART_OF_SPEECH___GENERATE__LOCALE;
+
+	/**
 	 * The number of operations of the '<em>Conjunction Part</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -544,6 +608,15 @@ public interface RelexidPackage extends EPackage {
 	 * @ordered
 	 */
 	int INTERJECTION_PART_FEATURE_COUNT = PART_OF_SPEECH_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Generate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERJECTION_PART___GENERATE__LOCALE = PART_OF_SPEECH___GENERATE__LOCALE;
 
 	/**
 	 * The number of operations of the '<em>Interjection Part</em>' class.
@@ -906,6 +979,15 @@ public interface RelexidPackage extends EPackage {
 	int PUNCTUATION_PART_FEATURE_COUNT = PART_OF_SPEECH_FEATURE_COUNT + 1;
 
 	/**
+	 * The operation id for the '<em>Generate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PUNCTUATION_PART___GENERATE__LOCALE = PART_OF_SPEECH___GENERATE__LOCALE;
+
+	/**
 	 * The number of operations of the '<em>Punctuation Part</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1099,6 +1181,15 @@ public interface RelexidPackage extends EPackage {
 	int ADVERB_PART_FEATURE_COUNT = PART_OF_SPEECH_FEATURE_COUNT + 1;
 
 	/**
+	 * The operation id for the '<em>Generate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ADVERB_PART___GENERATE__LOCALE = PART_OF_SPEECH___GENERATE__LOCALE;
+
+	/**
 	 * The number of operations of the '<em>Adverb Part</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1154,6 +1245,15 @@ public interface RelexidPackage extends EPackage {
 	int ADJECTIVE_PART_FEATURE_COUNT = PART_OF_SPEECH_FEATURE_COUNT + 1;
 
 	/**
+	 * The operation id for the '<em>Generate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ADJECTIVE_PART___GENERATE__LOCALE = PART_OF_SPEECH___GENERATE__LOCALE;
+
+	/**
 	 * The number of operations of the '<em>Adjective Part</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1163,6 +1263,52 @@ public interface RelexidPackage extends EPackage {
 	int ADJECTIVE_PART_OPERATION_COUNT = PART_OF_SPEECH_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link id.ac.itb.ee.lskk.relexid.core.impl.GeneratedLiteralImpl <em>Generated Literal</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see id.ac.itb.ee.lskk.relexid.core.impl.GeneratedLiteralImpl
+	 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getGeneratedLiteral()
+	 * @generated
+	 */
+	int GENERATED_LITERAL = 24;
+
+	/**
+	 * The feature id for the '<em><b>Literal</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATED_LITERAL__LITERAL = 0;
+
+	/**
+	 * The feature id for the '<em><b>Pre Separated</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATED_LITERAL__PRE_SEPARATED = 1;
+
+	/**
+	 * The number of structural features of the '<em>Generated Literal</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATED_LITERAL_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Generated Literal</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATED_LITERAL_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link id.ac.itb.ee.lskk.relexid.core.PartOfSpeechType <em>Part Of Speech Type</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1170,7 +1316,7 @@ public interface RelexidPackage extends EPackage {
 	 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getPartOfSpeechType()
 	 * @generated
 	 */
-	int PART_OF_SPEECH_TYPE = 24;
+	int PART_OF_SPEECH_TYPE = 25;
 
 	/**
 	 * The meta object id for the '{@link id.ac.itb.ee.lskk.relexid.core.Punctuation <em>Punctuation</em>}' enum.
@@ -1180,7 +1326,7 @@ public interface RelexidPackage extends EPackage {
 	 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getPunctuation()
 	 * @generated
 	 */
-	int PUNCTUATION = 25;
+	int PUNCTUATION = 26;
 
 	/**
 	 * The meta object id for the '{@link id.ac.itb.ee.lskk.relexid.core.Question <em>Question</em>}' enum.
@@ -1190,7 +1336,7 @@ public interface RelexidPackage extends EPackage {
 	 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getQuestion()
 	 * @generated
 	 */
-	int QUESTION = 26;
+	int QUESTION = 27;
 
 	/**
 	 * The meta object id for the '{@link id.ac.itb.ee.lskk.relexid.core.PronounPerson <em>Pronoun Person</em>}' enum.
@@ -1200,7 +1346,7 @@ public interface RelexidPackage extends EPackage {
 	 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getPronounPerson()
 	 * @generated
 	 */
-	int PRONOUN_PERSON = 27;
+	int PRONOUN_PERSON = 28;
 
 	/**
 	 * The meta object id for the '{@link id.ac.itb.ee.lskk.relexid.core.PronounNumber <em>Pronoun Number</em>}' enum.
@@ -1210,7 +1356,7 @@ public interface RelexidPackage extends EPackage {
 	 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getPronounNumber()
 	 * @generated
 	 */
-	int PRONOUN_NUMBER = 28;
+	int PRONOUN_NUMBER = 29;
 
 	/**
 	 * The meta object id for the '{@link id.ac.itb.ee.lskk.relexid.core.PronounCase <em>Pronoun Case</em>}' enum.
@@ -1220,7 +1366,7 @@ public interface RelexidPackage extends EPackage {
 	 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getPronounCase()
 	 * @generated
 	 */
-	int PRONOUN_CASE = 29;
+	int PRONOUN_CASE = 30;
 
 	/**
 	 * The meta object id for the '<em>QName</em>' data type.
@@ -1230,7 +1376,18 @@ public interface RelexidPackage extends EPackage {
 	 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getQName()
 	 * @generated
 	 */
-	int QNAME = 30;
+	int QNAME = 31;
+
+
+	/**
+	 * The meta object id for the '<em>Locale</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see java.util.Locale
+	 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getLocale()
+	 * @generated
+	 */
+	int LOCALE = 32;
 
 
 	/**
@@ -1253,6 +1410,16 @@ public interface RelexidPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getSentence_Literal();
+
+	/**
+	 * Returns the meta object for the '{@link id.ac.itb.ee.lskk.relexid.core.Sentence#generate(java.util.Locale, java.util.Map) <em>Generate</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Generate</em>' operation.
+	 * @see id.ac.itb.ee.lskk.relexid.core.Sentence#generate(java.util.Locale, java.util.Map)
+	 * @generated
+	 */
+	EOperation getSentence__Generate__Locale();
 
 	/**
 	 * Returns the meta object for class '{@link id.ac.itb.ee.lskk.relexid.core.PartOfSpeech <em>Part Of Speech</em>}'.
@@ -1285,6 +1452,16 @@ public interface RelexidPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getPartOfSpeech_Resource();
+
+	/**
+	 * Returns the meta object for the '{@link id.ac.itb.ee.lskk.relexid.core.PartOfSpeech#generate(java.util.Locale, java.util.Map) <em>Generate</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Generate</em>' operation.
+	 * @see id.ac.itb.ee.lskk.relexid.core.PartOfSpeech#generate(java.util.Locale, java.util.Map)
+	 * @generated
+	 */
+	EOperation getPartOfSpeech__Generate__Locale();
 
 	/**
 	 * Returns the meta object for class '{@link id.ac.itb.ee.lskk.relexid.core.NounPart <em>Noun Part</em>}'.
@@ -1705,6 +1882,38 @@ public interface RelexidPackage extends EPackage {
 	EReference getPartContainer_Parts();
 
 	/**
+	 * Returns the meta object for class '{@link id.ac.itb.ee.lskk.relexid.core.GeneratedLiteral <em>Generated Literal</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Generated Literal</em>'.
+	 * @see id.ac.itb.ee.lskk.relexid.core.GeneratedLiteral
+	 * @generated
+	 */
+	EClass getGeneratedLiteral();
+
+	/**
+	 * Returns the meta object for the attribute '{@link id.ac.itb.ee.lskk.relexid.core.GeneratedLiteral#getLiteral <em>Literal</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Literal</em>'.
+	 * @see id.ac.itb.ee.lskk.relexid.core.GeneratedLiteral#getLiteral()
+	 * @see #getGeneratedLiteral()
+	 * @generated
+	 */
+	EAttribute getGeneratedLiteral_Literal();
+
+	/**
+	 * Returns the meta object for the attribute '{@link id.ac.itb.ee.lskk.relexid.core.GeneratedLiteral#isPreSeparated <em>Pre Separated</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Pre Separated</em>'.
+	 * @see id.ac.itb.ee.lskk.relexid.core.GeneratedLiteral#isPreSeparated()
+	 * @see #getGeneratedLiteral()
+	 * @generated
+	 */
+	EAttribute getGeneratedLiteral_PreSeparated();
+
+	/**
 	 * Returns the meta object for enum '{@link id.ac.itb.ee.lskk.relexid.core.PartOfSpeechType <em>Part Of Speech Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1776,6 +1985,17 @@ public interface RelexidPackage extends EPackage {
 	EDataType getQName();
 
 	/**
+	 * Returns the meta object for data type '{@link java.util.Locale <em>Locale</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>Locale</em>'.
+	 * @see java.util.Locale
+	 * @model instanceClass="java.util.Locale"
+	 * @generated
+	 */
+	EDataType getLocale();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1817,6 +2037,14 @@ public interface RelexidPackage extends EPackage {
 		EAttribute SENTENCE__LITERAL = eINSTANCE.getSentence_Literal();
 
 		/**
+		 * The meta object literal for the '<em><b>Generate</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SENTENCE___GENERATE__LOCALE = eINSTANCE.getSentence__Generate__Locale();
+
+		/**
 		 * The meta object literal for the '{@link id.ac.itb.ee.lskk.relexid.core.PartOfSpeech <em>Part Of Speech</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1841,6 +2069,14 @@ public interface RelexidPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute PART_OF_SPEECH__RESOURCE = eINSTANCE.getPartOfSpeech_Resource();
+
+		/**
+		 * The meta object literal for the '<em><b>Generate</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PART_OF_SPEECH___GENERATE__LOCALE = eINSTANCE.getPartOfSpeech__Generate__Locale();
 
 		/**
 		 * The meta object literal for the '{@link id.ac.itb.ee.lskk.relexid.core.impl.NounPartImpl <em>Noun Part</em>}' class.
@@ -2207,6 +2443,32 @@ public interface RelexidPackage extends EPackage {
 		EReference PART_CONTAINER__PARTS = eINSTANCE.getPartContainer_Parts();
 
 		/**
+		 * The meta object literal for the '{@link id.ac.itb.ee.lskk.relexid.core.impl.GeneratedLiteralImpl <em>Generated Literal</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see id.ac.itb.ee.lskk.relexid.core.impl.GeneratedLiteralImpl
+		 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getGeneratedLiteral()
+		 * @generated
+		 */
+		EClass GENERATED_LITERAL = eINSTANCE.getGeneratedLiteral();
+
+		/**
+		 * The meta object literal for the '<em><b>Literal</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GENERATED_LITERAL__LITERAL = eINSTANCE.getGeneratedLiteral_Literal();
+
+		/**
+		 * The meta object literal for the '<em><b>Pre Separated</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GENERATED_LITERAL__PRE_SEPARATED = eINSTANCE.getGeneratedLiteral_PreSeparated();
+
+		/**
 		 * The meta object literal for the '{@link id.ac.itb.ee.lskk.relexid.core.PartOfSpeechType <em>Part Of Speech Type</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2275,6 +2537,16 @@ public interface RelexidPackage extends EPackage {
 		 * @generated
 		 */
 		EDataType QNAME = eINSTANCE.getQName();
+
+		/**
+		 * The meta object literal for the '<em>Locale</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see java.util.Locale
+		 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getLocale()
+		 * @generated
+		 */
+		EDataType LOCALE = eINSTANCE.getLocale();
 
 	}
 

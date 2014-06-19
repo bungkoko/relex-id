@@ -3,17 +3,10 @@
 package id.ac.itb.ee.lskk.relexid.core.impl;
 
 import id.ac.itb.ee.lskk.relexid.core.GeneratedLiteral;
-import id.ac.itb.ee.lskk.relexid.core.PrepositionPart;
 import id.ac.itb.ee.lskk.relexid.core.RelexidPackage;
-
-import java.lang.reflect.InvocationTargetException;
-import java.util.Locale;
-import java.util.Map;
-import javax.xml.namespace.QName;
 
 import org.eclipse.emf.common.notify.Notification;
 
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -21,19 +14,19 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Preposition Part</b></em>'.
+ * An implementation of the model object '<em><b>Generated Literal</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link id.ac.itb.ee.lskk.relexid.core.impl.PrepositionPartImpl#getLiteral <em>Literal</em>}</li>
- *   <li>{@link id.ac.itb.ee.lskk.relexid.core.impl.PrepositionPartImpl#getResource <em>Resource</em>}</li>
+ *   <li>{@link id.ac.itb.ee.lskk.relexid.core.impl.GeneratedLiteralImpl#getLiteral <em>Literal</em>}</li>
+ *   <li>{@link id.ac.itb.ee.lskk.relexid.core.impl.GeneratedLiteralImpl#isPreSeparated <em>Pre Separated</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class PrepositionPartImpl extends MinimalEObjectImpl.Container implements PrepositionPart {
+public class GeneratedLiteralImpl extends MinimalEObjectImpl.Container implements GeneratedLiteral {
 	/**
 	 * The default value of the '{@link #getLiteral() <em>Literal</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -55,31 +48,31 @@ public class PrepositionPartImpl extends MinimalEObjectImpl.Container implements
 	protected String literal = LITERAL_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getResource() <em>Resource</em>}' attribute.
+	 * The default value of the '{@link #isPreSeparated() <em>Pre Separated</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getResource()
+	 * @see #isPreSeparated()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final QName RESOURCE_EDEFAULT = null;
+	protected static final boolean PRE_SEPARATED_EDEFAULT = true;
 
 	/**
-	 * The cached value of the '{@link #getResource() <em>Resource</em>}' attribute.
+	 * The cached value of the '{@link #isPreSeparated() <em>Pre Separated</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getResource()
+	 * @see #isPreSeparated()
 	 * @generated
 	 * @ordered
 	 */
-	protected QName resource = RESOURCE_EDEFAULT;
+	protected boolean preSeparated = PRE_SEPARATED_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected PrepositionPartImpl() {
+	protected GeneratedLiteralImpl() {
 		super();
 	}
 
@@ -90,7 +83,7 @@ public class PrepositionPartImpl extends MinimalEObjectImpl.Container implements
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return RelexidPackage.Literals.PREPOSITION_PART;
+		return RelexidPackage.Literals.GENERATED_LITERAL;
 	}
 
 	/**
@@ -111,7 +104,7 @@ public class PrepositionPartImpl extends MinimalEObjectImpl.Container implements
 		String oldLiteral = literal;
 		literal = newLiteral;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RelexidPackage.PREPOSITION_PART__LITERAL, oldLiteral, literal));
+			eNotify(new ENotificationImpl(this, Notification.SET, RelexidPackage.GENERATED_LITERAL__LITERAL, oldLiteral, literal));
 	}
 
 	/**
@@ -119,8 +112,8 @@ public class PrepositionPartImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public QName getResource() {
-		return resource;
+	public boolean isPreSeparated() {
+		return preSeparated;
 	}
 
 	/**
@@ -128,22 +121,11 @@ public class PrepositionPartImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setResource(QName newResource) {
-		QName oldResource = resource;
-		resource = newResource;
+	public void setPreSeparated(boolean newPreSeparated) {
+		boolean oldPreSeparated = preSeparated;
+		preSeparated = newPreSeparated;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RelexidPackage.PREPOSITION_PART__RESOURCE, oldResource, resource));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public GeneratedLiteral generate(Locale locale, Map<String, String> dict) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+			eNotify(new ENotificationImpl(this, Notification.SET, RelexidPackage.GENERATED_LITERAL__PRE_SEPARATED, oldPreSeparated, preSeparated));
 	}
 
 	/**
@@ -154,10 +136,10 @@ public class PrepositionPartImpl extends MinimalEObjectImpl.Container implements
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case RelexidPackage.PREPOSITION_PART__LITERAL:
+			case RelexidPackage.GENERATED_LITERAL__LITERAL:
 				return getLiteral();
-			case RelexidPackage.PREPOSITION_PART__RESOURCE:
-				return getResource();
+			case RelexidPackage.GENERATED_LITERAL__PRE_SEPARATED:
+				return isPreSeparated();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -170,11 +152,11 @@ public class PrepositionPartImpl extends MinimalEObjectImpl.Container implements
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case RelexidPackage.PREPOSITION_PART__LITERAL:
+			case RelexidPackage.GENERATED_LITERAL__LITERAL:
 				setLiteral((String)newValue);
 				return;
-			case RelexidPackage.PREPOSITION_PART__RESOURCE:
-				setResource((QName)newValue);
+			case RelexidPackage.GENERATED_LITERAL__PRE_SEPARATED:
+				setPreSeparated((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -188,11 +170,11 @@ public class PrepositionPartImpl extends MinimalEObjectImpl.Container implements
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case RelexidPackage.PREPOSITION_PART__LITERAL:
+			case RelexidPackage.GENERATED_LITERAL__LITERAL:
 				setLiteral(LITERAL_EDEFAULT);
 				return;
-			case RelexidPackage.PREPOSITION_PART__RESOURCE:
-				setResource(RESOURCE_EDEFAULT);
+			case RelexidPackage.GENERATED_LITERAL__PRE_SEPARATED:
+				setPreSeparated(PRE_SEPARATED_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -206,27 +188,12 @@ public class PrepositionPartImpl extends MinimalEObjectImpl.Container implements
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case RelexidPackage.PREPOSITION_PART__LITERAL:
+			case RelexidPackage.GENERATED_LITERAL__LITERAL:
 				return LITERAL_EDEFAULT == null ? literal != null : !LITERAL_EDEFAULT.equals(literal);
-			case RelexidPackage.PREPOSITION_PART__RESOURCE:
-				return RESOURCE_EDEFAULT == null ? resource != null : !RESOURCE_EDEFAULT.equals(resource);
+			case RelexidPackage.GENERATED_LITERAL__PRE_SEPARATED:
+				return preSeparated != PRE_SEPARATED_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	@SuppressWarnings("unchecked")
-	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
-		switch (operationID) {
-			case RelexidPackage.PREPOSITION_PART___GENERATE__LOCALE:
-				return generate((Locale)arguments.get(0), (Map<String, String>)arguments.get(1));
-		}
-		return super.eInvoke(operationID, arguments);
 	}
 
 	/**
@@ -241,10 +208,10 @@ public class PrepositionPartImpl extends MinimalEObjectImpl.Container implements
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (literal: ");
 		result.append(literal);
-		result.append(", resource: ");
-		result.append(resource);
+		result.append(", preSeparated: ");
+		result.append(preSeparated);
 		result.append(')');
 		return result.toString();
 	}
 
-} //PrepositionPartImpl
+} //GeneratedLiteralImpl

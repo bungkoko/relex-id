@@ -2,6 +2,8 @@
  */
 package id.ac.itb.ee.lskk.relexid.core;
 
+import java.util.Locale;
+import java.util.Map;
 import javax.xml.namespace.QName;
 
 import org.eclipse.emf.ecore.EObject;
@@ -73,5 +75,18 @@ public interface PartOfSpeech extends EObject {
 	 * @generated
 	 */
 	void setResource(QName value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Generate a readable {@link GeneratedLiteral} in the specified locale.
+	 * 
+	 * @param The translations of resources in this locale's language. Key is resource URI and value is literal.
+	 * <!-- end-model-doc -->
+	 * @model required="true" localeDataType="id.ac.itb.ee.lskk.relexid.core.Locale"
+	 * @generated
+	 */
+	GeneratedLiteral generate(Locale locale, Map<String, String> dict);
 
 } // PartOfSpeech

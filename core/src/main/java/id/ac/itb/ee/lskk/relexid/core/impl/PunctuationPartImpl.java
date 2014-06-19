@@ -2,16 +2,21 @@
  */
 package id.ac.itb.ee.lskk.relexid.core.impl;
 
+import id.ac.itb.ee.lskk.relexid.core.GeneratedLiteral;
 import id.ac.itb.ee.lskk.relexid.core.Punctuation;
 import id.ac.itb.ee.lskk.relexid.core.PunctuationPart;
+import id.ac.itb.ee.lskk.relexid.core.RelexidFactory;
 import id.ac.itb.ee.lskk.relexid.core.RelexidPackage;
+
+import java.lang.reflect.InvocationTargetException;
+import java.util.Locale;
+import java.util.Map;
 
 import javax.xml.namespace.QName;
 
 import org.eclipse.emf.common.notify.Notification;
-
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
@@ -31,6 +36,16 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * @generated
  */
 public class PunctuationPartImpl extends MinimalEObjectImpl.Container implements PunctuationPart {
+	
+	public static final PunctuationPart FULL_STOP;
+	
+	static {
+		FULL_STOP = RelexidFactory.eINSTANCE.createPunctuationPart();
+		FULL_STOP.setPunctuation(Punctuation.PERIOD);
+		FULL_STOP.setLiteral(".");
+		FULL_STOP.setResource(new QName("http://dbpedia.org/resource/", "Full_stop", "dbpedia"));
+	}
+	
 	/**
 	 * The default value of the '{@link #getLiteral() <em>Literal</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -115,6 +130,7 @@ public class PunctuationPartImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getLiteral() {
 		return literal;
 	}
@@ -124,6 +140,7 @@ public class PunctuationPartImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setLiteral(String newLiteral) {
 		String oldLiteral = literal;
 		literal = newLiteral;
@@ -136,6 +153,7 @@ public class PunctuationPartImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public QName getResource() {
 		return resource;
 	}
@@ -145,6 +163,7 @@ public class PunctuationPartImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setResource(QName newResource) {
 		QName oldResource = resource;
 		resource = newResource;
@@ -157,6 +176,7 @@ public class PunctuationPartImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Punctuation getPunctuation() {
 		return punctuation;
 	}
@@ -166,11 +186,24 @@ public class PunctuationPartImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setPunctuation(Punctuation newPunctuation) {
 		Punctuation oldPunctuation = punctuation;
 		punctuation = newPunctuation == null ? PUNCTUATION_EDEFAULT : newPunctuation;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, RelexidPackage.PUNCTUATION_PART__PUNCTUATION, oldPunctuation, punctuation));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	@Override
+	public GeneratedLiteral generate(Locale locale, Map<String, String> dict) {
+		GeneratedLiteral genLiteral = RelexidFactory.eINSTANCE.createGeneratedLiteral();
+		genLiteral.setLiteral(getLiteral());
+		genLiteral.setPreSeparated(false);
+		return genLiteral;
 	}
 
 	/**
@@ -257,18 +290,22 @@ public class PunctuationPartImpl extends MinimalEObjectImpl.Container implements
 	 * @generated
 	 */
 	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
+	@SuppressWarnings("unchecked")
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case RelexidPackage.PUNCTUATION_PART___GENERATE__LOCALE:
+				return generate((Locale)arguments.get(0), (Map<String, String>)arguments.get(1));
+		}
+		return super.eInvoke(operationID, arguments);
+	}
 
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (literal: ");
-		result.append(literal);
-		result.append(", resource: ");
-		result.append(resource);
-		result.append(", punctuation: ");
-		result.append(punctuation);
-		result.append(')');
-		return result.toString();
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	@Override
+	public String toString() {
+		return getLiteral();
 	}
 
 } //PunctuationPartImpl

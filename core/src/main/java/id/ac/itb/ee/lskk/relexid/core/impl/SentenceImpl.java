@@ -2,12 +2,17 @@
  */
 package id.ac.itb.ee.lskk.relexid.core.impl;
 
+import id.ac.itb.ee.lskk.relexid.core.GeneratedLiteral;
 import id.ac.itb.ee.lskk.relexid.core.PartOfSpeech;
 import id.ac.itb.ee.lskk.relexid.core.RelexidPackage;
 import id.ac.itb.ee.lskk.relexid.core.Sentence;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
+import java.util.Locale;
+import java.util.Map;
 
+import org.apache.commons.lang3.StringUtils;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
@@ -37,6 +42,9 @@ import com.google.common.collect.FluentIterable;
  * @generated
  */
 public class SentenceImpl extends MinimalEObjectImpl.Container implements Sentence {
+	
+	public static Locale INDONESIAN = Locale.forLanguageTag("id-ID");
+	
 	/**
 	 * The cached value of the '{@link #getParts() <em>Parts</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -125,6 +133,25 @@ public class SentenceImpl extends MinimalEObjectImpl.Container implements Senten
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 */
+	@Override
+	public String generate(Locale locale, Map<String, String> dict) {
+		String result = "";
+		for (PartOfSpeech part : getParts()) {
+			final GeneratedLiteral literal = part.generate(locale, dict);
+			if (literal.isPreSeparated() && !result.isEmpty()) {
+				result += " ";
+			}
+			result += literal.getLiteral();
+		}
+		// capitalize
+		result = StringUtils.capitalize(result);
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -204,6 +231,21 @@ public class SentenceImpl extends MinimalEObjectImpl.Container implements Senten
 				return LITERAL_EDEFAULT == null ? literal != null : !LITERAL_EDEFAULT.equals(literal);
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	@SuppressWarnings("unchecked")
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case RelexidPackage.SENTENCE___GENERATE__LOCALE:
+				return generate((Locale)arguments.get(0), (Map<String, String>)arguments.get(1));
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	/**

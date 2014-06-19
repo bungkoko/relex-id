@@ -164,6 +164,10 @@ public class RelexidAdapterFactory extends AdapterFactoryImpl {
 				return createPartContainerAdapter();
 			}
 			@Override
+			public Adapter caseGeneratedLiteral(GeneratedLiteral object) {
+				return createGeneratedLiteralAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -516,6 +520,20 @@ public class RelexidAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createPartContainerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link id.ac.itb.ee.lskk.relexid.core.GeneratedLiteral <em>Generated Literal</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see id.ac.itb.ee.lskk.relexid.core.GeneratedLiteral
+	 * @generated
+	 */
+	public Adapter createGeneratedLiteralAdapter() {
 		return null;
 	}
 

@@ -193,6 +193,15 @@ public interface RelexidFactory extends EFactory {
 	AdjectivePart createAdjectivePart();
 
 	/**
+	 * Returns a new object of class '<em>Generated Literal</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Generated Literal</em>'.
+	 * @generated
+	 */
+	GeneratedLiteral createGeneratedLiteral();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

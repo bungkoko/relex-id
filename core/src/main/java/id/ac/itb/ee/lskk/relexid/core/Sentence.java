@@ -2,6 +2,9 @@
  */
 package id.ac.itb.ee.lskk.relexid.core;
 
+import java.util.Locale;
+import java.util.Map;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -44,5 +47,18 @@ public interface Sentence extends PartContainer {
 	 * @generated
 	 */
 	void setLiteral(String value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Generate a readable sentence in the specified locale.
+	 * 
+	 * @param The translations of resources in this locale's language. Key is resource URI and value is literal.
+	 * <!-- end-model-doc -->
+	 * @model required="true" localeDataType="id.ac.itb.ee.lskk.relexid.core.Locale"
+	 * @generated
+	 */
+	String generate(Locale locale, Map<String, String> dict);
 
 } // Sentence

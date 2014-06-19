@@ -232,6 +232,12 @@ public class RelexidSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case RelexidPackage.GENERATED_LITERAL: {
+				GeneratedLiteral generatedLiteral = (GeneratedLiteral)theEObject;
+				T result = caseGeneratedLiteral(generatedLiteral);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -593,6 +599,21 @@ public class RelexidSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T casePartContainer(PartContainer object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Generated Literal</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Generated Literal</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseGeneratedLiteral(GeneratedLiteral object) {
 		return null;
 	}
 

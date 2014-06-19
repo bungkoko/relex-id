@@ -2,16 +2,23 @@
  */
 package id.ac.itb.ee.lskk.relexid.core.impl;
 
+import id.ac.itb.ee.lskk.relexid.core.GeneratedLiteral;
 import id.ac.itb.ee.lskk.relexid.core.PronounCase;
 import id.ac.itb.ee.lskk.relexid.core.PronounNumber;
 import id.ac.itb.ee.lskk.relexid.core.PronounPart;
 import id.ac.itb.ee.lskk.relexid.core.PronounPerson;
 import id.ac.itb.ee.lskk.relexid.core.Questionable;
+import id.ac.itb.ee.lskk.relexid.core.RelexidFactory;
 import id.ac.itb.ee.lskk.relexid.core.RelexidPackage;
+
+import java.lang.reflect.InvocationTargetException;
+import java.util.Locale;
+import java.util.Map;
 
 import javax.xml.namespace.QName;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
@@ -344,6 +351,175 @@ public class PronounPartImpl extends MinimalEObjectImpl.Container implements Pro
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 */
+	@Override
+	public GeneratedLiteral generate(Locale locale, Map<String, String> dict) {
+		GeneratedLiteral genLiteral = RelexidFactory.eINSTANCE.createGeneratedLiteral();
+		switch (locale.getLanguage()) {
+		case "en":
+			switch (getPerson()) {
+			case FIRST:
+				switch (getNumber()) {
+				case SINGULAR:
+					switch (getCase()) {
+					case SUBJECT:
+						genLiteral.setLiteral("I");
+						break;
+					case OBJECT:
+						genLiteral.setLiteral("me");
+						break;
+					}
+					break;
+				case PLURAL:
+					switch (getCase()) {
+					case SUBJECT:
+						genLiteral.setLiteral("we");
+						break;
+					case OBJECT:
+						genLiteral.setLiteral("us");
+						break;
+					}
+					break;
+				}
+				break;
+			case SECOND:
+				switch (getNumber()) {
+				case SINGULAR:
+					switch (getCase()) {
+					case SUBJECT:
+						genLiteral.setLiteral("you");
+						break;
+					case OBJECT:
+						genLiteral.setLiteral("you");
+						break;
+					}
+					break;
+				case PLURAL:
+					switch (getCase()) {
+					case SUBJECT:
+						genLiteral.setLiteral("you");
+						break;
+					case OBJECT:
+						genLiteral.setLiteral("you");
+						break;
+					}
+					break;
+				}
+				break;
+			case THIRD:
+				switch (getNumber()) {
+				case SINGULAR:
+					switch (getCase()) {
+					case SUBJECT:
+						genLiteral.setLiteral("he");
+						break;
+					case OBJECT:
+						genLiteral.setLiteral("him");
+						break;
+					}
+					break;
+				case PLURAL:
+					switch (getCase()) {
+					case SUBJECT:
+						genLiteral.setLiteral("they");
+						break;
+					case OBJECT:
+						genLiteral.setLiteral("them");
+						break;
+					}
+					break;
+				}
+				break;
+			}
+			break;
+		case "in":
+			switch (getPerson()) {
+			case FIRST:
+				switch (getNumber()) {
+				case SINGULAR:
+					switch (getCase()) {
+					case SUBJECT:
+						genLiteral.setLiteral("aku");
+						break;
+					case OBJECT:
+						genLiteral.setLiteral("aku");
+						break;
+					}
+					break;
+				case PLURAL:
+					switch (getCase()) {
+					case SUBJECT:
+						genLiteral.setLiteral("kami");
+						break;
+					case OBJECT:
+						genLiteral.setLiteral("kami");
+						break;
+					}
+					break;
+				}
+				break;
+			case SECOND:
+				switch (getNumber()) {
+				case SINGULAR:
+					switch (getCase()) {
+					case SUBJECT:
+						genLiteral.setLiteral("kamu");
+						break;
+					case OBJECT:
+						genLiteral.setLiteral("kamu");
+						break;
+					}
+					break;
+				case PLURAL:
+					switch (getCase()) {
+					case SUBJECT:
+						genLiteral.setLiteral("kalian");
+						break;
+					case OBJECT:
+						genLiteral.setLiteral("kalian");
+						break;
+					}
+					break;
+				}
+				break;
+			case THIRD:
+				switch (getNumber()) {
+				case SINGULAR:
+					switch (getCase()) {
+					case SUBJECT:
+						genLiteral.setLiteral("dia");
+						break;
+					case OBJECT:
+						genLiteral.setLiteral("dia");
+						break;
+					}
+					break;
+				case PLURAL:
+					switch (getCase()) {
+					case SUBJECT:
+						genLiteral.setLiteral("mereka");
+						break;
+					case OBJECT:
+						genLiteral.setLiteral("mereka");
+						break;
+					}
+					break;
+				}
+				break;
+			}
+			break;
+		default:
+			throw new IllegalArgumentException("Unsupported locale: " + locale);
+		}
+		if (genLiteral.getLiteral() == null) {
+			throw new IllegalStateException("Invalid pronoun: " + getPerson() + ", " + getNumber() + ", " + getCase());
+		}
+		return genLiteral;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -484,6 +660,21 @@ public class PronounPartImpl extends MinimalEObjectImpl.Container implements Pro
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	@SuppressWarnings("unchecked")
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case RelexidPackage.PRONOUN_PART___GENERATE__LOCALE:
+				return generate((Locale)arguments.get(0), (Map<String, String>)arguments.get(1));
+		}
+		return super.eInvoke(operationID, arguments);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 */
 	@Override
 	public String toString() {
@@ -507,6 +698,7 @@ public class PronounPartImpl extends MinimalEObjectImpl.Container implements Pro
 				}
 				break;
 			}
+			break;
 		case SECOND:
 			switch (getNumber()) {
 			case SINGULAR:
@@ -526,6 +718,7 @@ public class PronounPartImpl extends MinimalEObjectImpl.Container implements Pro
 				}
 				break;
 			}
+			break;
 		case THIRD:
 			switch (getNumber()) {
 			case SINGULAR:
@@ -545,6 +738,7 @@ public class PronounPartImpl extends MinimalEObjectImpl.Container implements Pro
 				}
 				break;
 			}
+			break;
 		}
 		throw new IllegalStateException("Invalid pronoun: " + getPerson() + ", " + getNumber() + ", " + getCase());
 	}

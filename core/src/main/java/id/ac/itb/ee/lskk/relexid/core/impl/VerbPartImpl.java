@@ -2,12 +2,17 @@
  */
 package id.ac.itb.ee.lskk.relexid.core.impl;
 
+import id.ac.itb.ee.lskk.relexid.core.GeneratedLiteral;
 import id.ac.itb.ee.lskk.relexid.core.PartContainer;
 import id.ac.itb.ee.lskk.relexid.core.PartOfSpeech;
+import id.ac.itb.ee.lskk.relexid.core.RelexidFactory;
 import id.ac.itb.ee.lskk.relexid.core.RelexidPackage;
 import id.ac.itb.ee.lskk.relexid.core.VerbPart;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
+import java.util.Locale;
+import java.util.Map;
 
 import javax.xml.namespace.QName;
 
@@ -20,6 +25,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.soluvas.commons.ToStringFunction;
 
 import com.google.common.base.Joiner;
@@ -41,6 +48,10 @@ import com.google.common.collect.FluentIterable;
  * @generated
  */
 public class VerbPartImpl extends MinimalEObjectImpl.Container implements VerbPart {
+	
+	private static final Logger log = LoggerFactory
+			.getLogger(VerbPartImpl.class);
+	
 	/**
 	 * The default value of the '{@link #getLiteral() <em>Literal</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -172,6 +183,33 @@ public class VerbPartImpl extends MinimalEObjectImpl.Container implements VerbPa
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 */
+	@Override
+	public GeneratedLiteral generate(Locale locale, Map<String, String> dict) {
+		String result = "";
+		final String resourceUri = getResource().getNamespaceURI() + getResource().getLocalPart();
+		if (dict.containsKey(resourceUri)) {
+			result += dict.get(resourceUri);
+		} else {
+			result += getResource().toString();
+			log.warn("Resource {} not in dictionary for {} with {} entries",
+					getResource(), locale, dict.size());
+		}
+		for (PartOfSpeech part : getParts()) {
+			final GeneratedLiteral literal = part.generate(locale, dict);
+			if (literal.isPreSeparated() && !result.isEmpty()) {
+				result += " ";
+			}
+			result += literal.getLiteral();
+		}
+		GeneratedLiteral generatedLiteral = RelexidFactory.eINSTANCE.createGeneratedLiteral();
+		generatedLiteral.setLiteral(result);
+		return generatedLiteral;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -293,6 +331,21 @@ public class VerbPartImpl extends MinimalEObjectImpl.Container implements VerbPa
 			}
 		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	@SuppressWarnings("unchecked")
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case RelexidPackage.VERB_PART___GENERATE__LOCALE:
+				return generate((Locale)arguments.get(0), (Map<String, String>)arguments.get(1));
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	/**
