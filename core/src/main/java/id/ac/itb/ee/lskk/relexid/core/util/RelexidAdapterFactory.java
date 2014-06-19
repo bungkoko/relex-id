@@ -180,6 +180,10 @@ public class RelexidAdapterFactory extends AdapterFactoryImpl {
 				return createPronounReplacementAdapter();
 			}
 			@Override
+			public Adapter caseUnrecognizedPart(UnrecognizedPart object) {
+				return createUnrecognizedPartAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -392,6 +396,20 @@ public class RelexidAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createPronounReplacementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link id.ac.itb.ee.lskk.relexid.core.UnrecognizedPart <em>Unrecognized Part</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see id.ac.itb.ee.lskk.relexid.core.UnrecognizedPart
+	 * @generated
+	 */
+	public Adapter createUnrecognizedPartAdapter() {
 		return null;
 	}
 

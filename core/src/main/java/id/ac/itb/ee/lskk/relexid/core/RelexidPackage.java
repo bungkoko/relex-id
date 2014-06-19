@@ -1447,6 +1447,61 @@ public interface RelexidPackage extends EPackage {
 	int PRONOUN_REPLACEMENT_OPERATION_COUNT = LEX_REPLACEMENT_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link id.ac.itb.ee.lskk.relexid.core.impl.UnrecognizedPartImpl <em>Unrecognized Part</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see id.ac.itb.ee.lskk.relexid.core.impl.UnrecognizedPartImpl
+	 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getUnrecognizedPart()
+	 * @generated
+	 */
+	int UNRECOGNIZED_PART = 28;
+
+	/**
+	 * The feature id for the '<em><b>Literal</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNRECOGNIZED_PART__LITERAL = PART_OF_SPEECH__LITERAL;
+
+	/**
+	 * The feature id for the '<em><b>Resource</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNRECOGNIZED_PART__RESOURCE = PART_OF_SPEECH__RESOURCE;
+
+	/**
+	 * The number of structural features of the '<em>Unrecognized Part</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNRECOGNIZED_PART_FEATURE_COUNT = PART_OF_SPEECH_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Generate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNRECOGNIZED_PART___GENERATE__LOCALE_MAP = PART_OF_SPEECH___GENERATE__LOCALE_MAP;
+
+	/**
+	 * The number of operations of the '<em>Unrecognized Part</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNRECOGNIZED_PART_OPERATION_COUNT = PART_OF_SPEECH_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link id.ac.itb.ee.lskk.relexid.core.PartOfSpeechType <em>Part Of Speech Type</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1454,7 +1509,7 @@ public interface RelexidPackage extends EPackage {
 	 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getPartOfSpeechType()
 	 * @generated
 	 */
-	int PART_OF_SPEECH_TYPE = 28;
+	int PART_OF_SPEECH_TYPE = 29;
 
 	/**
 	 * The meta object id for the '{@link id.ac.itb.ee.lskk.relexid.core.Punctuation <em>Punctuation</em>}' enum.
@@ -1464,7 +1519,7 @@ public interface RelexidPackage extends EPackage {
 	 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getPunctuation()
 	 * @generated
 	 */
-	int PUNCTUATION = 29;
+	int PUNCTUATION = 30;
 
 	/**
 	 * The meta object id for the '{@link id.ac.itb.ee.lskk.relexid.core.Question <em>Question</em>}' enum.
@@ -1474,7 +1529,7 @@ public interface RelexidPackage extends EPackage {
 	 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getQuestion()
 	 * @generated
 	 */
-	int QUESTION = 30;
+	int QUESTION = 31;
 
 	/**
 	 * The meta object id for the '{@link id.ac.itb.ee.lskk.relexid.core.PronounPerson <em>Pronoun Person</em>}' enum.
@@ -1484,7 +1539,7 @@ public interface RelexidPackage extends EPackage {
 	 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getPronounPerson()
 	 * @generated
 	 */
-	int PRONOUN_PERSON = 31;
+	int PRONOUN_PERSON = 32;
 
 	/**
 	 * The meta object id for the '{@link id.ac.itb.ee.lskk.relexid.core.PronounNumber <em>Pronoun Number</em>}' enum.
@@ -1494,7 +1549,7 @@ public interface RelexidPackage extends EPackage {
 	 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getPronounNumber()
 	 * @generated
 	 */
-	int PRONOUN_NUMBER = 32;
+	int PRONOUN_NUMBER = 33;
 
 	/**
 	 * The meta object id for the '{@link id.ac.itb.ee.lskk.relexid.core.PronounCase <em>Pronoun Case</em>}' enum.
@@ -1504,7 +1559,7 @@ public interface RelexidPackage extends EPackage {
 	 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getPronounCase()
 	 * @generated
 	 */
-	int PRONOUN_CASE = 33;
+	int PRONOUN_CASE = 34;
 
 	/**
 	 * The meta object id for the '<em>QName</em>' data type.
@@ -1514,7 +1569,7 @@ public interface RelexidPackage extends EPackage {
 	 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getQName()
 	 * @generated
 	 */
-	int QNAME = 34;
+	int QNAME = 35;
 
 
 	/**
@@ -1525,7 +1580,7 @@ public interface RelexidPackage extends EPackage {
 	 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getLocale()
 	 * @generated
 	 */
-	int LOCALE = 35;
+	int LOCALE = 36;
 
 
 	/**
@@ -1841,6 +1896,16 @@ public interface RelexidPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getPronounReplacement_Case();
+
+	/**
+	 * Returns the meta object for class '{@link id.ac.itb.ee.lskk.relexid.core.UnrecognizedPart <em>Unrecognized Part</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Unrecognized Part</em>'.
+	 * @see id.ac.itb.ee.lskk.relexid.core.UnrecognizedPart
+	 * @generated
+	 */
+	EClass getUnrecognizedPart();
 
 	/**
 	 * Returns the meta object for class '{@link id.ac.itb.ee.lskk.relexid.core.LiteralElement <em>Literal Element</em>}'.
@@ -2508,6 +2573,16 @@ public interface RelexidPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute PRONOUN_REPLACEMENT__CASE = eINSTANCE.getPronounReplacement_Case();
+
+		/**
+		 * The meta object literal for the '{@link id.ac.itb.ee.lskk.relexid.core.impl.UnrecognizedPartImpl <em>Unrecognized Part</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see id.ac.itb.ee.lskk.relexid.core.impl.UnrecognizedPartImpl
+		 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getUnrecognizedPart()
+		 * @generated
+		 */
+		EClass UNRECOGNIZED_PART = eINSTANCE.getUnrecognizedPart();
 
 		/**
 		 * The meta object literal for the '{@link id.ac.itb.ee.lskk.relexid.core.impl.LiteralElementImpl <em>Literal Element</em>}' class.

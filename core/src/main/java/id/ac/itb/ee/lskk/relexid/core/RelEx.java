@@ -14,7 +14,9 @@ import org.soluvas.commons.OnDemandXmiLoader;
 import com.google.common.base.Predicate;
 import com.google.common.base.Strings;
 import com.google.common.collect.FluentIterable;
+import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.Range;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 
@@ -137,26 +139,49 @@ public class RelEx {
 		List<String> tokens = tokenizer.tokenize(originalLiteral);
 		log.debug("Tokens: {}", tokens);
 		
-		@Nullable
-		Sentence sentence = null;
+		Sentence sentence = RelexidFactory.eINSTANCE.createSentence();
+		for (String token : tokens) {
+			UnrecognizedPart part = RelexidFactory.eINSTANCE.createUnrecognizedPart();
+			part.setLiteral(token);
+			sentence.getParts().add(part);
+		}
+		
 		@Nullable
 		LexRule matchedRule = null;
 		
 		for (LexRule rule : rules.getRules()) {
 			boolean ruleMatches = true;
-			int tokenIdx = 0;
+			int unrecognizedPartIdx = 0;
+			@Nullable
+			Integer startMatchIdx = null;
+			@Nullable
+			Integer endMatchIdx = null;
 			for (LexElement el : rule.getPatterns()) {
 				
-				// next valid token, please
-				while (tokenIdx < tokens.size() && tokens.get(tokenIdx).trim().isEmpty()) {
-					tokenIdx++;
+				// next valid unrecognized token, please
+				while (unrecognizedPartIdx < sentence.getParts().size()) {
+					PartOfSpeech part = sentence.getParts().get(unrecognizedPartIdx);
+					if (!(part instanceof UnrecognizedPart)) {
+						unrecognizedPartIdx++;
+					} else if (part.getLiteral().trim().isEmpty()) {
+						unrecognizedPartIdx++;
+					} else {
+						// stop right there, we need to process this unrecognized part
+						break;
+					}
 				}
-				if (tokenIdx >= tokens.size()) {
+				if (unrecognizedPartIdx >= sentence.getParts().size()) {
+					// EOL!
 					ruleMatches = false;
 					break;
 				}
+				if (startMatchIdx == null) {
+					startMatchIdx = unrecognizedPartIdx;
+				}
 				
-				final String curFirstToken = tokens.get(tokenIdx);
+				final UnrecognizedPart unrecognizedPart = (UnrecognizedPart) sentence.getParts().get(unrecognizedPartIdx);
+				@Nullable
+				Integer nextPartIdx = null;
 				final boolean matches;
 				if (el instanceof LiteralElement) {
 					LiteralElement literalEl = (LiteralElement) el;
@@ -164,19 +189,19 @@ public class RelEx {
 						matches = FluentIterable.from(literalEl.getLiterals()).anyMatch(new Predicate<String>() {
 							@Override
 							public boolean apply(String input) {
-								return curFirstToken.equals(input);
+								return unrecognizedPart.getLiteral().equals(input);
 							}
 						});
 					} else {
 						matches = FluentIterable.from(literalEl.getLiterals()).anyMatch(new Predicate<String>() {
 							@Override
 							public boolean apply(String input) {
-								return curFirstToken.equalsIgnoreCase(input);
+								return unrecognizedPart.getLiteral().equalsIgnoreCase(input);
 							}
 						});
 					}
 					if (matches) {
-						tokenIdx++;
+						nextPartIdx = unrecognizedPartIdx + 1;
 					}
 				} else if (el instanceof ResourceElement) {
 					ResourceElement resEl = (ResourceElement) el;
@@ -184,9 +209,9 @@ public class RelEx {
 					@Nullable
 					String word = dictionary.get(resourceUri);
 					if (word != null) {
-						matches = word.equalsIgnoreCase(curFirstToken);
+						matches = word.equalsIgnoreCase(unrecognizedPart.getLiteral());
 						if (matches) {
-							tokenIdx++;
+							nextPartIdx = unrecognizedPartIdx + 1;
 						}
 					} else {
 						log.warn("No word for {} in dictionary with {} entries", resourceUri, dictionary.size());
@@ -198,18 +223,27 @@ public class RelEx {
 				
 				// match?
 				if (matches) {
-					log.debug("Element {} match for '{}'", el, curFirstToken);
+					log.debug("Element {} match for #{}: {}", el, unrecognizedPartIdx, unrecognizedPart);
+					endMatchIdx = unrecognizedPartIdx;
+					unrecognizedPartIdx = nextPartIdx;
 				} else {
-					log.debug("Element {} not match for '{}'", el, curFirstToken);
+					log.debug("Element {} not match for #{}: {}", el, unrecognizedPartIdx, unrecognizedPart);
 					ruleMatches = false;
 					break;
 				}
 			}
 			
 			if (ruleMatches) {
-				log.info("Rule {} match for {}", rule, tokens);
-				sentence = RelexidFactory.eINSTANCE.createSentence();
+				Range<Integer> matchRange = Range.closed(startMatchIdx, endMatchIdx);
+				List<PartOfSpeech> replacedParts = ImmutableList.copyOf(
+						sentence.getParts().subList(matchRange.lowerEndpoint(), matchRange.upperEndpoint() + 1));
+				log.info("Rule {} match for {}: {}", rule, matchRange, replacedParts);
+				for (int i = matchRange.upperEndpoint(); i >= matchRange.lowerEndpoint(); i--) {
+					sentence.getParts().remove(i);
+				}
+				List<PartOfSpeech> replacementParts = new ArrayList<>();
 				for (int replacementIdx = 0; replacementIdx < rule.getReplacements().size(); replacementIdx++) {
+					final PartOfSpeech replacedPart = replacedParts.get(replacementIdx);
 					final LexReplacement replacement = rule.getReplacements().get(replacementIdx);
 					final LexElement el = rule.getPatterns().get(replacementIdx);
 					if (replacement instanceof PronounReplacement) {
@@ -218,7 +252,8 @@ public class RelEx {
 						pronoun.setPerson(pronounRepl.getPerson());
 						pronoun.setNumber(pronounRepl.getNumber());
 						pronoun.setCase(pronounRepl.getCase());
-						sentence.getParts().add(pronoun);
+						pronoun.setLiteral(replacedPart.getLiteral());
+						replacementParts.add(pronoun);
 					} else if (replacement instanceof ResourceReplacement) {
 						final PartOfSpeech part;
 						switch (replacement.getPartOfSpeech()) {
@@ -239,20 +274,42 @@ public class RelEx {
 							log.debug("Resource el.resource = {}", resEl.getResource());
 							part.setResource(expandRef(resEl.getResource()));
 						}
-						part.setLiteral(part.getResource().toString());
-						sentence.getParts().add(part);
+						part.setLiteral(replacedPart.getLiteral());
+						replacementParts.add(part);
+					} else if (replacement instanceof PunctuationReplacement) {
+						PunctuationPart punctuation = RelexidFactory.eINSTANCE.createPunctuationPart();
+						punctuation.setPunctuation(((PunctuationReplacement) replacement).getPunctuation());
+						punctuation.setLiteral(replacedPart.getLiteral());
+						replacementParts.add(punctuation);
 					} else {
 						throw new UnsupportedOperationException("Unknown replacement: " + replacement);
 					}
 				}
-				break;
+				log.debug("Replacing with {} parts at index #{}: {}",
+						replacementParts.size(), startMatchIdx, replacementParts);
+				sentence.getParts().addAll(startMatchIdx, replacementParts);
 			} else {
 				log.debug("Rule {} not match for {}", rule, tokens);
 			}
-		}
-		
-		if (sentence == null) {
-			throw new IllegalArgumentException("Cannot understand: " + originalLiteral);
+			
+			// stop if we already recognized everything (ignoring whitespace)
+			boolean allRecognized = true;
+			for (PartOfSpeech part : sentence.getParts()) {
+				if (part instanceof UnrecognizedPart && !part.getLiteral().trim().isEmpty()) {
+					allRecognized = false;
+					break;
+				}
+			}
+			if (allRecognized) {
+				// remove whitespace
+				for (int i = sentence.getParts().size() - 1; i >= 0; i--) {
+					if (sentence.getParts().get(i) instanceof UnrecognizedPart && sentence.getParts().get(i).getLiteral().trim().isEmpty()) {
+						sentence.getParts().remove(i);
+					}
+				}
+				// finish parsing
+				break;
+			}
 		}
 		
 		return sentence;

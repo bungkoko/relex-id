@@ -130,6 +130,15 @@ public interface RelexidFactory extends EFactory {
 	PronounReplacement createPronounReplacement();
 
 	/**
+	 * Returns a new object of class '<em>Unrecognized Part</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Unrecognized Part</em>'.
+	 * @generated
+	 */
+	UnrecognizedPart createUnrecognizedPart();
+
+	/**
 	 * Returns a new object of class '<em>Literal Element</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

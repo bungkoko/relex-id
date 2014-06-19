@@ -29,4 +29,12 @@
         person="second"
         case="object"/>
   </rules>
+  <rules>
+    <patterns
+        xsi:type="relexid:LiteralElement">
+      <literals>.</literals>
+    </patterns>
+    <replacements
+        xsi:type="relexid:PunctuationReplacement"/>
+  </rules>
 </relexid:LexRules>

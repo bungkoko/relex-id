@@ -83,6 +83,7 @@ public class RelexidFactoryImpl extends EFactoryImpl implements RelexidFactory {
 			case RelexidPackage.LEX_RULES: return createLexRules();
 			case RelexidPackage.RESOURCE_ELEMENT: return createResourceElement();
 			case RelexidPackage.PRONOUN_REPLACEMENT: return createPronounReplacement();
+			case RelexidPackage.UNRECOGNIZED_PART: return createUnrecognizedPart();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -264,6 +265,16 @@ public class RelexidFactoryImpl extends EFactoryImpl implements RelexidFactory {
 	public PronounReplacement createPronounReplacement() {
 		PronounReplacementImpl pronounReplacement = new PronounReplacementImpl();
 		return pronounReplacement;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UnrecognizedPart createUnrecognizedPart() {
+		UnrecognizedPartImpl unrecognizedPart = new UnrecognizedPartImpl();
+		return unrecognizedPart;
 	}
 
 	/**

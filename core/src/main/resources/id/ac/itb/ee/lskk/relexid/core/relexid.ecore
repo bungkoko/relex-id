@@ -216,4 +216,9 @@
         eType="#//PronounNumber"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="case" lowerBound="1" eType="#//PronounCase"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UnrecognizedPart" eSuperTypes="#//PartOfSpeech">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="A part that's yet to be recognized. At the start of the parsing, all tokens first become UnrecognizedPart."/>
+    </eAnnotations>
+  </eClassifiers>
 </ecore:EPackage>

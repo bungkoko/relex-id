@@ -37,6 +37,7 @@ import id.ac.itb.ee.lskk.relexid.core.ResourceElement;
 import id.ac.itb.ee.lskk.relexid.core.ResourceReplacement;
 import id.ac.itb.ee.lskk.relexid.core.Sentence;
 import id.ac.itb.ee.lskk.relexid.core.TypedResourceElement;
+import id.ac.itb.ee.lskk.relexid.core.UnrecognizedPart;
 import id.ac.itb.ee.lskk.relexid.core.VerbPart;
 
 import java.util.Locale;
@@ -157,6 +158,13 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * @generated
 	 */
 	private EClass pronounReplacementEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass unrecognizedPartEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -648,6 +656,15 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getUnrecognizedPart() {
+		return unrecognizedPartEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getLiteralElement() {
 		return literalElementEClass;
 	}
@@ -1081,6 +1098,8 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 		createEAttribute(pronounReplacementEClass, PRONOUN_REPLACEMENT__NUMBER);
 		createEAttribute(pronounReplacementEClass, PRONOUN_REPLACEMENT__CASE);
 
+		unrecognizedPartEClass = createEClass(UNRECOGNIZED_PART);
+
 		// Create enums
 		partOfSpeechTypeEEnum = createEEnum(PART_OF_SPEECH_TYPE);
 		punctuationEEnum = createEEnum(PUNCTUATION);
@@ -1146,6 +1165,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 		adjectivePartEClass.getESuperTypes().add(this.getQuestionable());
 		resourceElementEClass.getESuperTypes().add(this.getLexElement());
 		pronounReplacementEClass.getESuperTypes().add(this.getLexReplacement());
+		unrecognizedPartEClass.getESuperTypes().add(this.getPartOfSpeech());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(sentenceEClass, Sentence.class, "Sentence", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1249,6 +1269,8 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 		initEAttribute(getPronounReplacement_Person(), this.getPronounPerson(), "person", null, 1, 1, PronounReplacement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPronounReplacement_Number(), this.getPronounNumber(), "number", null, 1, 1, PronounReplacement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPronounReplacement_Case(), this.getPronounCase(), "case", null, 1, 1, PronounReplacement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(unrecognizedPartEClass, UnrecognizedPart.class, "UnrecognizedPart", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Initialize enums and add enum literals
 		initEEnum(partOfSpeechTypeEEnum, PartOfSpeechType.class, "PartOfSpeechType");
@@ -1414,6 +1436,12 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 		   source, 
 		   new String[] {
 			 "documentation", "QName or URI of the resource to match."
+		   });		
+		addAnnotation
+		  (unrecognizedPartEClass, 
+		   source, 
+		   new String[] {
+			 "documentation", "A part that\'s yet to be recognized. At the start of the parsing, all tokens first become UnrecognizedPart."
 		   });
 	}
 
