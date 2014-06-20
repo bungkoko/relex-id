@@ -23,6 +23,8 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import com.google.common.collect.ImmutableSet;
+
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Pronoun Part</b></em>'.
@@ -44,7 +46,14 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  */
 public class PronounPartImpl extends MinimalEObjectImpl.Container implements PronounPart {
 	
+	/**
+	 * Singular I as {@link PronounCase#SUBJECT}.
+	 */
 	public static final PronounPart I;
+	/**
+	 * Singular I as {@link PronounCase#OBJECT}.
+	 */
+	public static final PronounPart ME;
 	/**
 	 * Singular you as {@link PronounCase#SUBJECT}.
 	 */
@@ -53,6 +62,43 @@ public class PronounPartImpl extends MinimalEObjectImpl.Container implements Pro
 	 * Singular you as {@link PronounCase#OBJECT}.
 	 */
 	public static final PronounPart YOU_O;
+	/**
+	 * Singular he/she/it as {@link PronounCase#SUBJECT}.
+	 */
+	public static final PronounPart IT_S;
+	/**
+	 * Singular he/she/it as {@link PronounCase#OBJECT}.
+	 */
+	public static final PronounPart IT_O;
+	/**
+	 * Plural we as {@link PronounCase#SUBJECT}.
+	 */
+	public static final PronounPart WE;
+	/**
+	 * Plural us as {@link PronounCase#OBJECT}.
+	 */
+	public static final PronounPart US;
+	/**
+	 * Plural you as {@link PronounCase#SUBJECT}.
+	 */
+	public static final PronounPart YOUS_S;
+	/**
+	 * Plural you as {@link PronounCase#OBJECT}.
+	 */
+	public static final PronounPart YOUS_O;
+	/**
+	 * Plural they as {@link PronounCase#SUBJECT}.
+	 */
+	public static final PronounPart THEY;
+	/**
+	 * Plural them as {@link PronounCase#OBJECT}.
+	 */
+	public static final PronounPart THEM;
+	
+	/**
+	 * All known {@link PronounPart}s.
+	 */
+	public static ImmutableSet<PronounPart> ALL;
 	
 	static {
 		I = new PronounPartImpl();
@@ -60,6 +106,11 @@ public class PronounPartImpl extends MinimalEObjectImpl.Container implements Pro
 		I.setNumber(PronounNumber.SINGULAR);
 		I.setCase(PronounCase.SUBJECT);
 		I.setLiteral("I");
+		ME = new PronounPartImpl();
+		ME.setPerson(PronounPerson.FIRST);
+		ME.setNumber(PronounNumber.SINGULAR);
+		ME.setCase(PronounCase.OBJECT);
+		ME.setLiteral("me");
 		YOU_S = new PronounPartImpl();
 		YOU_S.setPerson(PronounPerson.SECOND);
 		YOU_S.setNumber(PronounNumber.SINGULAR);
@@ -70,6 +121,50 @@ public class PronounPartImpl extends MinimalEObjectImpl.Container implements Pro
 		YOU_O.setNumber(PronounNumber.SINGULAR);
 		YOU_O.setCase(PronounCase.OBJECT);
 		YOU_O.setLiteral("you");
+		IT_S = new PronounPartImpl();
+		IT_S.setPerson(PronounPerson.THIRD);
+		IT_S.setNumber(PronounNumber.SINGULAR);
+		IT_S.setCase(PronounCase.SUBJECT);
+		IT_S.setLiteral("it_s");
+		IT_O = new PronounPartImpl();
+		IT_O.setPerson(PronounPerson.THIRD);
+		IT_O.setNumber(PronounNumber.SINGULAR);
+		IT_O.setCase(PronounCase.OBJECT);
+		IT_O.setLiteral("it_o");
+		
+		WE = new PronounPartImpl();
+		WE.setPerson(PronounPerson.FIRST);
+		WE.setNumber(PronounNumber.PLURAL);
+		WE.setCase(PronounCase.SUBJECT);
+		WE.setLiteral("WE");
+		US = new PronounPartImpl();
+		US.setPerson(PronounPerson.FIRST);
+		US.setNumber(PronounNumber.PLURAL);
+		US.setCase(PronounCase.OBJECT);
+		US.setLiteral("me");
+		YOUS_S = new PronounPartImpl();
+		YOUS_S.setPerson(PronounPerson.SECOND);
+		YOUS_S.setNumber(PronounNumber.PLURAL);
+		YOUS_S.setCase(PronounCase.SUBJECT);
+		YOUS_S.setLiteral("you");
+		YOUS_O = new PronounPartImpl();
+		YOUS_O.setPerson(PronounPerson.SECOND);
+		YOUS_O.setNumber(PronounNumber.PLURAL);
+		YOUS_O.setCase(PronounCase.OBJECT);
+		YOUS_O.setLiteral("you");
+		THEY = new PronounPartImpl();
+		THEY.setPerson(PronounPerson.THIRD);
+		THEY.setNumber(PronounNumber.PLURAL);
+		THEY.setCase(PronounCase.SUBJECT);
+		THEY.setLiteral("it_s");
+		THEM = new PronounPartImpl();
+		THEM.setPerson(PronounPerson.THIRD);
+		THEM.setNumber(PronounNumber.PLURAL);
+		THEM.setCase(PronounCase.OBJECT);
+		THEM.setLiteral("it_o");
+		
+		ALL = ImmutableSet.of(I, ME, YOU_S, YOU_O, IT_S, IT_O,
+				WE, US, YOU_S, YOUS_O, THEY, THEM);
 	}
 	
 	/**
@@ -280,6 +375,7 @@ public class PronounPartImpl extends MinimalEObjectImpl.Container implements Pro
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public QName getWord() {
 		return word;
 	}
@@ -289,6 +385,7 @@ public class PronounPartImpl extends MinimalEObjectImpl.Container implements Pro
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setWord(QName newWord) {
 		QName oldWord = word;
 		word = newWord;

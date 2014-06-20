@@ -1,5 +1,6 @@
 package id.ac.itb.ee.lskk.relexid.core;
 
+import id.ac.itb.ee.lskk.relexid.core.impl.PronounPartImpl;
 import id.ac.itb.ee.lskk.relexid.core.impl.PunctuationPartImpl;
 
 import java.util.ArrayList;
@@ -180,12 +181,20 @@ public class RelEx {
 		for (int replacementIdx = 0; replacementIdx < replacements.size(); replacementIdx++) {
 			final LexReplacement replacement = replacements.get(replacementIdx);
 			if (replacement instanceof PronounReplacement) {
-				PronounPart pronoun = RelexidFactory.eINSTANCE.createPronounPart();
 				final PronounReplacement pronounRepl = (PronounReplacement) replacement;
-				pronoun.setPerson(pronounRepl.getPerson());
-				pronoun.setNumber(pronounRepl.getNumber());
-				pronoun.setCase(pronounRepl.getCase());
-				replacementParts.add(pronoun);
+				@Nullable
+				PronounPart found = null;
+				for (PronounPart pronoun : PronounPartImpl.ALL) {
+					if (pronoun.getPerson() == pronounRepl.getPerson() &&
+							pronoun.getNumber() == pronounRepl.getNumber() &&
+							pronoun.getCase() == pronounRepl.getCase()) {
+						found = EcoreUtil.copy(pronoun);
+						break;
+					}
+				}
+				Preconditions.checkArgument(found != null,
+						"Cannot find pronoun matching %s", pronounRepl);
+				replacementParts.add(found);
 			} else if (replacement instanceof ResourceReplacement) {
 				final PartOfSpeech part;
 				switch (replacement.getPartOfSpeech()) {
@@ -514,7 +523,7 @@ public class RelEx {
 							}
 						}
 					} else {
-						log.debug("Relation rule {} not matches {}..{} {}", rule, startPartIdx, endPartIdx, subParts);
+						log.trace("Relation rule {} not matches {}..{} {}", rule, startPartIdx, endPartIdx, subParts);
 					}
 				}
 				
