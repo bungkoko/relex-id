@@ -45,8 +45,9 @@ Question variable extraction digunakan untuk mendapatkan variabel apa yang ditan
 
 ----
 @prefix dbpedia-owl:	<http://dbpedia.org/ontology/> .
-@prefix dbpedia:	<http://dbpedia.org/resource/> .
-@prefix schema:		<http://schema.org> .
+@prefix dbpedia:		<http://dbpedia.org/resource/> .
+@prefix schema:			<http://schema.org> .
+@prefix wn30:			http://purl.org/vocabularies/princeton/wn30/ .
 ----
 
 === Animal
