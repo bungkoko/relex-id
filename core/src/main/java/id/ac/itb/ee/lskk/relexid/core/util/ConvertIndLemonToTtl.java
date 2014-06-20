@@ -20,7 +20,11 @@ import com.hp.hpl.jena.rdf.model.ModelFactory;
  * <li>It doesn't adhere to RFC 3066 section 2.3 which mandates {@code id} over {@code ind} language tag.</li>
  * </ol>
  * @author ceefour
+ * @deprecated For now you can use WordNet 3.1 + TDB, which already provides translation for {@code ind},
+ * 		and also {@code wordnet-ontology:lexical_domain}. Maybe later on we need to refer to Indonesian-specific
+ * 		words and synsets/senses but perhaps not now.  
  */
+@Deprecated
 public class ConvertIndLemonToTtl {
 	
 	private static final Logger log = LoggerFactory

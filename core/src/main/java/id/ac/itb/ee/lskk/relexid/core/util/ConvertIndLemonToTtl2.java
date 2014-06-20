@@ -22,7 +22,12 @@ import com.hp.hpl.jena.rdf.model.ModelFactory;
  * 		with synset IDs like {@code 100001740-n}</li>
  * </ol>
  * @author ceefour
+ * @deprecated Not working as advertised above.
+ * 		For now you can use WordNet 3.1 + TDB, which already provides translation for {@code ind},
+ * 		and also {@code wordnet-ontology:lexical_domain}. Maybe later on we need to refer to Indonesian-specific
+ * 		words and synsets/senses but perhaps not now.  
  */
+@Deprecated
 public class ConvertIndLemonToTtl2 {
 	
 	private static final String WN20SCHEMA = "http://www.w3.org/2006/03/wn/wn20/schema/";
