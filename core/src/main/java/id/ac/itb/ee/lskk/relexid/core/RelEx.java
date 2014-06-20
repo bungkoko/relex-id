@@ -31,7 +31,8 @@ public class RelEx {
 	private static final Logger log = LoggerFactory.getLogger(RelEx.class);
 	public static final Locale INDONESIAN = Locale.forLanguageTag("id-ID");
 	
-	private LexRules rules;
+	private LexRules lexRules;
+	private RelationRules relationRules;
 	private ImmutableMap<String, String> dictionary;
 
 	private final Tokenizer tokenizer;
@@ -96,9 +97,14 @@ public class RelEx {
 		model.setNsPrefix("schema", "http://schema.org/");
 	}
 
-	public void loadRules(Class<?> clazz, String resourcePath) {
-		log.debug("Loading rules from {} > {}", clazz, resourcePath);
-		rules = new OnDemandXmiLoader<LexRules>(RelexidPackage.eINSTANCE, clazz, resourcePath).get();
+	public void loadLexRules(Class<?> clazz, String resourcePath) {
+		log.debug("Loading LexRules from {} > {}", clazz, resourcePath);
+		lexRules = new OnDemandXmiLoader<LexRules>(RelexidPackage.eINSTANCE, clazz, resourcePath).get();
+	}
+	
+	public void loadRelationRules(Class<?> clazz, String resourcePath) {
+		log.debug("Loading RelationRules from {} > {}", clazz, resourcePath);
+		relationRules = new OnDemandXmiLoader<RelationRules>(RelexidPackage.eINSTANCE, clazz, resourcePath).get();
 	}
 	
 	public QName expandRef(String ref) {
@@ -138,6 +144,33 @@ public class RelEx {
 			return ref.getPrefix() + ref.getLocalPart();
 		} else {
 			return ref.getLocalPart();
+		}
+	}
+	
+	/**
+	 * Return the QName as prefixed QName if possible, otherwise full URI (with {delimiter}), otherwise just local part.
+	 * @param ref
+	 * @return
+	 */
+	public static String shortQName(QName ref) {
+		if (!Strings.isNullOrEmpty(ref.getPrefix()) && !Strings.isNullOrEmpty(ref.getLocalPart())) {
+			return ref.getPrefix() + ":" + ref.getLocalPart();
+		} else {
+			return ref.toString();
+		}
+	}
+	
+	/**
+	 * Return short QName of {@link PartOfSpeech#getResource()} if possible,
+	 * otherwise {@link PartOfSpeech#getLiteral()}.
+	 * @param ref
+	 * @return
+	 */
+	public static String shortQName(PartOfSpeech part) {
+		if (part.getResource() != null) {
+			return shortQName(part.getResource());
+		} else {
+			return part.getLiteral();
 		}
 	}
 	
@@ -221,7 +254,7 @@ public class RelEx {
 		@Nullable
 		LexRule matchedRule = null;
 		
-		for (LexRule rule : rules.getRules()) {
+		for (LexRule rule : lexRules.getRules()) {
 			boolean ruleMatches = true;
 			int unrecognizedPartIdx = 0;
 			@Nullable
@@ -343,9 +376,158 @@ public class RelEx {
 			}
 		}
 		
+		List<Relation> relations = findRelations(sentence.getParts());
+		log.debug("Deduced {} relations for sentence '{}': {}", relations.size(), sentence.getLiteral(), relations);
+		sentence.getRelations().addAll(relations);
+		
 		return sentence;
 	}
-
+	
+	/**
+	 * Determines if {@code parts} exactly matches {@code matchers}, including sub-parts and sub-matchers.
+	 * Note that (currently) parts.size() must be == matchers.size(), otherwise it'll immediately return false.
+	 * 
+	 * @todo Advanced/wildcard {@link PartMatcher}s may have cardinality other than 1, so the parts.size == matchers.size assumption
+	 * 		won't be always true.
+	 * @param parts
+	 * @param matchers
+	 * @return
+	 */
+	protected boolean partsMatch(List<PartOfSpeech> parts, List<PartMatcher> matchers) {
+		if (parts.size() != matchers.size()) {
+			return false;
+		}
+		List<PartMatcher> matcheds = new ArrayList<PartMatcher>();
+		for (int partIdx = 0; partIdx < parts.size(); partIdx++) {
+			PartOfSpeech part = parts.get(partIdx);
+			PartMatcher matcher = matchers.get(partIdx);
+			final boolean matcherMatches;
+			if (matcher instanceof TypedPartMatcher) {
+				final boolean parentMatches; 
+				switch (((TypedPartMatcher) matcher).getPartOfSpeech()) {
+				case NOUN:
+					parentMatches = part instanceof NounPart;
+					break;
+				case CONJUNCTION:
+					parentMatches = part instanceof ConjunctionPart;
+					break;
+				case INTERJECTION:
+					parentMatches = part instanceof InterjectionPart;
+					break;
+				case PREPOSITION:
+					parentMatches = part instanceof PrepositionPart;
+					break;
+				case PRONOUN:
+					parentMatches = part instanceof PronounPart;
+					break;
+				case VERB:
+					parentMatches = part instanceof VerbPart;
+					break;
+				default:
+					throw new IllegalArgumentException("Unhandled PartOfSpeech type: " + matcher);
+				}
+				
+				if (parentMatches) {
+					final boolean childrenMatches;
+					if (!matcher.getMatchers().isEmpty()) {
+						if (part instanceof PartContainer) {
+							childrenMatches = partsMatch(((PartContainer) part).getParts(), matcher.getMatchers());
+						} else {
+							childrenMatches = false;
+						}
+					} else {
+						childrenMatches = true;
+					}
+					log.trace("Matcher {} for {}: parent.matched?{} children.matched?{}",
+							matcher, part, parentMatches, childrenMatches);
+					matcherMatches = childrenMatches;
+				} else {
+					log.trace("Matcher {} for {}: parent.matched?{}",
+							matcher, part, parentMatches);
+					matcherMatches = false;
+				}
+				
+			} else {
+				throw new IllegalArgumentException("Unhandled PartMatcher: " + matcher);
+			}
+			
+			if (matcherMatches) {
+				log.debug("Matcher {} matches {}", matcher, part);
+				matcheds.add(matcher);
+			} else {
+				log.trace("Matcher {} not matches {}", matcher, part);
+				break;
+			}
+		}
+		
+		log.debug("Matcheds {} for matchers {} against {}", matcheds.size(), matchers, parts);
+		return matcheds.equals(matchers);
+	}
+	
+	/**
+	 * Get {@link PartOfSpeech} node from a tree. Path indexes are 1-based.
+	 * @param partTree
+	 * @param path
+	 * @return
+	 */
+	protected <T extends PartOfSpeech> T getPartOfSpeechNode(List<PartOfSpeech> partTree, List<Integer> path) {
+		int first = path.get(0);
+		PartOfSpeech myPart = partTree.get(first - 1);
+		List<Integer> rest = path.subList(1, path.size());
+		if (!rest.isEmpty()) {
+			Preconditions.checkArgument(myPart instanceof PartContainer,
+					"Unreachable path '%s' because not PartContainer for %s", path, myPart);
+			return getPartOfSpeechNode(((PartContainer) myPart).getParts(), rest); 
+		} else {
+			return (T) myPart;
+		}
+	}
+	
+	/**
+	 * @param sentenceParts The {@link PartMatcher}s will be invoked against all possible sublists of these.
+	 * 		For sentence "I love you", it will be matched 6 times, for "I", "I love", "I love you", "love", "love you", and "you".
+	 * @return
+	 */
+	public List<Relation> findRelations(List<PartOfSpeech> sentenceParts) {
+		ArrayList<Relation> relations = new ArrayList<>();
+		for (RelationRule rule : relationRules.getRules()) {
+			
+			// create sublists of parts
+			for (int startPartIdx = 0; startPartIdx < sentenceParts.size(); startPartIdx++) {
+				for (int endPartIdx = startPartIdx; endPartIdx < sentenceParts.size(); endPartIdx++) {
+					List<PartOfSpeech> subParts = sentenceParts.subList(startPartIdx, endPartIdx + 1);
+					if (partsMatch(subParts, rule.getMatchers())) {
+						log.debug("Relation rule {} matches {}..{} {}", rule, startPartIdx, endPartIdx, subParts);
+						for (RelationDef rd : rule.getRelationDefs()) {
+							if (rd instanceof SubjectRelationDef) {
+								SubjectRelation rel = RelexidFactory.eINSTANCE.createSubjectRelation();
+								rel.setVerb( this.<VerbPart>getPartOfSpeechNode(subParts, ((SubjectRelationDef) rd).getVerb()) );
+								rel.setSubject( getPartOfSpeechNode(subParts, ((SubjectRelationDef) rd).getSubject()) );
+								relations.add(rel);
+							} else if (rd instanceof ObjectRelationDef) {
+								ObjectRelation rel = RelexidFactory.eINSTANCE.createObjectRelation();
+								rel.setVerb( this.<VerbPart>getPartOfSpeechNode(subParts, ((ObjectRelationDef) rd).getVerb()) );
+								rel.setObject( getPartOfSpeechNode(subParts, ((ObjectRelationDef) rd).getObject()) );
+								relations.add(rel);
+							} else {
+								throw new IllegalArgumentException("Unhandled RelationDef: " + rd);
+							}
+						}
+					} else {
+						log.debug("Relation rule {} not matches {}..{} {}", rule, startPartIdx, endPartIdx, subParts);
+					}
+				}
+				
+			}
+			
+		}
+		
+		log.debug("Deduced {} relations from {} parts {} >> {}",
+				relations.size(), sentenceParts.size(), sentenceParts, relations);
+	
+		return relations;
+	}
+	
 	public void setDictionary(ImmutableMap<String, String> dict) {
 		this.dictionary = dict;
 	}

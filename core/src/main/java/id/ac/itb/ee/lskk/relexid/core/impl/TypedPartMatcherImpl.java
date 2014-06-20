@@ -11,15 +11,11 @@ import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -92,6 +88,7 @@ public class TypedPartMatcherImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<PartMatcher> getMatchers() {
 		if (matchers == null) {
 			matchers = new EObjectContainmentEList<PartMatcher>(PartMatcher.class, this, RelexidPackage.TYPED_PART_MATCHER__MATCHERS);
@@ -104,6 +101,7 @@ public class TypedPartMatcherImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public PartOfSpeechType getPartOfSpeech() {
 		return partOfSpeech;
 	}
@@ -113,6 +111,7 @@ public class TypedPartMatcherImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setPartOfSpeech(PartOfSpeechType newPartOfSpeech) {
 		PartOfSpeechType oldPartOfSpeech = partOfSpeech;
 		partOfSpeech = newPartOfSpeech == null ? PART_OF_SPEECH_EDEFAULT : newPartOfSpeech;
@@ -207,17 +206,10 @@ public class TypedPartMatcherImpl extends MinimalEObjectImpl.Container implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (partOfSpeech: ");
-		result.append(partOfSpeech);
-		result.append(')');
-		return result.toString();
+		return getPartOfSpeech().toString();
 	}
 
 } //TypedPartMatcherImpl

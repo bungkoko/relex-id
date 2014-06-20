@@ -4,11 +4,15 @@ package id.ac.itb.ee.lskk.relexid.core.impl;
 
 import id.ac.itb.ee.lskk.relexid.core.RelexidPackage;
 import id.ac.itb.ee.lskk.relexid.core.SubjectRelationDef;
+
 import java.util.Collection;
+
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
+
+import com.google.common.base.Joiner;
 
 /**
  * <!-- begin-user-doc -->
@@ -69,6 +73,7 @@ public class SubjectRelationDefImpl extends MinimalEObjectImpl.Container impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Integer> getVerb() {
 		if (verb == null) {
 			verb = new EDataTypeUniqueEList<Integer>(Integer.class, this, RelexidPackage.SUBJECT_RELATION_DEF__VERB);
@@ -81,6 +86,7 @@ public class SubjectRelationDefImpl extends MinimalEObjectImpl.Container impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Integer> getSubject() {
 		if (subject == null) {
 			subject = new EDataTypeUniqueEList<Integer>(Integer.class, this, RelexidPackage.SUBJECT_RELATION_DEF__SUBJECT);
@@ -162,19 +168,10 @@ public class SubjectRelationDefImpl extends MinimalEObjectImpl.Container impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (verb: ");
-		result.append(verb);
-		result.append(", subject: ");
-		result.append(subject);
-		result.append(')');
-		return result.toString();
+		return "_subj(" + Joiner.on('/').join(getVerb()) + ", " + Joiner.on('/').join(getSubject()) + ")";
 	}
 
 } //SubjectRelationDefImpl

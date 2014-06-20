@@ -3,15 +3,14 @@
 package id.ac.itb.ee.lskk.relexid.core.impl;
 
 import id.ac.itb.ee.lskk.relexid.core.PartOfSpeech;
+import id.ac.itb.ee.lskk.relexid.core.RelEx;
 import id.ac.itb.ee.lskk.relexid.core.RelexidPackage;
 import id.ac.itb.ee.lskk.relexid.core.SubjectRelation;
 import id.ac.itb.ee.lskk.relexid.core.VerbPart;
 
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
@@ -74,6 +73,7 @@ public class SubjectRelationImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public PartOfSpeech getSubject() {
 		if (subject != null && subject.eIsProxy()) {
 			InternalEObject oldSubject = (InternalEObject)subject;
@@ -100,6 +100,7 @@ public class SubjectRelationImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setSubject(PartOfSpeech newSubject) {
 		PartOfSpeech oldSubject = subject;
 		subject = newSubject;
@@ -112,6 +113,7 @@ public class SubjectRelationImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public VerbPart getVerb() {
 		if (verb != null && verb.eIsProxy()) {
 			InternalEObject oldVerb = (InternalEObject)verb;
@@ -138,6 +140,7 @@ public class SubjectRelationImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setVerb(VerbPart newVerb) {
 		VerbPart oldVerb = verb;
 		verb = newVerb;
@@ -213,6 +216,11 @@ public class SubjectRelationImpl extends MinimalEObjectImpl.Container implements
 				return verb != null;
 		}
 		return super.eIsSet(featureID);
+	}
+	
+	@Override
+	public String toString() {
+		return "_subj(" + RelEx.shortQName(getVerb()) + ", " + RelEx.shortQName(getSubject()) + ")";		
 	}
 
 } //SubjectRelationImpl

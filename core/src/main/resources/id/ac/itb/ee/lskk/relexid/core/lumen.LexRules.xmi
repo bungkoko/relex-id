@@ -19,17 +19,17 @@
           person="second"
           case="object"/>
     </replacements>
-    <patterns
-        xsi:type="relexid:LiteralElement">
+    <matchers
+        xsi:type="relexid:LiteralMatcher">
       <literals>aku</literals>
-    </patterns>
-    <patterns
-        xsi:type="relexid:ResourceElement"
+    </matchers>
+    <matchers
+        xsi:type="relexid:ResourceMatcher"
         resource="dbpedia:Love"/>
-    <patterns
-        xsi:type="relexid:LiteralElement">
+    <matchers
+        xsi:type="relexid:LiteralMatcher">
       <literals>kamu</literals>
-    </patterns>
+    </matchers>
   </rules>
   <rules>
     <replacements
@@ -44,23 +44,23 @@
           partOfSpeech="noun"
           captureGroup="3"/>
     </replacements>
-    <patterns
-        xsi:type="relexid:LiteralElement">
+    <matchers
+        xsi:type="relexid:LiteralMatcher">
       <literals>aku</literals>
-    </patterns>
-    <patterns
-        xsi:type="relexid:ResourceElement"
+    </matchers>
+    <matchers
+        xsi:type="relexid:ResourceMatcher"
         resource="dbpedia:Like"/>
-    <patterns
-        xsi:type="relexid:ResourceElement"
+    <matchers
+        xsi:type="relexid:ResourceMatcher"
         resource="dbpedia:Elephant"/>
   </rules>
   <rules>
     <replacements
         xsi:type="relexid:PunctuationReplacement"/>
-    <patterns
-        xsi:type="relexid:LiteralElement">
+    <matchers
+        xsi:type="relexid:LiteralMatcher">
       <literals>.</literals>
-    </patterns>
+    </matchers>
   </rules>
 </relexid:LexRules>

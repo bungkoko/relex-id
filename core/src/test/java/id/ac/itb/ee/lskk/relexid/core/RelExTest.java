@@ -1,9 +1,18 @@
 package id.ac.itb.ee.lskk.relexid.core;
 
+import static org.hamcrest.Matchers.hasSize;
+import static org.hamcrest.Matchers.instanceOf;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThat;
+import id.ac.itb.ee.lskk.relexid.core.impl.PronounPartImpl;
+import id.ac.itb.ee.lskk.relexid.core.impl.PunctuationPartImpl;
 
+import java.util.List;
 import java.util.Locale;
 
+import javax.xml.namespace.QName;
+
+import org.hamcrest.Matchers;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -39,6 +48,9 @@ public class RelExTest {
 				.build();
 		relex = new RelEx();
 		relex.setDictionary(DICT_ID_ID);
+		
+		relex.loadLexRules(RelExTest.class, "lumen.LexRules.xmi");
+		relex.loadRelationRules(RelExTest.class, "lumen.RelationRules.xmi");
 	}
 
 	@After
@@ -47,7 +59,6 @@ public class RelExTest {
 
 	@Test
 	public void akuCintaKamu() {
-		relex.loadRules(RelExTest.class, "lumen.LexRules.xmi");
 		final Sentence sentence = relex.parse("Aku cinta kamu.");
 		log.info("Sentence structure: {}", sentence);
 		log.info("Sentence in English: {}", sentence.generate(Locale.ENGLISH, DICT_EN_US));
@@ -56,13 +67,58 @@ public class RelExTest {
 	}
 	
 	@Test
+	public void iLoveYouRelations() {
+		final Sentence sentence = RelexidFactory.eINSTANCE.createSentence();
+		final PronounPart i = PronounPartImpl.I;
+		sentence.getParts().add( i );
+		final VerbPart love = RelexidFactory.eINSTANCE.createVerbPart();
+		love.setResource(new QName(DBPEDIA_NS, "Love", "dbpedia"));
+		sentence.getParts().add( love );
+		final PronounPart you_o = PronounPartImpl.YOU_O;
+		love.getParts().add( you_o );
+		sentence.getParts().add( PunctuationPartImpl.FULL_STOP );
+		log.info("iLoveYou: {}", sentence);
+		
+		List<Relation> relations = relex.findRelations(sentence.getParts());
+		log.info("Relations: {}", relations);
+		for (Relation rel : relations) {
+			log.info("{}", rel);
+		}
+		
+		assertThat(relations, hasSize(2));
+		assertThat(relations, Matchers.<Relation>hasItem( instanceOf(SubjectRelation.class) ));
+		assertThat(relations, Matchers.<Relation>hasItem( instanceOf(ObjectRelation.class) ));
+	}
+	
+	
+	@Test
 	public void akuSukaGajah() {
-		relex.loadRules(RelExTest.class, "lumen.LexRules.xmi");
+		relex.loadLexRules(RelExTest.class, "lumen.LexRules.xmi");
 		final Sentence sentence = relex.parse("Aku suka gajah.");
 		log.info("Sentence structure: {}", sentence);
 		log.info("Sentence in English: {}", sentence.generate(Locale.ENGLISH, DICT_EN_US));
 		log.info("Sentence in Indonesian: {}", sentence.generate(RelEx.INDONESIAN, DICT_ID_ID));
 		assertEquals("(S (PP i) (VP dbpedia:Like (NP dbpedia:Elephant)) . )", sentence.toString());
+	}
+	
+	@Test
+	public void akuSukaGajahRelations() {
+		relex.loadLexRules(RelExTest.class, "lumen.LexRules.xmi");
+		final Sentence sentence = relex.parse("Aku suka gajah.");
+		log.info("Sentence structure: {}", sentence);
+		log.info("Sentence in English: {}", sentence.generate(Locale.ENGLISH, DICT_EN_US));
+		log.info("Sentence in Indonesian: {}", sentence.generate(RelEx.INDONESIAN, DICT_ID_ID));
+		assertEquals("(S (PP i) (VP dbpedia:Like (NP dbpedia:Elephant)) . )", sentence.toString());
+		
+		List<Relation> relations = relex.findRelations(sentence.getParts());
+		log.info("Relations: {}", relations);
+		for (Relation rel : relations) {
+			System.out.println(rel);
+		}
+		
+		assertThat(relations, hasSize(2));
+		assertThat(relations, Matchers.<Relation>hasItem( instanceOf(SubjectRelation.class) ));
+		assertThat(relations, Matchers.<Relation>hasItem( instanceOf(ObjectRelation.class) ));
 	}
 	
 	@Test

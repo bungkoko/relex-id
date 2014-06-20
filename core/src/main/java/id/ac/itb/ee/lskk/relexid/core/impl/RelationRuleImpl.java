@@ -10,16 +10,14 @@ import id.ac.itb.ee.lskk.relexid.core.RelexidPackage;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+
+import com.google.common.base.Joiner;
 
 /**
  * <!-- begin-user-doc -->
@@ -80,6 +78,7 @@ public class RelationRuleImpl extends MinimalEObjectImpl.Container implements Re
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<PartMatcher> getMatchers() {
 		if (matchers == null) {
 			matchers = new EObjectContainmentEList<PartMatcher>(PartMatcher.class, this, RelexidPackage.RELATION_RULE__MATCHERS);
@@ -92,6 +91,7 @@ public class RelationRuleImpl extends MinimalEObjectImpl.Container implements Re
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<RelationDef> getRelationDefs() {
 		if (relationDefs == null) {
 			relationDefs = new EObjectContainmentEList<RelationDef>(RelationDef.class, this, RelexidPackage.RELATION_RULE__RELATION_DEFS);
@@ -184,6 +184,12 @@ public class RelationRuleImpl extends MinimalEObjectImpl.Container implements Re
 				return relationDefs != null && !relationDefs.isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+	
+	@Override
+	public String toString() {
+		return "[" + Joiner.on(' ').join(getMatchers()) + " => " + 
+				Joiner.on(" || ").join(getRelationDefs()) + "]";
 	}
 
 } //RelationRuleImpl
