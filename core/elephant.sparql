@@ -1,0 +1,15 @@
+# arq --data /media/ceefour/passport/project_passport/Lumen/wn31/wn31test.ttl --file ~/git/relex-id/core/elephant.sparql
+# tdbquery --loc=$HOME/tmp/wn31 --file ~/git/relex-id/core/elephant.sparql
+PREFIX rdf:					<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs:				<http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl:					<http://www.w3.org/2002/07/owl#>
+PREFIX lemon:				<http://lemon-model.net/lemon#> 
+PREFIX wn31:				<http://wordnet-rdf.princeton.edu/wn31/> 
+PREFIX wordnet-ontology:	<http://wordnet-rdf.princeton.edu/ontology#>
+PREFIX wn20:				<http://www.w3.org/2006/03/wn/wn20/instances/>
+PREFIX uby:					<http://lemon-model.net/lexica/uby/wn/>
+
+
+select * where {
+ wn31:102506148-n ?y ?z
+}

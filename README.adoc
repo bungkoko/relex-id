@@ -47,8 +47,12 @@ Question variable extraction digunakan untuk mendapatkan variabel apa yang ditan
 @prefix dbpedia-owl:	<http://dbpedia.org/ontology/> .
 @prefix dbpedia:		<http://dbpedia.org/resource/> .
 @prefix schema:			<http://schema.org> .
-@prefix wn30:			<http://purl.org/vocabularies/princeton/wn30/> .
+@prefix wn30:			<http://wordnet-rdf.princeton.edu/wn30/> .
 ----
+
+Note: Althought I wanted to use `@prefix wn31: <http://wordnet-rdf.princeton.edu/wn31/> .`,
+unfortunately WordNet Bahasa still uses WordNet 3.0 so that's why I'm using right now.
+BTW http://wordnet-rdf.princeton.edu/wn30/ namespace always redirects to `wn31`.
 
 === Animal
 
@@ -126,13 +130,99 @@ Cuicit suka berkicau/bernyanyi/bersuara di pagi hari.
 
 Suara nya cit cit cit / cuit cuit cuit / merdu. :)
 
+== WordNet 3.1 Preprocessing
+
+[WordNet 3.1 RDF](http://wordnet-rdf.princeton.edu/) (77 MB gzip, 1.2 GB expanded)
+comes in N-Triples format which is too big to parse anyway.
+So please convert it first to TURTLE using [rdfcat](http://semapps.blogspot.com/2010/05/using-jena-to-convert-rdfowl-file.html)
+using following techniques.
+
+=== rdfcat (legacy)
+
+This is slow and generates unusable data anyway. Skip to TDB + arq.
+
+----
+time JVM_ARGS='-Xms6g -Xmx6g' ~/apache-jena-2.11.2/bin/rdfcat -out ttl -rdfxml ~/Downloads/wn31.nt > ~/Downloads/wn31.ttl
+----
+
+That will take 7m15s on i7, you can use 4 GB heap too, but no less. And generates 480 MB TURTLE file *without* nsPrefixes (sigh!). :(
+
+=== TDB
+
+You need to use `tdbloader2` to load the WordNet 3.1 data.
+
+----
+ceefour@amanah:/media/ceefour/passport/project_passport/Lumen/wn31 > tdbloader2 --loc ~/tmp/wn31 wn31.nt
+----
+
+This took 108 seconds on i7 :) and generates 735 MB data.
+
+Test:
+
+	ceefour@amanah:~ > tdbquery --loc=$HOME/wn31_tdb --file ~/git/relex-id/core/elephant.sparql
+	------------------------------------------------------------------
+	| y                               | z                            |
+	==================================================================
+	| rdf:type                        | wordnet-ontology:Synset      |
+	| wordnet-ontology:translation    | "象"@zho                      |
+	| wordnet-ontology:translation    | "éléphant"@fra               |
+	| wordnet-ontology:translation    | "elefante"@glg               |
+	| wordnet-ontology:translation    | "elefante"@ita               |
+	| wordnet-ontology:translation    | "biram"@zsm                  |
+	| wordnet-ontology:translation    | "elefante"@por               |
+	| wordnet-ontology:translation    | "elefant"@dan                |
+	| wordnet-ontology:translation    | "elefanta"@por               |
+	| wordnet-ontology:translation    | "biram"@ind                  |
+	| wordnet-ontology:translation    | "ゾウ"@jpn                     |
+	| wordnet-ontology:translation    | "elefant"@nob                |
+	| wordnet-ontology:translation    | "ช้าง"@tha                   |
+	| wordnet-ontology:translation    | "فیل"@fas                    |
+	| wordnet-ontology:translation    | "gajah"@zsm                  |
+	| wordnet-ontology:translation    | "elefante"@spa               |
+	| wordnet-ontology:translation    | "ช้างสาร"@tha                |
+	| wordnet-ontology:translation    | "פִּיל"@heb                  |
+	| wordnet-ontology:translation    | "象さん"@jpn                    |
+	| wordnet-ontology:translation    | "elefante"@eus               |
+	| wordnet-ontology:translation    | "gajah"@ind                  |
+	| wordnet-ontology:translation    | "象"@jpn                      |
+	| wordnet-ontology:translation    | "norsu"@fin                  |
+	| wordnet-ontology:translation    | "elefantti"@fin              |
+	| wordnet-ontology:translation    | "پیل"@fas                    |
+	| wordnet-ontology:translation    | "Elefantes"@por              |
+	| wordnet-ontology:translation    | "elephantidae"@spa           |
+	| wordnet-ontology:translation    | "éléphantidés"@fra           |
+	| wordnet-ontology:translation    | "elefant"@nno                |
+	| wordnet-ontology:translation    | "elefant"@cat                |
+	| wordnet-ontology:translation    | "หัตถี"@tha                  |
+	| wordnet-ontology:hyponym        | wn31:102507401-n             |
+	| wordnet-ontology:hyponym        | wn31:102506644-n             |
+	| wordnet-ontology:hyponym        | wn31:102509414-n             |
+	| wordnet-ontology:hyponym        | wn31:102506387-n             |
+	| wordnet-ontology:hyponym        | wn31:102507089-n             |
+	| wordnet-ontology:synset_member  | wn31:elephant-n              |
+	| wordnet-ontology:gloss          | "five-toed pachyderm"@eng    |
+	| wordnet-ontology:part_of_speech | wordnet-ontology:noun        |
+	| owl:sameAs                      | wn20:synset-elephant-noun-1  |
+	| owl:sameAs                      | uby:WN_Synset_13287          |
+	| rdfs:label                      | "elephant"@eng               |
+	| wordnet-ontology:lexical_domain | wordnet-ontology:noun.animal |
+	| wordnet-ontology:hypernym       | wn31:102505758-n             |
+	| wordnet-ontology:hypernym       | wn31:102455739-n             |
+	| wordnet-ontology:part_holonym   | wn31:101468354-n             |
+	| wordnet-ontology:part_holonym   | wn31:102455598-n             |
+	| wordnet-ontology:member_meronym | wn31:102505944-n             |
+	------------------------------------------------------------------
+
+Yay! :)
+
 == References
 
-1. [Lexical Resources & NLP Tools Bahasa Indonesia - Universitas Indonesia](http://bahasa.cs.ui.ac.id/resources.php)
-2. [Membangun Tree Parse untuk Parsing di Stanford Parser Menggunakan Java - Yuita Arum Sari](http://arumsha.wordpress.com/2012/12/15/membangun-tree-parse-untuk-parsing-di-stanford-parser-menggunakan-java/)
-3. [WordNet Bahasa Melayu/Malaysia/Indonesia](http://wn-msa.sourceforge.net/)
-4. [NLP resource yang tersedia untuk bahasa Indonesia](http://alfan-farizki.blogspot.com/2010/04/nlp-resource-yang-tersedia-untuk-bahasa.html)
-5. [Open Multilingual Wordnet](http://compling.hss.ntu.edu.sg/omw/)
+1. [WordNet 3.1 RDF](http://wordnet-rdf.princeton.edu/)
+2. [Lexical Resources & NLP Tools Bahasa Indonesia - Universitas Indonesia](http://bahasa.cs.ui.ac.id/resources.php)
+3. [Membangun Tree Parse untuk Parsing di Stanford Parser Menggunakan Java - Yuita Arum Sari](http://arumsha.wordpress.com/2012/12/15/membangun-tree-parse-untuk-parsing-di-stanford-parser-menggunakan-java/)
+4. [WordNet Bahasa Melayu/Malaysia/Indonesia](http://wn-msa.sourceforge.net/)
+5. [NLP resource yang tersedia untuk bahasa Indonesia](http://alfan-farizki.blogspot.com/2010/04/nlp-resource-yang-tersedia-untuk-bahasa.html)
+6. [Open Multilingual Wordnet](http://compling.hss.ntu.edu.sg/omw/)
 
 === Lexical resources
 

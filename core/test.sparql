@@ -1,0 +1,10 @@
+# arq --out ttl --data /media/ceefour/passport/project_passport/Lumen/wn31/wn31test.ttl --file ~/git/relex-id/core/test.sparql
+# tdbquery --out ttl --loc=$HOME/tmp/wn31 --file ~/git/relex-id/core/test.sparql
+PREFIX lemon: <http://lemon-model.net/lemon#> 
+PREFIX wn31: <http://wordnet-rdf.princeton.edu/wn31/> 
+PREFIX wordnet-ontology: <http://wordnet-rdf.princeton.edu/ontology#>
+
+
+select * where {
+ ?s a wordnet-ontology:Synset
+} limit 10
