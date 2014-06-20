@@ -1,54 +1,35 @@
 <?xml version="1.0" encoding="ASCII"?>
-<relexid:RelationRules
-    xmi:version="2.0"
-    xmlns:xmi="http://www.omg.org/XMI"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:relexid="http://relexid/1.0"
-    xsi:schemaLocation="http://relexid/1.0 relexid.ecore">
-  <rules>
-    <matchers
-        xsi:type="relexid:TypedPartMatcher"
-        partOfSpeech="pronoun"/>
-    <matchers
-        xsi:type="relexid:TypedPartMatcher"
-        partOfSpeech="verb">
-      <matchers
-          xsi:type="relexid:TypedPartMatcher"
-          partOfSpeech="pronoun"/>
-    </matchers>
-    <relationDefs
-        xsi:type="relexid:SubjectRelationDef">
-      <verb>2</verb>
-      <subject>1</subject>
-    </relationDefs>
-    <relationDefs
-        xsi:type="relexid:ObjectRelationDef">
-      <verb>2</verb>
-      <object>2</object>
-      <object>1</object>
-    </relationDefs>
-  </rules>
-  <rules>
-    <matchers
-        xsi:type="relexid:TypedPartMatcher"
-        partOfSpeech="pronoun"/>
-    <matchers
-        xsi:type="relexid:TypedPartMatcher"
-        partOfSpeech="verb">
-      <matchers
-          xsi:type="relexid:TypedPartMatcher"
-          partOfSpeech="noun"/>
-    </matchers>
-    <relationDefs
-        xsi:type="relexid:SubjectRelationDef">
-      <verb>2</verb>
-      <subject>1</subject>
-    </relationDefs>
-    <relationDefs
-        xsi:type="relexid:ObjectRelationDef">
-      <verb>2</verb>
-      <object>2</object>
-      <object>1</object>
-    </relationDefs>
-  </rules>
+<relexid:RelationRules xmi:version="2.0"
+	xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:relexid="http://relexid/1.0" xsi:schemaLocation="http://relexid/1.0 relexid.ecore">
+	<rules>
+		<matchers xsi:type="relexid:TypedPartMatcher" partOfSpeech="pronoun" />
+		<matchers xsi:type="relexid:TypedPartMatcher" partOfSpeech="verb">
+			<matchers xsi:type="relexid:TypedPartMatcher" partOfSpeech="pronoun" />
+		</matchers>
+		<relationDefs xsi:type="relexid:SubjectRelationDef">
+			<verb>2</verb>
+			<subject>1</subject>
+		</relationDefs>
+		<relationDefs xsi:type="relexid:ObjectRelationDef">
+			<verb>2</verb>
+			<object>2</object>
+			<object>1</object>
+		</relationDefs>
+	</rules>
+	<rules>
+		<matchers xsi:type="relexid:TypedPartMatcher" partOfSpeech="pronoun" />
+		<matchers xsi:type="relexid:TypedPartMatcher" partOfSpeech="verb">
+			<matchers xsi:type="relexid:TypedPartMatcher" partOfSpeech="noun" />
+		</matchers>
+		<relationDefs xsi:type="relexid:SubjectRelationDef">
+			<verb>2</verb>
+			<subject>1</subject>
+		</relationDefs>
+		<relationDefs xsi:type="relexid:ObjectRelationDef">
+			<verb>2</verb>
+			<object>2</object>
+			<object>1</object>
+		</relationDefs>
+	</rules>
 </relexid:RelationRules>

@@ -7,18 +7,14 @@ import id.ac.itb.ee.lskk.relexid.core.RelexidPackage;
 import id.ac.itb.ee.lskk.relexid.core.UnrecognizedPart;
 
 import java.lang.reflect.InvocationTargetException;
-
 import java.util.Locale;
 import java.util.Map;
 
 import javax.xml.namespace.QName;
 
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
@@ -122,6 +118,7 @@ public class UnrecognizedPartImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getLiteral() {
 		return literal;
 	}
@@ -131,6 +128,7 @@ public class UnrecognizedPartImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setLiteral(String newLiteral) {
 		String oldLiteral = literal;
 		literal = newLiteral;
@@ -143,6 +141,7 @@ public class UnrecognizedPartImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public QName getResource() {
 		return resource;
 	}
@@ -152,6 +151,7 @@ public class UnrecognizedPartImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setResource(QName newResource) {
 		QName oldResource = resource;
 		resource = newResource;
@@ -164,6 +164,7 @@ public class UnrecognizedPartImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public QName getWord() {
 		return word;
 	}
@@ -173,6 +174,7 @@ public class UnrecognizedPartImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setWord(QName newWord) {
 		QName oldWord = word;
 		word = newWord;
@@ -185,6 +187,7 @@ public class UnrecognizedPartImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public GeneratedLiteral generate(Locale locale, Map<String, String> dict) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
@@ -287,21 +290,10 @@ public class UnrecognizedPartImpl extends MinimalEObjectImpl.Container implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (literal: ");
-		result.append(literal);
-		result.append(", resource: ");
-		result.append(resource);
-		result.append(", word: ");
-		result.append(word);
-		result.append(')');
-		return result.toString();
+		return "'" + getLiteral() + "'";
 	}
 
 } //UnrecognizedPartImpl
