@@ -13,15 +13,15 @@ import javax.xml.namespace.QName;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link id.ac.itb.ee.lskk.relexid.core.ResourceElement#getResource <em>Resource</em>}</li>
+ *   <li>{@link id.ac.itb.ee.lskk.relexid.core.ResourceMatcher#getResource <em>Resource</em>}</li>
  * </ul>
  * </p>
  *
- * @see id.ac.itb.ee.lskk.relexid.core.RelexidPackage#getResourceElement()
+ * @see id.ac.itb.ee.lskk.relexid.core.RelexidPackage#getResourceMatcher()
  * @model
  * @generated
  */
-public interface ResourceElement extends LexElement {
+public interface ResourceMatcher extends LexMatcher {
 	/**
 	 * Returns the value of the '<em><b>Resource</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -31,14 +31,14 @@ public interface ResourceElement extends LexElement {
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Resource</em>' attribute.
 	 * @see #setResource(QName)
-	 * @see id.ac.itb.ee.lskk.relexid.core.RelexidPackage#getResourceElement_Resource()
+	 * @see id.ac.itb.ee.lskk.relexid.core.RelexidPackage#getResourceMatcher_Resource()
 	 * @model dataType="id.ac.itb.ee.lskk.relexid.core.QName" required="true"
 	 * @generated
 	 */
 	QName getResource();
 
 	/**
-	 * Sets the value of the '{@link id.ac.itb.ee.lskk.relexid.core.ResourceElement#getResource <em>Resource</em>}' attribute.
+	 * Sets the value of the '{@link id.ac.itb.ee.lskk.relexid.core.ResourceMatcher#getResource <em>Resource</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Resource</em>' attribute.

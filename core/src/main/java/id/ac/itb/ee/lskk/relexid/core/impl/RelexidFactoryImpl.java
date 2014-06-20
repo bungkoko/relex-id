@@ -68,10 +68,10 @@ public class RelexidFactoryImpl extends EFactoryImpl implements RelexidFactory {
 			case RelexidPackage.PREPOSITION_PART: return createPrepositionPart();
 			case RelexidPackage.CONJUNCTION_PART: return createConjunctionPart();
 			case RelexidPackage.INTERJECTION_PART: return createInterjectionPart();
-			case RelexidPackage.PART_OF_SPEECH_ELEMENT: return createPartOfSpeechElement();
-			case RelexidPackage.TYPED_RESOURCE_ELEMENT: return createTypedResourceElement();
-			case RelexidPackage.LITERAL_ELEMENT: return createLiteralElement();
-			case RelexidPackage.CLASS_ELEMENT: return createClassElement();
+			case RelexidPackage.PART_OF_SPEECH_MATCHER: return createPartOfSpeechMatcher();
+			case RelexidPackage.TYPED_RESOURCE_MATCHER: return createTypedResourceMatcher();
+			case RelexidPackage.LITERAL_MATCHER: return createLiteralMatcher();
+			case RelexidPackage.CLASS_MATCHER: return createClassMatcher();
 			case RelexidPackage.LITERAL_REPLACEMENT: return createLiteralReplacement();
 			case RelexidPackage.PUNCTUATION_PART: return createPunctuationPart();
 			case RelexidPackage.PUNCTUATION_REPLACEMENT: return createPunctuationReplacement();
@@ -81,7 +81,7 @@ public class RelexidFactoryImpl extends EFactoryImpl implements RelexidFactory {
 			case RelexidPackage.ADJECTIVE_PART: return createAdjectivePart();
 			case RelexidPackage.GENERATED_LITERAL: return createGeneratedLiteral();
 			case RelexidPackage.LEX_RULES: return createLexRules();
-			case RelexidPackage.RESOURCE_ELEMENT: return createResourceElement();
+			case RelexidPackage.RESOURCE_MATCHER: return createResourceMatcher();
 			case RelexidPackage.PRONOUN_REPLACEMENT: return createPronounReplacement();
 			case RelexidPackage.UNRECOGNIZED_PART: return createUnrecognizedPart();
 			default:
@@ -232,9 +232,9 @@ public class RelexidFactoryImpl extends EFactoryImpl implements RelexidFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PartOfSpeechElement createPartOfSpeechElement() {
-		PartOfSpeechElementImpl partOfSpeechElement = new PartOfSpeechElementImpl();
-		return partOfSpeechElement;
+	public PartOfSpeechMatcher createPartOfSpeechMatcher() {
+		PartOfSpeechMatcherImpl partOfSpeechMatcher = new PartOfSpeechMatcherImpl();
+		return partOfSpeechMatcher;
 	}
 
 	/**
@@ -242,9 +242,9 @@ public class RelexidFactoryImpl extends EFactoryImpl implements RelexidFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TypedResourceElement createTypedResourceElement() {
-		TypedResourceElementImpl typedResourceElement = new TypedResourceElementImpl();
-		return typedResourceElement;
+	public TypedResourceMatcher createTypedResourceMatcher() {
+		TypedResourceMatcherImpl typedResourceMatcher = new TypedResourceMatcherImpl();
+		return typedResourceMatcher;
 	}
 
 	/**
@@ -252,9 +252,19 @@ public class RelexidFactoryImpl extends EFactoryImpl implements RelexidFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ResourceElement createResourceElement() {
-		ResourceElementImpl resourceElement = new ResourceElementImpl();
-		return resourceElement;
+	public LiteralMatcher createLiteralMatcher() {
+		LiteralMatcherImpl literalMatcher = new LiteralMatcherImpl();
+		return literalMatcher;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ClassMatcher createClassMatcher() {
+		ClassMatcherImpl classMatcher = new ClassMatcherImpl();
+		return classMatcher;
 	}
 
 	/**
@@ -275,26 +285,6 @@ public class RelexidFactoryImpl extends EFactoryImpl implements RelexidFactory {
 	public UnrecognizedPart createUnrecognizedPart() {
 		UnrecognizedPartImpl unrecognizedPart = new UnrecognizedPartImpl();
 		return unrecognizedPart;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public LiteralElement createLiteralElement() {
-		LiteralElementImpl literalElement = new LiteralElementImpl();
-		return literalElement;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ClassElement createClassElement() {
-		ClassElementImpl classElement = new ClassElementImpl();
-		return classElement;
 	}
 
 	/**
@@ -385,6 +375,16 @@ public class RelexidFactoryImpl extends EFactoryImpl implements RelexidFactory {
 	public LexRules createLexRules() {
 		LexRulesImpl lexRules = new LexRulesImpl();
 		return lexRules;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ResourceMatcher createResourceMatcher() {
+		ResourceMatcherImpl resourceMatcher = new ResourceMatcherImpl();
+		return resourceMatcher;
 	}
 
 	/**

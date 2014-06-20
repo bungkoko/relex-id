@@ -130,6 +130,9 @@ Suara nya cit cit cit / cuit cuit cuit / merdu. :)
 
 1. [Lexical Resources & NLP Tools Bahasa Indonesia - Universitas Indonesia](http://bahasa.cs.ui.ac.id/resources.php)
 2. [Membangun Tree Parse untuk Parsing di Stanford Parser Menggunakan Java - Yuita Arum Sari](http://arumsha.wordpress.com/2012/12/15/membangun-tree-parse-untuk-parsing-di-stanford-parser-menggunakan-java/)
+3. [WordNet Bahasa Melayu/Malaysia/Indonesia](http://wn-msa.sourceforge.net/)
+4. [NLP resource yang tersedia untuk bahasa Indonesia](http://alfan-farizki.blogspot.com/2010/04/nlp-resource-yang-tersedia-untuk-bahasa.html)
+5. [Open Multilingual Wordnet](http://compling.hss.ntu.edu.sg/omw/)
 
 === Lexical resources
 

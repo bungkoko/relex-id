@@ -4,20 +4,20 @@ package id.ac.itb.ee.lskk.relexid.core.impl;
 
 import id.ac.itb.ee.lskk.relexid.core.AdjectivePart;
 import id.ac.itb.ee.lskk.relexid.core.AdverbPart;
-import id.ac.itb.ee.lskk.relexid.core.ClassElement;
+import id.ac.itb.ee.lskk.relexid.core.ClassMatcher;
 import id.ac.itb.ee.lskk.relexid.core.ConjunctionPart;
 import id.ac.itb.ee.lskk.relexid.core.GeneratedLiteral;
 import id.ac.itb.ee.lskk.relexid.core.InterjectionPart;
-import id.ac.itb.ee.lskk.relexid.core.LexElement;
+import id.ac.itb.ee.lskk.relexid.core.LexMatcher;
 import id.ac.itb.ee.lskk.relexid.core.LexReplacement;
 import id.ac.itb.ee.lskk.relexid.core.LexRule;
 import id.ac.itb.ee.lskk.relexid.core.LexRules;
-import id.ac.itb.ee.lskk.relexid.core.LiteralElement;
+import id.ac.itb.ee.lskk.relexid.core.LiteralMatcher;
 import id.ac.itb.ee.lskk.relexid.core.LiteralReplacement;
 import id.ac.itb.ee.lskk.relexid.core.NounPart;
 import id.ac.itb.ee.lskk.relexid.core.PartContainer;
 import id.ac.itb.ee.lskk.relexid.core.PartOfSpeech;
-import id.ac.itb.ee.lskk.relexid.core.PartOfSpeechElement;
+import id.ac.itb.ee.lskk.relexid.core.PartOfSpeechMatcher;
 import id.ac.itb.ee.lskk.relexid.core.PartOfSpeechType;
 import id.ac.itb.ee.lskk.relexid.core.PrepositionPart;
 import id.ac.itb.ee.lskk.relexid.core.PronounCase;
@@ -34,10 +34,10 @@ import id.ac.itb.ee.lskk.relexid.core.Questionable;
 import id.ac.itb.ee.lskk.relexid.core.RelexidFactory;
 import id.ac.itb.ee.lskk.relexid.core.RelexidPackage;
 import id.ac.itb.ee.lskk.relexid.core.ReplacementContainer;
-import id.ac.itb.ee.lskk.relexid.core.ResourceElement;
+import id.ac.itb.ee.lskk.relexid.core.ResourceMatcher;
 import id.ac.itb.ee.lskk.relexid.core.ResourceReplacement;
 import id.ac.itb.ee.lskk.relexid.core.Sentence;
-import id.ac.itb.ee.lskk.relexid.core.TypedResourceElement;
+import id.ac.itb.ee.lskk.relexid.core.TypedResourceMatcher;
 import id.ac.itb.ee.lskk.relexid.core.UnrecognizedPart;
 import id.ac.itb.ee.lskk.relexid.core.VerbPart;
 
@@ -130,28 +130,35 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass lexElementEClass = null;
+	private EClass lexMatcherEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass partOfSpeechElementEClass = null;
+	private EClass partOfSpeechMatcherEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass typedResourceElementEClass = null;
+	private EClass typedResourceMatcherEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass resourceElementEClass = null;
+	private EClass literalMatcherEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass classMatcherEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -173,20 +180,6 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * @generated
 	 */
 	private EClass replacementContainerEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass literalElementEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass classElementEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -271,6 +264,13 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * @generated
 	 */
 	private EClass lexRulesEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass resourceMatcherEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -448,6 +448,15 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getPartOfSpeech_Word() {
+		return (EAttribute)partOfSpeechEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EOperation getPartOfSpeech__Generate__Locale_Map() {
 		return partOfSpeechEClass.getEOperations().get(0);
 	}
@@ -520,7 +529,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getLexRule_Patterns() {
+	public EReference getLexRule_Matchers() {
 		return (EReference)lexRuleEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -556,8 +565,8 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getLexElement() {
-		return lexElementEClass;
+	public EClass getLexMatcher() {
+		return lexMatcherEClass;
 	}
 
 	/**
@@ -565,8 +574,8 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getPartOfSpeechElement() {
-		return partOfSpeechElementEClass;
+	public EClass getPartOfSpeechMatcher() {
+		return partOfSpeechMatcherEClass;
 	}
 
 	/**
@@ -574,8 +583,8 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPartOfSpeechElement_PartOfSpeech() {
-		return (EAttribute)partOfSpeechElementEClass.getEStructuralFeatures().get(0);
+	public EAttribute getPartOfSpeechMatcher_PartOfSpeech() {
+		return (EAttribute)partOfSpeechMatcherEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -583,8 +592,8 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getTypedResourceElement() {
-		return typedResourceElementEClass;
+	public EClass getTypedResourceMatcher() {
+		return typedResourceMatcherEClass;
 	}
 
 	/**
@@ -592,8 +601,8 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getTypedResourceElement_SemanticClass() {
-		return (EAttribute)typedResourceElementEClass.getEStructuralFeatures().get(0);
+	public EAttribute getTypedResourceMatcher_SemanticClass() {
+		return (EAttribute)typedResourceMatcherEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -601,8 +610,8 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getResourceElement() {
-		return resourceElementEClass;
+	public EClass getLiteralMatcher() {
+		return literalMatcherEClass;
 	}
 
 	/**
@@ -610,8 +619,35 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getResourceElement_Resource() {
-		return (EAttribute)resourceElementEClass.getEStructuralFeatures().get(0);
+	public EAttribute getLiteralMatcher_Literals() {
+		return (EAttribute)literalMatcherEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getLiteralMatcher_CaseSensitive() {
+		return (EAttribute)literalMatcherEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getClassMatcher() {
+		return classMatcherEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getClassMatcher_SemanticClass() {
+		return (EAttribute)classMatcherEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -675,51 +711,6 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 */
 	public EReference getReplacementContainer_Replacements() {
 		return (EReference)replacementContainerEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getLiteralElement() {
-		return literalElementEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getLiteralElement_CaseSensitive() {
-		return (EAttribute)literalElementEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getLiteralElement_Literals() {
-		return (EAttribute)literalElementEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getClassElement() {
-		return classElementEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getClassElement_SemanticClass() {
-		return (EAttribute)classElementEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -943,6 +934,24 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getResourceMatcher() {
+		return resourceMatcherEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getResourceMatcher_Resource() {
+		return (EAttribute)resourceMatcherEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getPartOfSpeechType() {
 		return partOfSpeechTypeEEnum;
 	}
@@ -1045,6 +1054,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 		partOfSpeechEClass = createEClass(PART_OF_SPEECH);
 		createEAttribute(partOfSpeechEClass, PART_OF_SPEECH__LITERAL);
 		createEAttribute(partOfSpeechEClass, PART_OF_SPEECH__RESOURCE);
+		createEAttribute(partOfSpeechEClass, PART_OF_SPEECH__WORD);
 		createEOperation(partOfSpeechEClass, PART_OF_SPEECH___GENERATE__LOCALE_MAP);
 
 		nounPartEClass = createEClass(NOUN_PART);
@@ -1057,7 +1067,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 		verbPartEClass = createEClass(VERB_PART);
 
 		lexRuleEClass = createEClass(LEX_RULE);
-		createEReference(lexRuleEClass, LEX_RULE__PATTERNS);
+		createEReference(lexRuleEClass, LEX_RULE__MATCHERS);
 
 		prepositionPartEClass = createEClass(PREPOSITION_PART);
 
@@ -1065,20 +1075,20 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 
 		interjectionPartEClass = createEClass(INTERJECTION_PART);
 
-		lexElementEClass = createEClass(LEX_ELEMENT);
+		lexMatcherEClass = createEClass(LEX_MATCHER);
 
-		partOfSpeechElementEClass = createEClass(PART_OF_SPEECH_ELEMENT);
-		createEAttribute(partOfSpeechElementEClass, PART_OF_SPEECH_ELEMENT__PART_OF_SPEECH);
+		partOfSpeechMatcherEClass = createEClass(PART_OF_SPEECH_MATCHER);
+		createEAttribute(partOfSpeechMatcherEClass, PART_OF_SPEECH_MATCHER__PART_OF_SPEECH);
 
-		typedResourceElementEClass = createEClass(TYPED_RESOURCE_ELEMENT);
-		createEAttribute(typedResourceElementEClass, TYPED_RESOURCE_ELEMENT__SEMANTIC_CLASS);
+		typedResourceMatcherEClass = createEClass(TYPED_RESOURCE_MATCHER);
+		createEAttribute(typedResourceMatcherEClass, TYPED_RESOURCE_MATCHER__SEMANTIC_CLASS);
 
-		literalElementEClass = createEClass(LITERAL_ELEMENT);
-		createEAttribute(literalElementEClass, LITERAL_ELEMENT__LITERALS);
-		createEAttribute(literalElementEClass, LITERAL_ELEMENT__CASE_SENSITIVE);
+		literalMatcherEClass = createEClass(LITERAL_MATCHER);
+		createEAttribute(literalMatcherEClass, LITERAL_MATCHER__LITERALS);
+		createEAttribute(literalMatcherEClass, LITERAL_MATCHER__CASE_SENSITIVE);
 
-		classElementEClass = createEClass(CLASS_ELEMENT);
-		createEAttribute(classElementEClass, CLASS_ELEMENT__SEMANTIC_CLASS);
+		classMatcherEClass = createEClass(CLASS_MATCHER);
+		createEAttribute(classMatcherEClass, CLASS_MATCHER__SEMANTIC_CLASS);
 
 		questionableEClass = createEClass(QUESTIONABLE);
 		createEAttribute(questionableEClass, QUESTIONABLE__QUESTIONING);
@@ -1116,8 +1126,8 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 		lexRulesEClass = createEClass(LEX_RULES);
 		createEReference(lexRulesEClass, LEX_RULES__RULES);
 
-		resourceElementEClass = createEClass(RESOURCE_ELEMENT);
-		createEAttribute(resourceElementEClass, RESOURCE_ELEMENT__RESOURCE);
+		resourceMatcherEClass = createEClass(RESOURCE_MATCHER);
+		createEAttribute(resourceMatcherEClass, RESOURCE_MATCHER__RESOURCE);
 
 		pronounReplacementEClass = createEClass(PRONOUN_REPLACEMENT);
 		createEAttribute(pronounReplacementEClass, PRONOUN_REPLACEMENT__PERSON);
@@ -1180,10 +1190,10 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 		prepositionPartEClass.getESuperTypes().add(this.getPartOfSpeech());
 		conjunctionPartEClass.getESuperTypes().add(this.getPartOfSpeech());
 		interjectionPartEClass.getESuperTypes().add(this.getPartOfSpeech());
-		partOfSpeechElementEClass.getESuperTypes().add(this.getLexElement());
-		typedResourceElementEClass.getESuperTypes().add(this.getLexElement());
-		literalElementEClass.getESuperTypes().add(this.getLexElement());
-		classElementEClass.getESuperTypes().add(this.getLexElement());
+		partOfSpeechMatcherEClass.getESuperTypes().add(this.getLexMatcher());
+		typedResourceMatcherEClass.getESuperTypes().add(this.getLexMatcher());
+		literalMatcherEClass.getESuperTypes().add(this.getLexMatcher());
+		classMatcherEClass.getESuperTypes().add(this.getLexMatcher());
 		literalReplacementEClass.getESuperTypes().add(this.getLexReplacement());
 		punctuationPartEClass.getESuperTypes().add(this.getPartOfSpeech());
 		punctuationReplacementEClass.getESuperTypes().add(this.getLexReplacement());
@@ -1194,7 +1204,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 		adverbPartEClass.getESuperTypes().add(this.getQuestionable());
 		adjectivePartEClass.getESuperTypes().add(this.getPartOfSpeech());
 		adjectivePartEClass.getESuperTypes().add(this.getQuestionable());
-		resourceElementEClass.getESuperTypes().add(this.getLexElement());
+		resourceMatcherEClass.getESuperTypes().add(this.getLexMatcher());
 		pronounReplacementEClass.getESuperTypes().add(this.getLexReplacement());
 		unrecognizedPartEClass.getESuperTypes().add(this.getPartOfSpeech());
 
@@ -1214,6 +1224,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 		initEClass(partOfSpeechEClass, PartOfSpeech.class, "PartOfSpeech", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPartOfSpeech_Literal(), ecorePackage.getEString(), "literal", null, 1, 1, PartOfSpeech.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPartOfSpeech_Resource(), this.getQName(), "resource", null, 0, 1, PartOfSpeech.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPartOfSpeech_Word(), this.getQName(), "word", null, 0, 1, PartOfSpeech.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getPartOfSpeech__Generate__Locale_Map(), this.getGeneratedLiteral(), "generate", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getLocale(), "locale", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -1234,7 +1245,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 		initEClass(verbPartEClass, VerbPart.class, "VerbPart", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(lexRuleEClass, LexRule.class, "LexRule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getLexRule_Patterns(), this.getLexElement(), null, "patterns", null, 0, -1, LexRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getLexRule_Matchers(), this.getLexMatcher(), null, "matchers", null, 0, -1, LexRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(prepositionPartEClass, PrepositionPart.class, "PrepositionPart", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1242,20 +1253,20 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 
 		initEClass(interjectionPartEClass, InterjectionPart.class, "InterjectionPart", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(lexElementEClass, LexElement.class, "LexElement", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(lexMatcherEClass, LexMatcher.class, "LexMatcher", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(partOfSpeechElementEClass, PartOfSpeechElement.class, "PartOfSpeechElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getPartOfSpeechElement_PartOfSpeech(), this.getPartOfSpeechType(), "partOfSpeech", null, 1, 1, PartOfSpeechElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(partOfSpeechMatcherEClass, PartOfSpeechMatcher.class, "PartOfSpeechMatcher", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getPartOfSpeechMatcher_PartOfSpeech(), this.getPartOfSpeechType(), "partOfSpeech", null, 1, 1, PartOfSpeechMatcher.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(typedResourceElementEClass, TypedResourceElement.class, "TypedResourceElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getTypedResourceElement_SemanticClass(), this.getQName(), "semanticClass", null, 0, 1, TypedResourceElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(typedResourceMatcherEClass, TypedResourceMatcher.class, "TypedResourceMatcher", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getTypedResourceMatcher_SemanticClass(), this.getQName(), "semanticClass", null, 0, 1, TypedResourceMatcher.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(literalElementEClass, LiteralElement.class, "LiteralElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getLiteralElement_Literals(), ecorePackage.getEString(), "literals", null, 1, -1, LiteralElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getLiteralElement_CaseSensitive(), ecorePackage.getEBoolean(), "caseSensitive", "false", 0, 1, LiteralElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(literalMatcherEClass, LiteralMatcher.class, "LiteralMatcher", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getLiteralMatcher_Literals(), ecorePackage.getEString(), "literals", null, 1, -1, LiteralMatcher.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getLiteralMatcher_CaseSensitive(), ecorePackage.getEBoolean(), "caseSensitive", "false", 0, 1, LiteralMatcher.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(classElementEClass, ClassElement.class, "ClassElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getClassElement_SemanticClass(), this.getQName(), "semanticClass", null, 0, 1, ClassElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(classMatcherEClass, ClassMatcher.class, "ClassMatcher", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getClassMatcher_SemanticClass(), this.getQName(), "semanticClass", null, 0, 1, ClassMatcher.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(questionableEClass, Questionable.class, "Questionable", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getQuestionable_Questioning(), ecorePackage.getEBoolean(), "questioning", "false", 1, 1, Questionable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1293,8 +1304,8 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 		initEClass(lexRulesEClass, LexRules.class, "LexRules", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getLexRules_Rules(), this.getLexRule(), null, "rules", null, 0, -1, LexRules.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(resourceElementEClass, ResourceElement.class, "ResourceElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getResourceElement_Resource(), this.getQName(), "resource", null, 1, 1, ResourceElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(resourceMatcherEClass, ResourceMatcher.class, "ResourceMatcher", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getResourceMatcher_Resource(), this.getQName(), "resource", null, 1, 1, ResourceMatcher.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(pronounReplacementEClass, PronounReplacement.class, "PronounReplacement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPronounReplacement_Person(), this.getPronounPerson(), "person", null, 1, 1, PronounReplacement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1394,7 +1405,13 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 			 "documentation", "Semantic resource (if known)."
 		   });		
 		addAnnotation
-		  (getLexRule_Patterns(), 
+		  (getPartOfSpeech_Word(), 
+		   source, 
+		   new String[] {
+			 "documentation", "Exact word resource (if known). Available word namespaces are:\n\n<ul>\n<li>wn30: http://purl.org/vocabularies/princeton/wn30/</li>\n<li>wn-msa: http://wn-msa.sourceforge.net/vocabularies/wn-msa/ from <a href=\"http://wn-msa.sourceforge.net/\">WordNet Bahasa</a></li>\n</ul>"
+		   });		
+		addAnnotation
+		  (getLexRule_Matchers(), 
 		   source, 
 		   new String[] {
 			 "documentation", "Patterns to match.\nEach pattern is usually separated by whitespace, but sometimes it\'s not necessary to distinguish, for example, in \"I love you.\" there is no separator between \"you\" and \".\"."
@@ -1412,19 +1429,19 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 			 "documentation", "any emotional greeting (or \"exclamation\") (ow)"
 		   });		
 		addAnnotation
-		  (typedResourceElementEClass, 
+		  (typedResourceMatcherEClass, 
 		   source, 
 		   new String[] {
 			 "documentation", "Refers to an RDF resource (e.g. {@code dbpedia:Elephant}) of a specific class (e.g. {@code dbpedia-owl:Animal})."
 		   });		
 		addAnnotation
-		  (getLiteralElement_Literals(), 
+		  (getLiteralMatcher_Literals(), 
 		   source, 
 		   new String[] {
 			 "documentation", "Any of the literals will match this element."
 		   });		
 		addAnnotation
-		  (classElementEClass, 
+		  (classMatcherEClass, 
 		   source, 
 		   new String[] {
 			 "documentation", "Refers to an RDF class itself (e.g. {@code dbpedia-owl:Animal})."
@@ -1466,7 +1483,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 			 "documentation", "Whether it needs to be separated from the previous literal by whitespace. All part of speeches require this, except {@link PunctuationPart}."
 		   });		
 		addAnnotation
-		  (getResourceElement_Resource(), 
+		  (getResourceMatcher_Resource(), 
 		   source, 
 		   new String[] {
 			 "documentation", "QName or URI of the resource to match."

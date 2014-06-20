@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link id.ac.itb.ee.lskk.relexid.core.PartOfSpeech#getLiteral <em>Literal</em>}</li>
  *   <li>{@link id.ac.itb.ee.lskk.relexid.core.PartOfSpeech#getResource <em>Resource</em>}</li>
+ *   <li>{@link id.ac.itb.ee.lskk.relexid.core.PartOfSpeech#getWord <em>Word</em>}</li>
  * </ul>
  * </p>
  *
@@ -75,6 +76,36 @@ public interface PartOfSpeech extends EObject {
 	 * @generated
 	 */
 	void setResource(QName value);
+
+	/**
+	 * Returns the value of the '<em><b>Word</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Exact word resource (if known). Available word namespaces are:
+	 * 
+	 * <ul>
+	 * <li>wn30: http://purl.org/vocabularies/princeton/wn30/</li>
+	 * <li>wn-msa: http://wn-msa.sourceforge.net/vocabularies/wn-msa/ from <a href="http://wn-msa.sourceforge.net/">WordNet Bahasa</a></li>
+	 * </ul>
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Word</em>' attribute.
+	 * @see #setWord(QName)
+	 * @see id.ac.itb.ee.lskk.relexid.core.RelexidPackage#getPartOfSpeech_Word()
+	 * @model dataType="id.ac.itb.ee.lskk.relexid.core.QName"
+	 * @generated
+	 */
+	QName getWord();
+
+	/**
+	 * Sets the value of the '{@link id.ac.itb.ee.lskk.relexid.core.PartOfSpeech#getWord <em>Word</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Word</em>' attribute.
+	 * @see #getWord()
+	 * @generated
+	 */
+	void setWord(QName value);
 
 	/**
 	 * <!-- begin-user-doc -->

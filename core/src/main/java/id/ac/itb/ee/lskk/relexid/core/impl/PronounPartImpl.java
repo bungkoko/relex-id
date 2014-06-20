@@ -32,6 +32,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <ul>
  *   <li>{@link id.ac.itb.ee.lskk.relexid.core.impl.PronounPartImpl#getLiteral <em>Literal</em>}</li>
  *   <li>{@link id.ac.itb.ee.lskk.relexid.core.impl.PronounPartImpl#getResource <em>Resource</em>}</li>
+ *   <li>{@link id.ac.itb.ee.lskk.relexid.core.impl.PronounPartImpl#getWord <em>Word</em>}</li>
  *   <li>{@link id.ac.itb.ee.lskk.relexid.core.impl.PronounPartImpl#isQuestioning <em>Questioning</em>}</li>
  *   <li>{@link id.ac.itb.ee.lskk.relexid.core.impl.PronounPartImpl#getPerson <em>Person</em>}</li>
  *   <li>{@link id.ac.itb.ee.lskk.relexid.core.impl.PronounPartImpl#getNumber <em>Number</em>}</li>
@@ -111,6 +112,24 @@ public class PronounPartImpl extends MinimalEObjectImpl.Container implements Pro
 	 */
 	protected QName resource = RESOURCE_EDEFAULT;
 
+	/**
+	 * The default value of the '{@link #getWord() <em>Word</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getWord()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final QName WORD_EDEFAULT = null;
+	/**
+	 * The cached value of the '{@link #getWord() <em>Word</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getWord()
+	 * @generated
+	 * @ordered
+	 */
+	protected QName word = WORD_EDEFAULT;
 	/**
 	 * The default value of the '{@link #isQuestioning() <em>Questioning</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -254,6 +273,27 @@ public class PronounPartImpl extends MinimalEObjectImpl.Container implements Pro
 		resource = newResource;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, RelexidPackage.PRONOUN_PART__RESOURCE, oldResource, resource));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public QName getWord() {
+		return word;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setWord(QName newWord) {
+		QName oldWord = word;
+		word = newWord;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, RelexidPackage.PRONOUN_PART__WORD, oldWord, word));
 	}
 
 	/**
@@ -529,6 +569,8 @@ public class PronounPartImpl extends MinimalEObjectImpl.Container implements Pro
 				return getLiteral();
 			case RelexidPackage.PRONOUN_PART__RESOURCE:
 				return getResource();
+			case RelexidPackage.PRONOUN_PART__WORD:
+				return getWord();
 			case RelexidPackage.PRONOUN_PART__QUESTIONING:
 				return isQuestioning();
 			case RelexidPackage.PRONOUN_PART__PERSON:
@@ -554,6 +596,9 @@ public class PronounPartImpl extends MinimalEObjectImpl.Container implements Pro
 				return;
 			case RelexidPackage.PRONOUN_PART__RESOURCE:
 				setResource((QName)newValue);
+				return;
+			case RelexidPackage.PRONOUN_PART__WORD:
+				setWord((QName)newValue);
 				return;
 			case RelexidPackage.PRONOUN_PART__QUESTIONING:
 				setQuestioning((Boolean)newValue);
@@ -585,6 +630,9 @@ public class PronounPartImpl extends MinimalEObjectImpl.Container implements Pro
 			case RelexidPackage.PRONOUN_PART__RESOURCE:
 				setResource(RESOURCE_EDEFAULT);
 				return;
+			case RelexidPackage.PRONOUN_PART__WORD:
+				setWord(WORD_EDEFAULT);
+				return;
 			case RelexidPackage.PRONOUN_PART__QUESTIONING:
 				setQuestioning(QUESTIONING_EDEFAULT);
 				return;
@@ -613,6 +661,8 @@ public class PronounPartImpl extends MinimalEObjectImpl.Container implements Pro
 				return LITERAL_EDEFAULT == null ? literal != null : !LITERAL_EDEFAULT.equals(literal);
 			case RelexidPackage.PRONOUN_PART__RESOURCE:
 				return RESOURCE_EDEFAULT == null ? resource != null : !RESOURCE_EDEFAULT.equals(resource);
+			case RelexidPackage.PRONOUN_PART__WORD:
+				return WORD_EDEFAULT == null ? word != null : !WORD_EDEFAULT.equals(word);
 			case RelexidPackage.PRONOUN_PART__QUESTIONING:
 				return questioning != QUESTIONING_EDEFAULT;
 			case RelexidPackage.PRONOUN_PART__PERSON:

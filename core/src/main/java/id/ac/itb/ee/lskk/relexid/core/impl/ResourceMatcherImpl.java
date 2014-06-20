@@ -3,7 +3,7 @@
 package id.ac.itb.ee.lskk.relexid.core.impl;
 
 import id.ac.itb.ee.lskk.relexid.core.RelexidPackage;
-import id.ac.itb.ee.lskk.relexid.core.ResourceElement;
+import id.ac.itb.ee.lskk.relexid.core.ResourceMatcher;
 import javax.xml.namespace.QName;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
@@ -17,13 +17,13 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link id.ac.itb.ee.lskk.relexid.core.impl.ResourceElementImpl#getResource <em>Resource</em>}</li>
+ *   <li>{@link id.ac.itb.ee.lskk.relexid.core.impl.ResourceMatcherImpl#getResource <em>Resource</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class ResourceElementImpl extends MinimalEObjectImpl.Container implements ResourceElement {
+public class ResourceMatcherImpl extends MinimalEObjectImpl.Container implements ResourceMatcher {
 	/**
 	 * The default value of the '{@link #getResource() <em>Resource</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -49,7 +49,7 @@ public class ResourceElementImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ResourceElementImpl() {
+	protected ResourceMatcherImpl() {
 		super();
 	}
 
@@ -60,7 +60,7 @@ public class ResourceElementImpl extends MinimalEObjectImpl.Container implements
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return RelexidPackage.Literals.RESOURCE_ELEMENT;
+		return RelexidPackage.Literals.RESOURCE_MATCHER;
 	}
 
 	/**
@@ -81,7 +81,7 @@ public class ResourceElementImpl extends MinimalEObjectImpl.Container implements
 		QName oldResource = resource;
 		resource = newResource;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RelexidPackage.RESOURCE_ELEMENT__RESOURCE, oldResource, resource));
+			eNotify(new ENotificationImpl(this, Notification.SET, RelexidPackage.RESOURCE_MATCHER__RESOURCE, oldResource, resource));
 	}
 
 	/**
@@ -92,7 +92,7 @@ public class ResourceElementImpl extends MinimalEObjectImpl.Container implements
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case RelexidPackage.RESOURCE_ELEMENT__RESOURCE:
+			case RelexidPackage.RESOURCE_MATCHER__RESOURCE:
 				return getResource();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -106,7 +106,7 @@ public class ResourceElementImpl extends MinimalEObjectImpl.Container implements
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case RelexidPackage.RESOURCE_ELEMENT__RESOURCE:
+			case RelexidPackage.RESOURCE_MATCHER__RESOURCE:
 				setResource((QName)newValue);
 				return;
 		}
@@ -121,7 +121,7 @@ public class ResourceElementImpl extends MinimalEObjectImpl.Container implements
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case RelexidPackage.RESOURCE_ELEMENT__RESOURCE:
+			case RelexidPackage.RESOURCE_MATCHER__RESOURCE:
 				setResource(RESOURCE_EDEFAULT);
 				return;
 		}
@@ -136,7 +136,7 @@ public class ResourceElementImpl extends MinimalEObjectImpl.Container implements
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case RelexidPackage.RESOURCE_ELEMENT__RESOURCE:
+			case RelexidPackage.RESOURCE_MATCHER__RESOURCE:
 				return RESOURCE_EDEFAULT == null ? resource != null : !RESOURCE_EDEFAULT.equals(resource);
 		}
 		return super.eIsSet(featureID);

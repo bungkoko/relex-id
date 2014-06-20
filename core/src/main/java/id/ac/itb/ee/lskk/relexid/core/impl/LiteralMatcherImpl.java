@@ -2,7 +2,7 @@
  */
 package id.ac.itb.ee.lskk.relexid.core.impl;
 
-import id.ac.itb.ee.lskk.relexid.core.LiteralElement;
+import id.ac.itb.ee.lskk.relexid.core.LiteralMatcher;
 import id.ac.itb.ee.lskk.relexid.core.RelexidPackage;
 
 import java.util.Collection;
@@ -22,14 +22,14 @@ import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link id.ac.itb.ee.lskk.relexid.core.impl.LiteralElementImpl#getLiterals <em>Literals</em>}</li>
- *   <li>{@link id.ac.itb.ee.lskk.relexid.core.impl.LiteralElementImpl#isCaseSensitive <em>Case Sensitive</em>}</li>
+ *   <li>{@link id.ac.itb.ee.lskk.relexid.core.impl.LiteralMatcherImpl#getLiterals <em>Literals</em>}</li>
+ *   <li>{@link id.ac.itb.ee.lskk.relexid.core.impl.LiteralMatcherImpl#isCaseSensitive <em>Case Sensitive</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class LiteralElementImpl extends MinimalEObjectImpl.Container implements LiteralElement {
+public class LiteralMatcherImpl extends MinimalEObjectImpl.Container implements LiteralMatcher {
 	/**
 	 * The cached value of the '{@link #getLiterals() <em>Literals</em>}' attribute list.
 	 * <!-- begin-user-doc -->
@@ -65,7 +65,7 @@ public class LiteralElementImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected LiteralElementImpl() {
+	protected LiteralMatcherImpl() {
 		super();
 	}
 
@@ -76,7 +76,7 @@ public class LiteralElementImpl extends MinimalEObjectImpl.Container implements 
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return RelexidPackage.Literals.LITERAL_ELEMENT;
+		return RelexidPackage.Literals.LITERAL_MATCHER;
 	}
 
 	/**
@@ -97,7 +97,7 @@ public class LiteralElementImpl extends MinimalEObjectImpl.Container implements 
 		boolean oldCaseSensitive = caseSensitive;
 		caseSensitive = newCaseSensitive;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RelexidPackage.LITERAL_ELEMENT__CASE_SENSITIVE, oldCaseSensitive, caseSensitive));
+			eNotify(new ENotificationImpl(this, Notification.SET, RelexidPackage.LITERAL_MATCHER__CASE_SENSITIVE, oldCaseSensitive, caseSensitive));
 	}
 
 	/**
@@ -107,7 +107,7 @@ public class LiteralElementImpl extends MinimalEObjectImpl.Container implements 
 	 */
 	public EList<String> getLiterals() {
 		if (literals == null) {
-			literals = new EDataTypeUniqueEList<String>(String.class, this, RelexidPackage.LITERAL_ELEMENT__LITERALS);
+			literals = new EDataTypeUniqueEList<String>(String.class, this, RelexidPackage.LITERAL_MATCHER__LITERALS);
 		}
 		return literals;
 	}
@@ -120,9 +120,9 @@ public class LiteralElementImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case RelexidPackage.LITERAL_ELEMENT__LITERALS:
+			case RelexidPackage.LITERAL_MATCHER__LITERALS:
 				return getLiterals();
-			case RelexidPackage.LITERAL_ELEMENT__CASE_SENSITIVE:
+			case RelexidPackage.LITERAL_MATCHER__CASE_SENSITIVE:
 				return isCaseSensitive();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -137,11 +137,11 @@ public class LiteralElementImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case RelexidPackage.LITERAL_ELEMENT__LITERALS:
+			case RelexidPackage.LITERAL_MATCHER__LITERALS:
 				getLiterals().clear();
 				getLiterals().addAll((Collection<? extends String>)newValue);
 				return;
-			case RelexidPackage.LITERAL_ELEMENT__CASE_SENSITIVE:
+			case RelexidPackage.LITERAL_MATCHER__CASE_SENSITIVE:
 				setCaseSensitive((Boolean)newValue);
 				return;
 		}
@@ -156,10 +156,10 @@ public class LiteralElementImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case RelexidPackage.LITERAL_ELEMENT__LITERALS:
+			case RelexidPackage.LITERAL_MATCHER__LITERALS:
 				getLiterals().clear();
 				return;
-			case RelexidPackage.LITERAL_ELEMENT__CASE_SENSITIVE:
+			case RelexidPackage.LITERAL_MATCHER__CASE_SENSITIVE:
 				setCaseSensitive(CASE_SENSITIVE_EDEFAULT);
 				return;
 		}
@@ -174,9 +174,9 @@ public class LiteralElementImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case RelexidPackage.LITERAL_ELEMENT__LITERALS:
+			case RelexidPackage.LITERAL_MATCHER__LITERALS:
 				return literals != null && !literals.isEmpty();
-			case RelexidPackage.LITERAL_ELEMENT__CASE_SENSITIVE:
+			case RelexidPackage.LITERAL_MATCHER__CASE_SENSITIVE:
 				return caseSensitive != CASE_SENSITIVE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);

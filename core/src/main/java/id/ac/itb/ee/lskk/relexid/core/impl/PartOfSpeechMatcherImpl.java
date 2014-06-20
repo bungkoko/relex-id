@@ -2,7 +2,7 @@
  */
 package id.ac.itb.ee.lskk.relexid.core.impl;
 
-import id.ac.itb.ee.lskk.relexid.core.PartOfSpeechElement;
+import id.ac.itb.ee.lskk.relexid.core.PartOfSpeechMatcher;
 import id.ac.itb.ee.lskk.relexid.core.PartOfSpeechType;
 import id.ac.itb.ee.lskk.relexid.core.RelexidPackage;
 
@@ -20,13 +20,13 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link id.ac.itb.ee.lskk.relexid.core.impl.PartOfSpeechElementImpl#getPartOfSpeech <em>Part Of Speech</em>}</li>
+ *   <li>{@link id.ac.itb.ee.lskk.relexid.core.impl.PartOfSpeechMatcherImpl#getPartOfSpeech <em>Part Of Speech</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class PartOfSpeechElementImpl extends MinimalEObjectImpl.Container implements PartOfSpeechElement {
+public class PartOfSpeechMatcherImpl extends MinimalEObjectImpl.Container implements PartOfSpeechMatcher {
 	/**
 	 * The default value of the '{@link #getPartOfSpeech() <em>Part Of Speech</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -52,7 +52,7 @@ public class PartOfSpeechElementImpl extends MinimalEObjectImpl.Container implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected PartOfSpeechElementImpl() {
+	protected PartOfSpeechMatcherImpl() {
 		super();
 	}
 
@@ -63,7 +63,7 @@ public class PartOfSpeechElementImpl extends MinimalEObjectImpl.Container implem
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return RelexidPackage.Literals.PART_OF_SPEECH_ELEMENT;
+		return RelexidPackage.Literals.PART_OF_SPEECH_MATCHER;
 	}
 
 	/**
@@ -84,7 +84,7 @@ public class PartOfSpeechElementImpl extends MinimalEObjectImpl.Container implem
 		PartOfSpeechType oldPartOfSpeech = partOfSpeech;
 		partOfSpeech = newPartOfSpeech == null ? PART_OF_SPEECH_EDEFAULT : newPartOfSpeech;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RelexidPackage.PART_OF_SPEECH_ELEMENT__PART_OF_SPEECH, oldPartOfSpeech, partOfSpeech));
+			eNotify(new ENotificationImpl(this, Notification.SET, RelexidPackage.PART_OF_SPEECH_MATCHER__PART_OF_SPEECH, oldPartOfSpeech, partOfSpeech));
 	}
 
 	/**
@@ -95,7 +95,7 @@ public class PartOfSpeechElementImpl extends MinimalEObjectImpl.Container implem
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case RelexidPackage.PART_OF_SPEECH_ELEMENT__PART_OF_SPEECH:
+			case RelexidPackage.PART_OF_SPEECH_MATCHER__PART_OF_SPEECH:
 				return getPartOfSpeech();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -109,7 +109,7 @@ public class PartOfSpeechElementImpl extends MinimalEObjectImpl.Container implem
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case RelexidPackage.PART_OF_SPEECH_ELEMENT__PART_OF_SPEECH:
+			case RelexidPackage.PART_OF_SPEECH_MATCHER__PART_OF_SPEECH:
 				setPartOfSpeech((PartOfSpeechType)newValue);
 				return;
 		}
@@ -124,7 +124,7 @@ public class PartOfSpeechElementImpl extends MinimalEObjectImpl.Container implem
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case RelexidPackage.PART_OF_SPEECH_ELEMENT__PART_OF_SPEECH:
+			case RelexidPackage.PART_OF_SPEECH_MATCHER__PART_OF_SPEECH:
 				setPartOfSpeech(PART_OF_SPEECH_EDEFAULT);
 				return;
 		}
@@ -139,7 +139,7 @@ public class PartOfSpeechElementImpl extends MinimalEObjectImpl.Container implem
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case RelexidPackage.PART_OF_SPEECH_ELEMENT__PART_OF_SPEECH:
+			case RelexidPackage.PART_OF_SPEECH_MATCHER__PART_OF_SPEECH:
 				return partOfSpeech != PART_OF_SPEECH_EDEFAULT;
 		}
 		return super.eIsSet(featureID);

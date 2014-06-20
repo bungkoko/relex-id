@@ -2,8 +2,8 @@
  */
 package id.ac.itb.ee.lskk.relexid.core.impl;
 
+import id.ac.itb.ee.lskk.relexid.core.ClassMatcher;
 import id.ac.itb.ee.lskk.relexid.core.RelexidPackage;
-import id.ac.itb.ee.lskk.relexid.core.TypedResourceElement;
 
 import javax.xml.namespace.QName;
 
@@ -16,18 +16,18 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Typed Resource Element</b></em>'.
+ * An implementation of the model object '<em><b>Class Element</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link id.ac.itb.ee.lskk.relexid.core.impl.TypedResourceElementImpl#getSemanticClass <em>Semantic Class</em>}</li>
+ *   <li>{@link id.ac.itb.ee.lskk.relexid.core.impl.ClassMatcherImpl#getSemanticClass <em>Semantic Class</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class TypedResourceElementImpl extends MinimalEObjectImpl.Container implements TypedResourceElement {
+public class ClassMatcherImpl extends MinimalEObjectImpl.Container implements ClassMatcher {
 	/**
 	 * The default value of the '{@link #getSemanticClass() <em>Semantic Class</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -53,7 +53,7 @@ public class TypedResourceElementImpl extends MinimalEObjectImpl.Container imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected TypedResourceElementImpl() {
+	protected ClassMatcherImpl() {
 		super();
 	}
 
@@ -64,7 +64,7 @@ public class TypedResourceElementImpl extends MinimalEObjectImpl.Container imple
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return RelexidPackage.Literals.TYPED_RESOURCE_ELEMENT;
+		return RelexidPackage.Literals.CLASS_MATCHER;
 	}
 
 	/**
@@ -85,7 +85,7 @@ public class TypedResourceElementImpl extends MinimalEObjectImpl.Container imple
 		QName oldSemanticClass = semanticClass;
 		semanticClass = newSemanticClass;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RelexidPackage.TYPED_RESOURCE_ELEMENT__SEMANTIC_CLASS, oldSemanticClass, semanticClass));
+			eNotify(new ENotificationImpl(this, Notification.SET, RelexidPackage.CLASS_MATCHER__SEMANTIC_CLASS, oldSemanticClass, semanticClass));
 	}
 
 	/**
@@ -96,7 +96,7 @@ public class TypedResourceElementImpl extends MinimalEObjectImpl.Container imple
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case RelexidPackage.TYPED_RESOURCE_ELEMENT__SEMANTIC_CLASS:
+			case RelexidPackage.CLASS_MATCHER__SEMANTIC_CLASS:
 				return getSemanticClass();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -110,7 +110,7 @@ public class TypedResourceElementImpl extends MinimalEObjectImpl.Container imple
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case RelexidPackage.TYPED_RESOURCE_ELEMENT__SEMANTIC_CLASS:
+			case RelexidPackage.CLASS_MATCHER__SEMANTIC_CLASS:
 				setSemanticClass((QName)newValue);
 				return;
 		}
@@ -125,7 +125,7 @@ public class TypedResourceElementImpl extends MinimalEObjectImpl.Container imple
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case RelexidPackage.TYPED_RESOURCE_ELEMENT__SEMANTIC_CLASS:
+			case RelexidPackage.CLASS_MATCHER__SEMANTIC_CLASS:
 				setSemanticClass(SEMANTIC_CLASS_EDEFAULT);
 				return;
 		}
@@ -140,7 +140,7 @@ public class TypedResourceElementImpl extends MinimalEObjectImpl.Container imple
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case RelexidPackage.TYPED_RESOURCE_ELEMENT__SEMANTIC_CLASS:
+			case RelexidPackage.CLASS_MATCHER__SEMANTIC_CLASS:
 				return SEMANTIC_CLASS_EDEFAULT == null ? semanticClass != null : !SEMANTIC_CLASS_EDEFAULT.equals(semanticClass);
 		}
 		return super.eIsSet(featureID);
@@ -162,4 +162,4 @@ public class TypedResourceElementImpl extends MinimalEObjectImpl.Container imple
 		return result.toString();
 	}
 
-} //TypedResourceElementImpl
+} //ClassElementImpl

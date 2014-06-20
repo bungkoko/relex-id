@@ -180,13 +180,22 @@ public interface RelexidPackage extends EPackage {
 	int PART_OF_SPEECH__RESOURCE = 1;
 
 	/**
+	 * The feature id for the '<em><b>Word</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PART_OF_SPEECH__WORD = 2;
+
+	/**
 	 * The number of structural features of the '<em>Part Of Speech</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PART_OF_SPEECH_FEATURE_COUNT = 2;
+	int PART_OF_SPEECH_FEATURE_COUNT = 3;
 
 	/**
 	 * The operation id for the '<em>Generate</em>' operation.
@@ -233,6 +242,15 @@ public interface RelexidPackage extends EPackage {
 	 * @ordered
 	 */
 	int NOUN_PART__RESOURCE = PART_OF_SPEECH__RESOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Word</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NOUN_PART__WORD = PART_OF_SPEECH__WORD;
 
 	/**
 	 * The number of structural features of the '<em>Noun Part</em>' class.
@@ -288,6 +306,15 @@ public interface RelexidPackage extends EPackage {
 	 * @ordered
 	 */
 	int PRONOUN_PART__RESOURCE = PART_OF_SPEECH__RESOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Word</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRONOUN_PART__WORD = PART_OF_SPEECH__WORD;
 
 	/**
 	 * The feature id for the '<em><b>Questioning</b></em>' attribute.
@@ -379,6 +406,15 @@ public interface RelexidPackage extends EPackage {
 	 * @ordered
 	 */
 	int VERB_PART__RESOURCE = PART_OF_SPEECH__RESOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Word</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VERB_PART__WORD = PART_OF_SPEECH__WORD;
 
 	/**
 	 * The feature id for the '<em><b>Parts</b></em>' containment reference list.
@@ -473,13 +509,13 @@ public interface RelexidPackage extends EPackage {
 	int LEX_RULE__REPLACEMENTS = REPLACEMENT_CONTAINER__REPLACEMENTS;
 
 	/**
-	 * The feature id for the '<em><b>Patterns</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Matchers</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LEX_RULE__PATTERNS = REPLACEMENT_CONTAINER_FEATURE_COUNT + 0;
+	int LEX_RULE__MATCHERS = REPLACEMENT_CONTAINER_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Lex Rule</em>' class.
@@ -526,6 +562,15 @@ public interface RelexidPackage extends EPackage {
 	 * @ordered
 	 */
 	int PREPOSITION_PART__RESOURCE = PART_OF_SPEECH__RESOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Word</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PREPOSITION_PART__WORD = PART_OF_SPEECH__WORD;
 
 	/**
 	 * The number of structural features of the '<em>Preposition Part</em>' class.
@@ -583,6 +628,15 @@ public interface RelexidPackage extends EPackage {
 	int CONJUNCTION_PART__RESOURCE = PART_OF_SPEECH__RESOURCE;
 
 	/**
+	 * The feature id for the '<em><b>Word</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONJUNCTION_PART__WORD = PART_OF_SPEECH__WORD;
+
+	/**
 	 * The number of structural features of the '<em>Conjunction Part</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -638,6 +692,15 @@ public interface RelexidPackage extends EPackage {
 	int INTERJECTION_PART__RESOURCE = PART_OF_SPEECH__RESOURCE;
 
 	/**
+	 * The feature id for the '<em><b>Word</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERJECTION_PART__WORD = PART_OF_SPEECH__WORD;
+
+	/**
 	 * The number of structural features of the '<em>Interjection Part</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -665,42 +728,42 @@ public interface RelexidPackage extends EPackage {
 	int INTERJECTION_PART_OPERATION_COUNT = PART_OF_SPEECH_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link id.ac.itb.ee.lskk.relexid.core.LexElement <em>Lex Element</em>}' class.
+	 * The meta object id for the '{@link id.ac.itb.ee.lskk.relexid.core.LexMatcher <em>Lex Matcher</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see id.ac.itb.ee.lskk.relexid.core.LexElement
-	 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getLexElement()
+	 * @see id.ac.itb.ee.lskk.relexid.core.LexMatcher
+	 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getLexMatcher()
 	 * @generated
 	 */
-	int LEX_ELEMENT = 9;
+	int LEX_MATCHER = 9;
 
 	/**
-	 * The number of structural features of the '<em>Lex Element</em>' class.
+	 * The number of structural features of the '<em>Lex Matcher</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LEX_ELEMENT_FEATURE_COUNT = 0;
+	int LEX_MATCHER_FEATURE_COUNT = 0;
 
 	/**
-	 * The number of operations of the '<em>Lex Element</em>' class.
+	 * The number of operations of the '<em>Lex Matcher</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LEX_ELEMENT_OPERATION_COUNT = 0;
+	int LEX_MATCHER_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link id.ac.itb.ee.lskk.relexid.core.impl.PartOfSpeechElementImpl <em>Part Of Speech Element</em>}' class.
+	 * The meta object id for the '{@link id.ac.itb.ee.lskk.relexid.core.impl.PartOfSpeechMatcherImpl <em>Part Of Speech Matcher</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see id.ac.itb.ee.lskk.relexid.core.impl.PartOfSpeechElementImpl
-	 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getPartOfSpeechElement()
+	 * @see id.ac.itb.ee.lskk.relexid.core.impl.PartOfSpeechMatcherImpl
+	 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getPartOfSpeechMatcher()
 	 * @generated
 	 */
-	int PART_OF_SPEECH_ELEMENT = 10;
+	int PART_OF_SPEECH_MATCHER = 10;
 
 	/**
 	 * The feature id for the '<em><b>Part Of Speech</b></em>' attribute.
@@ -709,35 +772,35 @@ public interface RelexidPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PART_OF_SPEECH_ELEMENT__PART_OF_SPEECH = LEX_ELEMENT_FEATURE_COUNT + 0;
+	int PART_OF_SPEECH_MATCHER__PART_OF_SPEECH = LEX_MATCHER_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of structural features of the '<em>Part Of Speech Element</em>' class.
+	 * The number of structural features of the '<em>Part Of Speech Matcher</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PART_OF_SPEECH_ELEMENT_FEATURE_COUNT = LEX_ELEMENT_FEATURE_COUNT + 1;
+	int PART_OF_SPEECH_MATCHER_FEATURE_COUNT = LEX_MATCHER_FEATURE_COUNT + 1;
 
 	/**
-	 * The number of operations of the '<em>Part Of Speech Element</em>' class.
+	 * The number of operations of the '<em>Part Of Speech Matcher</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PART_OF_SPEECH_ELEMENT_OPERATION_COUNT = LEX_ELEMENT_OPERATION_COUNT + 0;
+	int PART_OF_SPEECH_MATCHER_OPERATION_COUNT = LEX_MATCHER_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link id.ac.itb.ee.lskk.relexid.core.impl.TypedResourceElementImpl <em>Typed Resource Element</em>}' class.
+	 * The meta object id for the '{@link id.ac.itb.ee.lskk.relexid.core.impl.TypedResourceMatcherImpl <em>Typed Resource Matcher</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see id.ac.itb.ee.lskk.relexid.core.impl.TypedResourceElementImpl
-	 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getTypedResourceElement()
+	 * @see id.ac.itb.ee.lskk.relexid.core.impl.TypedResourceMatcherImpl
+	 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getTypedResourceMatcher()
 	 * @generated
 	 */
-	int TYPED_RESOURCE_ELEMENT = 11;
+	int TYPED_RESOURCE_MATCHER = 11;
 
 	/**
 	 * The feature id for the '<em><b>Semantic Class</b></em>' attribute.
@@ -746,45 +809,35 @@ public interface RelexidPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TYPED_RESOURCE_ELEMENT__SEMANTIC_CLASS = LEX_ELEMENT_FEATURE_COUNT + 0;
+	int TYPED_RESOURCE_MATCHER__SEMANTIC_CLASS = LEX_MATCHER_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of structural features of the '<em>Typed Resource Element</em>' class.
+	 * The number of structural features of the '<em>Typed Resource Matcher</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TYPED_RESOURCE_ELEMENT_FEATURE_COUNT = LEX_ELEMENT_FEATURE_COUNT + 1;
+	int TYPED_RESOURCE_MATCHER_FEATURE_COUNT = LEX_MATCHER_FEATURE_COUNT + 1;
 
 	/**
-	 * The number of operations of the '<em>Typed Resource Element</em>' class.
+	 * The number of operations of the '<em>Typed Resource Matcher</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TYPED_RESOURCE_ELEMENT_OPERATION_COUNT = LEX_ELEMENT_OPERATION_COUNT + 0;
+	int TYPED_RESOURCE_MATCHER_OPERATION_COUNT = LEX_MATCHER_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link id.ac.itb.ee.lskk.relexid.core.impl.ResourceElementImpl <em>Resource Element</em>}' class.
+	 * The meta object id for the '{@link id.ac.itb.ee.lskk.relexid.core.impl.LiteralMatcherImpl <em>Literal Matcher</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see id.ac.itb.ee.lskk.relexid.core.impl.ResourceElementImpl
-	 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getResourceElement()
+	 * @see id.ac.itb.ee.lskk.relexid.core.impl.LiteralMatcherImpl
+	 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getLiteralMatcher()
 	 * @generated
 	 */
-	int RESOURCE_ELEMENT = 26;
-
-	/**
-	 * The meta object id for the '{@link id.ac.itb.ee.lskk.relexid.core.impl.LiteralElementImpl <em>Literal Element</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see id.ac.itb.ee.lskk.relexid.core.impl.LiteralElementImpl
-	 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getLiteralElement()
-	 * @generated
-	 */
-	int LITERAL_ELEMENT = 12;
+	int LITERAL_MATCHER = 12;
 
 	/**
 	 * The feature id for the '<em><b>Literals</b></em>' attribute list.
@@ -793,7 +846,7 @@ public interface RelexidPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LITERAL_ELEMENT__LITERALS = LEX_ELEMENT_FEATURE_COUNT + 0;
+	int LITERAL_MATCHER__LITERALS = LEX_MATCHER_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Case Sensitive</b></em>' attribute.
@@ -802,35 +855,35 @@ public interface RelexidPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LITERAL_ELEMENT__CASE_SENSITIVE = LEX_ELEMENT_FEATURE_COUNT + 1;
+	int LITERAL_MATCHER__CASE_SENSITIVE = LEX_MATCHER_FEATURE_COUNT + 1;
 
 	/**
-	 * The number of structural features of the '<em>Literal Element</em>' class.
+	 * The number of structural features of the '<em>Literal Matcher</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LITERAL_ELEMENT_FEATURE_COUNT = LEX_ELEMENT_FEATURE_COUNT + 2;
+	int LITERAL_MATCHER_FEATURE_COUNT = LEX_MATCHER_FEATURE_COUNT + 2;
 
 	/**
-	 * The number of operations of the '<em>Literal Element</em>' class.
+	 * The number of operations of the '<em>Literal Matcher</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LITERAL_ELEMENT_OPERATION_COUNT = LEX_ELEMENT_OPERATION_COUNT + 0;
+	int LITERAL_MATCHER_OPERATION_COUNT = LEX_MATCHER_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link id.ac.itb.ee.lskk.relexid.core.impl.ClassElementImpl <em>Class Element</em>}' class.
+	 * The meta object id for the '{@link id.ac.itb.ee.lskk.relexid.core.impl.ClassMatcherImpl <em>Class Matcher</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see id.ac.itb.ee.lskk.relexid.core.impl.ClassElementImpl
-	 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getClassElement()
+	 * @see id.ac.itb.ee.lskk.relexid.core.impl.ClassMatcherImpl
+	 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getClassMatcher()
 	 * @generated
 	 */
-	int CLASS_ELEMENT = 13;
+	int CLASS_MATCHER = 13;
 
 	/**
 	 * The feature id for the '<em><b>Semantic Class</b></em>' attribute.
@@ -839,25 +892,25 @@ public interface RelexidPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CLASS_ELEMENT__SEMANTIC_CLASS = LEX_ELEMENT_FEATURE_COUNT + 0;
+	int CLASS_MATCHER__SEMANTIC_CLASS = LEX_MATCHER_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of structural features of the '<em>Class Element</em>' class.
+	 * The number of structural features of the '<em>Class Matcher</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CLASS_ELEMENT_FEATURE_COUNT = LEX_ELEMENT_FEATURE_COUNT + 1;
+	int CLASS_MATCHER_FEATURE_COUNT = LEX_MATCHER_FEATURE_COUNT + 1;
 
 	/**
-	 * The number of operations of the '<em>Class Element</em>' class.
+	 * The number of operations of the '<em>Class Matcher</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CLASS_ELEMENT_OPERATION_COUNT = LEX_ELEMENT_OPERATION_COUNT + 0;
+	int CLASS_MATCHER_OPERATION_COUNT = LEX_MATCHER_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link id.ac.itb.ee.lskk.relexid.core.Questionable <em>Questionable</em>}' class.
@@ -1006,6 +1059,15 @@ public interface RelexidPackage extends EPackage {
 	 * @ordered
 	 */
 	int PUNCTUATION_PART__RESOURCE = PART_OF_SPEECH__RESOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Word</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PUNCTUATION_PART__WORD = PART_OF_SPEECH__WORD;
 
 	/**
 	 * The feature id for the '<em><b>Punctuation</b></em>' attribute.
@@ -1228,6 +1290,15 @@ public interface RelexidPackage extends EPackage {
 	int ADVERB_PART__RESOURCE = PART_OF_SPEECH__RESOURCE;
 
 	/**
+	 * The feature id for the '<em><b>Word</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ADVERB_PART__WORD = PART_OF_SPEECH__WORD;
+
+	/**
 	 * The feature id for the '<em><b>Questioning</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1290,6 +1361,15 @@ public interface RelexidPackage extends EPackage {
 	 * @ordered
 	 */
 	int ADJECTIVE_PART__RESOURCE = PART_OF_SPEECH__RESOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Word</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ADJECTIVE_PART__WORD = PART_OF_SPEECH__WORD;
 
 	/**
 	 * The feature id for the '<em><b>Questioning</b></em>' attribute.
@@ -1411,31 +1491,41 @@ public interface RelexidPackage extends EPackage {
 	int LEX_RULES_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link id.ac.itb.ee.lskk.relexid.core.impl.ResourceMatcherImpl <em>Resource Matcher</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see id.ac.itb.ee.lskk.relexid.core.impl.ResourceMatcherImpl
+	 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getResourceMatcher()
+	 * @generated
+	 */
+	int RESOURCE_MATCHER = 26;
+
+	/**
 	 * The feature id for the '<em><b>Resource</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RESOURCE_ELEMENT__RESOURCE = LEX_ELEMENT_FEATURE_COUNT + 0;
+	int RESOURCE_MATCHER__RESOURCE = LEX_MATCHER_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of structural features of the '<em>Resource Element</em>' class.
+	 * The number of structural features of the '<em>Resource Matcher</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RESOURCE_ELEMENT_FEATURE_COUNT = LEX_ELEMENT_FEATURE_COUNT + 1;
+	int RESOURCE_MATCHER_FEATURE_COUNT = LEX_MATCHER_FEATURE_COUNT + 1;
 
 	/**
-	 * The number of operations of the '<em>Resource Element</em>' class.
+	 * The number of operations of the '<em>Resource Matcher</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RESOURCE_ELEMENT_OPERATION_COUNT = LEX_ELEMENT_OPERATION_COUNT + 0;
+	int RESOURCE_MATCHER_OPERATION_COUNT = LEX_MATCHER_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link id.ac.itb.ee.lskk.relexid.core.impl.PronounReplacementImpl <em>Pronoun Replacement</em>}' class.
@@ -1528,6 +1618,15 @@ public interface RelexidPackage extends EPackage {
 	 * @ordered
 	 */
 	int UNRECOGNIZED_PART__RESOURCE = PART_OF_SPEECH__RESOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Word</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNRECOGNIZED_PART__WORD = PART_OF_SPEECH__WORD;
 
 	/**
 	 * The number of structural features of the '<em>Unrecognized Part</em>' class.
@@ -1702,6 +1801,17 @@ public interface RelexidPackage extends EPackage {
 	EAttribute getPartOfSpeech_Resource();
 
 	/**
+	 * Returns the meta object for the attribute '{@link id.ac.itb.ee.lskk.relexid.core.PartOfSpeech#getWord <em>Word</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Word</em>'.
+	 * @see id.ac.itb.ee.lskk.relexid.core.PartOfSpeech#getWord()
+	 * @see #getPartOfSpeech()
+	 * @generated
+	 */
+	EAttribute getPartOfSpeech_Word();
+
+	/**
 	 * Returns the meta object for the '{@link id.ac.itb.ee.lskk.relexid.core.PartOfSpeech#generate(java.util.Locale, java.util.Map) <em>Generate</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1785,15 +1895,15 @@ public interface RelexidPackage extends EPackage {
 	EClass getLexRule();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link id.ac.itb.ee.lskk.relexid.core.LexRule#getPatterns <em>Patterns</em>}'.
+	 * Returns the meta object for the containment reference list '{@link id.ac.itb.ee.lskk.relexid.core.LexRule#getMatchers <em>Matchers</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Patterns</em>'.
-	 * @see id.ac.itb.ee.lskk.relexid.core.LexRule#getPatterns()
+	 * @return the meta object for the containment reference list '<em>Matchers</em>'.
+	 * @see id.ac.itb.ee.lskk.relexid.core.LexRule#getMatchers()
 	 * @see #getLexRule()
 	 * @generated
 	 */
-	EReference getLexRule_Patterns();
+	EReference getLexRule_Matchers();
 
 	/**
 	 * Returns the meta object for class '{@link id.ac.itb.ee.lskk.relexid.core.PrepositionPart <em>Preposition Part</em>}'.
@@ -1826,77 +1936,109 @@ public interface RelexidPackage extends EPackage {
 	EClass getInterjectionPart();
 
 	/**
-	 * Returns the meta object for class '{@link id.ac.itb.ee.lskk.relexid.core.LexElement <em>Lex Element</em>}'.
+	 * Returns the meta object for class '{@link id.ac.itb.ee.lskk.relexid.core.LexMatcher <em>Lex Matcher</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Lex Element</em>'.
-	 * @see id.ac.itb.ee.lskk.relexid.core.LexElement
+	 * @return the meta object for class '<em>Lex Matcher</em>'.
+	 * @see id.ac.itb.ee.lskk.relexid.core.LexMatcher
 	 * @generated
 	 */
-	EClass getLexElement();
+	EClass getLexMatcher();
 
 	/**
-	 * Returns the meta object for class '{@link id.ac.itb.ee.lskk.relexid.core.PartOfSpeechElement <em>Part Of Speech Element</em>}'.
+	 * Returns the meta object for class '{@link id.ac.itb.ee.lskk.relexid.core.PartOfSpeechMatcher <em>Part Of Speech Matcher</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Part Of Speech Element</em>'.
-	 * @see id.ac.itb.ee.lskk.relexid.core.PartOfSpeechElement
+	 * @return the meta object for class '<em>Part Of Speech Matcher</em>'.
+	 * @see id.ac.itb.ee.lskk.relexid.core.PartOfSpeechMatcher
 	 * @generated
 	 */
-	EClass getPartOfSpeechElement();
+	EClass getPartOfSpeechMatcher();
 
 	/**
-	 * Returns the meta object for the attribute '{@link id.ac.itb.ee.lskk.relexid.core.PartOfSpeechElement#getPartOfSpeech <em>Part Of Speech</em>}'.
+	 * Returns the meta object for the attribute '{@link id.ac.itb.ee.lskk.relexid.core.PartOfSpeechMatcher#getPartOfSpeech <em>Part Of Speech</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Part Of Speech</em>'.
-	 * @see id.ac.itb.ee.lskk.relexid.core.PartOfSpeechElement#getPartOfSpeech()
-	 * @see #getPartOfSpeechElement()
+	 * @see id.ac.itb.ee.lskk.relexid.core.PartOfSpeechMatcher#getPartOfSpeech()
+	 * @see #getPartOfSpeechMatcher()
 	 * @generated
 	 */
-	EAttribute getPartOfSpeechElement_PartOfSpeech();
+	EAttribute getPartOfSpeechMatcher_PartOfSpeech();
 
 	/**
-	 * Returns the meta object for class '{@link id.ac.itb.ee.lskk.relexid.core.TypedResourceElement <em>Typed Resource Element</em>}'.
+	 * Returns the meta object for class '{@link id.ac.itb.ee.lskk.relexid.core.TypedResourceMatcher <em>Typed Resource Matcher</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Typed Resource Element</em>'.
-	 * @see id.ac.itb.ee.lskk.relexid.core.TypedResourceElement
+	 * @return the meta object for class '<em>Typed Resource Matcher</em>'.
+	 * @see id.ac.itb.ee.lskk.relexid.core.TypedResourceMatcher
 	 * @generated
 	 */
-	EClass getTypedResourceElement();
+	EClass getTypedResourceMatcher();
 
 	/**
-	 * Returns the meta object for the attribute '{@link id.ac.itb.ee.lskk.relexid.core.TypedResourceElement#getSemanticClass <em>Semantic Class</em>}'.
+	 * Returns the meta object for the attribute '{@link id.ac.itb.ee.lskk.relexid.core.TypedResourceMatcher#getSemanticClass <em>Semantic Class</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Semantic Class</em>'.
-	 * @see id.ac.itb.ee.lskk.relexid.core.TypedResourceElement#getSemanticClass()
-	 * @see #getTypedResourceElement()
+	 * @see id.ac.itb.ee.lskk.relexid.core.TypedResourceMatcher#getSemanticClass()
+	 * @see #getTypedResourceMatcher()
 	 * @generated
 	 */
-	EAttribute getTypedResourceElement_SemanticClass();
+	EAttribute getTypedResourceMatcher_SemanticClass();
 
 	/**
-	 * Returns the meta object for class '{@link id.ac.itb.ee.lskk.relexid.core.ResourceElement <em>Resource Element</em>}'.
+	 * Returns the meta object for class '{@link id.ac.itb.ee.lskk.relexid.core.LiteralMatcher <em>Literal Matcher</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Resource Element</em>'.
-	 * @see id.ac.itb.ee.lskk.relexid.core.ResourceElement
+	 * @return the meta object for class '<em>Literal Matcher</em>'.
+	 * @see id.ac.itb.ee.lskk.relexid.core.LiteralMatcher
 	 * @generated
 	 */
-	EClass getResourceElement();
+	EClass getLiteralMatcher();
 
 	/**
-	 * Returns the meta object for the attribute '{@link id.ac.itb.ee.lskk.relexid.core.ResourceElement#getResource <em>Resource</em>}'.
+	 * Returns the meta object for the attribute list '{@link id.ac.itb.ee.lskk.relexid.core.LiteralMatcher#getLiterals <em>Literals</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Resource</em>'.
-	 * @see id.ac.itb.ee.lskk.relexid.core.ResourceElement#getResource()
-	 * @see #getResourceElement()
+	 * @return the meta object for the attribute list '<em>Literals</em>'.
+	 * @see id.ac.itb.ee.lskk.relexid.core.LiteralMatcher#getLiterals()
+	 * @see #getLiteralMatcher()
 	 * @generated
 	 */
-	EAttribute getResourceElement_Resource();
+	EAttribute getLiteralMatcher_Literals();
+
+	/**
+	 * Returns the meta object for the attribute '{@link id.ac.itb.ee.lskk.relexid.core.LiteralMatcher#isCaseSensitive <em>Case Sensitive</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Case Sensitive</em>'.
+	 * @see id.ac.itb.ee.lskk.relexid.core.LiteralMatcher#isCaseSensitive()
+	 * @see #getLiteralMatcher()
+	 * @generated
+	 */
+	EAttribute getLiteralMatcher_CaseSensitive();
+
+	/**
+	 * Returns the meta object for class '{@link id.ac.itb.ee.lskk.relexid.core.ClassMatcher <em>Class Matcher</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Class Matcher</em>'.
+	 * @see id.ac.itb.ee.lskk.relexid.core.ClassMatcher
+	 * @generated
+	 */
+	EClass getClassMatcher();
+
+	/**
+	 * Returns the meta object for the attribute '{@link id.ac.itb.ee.lskk.relexid.core.ClassMatcher#getSemanticClass <em>Semantic Class</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Semantic Class</em>'.
+	 * @see id.ac.itb.ee.lskk.relexid.core.ClassMatcher#getSemanticClass()
+	 * @see #getClassMatcher()
+	 * @generated
+	 */
+	EAttribute getClassMatcher_SemanticClass();
 
 	/**
 	 * Returns the meta object for class '{@link id.ac.itb.ee.lskk.relexid.core.PronounReplacement <em>Pronoun Replacement</em>}'.
@@ -1971,59 +2113,6 @@ public interface RelexidPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getReplacementContainer_Replacements();
-
-	/**
-	 * Returns the meta object for class '{@link id.ac.itb.ee.lskk.relexid.core.LiteralElement <em>Literal Element</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Literal Element</em>'.
-	 * @see id.ac.itb.ee.lskk.relexid.core.LiteralElement
-	 * @generated
-	 */
-	EClass getLiteralElement();
-
-	/**
-	 * Returns the meta object for the attribute '{@link id.ac.itb.ee.lskk.relexid.core.LiteralElement#isCaseSensitive <em>Case Sensitive</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Case Sensitive</em>'.
-	 * @see id.ac.itb.ee.lskk.relexid.core.LiteralElement#isCaseSensitive()
-	 * @see #getLiteralElement()
-	 * @generated
-	 */
-	EAttribute getLiteralElement_CaseSensitive();
-
-	/**
-	 * Returns the meta object for the attribute list '{@link id.ac.itb.ee.lskk.relexid.core.LiteralElement#getLiterals <em>Literals</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>Literals</em>'.
-	 * @see id.ac.itb.ee.lskk.relexid.core.LiteralElement#getLiterals()
-	 * @see #getLiteralElement()
-	 * @generated
-	 */
-	EAttribute getLiteralElement_Literals();
-
-	/**
-	 * Returns the meta object for class '{@link id.ac.itb.ee.lskk.relexid.core.ClassElement <em>Class Element</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Class Element</em>'.
-	 * @see id.ac.itb.ee.lskk.relexid.core.ClassElement
-	 * @generated
-	 */
-	EClass getClassElement();
-
-	/**
-	 * Returns the meta object for the attribute '{@link id.ac.itb.ee.lskk.relexid.core.ClassElement#getSemanticClass <em>Semantic Class</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Semantic Class</em>'.
-	 * @see id.ac.itb.ee.lskk.relexid.core.ClassElement#getSemanticClass()
-	 * @see #getClassElement()
-	 * @generated
-	 */
-	EAttribute getClassElement_SemanticClass();
 
 	/**
 	 * Returns the meta object for class '{@link id.ac.itb.ee.lskk.relexid.core.Questionable <em>Questionable</em>}'.
@@ -2278,6 +2367,27 @@ public interface RelexidPackage extends EPackage {
 	EReference getLexRules_Rules();
 
 	/**
+	 * Returns the meta object for class '{@link id.ac.itb.ee.lskk.relexid.core.ResourceMatcher <em>Resource Matcher</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Resource Matcher</em>'.
+	 * @see id.ac.itb.ee.lskk.relexid.core.ResourceMatcher
+	 * @generated
+	 */
+	EClass getResourceMatcher();
+
+	/**
+	 * Returns the meta object for the attribute '{@link id.ac.itb.ee.lskk.relexid.core.ResourceMatcher#getResource <em>Resource</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Resource</em>'.
+	 * @see id.ac.itb.ee.lskk.relexid.core.ResourceMatcher#getResource()
+	 * @see #getResourceMatcher()
+	 * @generated
+	 */
+	EAttribute getResourceMatcher_Resource();
+
+	/**
 	 * Returns the meta object for enum '{@link id.ac.itb.ee.lskk.relexid.core.PartOfSpeechType <em>Part Of Speech Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2435,6 +2545,14 @@ public interface RelexidPackage extends EPackage {
 		EAttribute PART_OF_SPEECH__RESOURCE = eINSTANCE.getPartOfSpeech_Resource();
 
 		/**
+		 * The meta object literal for the '<em><b>Word</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PART_OF_SPEECH__WORD = eINSTANCE.getPartOfSpeech_Word();
+
+		/**
 		 * The meta object literal for the '<em><b>Generate</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2507,12 +2625,12 @@ public interface RelexidPackage extends EPackage {
 		EClass LEX_RULE = eINSTANCE.getLexRule();
 
 		/**
-		 * The meta object literal for the '<em><b>Patterns</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Matchers</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference LEX_RULE__PATTERNS = eINSTANCE.getLexRule_Patterns();
+		EReference LEX_RULE__MATCHERS = eINSTANCE.getLexRule_Matchers();
 
 		/**
 		 * The meta object literal for the '{@link id.ac.itb.ee.lskk.relexid.core.impl.PrepositionPartImpl <em>Preposition Part</em>}' class.
@@ -2545,24 +2663,24 @@ public interface RelexidPackage extends EPackage {
 		EClass INTERJECTION_PART = eINSTANCE.getInterjectionPart();
 
 		/**
-		 * The meta object literal for the '{@link id.ac.itb.ee.lskk.relexid.core.LexElement <em>Lex Element</em>}' class.
+		 * The meta object literal for the '{@link id.ac.itb.ee.lskk.relexid.core.LexMatcher <em>Lex Matcher</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see id.ac.itb.ee.lskk.relexid.core.LexElement
-		 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getLexElement()
+		 * @see id.ac.itb.ee.lskk.relexid.core.LexMatcher
+		 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getLexMatcher()
 		 * @generated
 		 */
-		EClass LEX_ELEMENT = eINSTANCE.getLexElement();
+		EClass LEX_MATCHER = eINSTANCE.getLexMatcher();
 
 		/**
-		 * The meta object literal for the '{@link id.ac.itb.ee.lskk.relexid.core.impl.PartOfSpeechElementImpl <em>Part Of Speech Element</em>}' class.
+		 * The meta object literal for the '{@link id.ac.itb.ee.lskk.relexid.core.impl.PartOfSpeechMatcherImpl <em>Part Of Speech Matcher</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see id.ac.itb.ee.lskk.relexid.core.impl.PartOfSpeechElementImpl
-		 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getPartOfSpeechElement()
+		 * @see id.ac.itb.ee.lskk.relexid.core.impl.PartOfSpeechMatcherImpl
+		 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getPartOfSpeechMatcher()
 		 * @generated
 		 */
-		EClass PART_OF_SPEECH_ELEMENT = eINSTANCE.getPartOfSpeechElement();
+		EClass PART_OF_SPEECH_MATCHER = eINSTANCE.getPartOfSpeechMatcher();
 
 		/**
 		 * The meta object literal for the '<em><b>Part Of Speech</b></em>' attribute feature.
@@ -2570,17 +2688,17 @@ public interface RelexidPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute PART_OF_SPEECH_ELEMENT__PART_OF_SPEECH = eINSTANCE.getPartOfSpeechElement_PartOfSpeech();
+		EAttribute PART_OF_SPEECH_MATCHER__PART_OF_SPEECH = eINSTANCE.getPartOfSpeechMatcher_PartOfSpeech();
 
 		/**
-		 * The meta object literal for the '{@link id.ac.itb.ee.lskk.relexid.core.impl.TypedResourceElementImpl <em>Typed Resource Element</em>}' class.
+		 * The meta object literal for the '{@link id.ac.itb.ee.lskk.relexid.core.impl.TypedResourceMatcherImpl <em>Typed Resource Matcher</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see id.ac.itb.ee.lskk.relexid.core.impl.TypedResourceElementImpl
-		 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getTypedResourceElement()
+		 * @see id.ac.itb.ee.lskk.relexid.core.impl.TypedResourceMatcherImpl
+		 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getTypedResourceMatcher()
 		 * @generated
 		 */
-		EClass TYPED_RESOURCE_ELEMENT = eINSTANCE.getTypedResourceElement();
+		EClass TYPED_RESOURCE_MATCHER = eINSTANCE.getTypedResourceMatcher();
 
 		/**
 		 * The meta object literal for the '<em><b>Semantic Class</b></em>' attribute feature.
@@ -2588,25 +2706,51 @@ public interface RelexidPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute TYPED_RESOURCE_ELEMENT__SEMANTIC_CLASS = eINSTANCE.getTypedResourceElement_SemanticClass();
+		EAttribute TYPED_RESOURCE_MATCHER__SEMANTIC_CLASS = eINSTANCE.getTypedResourceMatcher_SemanticClass();
 
 		/**
-		 * The meta object literal for the '{@link id.ac.itb.ee.lskk.relexid.core.impl.ResourceElementImpl <em>Resource Element</em>}' class.
+		 * The meta object literal for the '{@link id.ac.itb.ee.lskk.relexid.core.impl.LiteralMatcherImpl <em>Literal Matcher</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see id.ac.itb.ee.lskk.relexid.core.impl.ResourceElementImpl
-		 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getResourceElement()
+		 * @see id.ac.itb.ee.lskk.relexid.core.impl.LiteralMatcherImpl
+		 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getLiteralMatcher()
 		 * @generated
 		 */
-		EClass RESOURCE_ELEMENT = eINSTANCE.getResourceElement();
+		EClass LITERAL_MATCHER = eINSTANCE.getLiteralMatcher();
 
 		/**
-		 * The meta object literal for the '<em><b>Resource</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Literals</b></em>' attribute list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute RESOURCE_ELEMENT__RESOURCE = eINSTANCE.getResourceElement_Resource();
+		EAttribute LITERAL_MATCHER__LITERALS = eINSTANCE.getLiteralMatcher_Literals();
+
+		/**
+		 * The meta object literal for the '<em><b>Case Sensitive</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LITERAL_MATCHER__CASE_SENSITIVE = eINSTANCE.getLiteralMatcher_CaseSensitive();
+
+		/**
+		 * The meta object literal for the '{@link id.ac.itb.ee.lskk.relexid.core.impl.ClassMatcherImpl <em>Class Matcher</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see id.ac.itb.ee.lskk.relexid.core.impl.ClassMatcherImpl
+		 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getClassMatcher()
+		 * @generated
+		 */
+		EClass CLASS_MATCHER = eINSTANCE.getClassMatcher();
+
+		/**
+		 * The meta object literal for the '<em><b>Semantic Class</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CLASS_MATCHER__SEMANTIC_CLASS = eINSTANCE.getClassMatcher_SemanticClass();
 
 		/**
 		 * The meta object literal for the '{@link id.ac.itb.ee.lskk.relexid.core.impl.PronounReplacementImpl <em>Pronoun Replacement</em>}' class.
@@ -2669,50 +2813,6 @@ public interface RelexidPackage extends EPackage {
 		 * @generated
 		 */
 		EReference REPLACEMENT_CONTAINER__REPLACEMENTS = eINSTANCE.getReplacementContainer_Replacements();
-
-		/**
-		 * The meta object literal for the '{@link id.ac.itb.ee.lskk.relexid.core.impl.LiteralElementImpl <em>Literal Element</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see id.ac.itb.ee.lskk.relexid.core.impl.LiteralElementImpl
-		 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getLiteralElement()
-		 * @generated
-		 */
-		EClass LITERAL_ELEMENT = eINSTANCE.getLiteralElement();
-
-		/**
-		 * The meta object literal for the '<em><b>Case Sensitive</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute LITERAL_ELEMENT__CASE_SENSITIVE = eINSTANCE.getLiteralElement_CaseSensitive();
-
-		/**
-		 * The meta object literal for the '<em><b>Literals</b></em>' attribute list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute LITERAL_ELEMENT__LITERALS = eINSTANCE.getLiteralElement_Literals();
-
-		/**
-		 * The meta object literal for the '{@link id.ac.itb.ee.lskk.relexid.core.impl.ClassElementImpl <em>Class Element</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see id.ac.itb.ee.lskk.relexid.core.impl.ClassElementImpl
-		 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getClassElement()
-		 * @generated
-		 */
-		EClass CLASS_ELEMENT = eINSTANCE.getClassElement();
-
-		/**
-		 * The meta object literal for the '<em><b>Semantic Class</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute CLASS_ELEMENT__SEMANTIC_CLASS = eINSTANCE.getClassElement_SemanticClass();
 
 		/**
 		 * The meta object literal for the '{@link id.ac.itb.ee.lskk.relexid.core.Questionable <em>Questionable</em>}' class.
@@ -2929,6 +3029,24 @@ public interface RelexidPackage extends EPackage {
 		 * @generated
 		 */
 		EReference LEX_RULES__RULES = eINSTANCE.getLexRules_Rules();
+
+		/**
+		 * The meta object literal for the '{@link id.ac.itb.ee.lskk.relexid.core.impl.ResourceMatcherImpl <em>Resource Matcher</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see id.ac.itb.ee.lskk.relexid.core.impl.ResourceMatcherImpl
+		 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getResourceMatcher()
+		 * @generated
+		 */
+		EClass RESOURCE_MATCHER = eINSTANCE.getResourceMatcher();
+
+		/**
+		 * The meta object literal for the '<em><b>Resource</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RESOURCE_MATCHER__RESOURCE = eINSTANCE.getResourceMatcher_Resource();
 
 		/**
 		 * The meta object literal for the '{@link id.ac.itb.ee.lskk.relexid.core.PartOfSpeechType <em>Part Of Speech Type</em>}' enum.

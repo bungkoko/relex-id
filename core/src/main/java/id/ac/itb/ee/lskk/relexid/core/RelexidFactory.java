@@ -94,31 +94,40 @@ public interface RelexidFactory extends EFactory {
 	InterjectionPart createInterjectionPart();
 
 	/**
-	 * Returns a new object of class '<em>Part Of Speech Element</em>'.
+	 * Returns a new object of class '<em>Part Of Speech Matcher</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Part Of Speech Element</em>'.
+	 * @return a new object of class '<em>Part Of Speech Matcher</em>'.
 	 * @generated
 	 */
-	PartOfSpeechElement createPartOfSpeechElement();
+	PartOfSpeechMatcher createPartOfSpeechMatcher();
 
 	/**
-	 * Returns a new object of class '<em>Typed Resource Element</em>'.
+	 * Returns a new object of class '<em>Typed Resource Matcher</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Typed Resource Element</em>'.
+	 * @return a new object of class '<em>Typed Resource Matcher</em>'.
 	 * @generated
 	 */
-	TypedResourceElement createTypedResourceElement();
+	TypedResourceMatcher createTypedResourceMatcher();
 
 	/**
-	 * Returns a new object of class '<em>Resource Element</em>'.
+	 * Returns a new object of class '<em>Literal Matcher</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Resource Element</em>'.
+	 * @return a new object of class '<em>Literal Matcher</em>'.
 	 * @generated
 	 */
-	ResourceElement createResourceElement();
+	LiteralMatcher createLiteralMatcher();
+
+	/**
+	 * Returns a new object of class '<em>Class Matcher</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Class Matcher</em>'.
+	 * @generated
+	 */
+	ClassMatcher createClassMatcher();
 
 	/**
 	 * Returns a new object of class '<em>Pronoun Replacement</em>'.
@@ -137,24 +146,6 @@ public interface RelexidFactory extends EFactory {
 	 * @generated
 	 */
 	UnrecognizedPart createUnrecognizedPart();
-
-	/**
-	 * Returns a new object of class '<em>Literal Element</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Literal Element</em>'.
-	 * @generated
-	 */
-	LiteralElement createLiteralElement();
-
-	/**
-	 * Returns a new object of class '<em>Class Element</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Class Element</em>'.
-	 * @generated
-	 */
-	ClassElement createClassElement();
 
 	/**
 	 * Returns a new object of class '<em>Literal Replacement</em>'.
@@ -236,6 +227,15 @@ public interface RelexidFactory extends EFactory {
 	 * @generated
 	 */
 	LexRules createLexRules();
+
+	/**
+	 * Returns a new object of class '<em>Resource Matcher</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Resource Matcher</em>'.
+	 * @generated
+	 */
+	ResourceMatcher createResourceMatcher();
 
 	/**
 	 * Returns the package supported by this factory.

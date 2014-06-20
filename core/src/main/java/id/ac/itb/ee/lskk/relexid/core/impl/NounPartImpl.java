@@ -30,6 +30,7 @@ import org.slf4j.LoggerFactory;
  * <ul>
  *   <li>{@link id.ac.itb.ee.lskk.relexid.core.impl.NounPartImpl#getLiteral <em>Literal</em>}</li>
  *   <li>{@link id.ac.itb.ee.lskk.relexid.core.impl.NounPartImpl#getResource <em>Resource</em>}</li>
+ *   <li>{@link id.ac.itb.ee.lskk.relexid.core.impl.NounPartImpl#getWord <em>Word</em>}</li>
  * </ul>
  * </p>
  *
@@ -79,6 +80,26 @@ public class NounPartImpl extends MinimalEObjectImpl.Container implements NounPa
 	 * @ordered
 	 */
 	protected QName resource = RESOURCE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getWord() <em>Word</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getWord()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final QName WORD_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getWord() <em>Word</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getWord()
+	 * @generated
+	 * @ordered
+	 */
+	protected QName word = WORD_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -148,6 +169,27 @@ public class NounPartImpl extends MinimalEObjectImpl.Container implements NounPa
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public QName getWord() {
+		return word;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setWord(QName newWord) {
+		QName oldWord = word;
+		word = newWord;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, RelexidPackage.NOUN_PART__WORD, oldWord, word));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 */
 	@Override
 	public GeneratedLiteral generate(Locale locale, Map<String, String> dict) {
@@ -184,6 +226,8 @@ public class NounPartImpl extends MinimalEObjectImpl.Container implements NounPa
 				return getLiteral();
 			case RelexidPackage.NOUN_PART__RESOURCE:
 				return getResource();
+			case RelexidPackage.NOUN_PART__WORD:
+				return getWord();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -201,6 +245,9 @@ public class NounPartImpl extends MinimalEObjectImpl.Container implements NounPa
 				return;
 			case RelexidPackage.NOUN_PART__RESOURCE:
 				setResource((QName)newValue);
+				return;
+			case RelexidPackage.NOUN_PART__WORD:
+				setWord((QName)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -220,6 +267,9 @@ public class NounPartImpl extends MinimalEObjectImpl.Container implements NounPa
 			case RelexidPackage.NOUN_PART__RESOURCE:
 				setResource(RESOURCE_EDEFAULT);
 				return;
+			case RelexidPackage.NOUN_PART__WORD:
+				setWord(WORD_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -236,6 +286,8 @@ public class NounPartImpl extends MinimalEObjectImpl.Container implements NounPa
 				return LITERAL_EDEFAULT == null ? literal != null : !LITERAL_EDEFAULT.equals(literal);
 			case RelexidPackage.NOUN_PART__RESOURCE:
 				return RESOURCE_EDEFAULT == null ? resource != null : !RESOURCE_EDEFAULT.equals(resource);
+			case RelexidPackage.NOUN_PART__WORD:
+				return WORD_EDEFAULT == null ? word != null : !WORD_EDEFAULT.equals(word);
 		}
 		return super.eIsSet(featureID);
 	}

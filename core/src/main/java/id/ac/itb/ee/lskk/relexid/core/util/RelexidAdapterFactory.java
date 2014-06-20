@@ -104,24 +104,24 @@ public class RelexidAdapterFactory extends AdapterFactoryImpl {
 				return createInterjectionPartAdapter();
 			}
 			@Override
-			public Adapter caseLexElement(LexElement object) {
-				return createLexElementAdapter();
+			public Adapter caseLexMatcher(LexMatcher object) {
+				return createLexMatcherAdapter();
 			}
 			@Override
-			public Adapter casePartOfSpeechElement(PartOfSpeechElement object) {
-				return createPartOfSpeechElementAdapter();
+			public Adapter casePartOfSpeechMatcher(PartOfSpeechMatcher object) {
+				return createPartOfSpeechMatcherAdapter();
 			}
 			@Override
-			public Adapter caseTypedResourceElement(TypedResourceElement object) {
-				return createTypedResourceElementAdapter();
+			public Adapter caseTypedResourceMatcher(TypedResourceMatcher object) {
+				return createTypedResourceMatcherAdapter();
 			}
 			@Override
-			public Adapter caseLiteralElement(LiteralElement object) {
-				return createLiteralElementAdapter();
+			public Adapter caseLiteralMatcher(LiteralMatcher object) {
+				return createLiteralMatcherAdapter();
 			}
 			@Override
-			public Adapter caseClassElement(ClassElement object) {
-				return createClassElementAdapter();
+			public Adapter caseClassMatcher(ClassMatcher object) {
+				return createClassMatcherAdapter();
 			}
 			@Override
 			public Adapter caseQuestionable(Questionable object) {
@@ -172,8 +172,8 @@ public class RelexidAdapterFactory extends AdapterFactoryImpl {
 				return createLexRulesAdapter();
 			}
 			@Override
-			public Adapter caseResourceElement(ResourceElement object) {
-				return createResourceElementAdapter();
+			public Adapter caseResourceMatcher(ResourceMatcher object) {
+				return createResourceMatcherAdapter();
 			}
 			@Override
 			public Adapter casePronounReplacement(PronounReplacement object) {
@@ -334,58 +334,72 @@ public class RelexidAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link id.ac.itb.ee.lskk.relexid.core.LexElement <em>Lex Element</em>}'.
+	 * Creates a new adapter for an object of class '{@link id.ac.itb.ee.lskk.relexid.core.LexMatcher <em>Lex Matcher</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see id.ac.itb.ee.lskk.relexid.core.LexElement
+	 * @see id.ac.itb.ee.lskk.relexid.core.LexMatcher
 	 * @generated
 	 */
-	public Adapter createLexElementAdapter() {
+	public Adapter createLexMatcherAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link id.ac.itb.ee.lskk.relexid.core.PartOfSpeechElement <em>Part Of Speech Element</em>}'.
+	 * Creates a new adapter for an object of class '{@link id.ac.itb.ee.lskk.relexid.core.PartOfSpeechMatcher <em>Part Of Speech Matcher</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see id.ac.itb.ee.lskk.relexid.core.PartOfSpeechElement
+	 * @see id.ac.itb.ee.lskk.relexid.core.PartOfSpeechMatcher
 	 * @generated
 	 */
-	public Adapter createPartOfSpeechElementAdapter() {
+	public Adapter createPartOfSpeechMatcherAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link id.ac.itb.ee.lskk.relexid.core.TypedResourceElement <em>Typed Resource Element</em>}'.
+	 * Creates a new adapter for an object of class '{@link id.ac.itb.ee.lskk.relexid.core.TypedResourceMatcher <em>Typed Resource Matcher</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see id.ac.itb.ee.lskk.relexid.core.TypedResourceElement
+	 * @see id.ac.itb.ee.lskk.relexid.core.TypedResourceMatcher
 	 * @generated
 	 */
-	public Adapter createTypedResourceElementAdapter() {
+	public Adapter createTypedResourceMatcherAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link id.ac.itb.ee.lskk.relexid.core.ResourceElement <em>Resource Element</em>}'.
+	 * Creates a new adapter for an object of class '{@link id.ac.itb.ee.lskk.relexid.core.LiteralMatcher <em>Literal Matcher</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see id.ac.itb.ee.lskk.relexid.core.ResourceElement
+	 * @see id.ac.itb.ee.lskk.relexid.core.LiteralMatcher
 	 * @generated
 	 */
-	public Adapter createResourceElementAdapter() {
+	public Adapter createLiteralMatcherAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link id.ac.itb.ee.lskk.relexid.core.ClassMatcher <em>Class Matcher</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see id.ac.itb.ee.lskk.relexid.core.ClassMatcher
+	 * @generated
+	 */
+	public Adapter createClassMatcherAdapter() {
 		return null;
 	}
 
@@ -428,34 +442,6 @@ public class RelexidAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createReplacementContainerAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link id.ac.itb.ee.lskk.relexid.core.LiteralElement <em>Literal Element</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see id.ac.itb.ee.lskk.relexid.core.LiteralElement
-	 * @generated
-	 */
-	public Adapter createLiteralElementAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link id.ac.itb.ee.lskk.relexid.core.ClassElement <em>Class Element</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see id.ac.itb.ee.lskk.relexid.core.ClassElement
-	 * @generated
-	 */
-	public Adapter createClassElementAdapter() {
 		return null;
 	}
 
@@ -624,6 +610,20 @@ public class RelexidAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createLexRulesAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link id.ac.itb.ee.lskk.relexid.core.ResourceMatcher <em>Resource Matcher</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see id.ac.itb.ee.lskk.relexid.core.ResourceMatcher
+	 * @generated
+	 */
+	public Adapter createResourceMatcherAdapter() {
 		return null;
 	}
 

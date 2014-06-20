@@ -130,37 +130,37 @@ public class RelexidSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case RelexidPackage.LEX_ELEMENT: {
-				LexElement lexElement = (LexElement)theEObject;
-				T result = caseLexElement(lexElement);
+			case RelexidPackage.LEX_MATCHER: {
+				LexMatcher lexMatcher = (LexMatcher)theEObject;
+				T result = caseLexMatcher(lexMatcher);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case RelexidPackage.PART_OF_SPEECH_ELEMENT: {
-				PartOfSpeechElement partOfSpeechElement = (PartOfSpeechElement)theEObject;
-				T result = casePartOfSpeechElement(partOfSpeechElement);
-				if (result == null) result = caseLexElement(partOfSpeechElement);
+			case RelexidPackage.PART_OF_SPEECH_MATCHER: {
+				PartOfSpeechMatcher partOfSpeechMatcher = (PartOfSpeechMatcher)theEObject;
+				T result = casePartOfSpeechMatcher(partOfSpeechMatcher);
+				if (result == null) result = caseLexMatcher(partOfSpeechMatcher);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case RelexidPackage.TYPED_RESOURCE_ELEMENT: {
-				TypedResourceElement typedResourceElement = (TypedResourceElement)theEObject;
-				T result = caseTypedResourceElement(typedResourceElement);
-				if (result == null) result = caseLexElement(typedResourceElement);
+			case RelexidPackage.TYPED_RESOURCE_MATCHER: {
+				TypedResourceMatcher typedResourceMatcher = (TypedResourceMatcher)theEObject;
+				T result = caseTypedResourceMatcher(typedResourceMatcher);
+				if (result == null) result = caseLexMatcher(typedResourceMatcher);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case RelexidPackage.LITERAL_ELEMENT: {
-				LiteralElement literalElement = (LiteralElement)theEObject;
-				T result = caseLiteralElement(literalElement);
-				if (result == null) result = caseLexElement(literalElement);
+			case RelexidPackage.LITERAL_MATCHER: {
+				LiteralMatcher literalMatcher = (LiteralMatcher)theEObject;
+				T result = caseLiteralMatcher(literalMatcher);
+				if (result == null) result = caseLexMatcher(literalMatcher);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case RelexidPackage.CLASS_ELEMENT: {
-				ClassElement classElement = (ClassElement)theEObject;
-				T result = caseClassElement(classElement);
-				if (result == null) result = caseLexElement(classElement);
+			case RelexidPackage.CLASS_MATCHER: {
+				ClassMatcher classMatcher = (ClassMatcher)theEObject;
+				T result = caseClassMatcher(classMatcher);
+				if (result == null) result = caseLexMatcher(classMatcher);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -246,10 +246,10 @@ public class RelexidSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case RelexidPackage.RESOURCE_ELEMENT: {
-				ResourceElement resourceElement = (ResourceElement)theEObject;
-				T result = caseResourceElement(resourceElement);
-				if (result == null) result = caseLexElement(resourceElement);
+			case RelexidPackage.RESOURCE_MATCHER: {
+				ResourceMatcher resourceMatcher = (ResourceMatcher)theEObject;
+				T result = caseResourceMatcher(resourceMatcher);
+				if (result == null) result = caseLexMatcher(resourceMatcher);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -413,62 +413,77 @@ public class RelexidSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Lex Element</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Lex Matcher</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Lex Element</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Lex Matcher</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseLexElement(LexElement object) {
+	public T caseLexMatcher(LexMatcher object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Part Of Speech Element</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Part Of Speech Matcher</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Part Of Speech Element</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Part Of Speech Matcher</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T casePartOfSpeechElement(PartOfSpeechElement object) {
+	public T casePartOfSpeechMatcher(PartOfSpeechMatcher object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Typed Resource Element</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Typed Resource Matcher</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Typed Resource Element</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Typed Resource Matcher</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseTypedResourceElement(TypedResourceElement object) {
+	public T caseTypedResourceMatcher(TypedResourceMatcher object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Resource Element</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Literal Matcher</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Resource Element</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Literal Matcher</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseResourceElement(ResourceElement object) {
+	public T caseLiteralMatcher(LiteralMatcher object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Class Matcher</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Class Matcher</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseClassMatcher(ClassMatcher object) {
 		return null;
 	}
 
@@ -514,36 +529,6 @@ public class RelexidSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseReplacementContainer(ReplacementContainer object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Literal Element</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Literal Element</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseLiteralElement(LiteralElement object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Class Element</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Class Element</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseClassElement(ClassElement object) {
 		return null;
 	}
 
@@ -724,6 +709,21 @@ public class RelexidSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseLexRules(LexRules object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Resource Matcher</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Resource Matcher</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseResourceMatcher(ResourceMatcher object) {
 		return null;
 	}
 

@@ -142,7 +142,7 @@ public class RelEx {
 	}
 	
 	protected List<PartOfSpeech> createReplacementParts(EList<LexReplacement> replacements,
-			List<LexElement> patterns) {
+			List<LexMatcher> matchers) {
 		List<PartOfSpeech> replacementParts = new ArrayList<>();
 		for (int replacementIdx = 0; replacementIdx < replacements.size(); replacementIdx++) {
 			final LexReplacement replacement = replacements.get(replacementIdx);
@@ -169,9 +169,9 @@ public class RelEx {
 				if (resourceRepl.getResource() != null) {
 					part.setResource(expandRef(resourceRepl.getResource()));
 				} else {
-					final ResourceElement resEl = (ResourceElement) patterns.get(resourceRepl.getCaptureGroup() - 1);
-					log.trace("resourceElement.resource = {}", resEl.getResource());
-					part.setResource(expandRef(resEl.getResource()));
+					final ResourceMatcher resMatcher = (ResourceMatcher) matchers.get(resourceRepl.getCaptureGroup() - 1);
+					log.trace("resourceMatcher.resource = {}", resMatcher.getResource());
+					part.setResource(expandRef(resMatcher.getResource()));
 				}
 				part.setLiteral(part.getResource().toString());
 				
@@ -179,7 +179,7 @@ public class RelEx {
 				if (!resourceRepl.getReplacements().isEmpty()) {
 					Preconditions.checkArgument(part instanceof PartContainer,
 							"Cannot create sub-replacements because {} is not a PartContainer", part);
-					List<PartOfSpeech> subParts = createReplacementParts(resourceRepl.getReplacements(), patterns);
+					List<PartOfSpeech> subParts = createReplacementParts(resourceRepl.getReplacements(), matchers);
 					((PartContainer) part).getParts().addAll(subParts);
 				}
 				
@@ -228,7 +228,7 @@ public class RelEx {
 			Integer startMatchIdx = null;
 			@Nullable
 			Integer endMatchIdx = null;
-			for (LexElement el : rule.getPatterns()) {
+			for (LexMatcher matcher : rule.getMatchers()) {
 				
 				// next valid unrecognized token, please
 				while (unrecognizedPartIdx < sentence.getParts().size()) {
@@ -255,8 +255,8 @@ public class RelEx {
 				@Nullable
 				Integer nextPartIdx = null;
 				final boolean matches;
-				if (el instanceof LiteralElement) {
-					LiteralElement literalEl = (LiteralElement) el;
+				if (matcher instanceof LiteralMatcher) {
+					LiteralMatcher literalEl = (LiteralMatcher) matcher;
 					if (literalEl.isCaseSensitive()) {
 						matches = FluentIterable.from(literalEl.getLiterals()).anyMatch(new Predicate<String>() {
 							@Override
@@ -275,8 +275,8 @@ public class RelEx {
 					if (matches) {
 						nextPartIdx = unrecognizedPartIdx + 1;
 					}
-				} else if (el instanceof ResourceElement) {
-					ResourceElement resEl = (ResourceElement) el;
+				} else if (matcher instanceof ResourceMatcher) {
+					ResourceMatcher resEl = (ResourceMatcher) matcher;
 					String resourceUri = asRef(expandRef(resEl.getResource()));
 					@Nullable
 					String word = dictionary.get(resourceUri);
@@ -295,11 +295,11 @@ public class RelEx {
 				
 				// match?
 				if (matches) {
-					log.debug("Element {} match for #{}: {}", el, unrecognizedPartIdx, unrecognizedPart);
+					log.debug("Element {} match for #{}: {}", matcher, unrecognizedPartIdx, unrecognizedPart);
 					endMatchIdx = unrecognizedPartIdx;
 					unrecognizedPartIdx = nextPartIdx;
 				} else {
-					log.debug("Element {} not match for #{}: {}", el, unrecognizedPartIdx, unrecognizedPart);
+					log.debug("Element {} not match for #{}: {}", matcher, unrecognizedPartIdx, unrecognizedPart);
 					ruleMatches = false;
 					break;
 				}
@@ -314,7 +314,7 @@ public class RelEx {
 					sentence.getParts().remove(i);
 				}
 				
-				List<PartOfSpeech> replacementParts = createReplacementParts(rule.getReplacements(), rule.getPatterns());
+				List<PartOfSpeech> replacementParts = createReplacementParts(rule.getReplacements(), rule.getMatchers());
 
 				log.debug("Replacing with {} parts at index #{}: {}",
 						replacementParts.size(), startMatchIdx, replacementParts);

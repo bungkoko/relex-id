@@ -6,25 +6,25 @@ import javax.xml.namespace.QName;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Typed Resource Element</b></em>'.
+ * A representation of the model object '<em><b>Class Element</b></em>'.
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * Refers to an RDF resource (e.g. {@code dbpedia:Elephant}) of a specific class (e.g. {@code dbpedia-owl:Animal}).
+ * Refers to an RDF class itself (e.g. {@code dbpedia-owl:Animal}).
  * <!-- end-model-doc -->
  *
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link id.ac.itb.ee.lskk.relexid.core.TypedResourceElement#getSemanticClass <em>Semantic Class</em>}</li>
+ *   <li>{@link id.ac.itb.ee.lskk.relexid.core.ClassMatcher#getSemanticClass <em>Semantic Class</em>}</li>
  * </ul>
  * </p>
  *
- * @see id.ac.itb.ee.lskk.relexid.core.RelexidPackage#getTypedResourceElement()
+ * @see id.ac.itb.ee.lskk.relexid.core.RelexidPackage#getClassMatcher()
  * @model
  * @generated
  */
-public interface TypedResourceElement extends LexElement {
+public interface ClassMatcher extends LexMatcher {
 	/**
 	 * Returns the value of the '<em><b>Semantic Class</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -35,14 +35,14 @@ public interface TypedResourceElement extends LexElement {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Semantic Class</em>' attribute.
 	 * @see #setSemanticClass(QName)
-	 * @see id.ac.itb.ee.lskk.relexid.core.RelexidPackage#getTypedResourceElement_SemanticClass()
+	 * @see id.ac.itb.ee.lskk.relexid.core.RelexidPackage#getClassMatcher_SemanticClass()
 	 * @model dataType="id.ac.itb.ee.lskk.relexid.core.QName"
 	 * @generated
 	 */
 	QName getSemanticClass();
 
 	/**
-	 * Sets the value of the '{@link id.ac.itb.ee.lskk.relexid.core.TypedResourceElement#getSemanticClass <em>Semantic Class</em>}' attribute.
+	 * Sets the value of the '{@link id.ac.itb.ee.lskk.relexid.core.ClassMatcher#getSemanticClass <em>Semantic Class</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Semantic Class</em>' attribute.
@@ -51,4 +51,4 @@ public interface TypedResourceElement extends LexElement {
 	 */
 	void setSemanticClass(QName value);
 
-} // TypedResourceElement
+} // ClassElement

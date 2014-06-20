@@ -45,6 +45,11 @@
         <details key="documentation" value="Semantic resource (if known)."/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="word" eType="#//QName">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Exact word resource (if known). Available word namespaces are:&#xA;&#xA;&lt;ul>&#xA;&lt;li>wn30: http://purl.org/vocabularies/princeton/wn30/&lt;/li>&#xA;&lt;li>wn-msa: http://wn-msa.sourceforge.net/vocabularies/wn-msa/ from &lt;a href=&quot;http://wn-msa.sourceforge.net/&quot;>WordNet Bahasa&lt;/a>&lt;/li>&#xA;&lt;/ul>"/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="NounPart" eSuperTypes="#//PartOfSpeech"/>
   <eClassifiers xsi:type="ecore:EClass" name="PronounPart" eSuperTypes="#//PartOfSpeech #//Questionable">
@@ -54,8 +59,8 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="VerbPart" eSuperTypes="#//PartOfSpeech #//PartContainer"/>
   <eClassifiers xsi:type="ecore:EClass" name="LexRule" eSuperTypes="#//ReplacementContainer">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="patterns" upperBound="-1"
-        eType="#//LexElement" containment="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="matchers" upperBound="-1"
+        eType="#//LexMatcher" containment="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Patterns to match.&#xA;Each pattern is usually separated by whitespace, but sometimes it's not necessary to distinguish, for example, in &quot;I love you.&quot; there is no separator between &quot;you&quot; and &quot;.&quot;."/>
       </eAnnotations>
@@ -72,19 +77,19 @@
       <details key="documentation" value="any emotional greeting (or &quot;exclamation&quot;) (ow)"/>
     </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="LexElement" abstract="true" interface="true"/>
-  <eClassifiers xsi:type="ecore:EClass" name="PartOfSpeechElement" eSuperTypes="#//LexElement">
+  <eClassifiers xsi:type="ecore:EClass" name="LexMatcher" abstract="true" interface="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PartOfSpeechMatcher" eSuperTypes="#//LexMatcher">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="partOfSpeech" lowerBound="1"
         eType="#//PartOfSpeechType"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="TypedResourceElement" eSuperTypes="#//LexElement">
+  <eClassifiers xsi:type="ecore:EClass" name="TypedResourceMatcher" eSuperTypes="#//LexMatcher">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Refers to an RDF resource (e.g. {@code dbpedia:Elephant}) of a specific class (e.g. {@code dbpedia-owl:Animal})."/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="semanticClass" eType="#//QName"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="QName" instanceClassName="javax.xml.namespace.QName"/>
-  <eClassifiers xsi:type="ecore:EClass" name="LiteralElement" eSuperTypes="#//LexElement">
+  <eClassifiers xsi:type="ecore:EClass" name="LiteralMatcher" eSuperTypes="#//LexMatcher">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="literals" lowerBound="1"
         upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -94,7 +99,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="caseSensitive" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         defaultValueLiteral="false"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ClassElement" eSuperTypes="#//LexElement">
+  <eClassifiers xsi:type="ecore:EClass" name="ClassMatcher" eSuperTypes="#//LexMatcher">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Refers to an RDF class itself (e.g. {@code dbpedia-owl:Animal})."/>
     </eAnnotations>
@@ -200,7 +205,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="rules" upperBound="-1"
         eType="#//LexRule" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ResourceElement" eSuperTypes="#//LexElement">
+  <eClassifiers xsi:type="ecore:EClass" name="ResourceMatcher" eSuperTypes="#//LexMatcher">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="resource" lowerBound="1"
         eType="#//QName">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">

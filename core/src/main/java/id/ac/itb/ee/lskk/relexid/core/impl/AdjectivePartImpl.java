@@ -29,6 +29,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <ul>
  *   <li>{@link id.ac.itb.ee.lskk.relexid.core.impl.AdjectivePartImpl#getLiteral <em>Literal</em>}</li>
  *   <li>{@link id.ac.itb.ee.lskk.relexid.core.impl.AdjectivePartImpl#getResource <em>Resource</em>}</li>
+ *   <li>{@link id.ac.itb.ee.lskk.relexid.core.impl.AdjectivePartImpl#getWord <em>Word</em>}</li>
  *   <li>{@link id.ac.itb.ee.lskk.relexid.core.impl.AdjectivePartImpl#isQuestioning <em>Questioning</em>}</li>
  * </ul>
  * </p>
@@ -75,6 +76,26 @@ public class AdjectivePartImpl extends MinimalEObjectImpl.Container implements A
 	 * @ordered
 	 */
 	protected QName resource = RESOURCE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getWord() <em>Word</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getWord()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final QName WORD_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getWord() <em>Word</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getWord()
+	 * @generated
+	 * @ordered
+	 */
+	protected QName word = WORD_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #isQuestioning() <em>Questioning</em>}' attribute.
@@ -162,6 +183,27 @@ public class AdjectivePartImpl extends MinimalEObjectImpl.Container implements A
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public QName getWord() {
+		return word;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setWord(QName newWord) {
+		QName oldWord = word;
+		word = newWord;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, RelexidPackage.ADJECTIVE_PART__WORD, oldWord, word));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public boolean isQuestioning() {
 		return questioning;
 	}
@@ -201,6 +243,8 @@ public class AdjectivePartImpl extends MinimalEObjectImpl.Container implements A
 				return getLiteral();
 			case RelexidPackage.ADJECTIVE_PART__RESOURCE:
 				return getResource();
+			case RelexidPackage.ADJECTIVE_PART__WORD:
+				return getWord();
 			case RelexidPackage.ADJECTIVE_PART__QUESTIONING:
 				return isQuestioning();
 		}
@@ -220,6 +264,9 @@ public class AdjectivePartImpl extends MinimalEObjectImpl.Container implements A
 				return;
 			case RelexidPackage.ADJECTIVE_PART__RESOURCE:
 				setResource((QName)newValue);
+				return;
+			case RelexidPackage.ADJECTIVE_PART__WORD:
+				setWord((QName)newValue);
 				return;
 			case RelexidPackage.ADJECTIVE_PART__QUESTIONING:
 				setQuestioning((Boolean)newValue);
@@ -242,6 +289,9 @@ public class AdjectivePartImpl extends MinimalEObjectImpl.Container implements A
 			case RelexidPackage.ADJECTIVE_PART__RESOURCE:
 				setResource(RESOURCE_EDEFAULT);
 				return;
+			case RelexidPackage.ADJECTIVE_PART__WORD:
+				setWord(WORD_EDEFAULT);
+				return;
 			case RelexidPackage.ADJECTIVE_PART__QUESTIONING:
 				setQuestioning(QUESTIONING_EDEFAULT);
 				return;
@@ -261,6 +311,8 @@ public class AdjectivePartImpl extends MinimalEObjectImpl.Container implements A
 				return LITERAL_EDEFAULT == null ? literal != null : !LITERAL_EDEFAULT.equals(literal);
 			case RelexidPackage.ADJECTIVE_PART__RESOURCE:
 				return RESOURCE_EDEFAULT == null ? resource != null : !RESOURCE_EDEFAULT.equals(resource);
+			case RelexidPackage.ADJECTIVE_PART__WORD:
+				return WORD_EDEFAULT == null ? word != null : !WORD_EDEFAULT.equals(word);
 			case RelexidPackage.ADJECTIVE_PART__QUESTIONING:
 				return questioning != QUESTIONING_EDEFAULT;
 		}
@@ -328,6 +380,8 @@ public class AdjectivePartImpl extends MinimalEObjectImpl.Container implements A
 		result.append(literal);
 		result.append(", resource: ");
 		result.append(resource);
+		result.append(", word: ");
+		result.append(word);
 		result.append(", questioning: ");
 		result.append(questioning);
 		result.append(')');

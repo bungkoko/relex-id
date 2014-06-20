@@ -10,9 +10,9 @@ import org.eclipse.emf.ecore.EObject;
  * <!-- end-user-doc -->
  *
  *
- * @see id.ac.itb.ee.lskk.relexid.core.RelexidPackage#getLexElement()
+ * @see id.ac.itb.ee.lskk.relexid.core.RelexidPackage#getLexMatcher()
  * @model interface="true" abstract="true"
  * @generated
  */
-public interface LexElement extends EObject {
+public interface LexMatcher extends EObject {
 } // LexElement
