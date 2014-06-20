@@ -15,7 +15,10 @@ import id.ac.itb.ee.lskk.relexid.core.LexRules;
 import id.ac.itb.ee.lskk.relexid.core.LiteralMatcher;
 import id.ac.itb.ee.lskk.relexid.core.LiteralReplacement;
 import id.ac.itb.ee.lskk.relexid.core.NounPart;
+import id.ac.itb.ee.lskk.relexid.core.ObjectRelation;
+import id.ac.itb.ee.lskk.relexid.core.ObjectRelationDef;
 import id.ac.itb.ee.lskk.relexid.core.PartContainer;
+import id.ac.itb.ee.lskk.relexid.core.PartMatcher;
 import id.ac.itb.ee.lskk.relexid.core.PartOfSpeech;
 import id.ac.itb.ee.lskk.relexid.core.PartOfSpeechMatcher;
 import id.ac.itb.ee.lskk.relexid.core.PartOfSpeechType;
@@ -31,12 +34,19 @@ import id.ac.itb.ee.lskk.relexid.core.PunctuationReplacement;
 import id.ac.itb.ee.lskk.relexid.core.Question;
 import id.ac.itb.ee.lskk.relexid.core.QuestionReplacement;
 import id.ac.itb.ee.lskk.relexid.core.Questionable;
+import id.ac.itb.ee.lskk.relexid.core.Relation;
+import id.ac.itb.ee.lskk.relexid.core.RelationDef;
+import id.ac.itb.ee.lskk.relexid.core.RelationRule;
+import id.ac.itb.ee.lskk.relexid.core.RelationRules;
 import id.ac.itb.ee.lskk.relexid.core.RelexidFactory;
 import id.ac.itb.ee.lskk.relexid.core.RelexidPackage;
 import id.ac.itb.ee.lskk.relexid.core.ReplacementContainer;
 import id.ac.itb.ee.lskk.relexid.core.ResourceMatcher;
 import id.ac.itb.ee.lskk.relexid.core.ResourceReplacement;
 import id.ac.itb.ee.lskk.relexid.core.Sentence;
+import id.ac.itb.ee.lskk.relexid.core.SubjectRelation;
+import id.ac.itb.ee.lskk.relexid.core.SubjectRelationDef;
+import id.ac.itb.ee.lskk.relexid.core.TypedPartMatcher;
 import id.ac.itb.ee.lskk.relexid.core.TypedResourceMatcher;
 import id.ac.itb.ee.lskk.relexid.core.UnrecognizedPart;
 import id.ac.itb.ee.lskk.relexid.core.VerbPart;
@@ -180,6 +190,76 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * @generated
 	 */
 	private EClass replacementContainerEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass subjectRelationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass objectRelationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass relationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass relationRuleEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass relationRulesEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass typedPartMatcherEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass partMatcherEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass subjectRelationDefEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass relationDefEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass objectRelationDefEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -405,6 +485,15 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 */
 	public EAttribute getSentence_Literal() {
 		return (EAttribute)sentenceEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSentence_Relations() {
+		return (EReference)sentenceEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -711,6 +800,213 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 */
 	public EReference getReplacementContainer_Replacements() {
 		return (EReference)replacementContainerEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getSubjectRelation() {
+		return subjectRelationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSubjectRelation_Subject() {
+		return (EReference)subjectRelationEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSubjectRelation_Verb() {
+		return (EReference)subjectRelationEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getObjectRelation() {
+		return objectRelationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getObjectRelation_Verb() {
+		return (EReference)objectRelationEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getObjectRelation_Object() {
+		return (EReference)objectRelationEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getRelation() {
+		return relationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getRelationRule() {
+		return relationRuleEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRelationRule_Matchers() {
+		return (EReference)relationRuleEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRelationRule_RelationDefs() {
+		return (EReference)relationRuleEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getRelationRules() {
+		return relationRulesEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRelationRules_Rules() {
+		return (EReference)relationRulesEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getTypedPartMatcher() {
+		return typedPartMatcherEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTypedPartMatcher_PartOfSpeech() {
+		return (EAttribute)typedPartMatcherEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getPartMatcher() {
+		return partMatcherEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPartMatcher_Matchers() {
+		return (EReference)partMatcherEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getSubjectRelationDef() {
+		return subjectRelationDefEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSubjectRelationDef_Verb() {
+		return (EAttribute)subjectRelationDefEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSubjectRelationDef_Subject() {
+		return (EAttribute)subjectRelationDefEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getRelationDef() {
+		return relationDefEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getObjectRelationDef() {
+		return objectRelationDefEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getObjectRelationDef_Verb() {
+		return (EAttribute)objectRelationDefEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getObjectRelationDef_Object() {
+		return (EAttribute)objectRelationDefEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1049,6 +1345,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 		// Create classes and their features
 		sentenceEClass = createEClass(SENTENCE);
 		createEAttribute(sentenceEClass, SENTENCE__LITERAL);
+		createEReference(sentenceEClass, SENTENCE__RELATIONS);
 		createEOperation(sentenceEClass, SENTENCE___GENERATE__LOCALE_MAP);
 
 		partOfSpeechEClass = createEClass(PART_OF_SPEECH);
@@ -1139,6 +1436,39 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 		replacementContainerEClass = createEClass(REPLACEMENT_CONTAINER);
 		createEReference(replacementContainerEClass, REPLACEMENT_CONTAINER__REPLACEMENTS);
 
+		subjectRelationEClass = createEClass(SUBJECT_RELATION);
+		createEReference(subjectRelationEClass, SUBJECT_RELATION__SUBJECT);
+		createEReference(subjectRelationEClass, SUBJECT_RELATION__VERB);
+
+		objectRelationEClass = createEClass(OBJECT_RELATION);
+		createEReference(objectRelationEClass, OBJECT_RELATION__VERB);
+		createEReference(objectRelationEClass, OBJECT_RELATION__OBJECT);
+
+		relationEClass = createEClass(RELATION);
+
+		relationRuleEClass = createEClass(RELATION_RULE);
+		createEReference(relationRuleEClass, RELATION_RULE__MATCHERS);
+		createEReference(relationRuleEClass, RELATION_RULE__RELATION_DEFS);
+
+		relationRulesEClass = createEClass(RELATION_RULES);
+		createEReference(relationRulesEClass, RELATION_RULES__RULES);
+
+		typedPartMatcherEClass = createEClass(TYPED_PART_MATCHER);
+		createEAttribute(typedPartMatcherEClass, TYPED_PART_MATCHER__PART_OF_SPEECH);
+
+		partMatcherEClass = createEClass(PART_MATCHER);
+		createEReference(partMatcherEClass, PART_MATCHER__MATCHERS);
+
+		subjectRelationDefEClass = createEClass(SUBJECT_RELATION_DEF);
+		createEAttribute(subjectRelationDefEClass, SUBJECT_RELATION_DEF__VERB);
+		createEAttribute(subjectRelationDefEClass, SUBJECT_RELATION_DEF__SUBJECT);
+
+		relationDefEClass = createEClass(RELATION_DEF);
+
+		objectRelationDefEClass = createEClass(OBJECT_RELATION_DEF);
+		createEAttribute(objectRelationDefEClass, OBJECT_RELATION_DEF__VERB);
+		createEAttribute(objectRelationDefEClass, OBJECT_RELATION_DEF__OBJECT);
+
 		// Create enums
 		partOfSpeechTypeEEnum = createEEnum(PART_OF_SPEECH_TYPE);
 		punctuationEEnum = createEEnum(PUNCTUATION);
@@ -1207,10 +1537,16 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 		resourceMatcherEClass.getESuperTypes().add(this.getLexMatcher());
 		pronounReplacementEClass.getESuperTypes().add(this.getLexReplacement());
 		unrecognizedPartEClass.getESuperTypes().add(this.getPartOfSpeech());
+		subjectRelationEClass.getESuperTypes().add(this.getRelation());
+		objectRelationEClass.getESuperTypes().add(this.getRelation());
+		typedPartMatcherEClass.getESuperTypes().add(this.getPartMatcher());
+		subjectRelationDefEClass.getESuperTypes().add(this.getRelationDef());
+		objectRelationDefEClass.getESuperTypes().add(this.getRelationDef());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(sentenceEClass, Sentence.class, "Sentence", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSentence_Literal(), ecorePackage.getEString(), "literal", null, 1, 1, Sentence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSentence_Relations(), this.getRelation(), null, "relations", null, 1, -1, Sentence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		EOperation op = initEOperation(getSentence__Generate__Locale_Map(), ecorePackage.getEString(), "generate", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getLocale(), "locale", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -1316,6 +1652,39 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 
 		initEClass(replacementContainerEClass, ReplacementContainer.class, "ReplacementContainer", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getReplacementContainer_Replacements(), this.getLexReplacement(), null, "replacements", null, 0, -1, ReplacementContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(subjectRelationEClass, SubjectRelation.class, "SubjectRelation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getSubjectRelation_Subject(), this.getPartOfSpeech(), null, "subject", null, 1, 1, SubjectRelation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSubjectRelation_Verb(), this.getVerbPart(), null, "verb", null, 1, 1, SubjectRelation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(objectRelationEClass, ObjectRelation.class, "ObjectRelation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getObjectRelation_Verb(), this.getVerbPart(), null, "verb", null, 1, 1, ObjectRelation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getObjectRelation_Object(), this.getPartOfSpeech(), null, "object", null, 1, 1, ObjectRelation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(relationEClass, Relation.class, "Relation", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(relationRuleEClass, RelationRule.class, "RelationRule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getRelationRule_Matchers(), this.getPartMatcher(), null, "matchers", null, 0, -1, RelationRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRelationRule_RelationDefs(), this.getRelationDef(), null, "relationDefs", null, 0, -1, RelationRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(relationRulesEClass, RelationRules.class, "RelationRules", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getRelationRules_Rules(), this.getRelationRule(), null, "rules", null, 0, -1, RelationRules.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(typedPartMatcherEClass, TypedPartMatcher.class, "TypedPartMatcher", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getTypedPartMatcher_PartOfSpeech(), this.getPartOfSpeechType(), "partOfSpeech", null, 0, 1, TypedPartMatcher.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(partMatcherEClass, PartMatcher.class, "PartMatcher", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getPartMatcher_Matchers(), this.getPartMatcher(), null, "matchers", null, 0, -1, PartMatcher.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(subjectRelationDefEClass, SubjectRelationDef.class, "SubjectRelationDef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getSubjectRelationDef_Verb(), ecorePackage.getEInt(), "verb", null, 1, -1, SubjectRelationDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSubjectRelationDef_Subject(), ecorePackage.getEInt(), "subject", null, 1, -1, SubjectRelationDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(relationDefEClass, RelationDef.class, "RelationDef", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(objectRelationDefEClass, ObjectRelationDef.class, "ObjectRelationDef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getObjectRelationDef_Verb(), ecorePackage.getEInt(), "verb", null, 1, -1, ObjectRelationDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getObjectRelationDef_Object(), ecorePackage.getEInt(), "object", null, 1, -1, ObjectRelationDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(partOfSpeechTypeEEnum, PartOfSpeechType.class, "PartOfSpeechType");
@@ -1499,6 +1868,54 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 		   source, 
 		   new String[] {
 			 "documentation", "Replacements to be made when the patterns match.\nNote that LexRules can be repeated for multiple iterations."
+		   });		
+		addAnnotation
+		  (getSubjectRelation_Subject(), 
+		   source, 
+		   new String[] {
+			 "documentation", "Can be either {@link NounPart} or {@link PronounPart}."
+		   });		
+		addAnnotation
+		  (getObjectRelation_Object(), 
+		   source, 
+		   new String[] {
+			 "documentation", "Can be either {@link NounPart} or {@link PronounPart}."
+		   });		
+		addAnnotation
+		  (relationEClass, 
+		   source, 
+		   new String[] {
+			 "documentation", "Provides relationship information between part of speeches."
+		   });		
+		addAnnotation
+		  (typedPartMatcherEClass, 
+		   source, 
+		   new String[] {
+			 "documentation", "Matches a particular subclass of {@link PartOfSpeech}."
+		   });		
+		addAnnotation
+		  (getPartMatcher_Matchers(), 
+		   source, 
+		   new String[] {
+			 "documentation", "Child matchers of this {@link PartMatcher}. Note that a parent PartMatcher may only match if all its children have matched."
+		   });		
+		addAnnotation
+		  (subjectRelationDefEClass, 
+		   source, 
+		   new String[] {
+			 "documentation", "Defines a {@link SubjectRelation}."
+		   });		
+		addAnnotation
+		  (relationDefEClass, 
+		   source, 
+		   new String[] {
+			 "documentation", "Defines a {@link Relation}.\n\n<p>Since {@link PartMatcher} is hierarchical, binding paths are hierarchical also with format: \"{parent}/{child}/{grandchild}...\"\n(in XMI it\'s {@code int array}).\nNote that as in regex, binding numbers are 1-based.\ne.g. \"3/1\" refer to: first children of third root matcher."
+		   });		
+		addAnnotation
+		  (objectRelationDefEClass, 
+		   source, 
+		   new String[] {
+			 "documentation", "Defines an {@link ObjectRelation}."
 		   });
 	}
 

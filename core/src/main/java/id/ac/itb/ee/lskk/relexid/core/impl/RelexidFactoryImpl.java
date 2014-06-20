@@ -84,6 +84,13 @@ public class RelexidFactoryImpl extends EFactoryImpl implements RelexidFactory {
 			case RelexidPackage.RESOURCE_MATCHER: return createResourceMatcher();
 			case RelexidPackage.PRONOUN_REPLACEMENT: return createPronounReplacement();
 			case RelexidPackage.UNRECOGNIZED_PART: return createUnrecognizedPart();
+			case RelexidPackage.SUBJECT_RELATION: return createSubjectRelation();
+			case RelexidPackage.OBJECT_RELATION: return createObjectRelation();
+			case RelexidPackage.RELATION_RULE: return createRelationRule();
+			case RelexidPackage.RELATION_RULES: return createRelationRules();
+			case RelexidPackage.TYPED_PART_MATCHER: return createTypedPartMatcher();
+			case RelexidPackage.SUBJECT_RELATION_DEF: return createSubjectRelationDef();
+			case RelexidPackage.OBJECT_RELATION_DEF: return createObjectRelationDef();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -285,6 +292,76 @@ public class RelexidFactoryImpl extends EFactoryImpl implements RelexidFactory {
 	public UnrecognizedPart createUnrecognizedPart() {
 		UnrecognizedPartImpl unrecognizedPart = new UnrecognizedPartImpl();
 		return unrecognizedPart;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SubjectRelation createSubjectRelation() {
+		SubjectRelationImpl subjectRelation = new SubjectRelationImpl();
+		return subjectRelation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ObjectRelation createObjectRelation() {
+		ObjectRelationImpl objectRelation = new ObjectRelationImpl();
+		return objectRelation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RelationRule createRelationRule() {
+		RelationRuleImpl relationRule = new RelationRuleImpl();
+		return relationRule;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RelationRules createRelationRules() {
+		RelationRulesImpl relationRules = new RelationRulesImpl();
+		return relationRules;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TypedPartMatcher createTypedPartMatcher() {
+		TypedPartMatcherImpl typedPartMatcher = new TypedPartMatcherImpl();
+		return typedPartMatcher;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SubjectRelationDef createSubjectRelationDef() {
+		SubjectRelationDefImpl subjectRelationDef = new SubjectRelationDefImpl();
+		return subjectRelationDef;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ObjectRelationDef createObjectRelationDef() {
+		ObjectRelationDefImpl objectRelationDef = new ObjectRelationDefImpl();
+		return objectRelationDef;
 	}
 
 	/**

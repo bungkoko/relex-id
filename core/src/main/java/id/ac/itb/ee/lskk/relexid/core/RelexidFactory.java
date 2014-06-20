@@ -148,6 +148,69 @@ public interface RelexidFactory extends EFactory {
 	UnrecognizedPart createUnrecognizedPart();
 
 	/**
+	 * Returns a new object of class '<em>Subject Relation</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Subject Relation</em>'.
+	 * @generated
+	 */
+	SubjectRelation createSubjectRelation();
+
+	/**
+	 * Returns a new object of class '<em>Object Relation</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Object Relation</em>'.
+	 * @generated
+	 */
+	ObjectRelation createObjectRelation();
+
+	/**
+	 * Returns a new object of class '<em>Relation Rule</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Relation Rule</em>'.
+	 * @generated
+	 */
+	RelationRule createRelationRule();
+
+	/**
+	 * Returns a new object of class '<em>Relation Rules</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Relation Rules</em>'.
+	 * @generated
+	 */
+	RelationRules createRelationRules();
+
+	/**
+	 * Returns a new object of class '<em>Typed Part Matcher</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Typed Part Matcher</em>'.
+	 * @generated
+	 */
+	TypedPartMatcher createTypedPartMatcher();
+
+	/**
+	 * Returns a new object of class '<em>Subject Relation Def</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Subject Relation Def</em>'.
+	 * @generated
+	 */
+	SubjectRelationDef createSubjectRelationDef();
+
+	/**
+	 * Returns a new object of class '<em>Object Relation Def</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Object Relation Def</em>'.
+	 * @generated
+	 */
+	ObjectRelationDef createObjectRelationDef();
+
+	/**
 	 * Returns a new object of class '<em>Literal Replacement</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

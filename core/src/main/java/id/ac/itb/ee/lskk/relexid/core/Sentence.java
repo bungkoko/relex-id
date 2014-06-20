@@ -4,6 +4,7 @@ package id.ac.itb.ee.lskk.relexid.core;
 
 import java.util.Locale;
 import java.util.Map;
+import org.eclipse.emf.common.util.EList;
 
 
 /**
@@ -15,6 +16,7 @@ import java.util.Map;
  * The following features are supported:
  * <ul>
  *   <li>{@link id.ac.itb.ee.lskk.relexid.core.Sentence#getLiteral <em>Literal</em>}</li>
+ *   <li>{@link id.ac.itb.ee.lskk.relexid.core.Sentence#getRelations <em>Relations</em>}</li>
  * </ul>
  * </p>
  *
@@ -47,6 +49,22 @@ public interface Sentence extends PartContainer {
 	 * @generated
 	 */
 	void setLiteral(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Relations</b></em>' containment reference list.
+	 * The list contents are of type {@link id.ac.itb.ee.lskk.relexid.core.Relation}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Relations</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Relations</em>' containment reference list.
+	 * @see id.ac.itb.ee.lskk.relexid.core.RelexidPackage#getSentence_Relations()
+	 * @model containment="true" required="true"
+	 * @generated
+	 */
+	EList<Relation> getRelations();
 
 	/**
 	 * <!-- begin-user-doc -->

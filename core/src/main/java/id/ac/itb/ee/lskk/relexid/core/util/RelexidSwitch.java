@@ -273,6 +273,71 @@ public class RelexidSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case RelexidPackage.SUBJECT_RELATION: {
+				SubjectRelation subjectRelation = (SubjectRelation)theEObject;
+				T result = caseSubjectRelation(subjectRelation);
+				if (result == null) result = caseRelation(subjectRelation);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case RelexidPackage.OBJECT_RELATION: {
+				ObjectRelation objectRelation = (ObjectRelation)theEObject;
+				T result = caseObjectRelation(objectRelation);
+				if (result == null) result = caseRelation(objectRelation);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case RelexidPackage.RELATION: {
+				Relation relation = (Relation)theEObject;
+				T result = caseRelation(relation);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case RelexidPackage.RELATION_RULE: {
+				RelationRule relationRule = (RelationRule)theEObject;
+				T result = caseRelationRule(relationRule);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case RelexidPackage.RELATION_RULES: {
+				RelationRules relationRules = (RelationRules)theEObject;
+				T result = caseRelationRules(relationRules);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case RelexidPackage.TYPED_PART_MATCHER: {
+				TypedPartMatcher typedPartMatcher = (TypedPartMatcher)theEObject;
+				T result = caseTypedPartMatcher(typedPartMatcher);
+				if (result == null) result = casePartMatcher(typedPartMatcher);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case RelexidPackage.PART_MATCHER: {
+				PartMatcher partMatcher = (PartMatcher)theEObject;
+				T result = casePartMatcher(partMatcher);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case RelexidPackage.SUBJECT_RELATION_DEF: {
+				SubjectRelationDef subjectRelationDef = (SubjectRelationDef)theEObject;
+				T result = caseSubjectRelationDef(subjectRelationDef);
+				if (result == null) result = caseRelationDef(subjectRelationDef);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case RelexidPackage.RELATION_DEF: {
+				RelationDef relationDef = (RelationDef)theEObject;
+				T result = caseRelationDef(relationDef);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case RelexidPackage.OBJECT_RELATION_DEF: {
+				ObjectRelationDef objectRelationDef = (ObjectRelationDef)theEObject;
+				T result = caseObjectRelationDef(objectRelationDef);
+				if (result == null) result = caseRelationDef(objectRelationDef);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -529,6 +594,156 @@ public class RelexidSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseReplacementContainer(ReplacementContainer object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Subject Relation</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Subject Relation</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSubjectRelation(SubjectRelation object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Object Relation</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Object Relation</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseObjectRelation(ObjectRelation object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Relation</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Relation</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseRelation(Relation object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Relation Rule</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Relation Rule</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseRelationRule(RelationRule object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Relation Rules</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Relation Rules</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseRelationRules(RelationRules object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Typed Part Matcher</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Typed Part Matcher</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTypedPartMatcher(TypedPartMatcher object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Part Matcher</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Part Matcher</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePartMatcher(PartMatcher object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Subject Relation Def</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Subject Relation Def</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSubjectRelationDef(SubjectRelationDef object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Relation Def</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Relation Def</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseRelationDef(RelationDef object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Object Relation Def</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Object Relation Def</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseObjectRelationDef(ObjectRelationDef object) {
 		return null;
 	}
 

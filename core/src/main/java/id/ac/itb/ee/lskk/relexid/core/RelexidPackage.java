@@ -125,13 +125,22 @@ public interface RelexidPackage extends EPackage {
 	int SENTENCE__LITERAL = PART_CONTAINER_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Relations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SENTENCE__RELATIONS = PART_CONTAINER_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Sentence</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SENTENCE_FEATURE_COUNT = PART_CONTAINER_FEATURE_COUNT + 1;
+	int SENTENCE_FEATURE_COUNT = PART_CONTAINER_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Generate</em>' operation.
@@ -1656,6 +1665,412 @@ public interface RelexidPackage extends EPackage {
 	int UNRECOGNIZED_PART_OPERATION_COUNT = PART_OF_SPEECH_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link id.ac.itb.ee.lskk.relexid.core.Relation <em>Relation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see id.ac.itb.ee.lskk.relexid.core.Relation
+	 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getRelation()
+	 * @generated
+	 */
+	int RELATION = 32;
+
+	/**
+	 * The number of structural features of the '<em>Relation</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION_FEATURE_COUNT = 0;
+
+	/**
+	 * The number of operations of the '<em>Relation</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link id.ac.itb.ee.lskk.relexid.core.impl.SubjectRelationImpl <em>Subject Relation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see id.ac.itb.ee.lskk.relexid.core.impl.SubjectRelationImpl
+	 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getSubjectRelation()
+	 * @generated
+	 */
+	int SUBJECT_RELATION = 30;
+
+	/**
+	 * The feature id for the '<em><b>Subject</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUBJECT_RELATION__SUBJECT = RELATION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Verb</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUBJECT_RELATION__VERB = RELATION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Subject Relation</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUBJECT_RELATION_FEATURE_COUNT = RELATION_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>Subject Relation</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUBJECT_RELATION_OPERATION_COUNT = RELATION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link id.ac.itb.ee.lskk.relexid.core.impl.ObjectRelationImpl <em>Object Relation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see id.ac.itb.ee.lskk.relexid.core.impl.ObjectRelationImpl
+	 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getObjectRelation()
+	 * @generated
+	 */
+	int OBJECT_RELATION = 31;
+
+	/**
+	 * The feature id for the '<em><b>Verb</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OBJECT_RELATION__VERB = RELATION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Object</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OBJECT_RELATION__OBJECT = RELATION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Object Relation</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OBJECT_RELATION_FEATURE_COUNT = RELATION_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>Object Relation</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OBJECT_RELATION_OPERATION_COUNT = RELATION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link id.ac.itb.ee.lskk.relexid.core.impl.RelationRuleImpl <em>Relation Rule</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelationRuleImpl
+	 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getRelationRule()
+	 * @generated
+	 */
+	int RELATION_RULE = 33;
+
+	/**
+	 * The feature id for the '<em><b>Matchers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION_RULE__MATCHERS = 0;
+
+	/**
+	 * The feature id for the '<em><b>Relation Defs</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION_RULE__RELATION_DEFS = 1;
+
+	/**
+	 * The number of structural features of the '<em>Relation Rule</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION_RULE_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Relation Rule</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION_RULE_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link id.ac.itb.ee.lskk.relexid.core.impl.RelationRulesImpl <em>Relation Rules</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelationRulesImpl
+	 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getRelationRules()
+	 * @generated
+	 */
+	int RELATION_RULES = 34;
+
+	/**
+	 * The feature id for the '<em><b>Rules</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION_RULES__RULES = 0;
+
+	/**
+	 * The number of structural features of the '<em>Relation Rules</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION_RULES_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Relation Rules</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION_RULES_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link id.ac.itb.ee.lskk.relexid.core.PartMatcher <em>Part Matcher</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see id.ac.itb.ee.lskk.relexid.core.PartMatcher
+	 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getPartMatcher()
+	 * @generated
+	 */
+	int PART_MATCHER = 36;
+
+	/**
+	 * The feature id for the '<em><b>Matchers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PART_MATCHER__MATCHERS = 0;
+
+	/**
+	 * The number of structural features of the '<em>Part Matcher</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PART_MATCHER_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Part Matcher</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PART_MATCHER_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link id.ac.itb.ee.lskk.relexid.core.impl.TypedPartMatcherImpl <em>Typed Part Matcher</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see id.ac.itb.ee.lskk.relexid.core.impl.TypedPartMatcherImpl
+	 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getTypedPartMatcher()
+	 * @generated
+	 */
+	int TYPED_PART_MATCHER = 35;
+
+	/**
+	 * The feature id for the '<em><b>Matchers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPED_PART_MATCHER__MATCHERS = PART_MATCHER__MATCHERS;
+
+	/**
+	 * The feature id for the '<em><b>Part Of Speech</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPED_PART_MATCHER__PART_OF_SPEECH = PART_MATCHER_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Typed Part Matcher</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPED_PART_MATCHER_FEATURE_COUNT = PART_MATCHER_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Typed Part Matcher</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPED_PART_MATCHER_OPERATION_COUNT = PART_MATCHER_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link id.ac.itb.ee.lskk.relexid.core.RelationDef <em>Relation Def</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see id.ac.itb.ee.lskk.relexid.core.RelationDef
+	 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getRelationDef()
+	 * @generated
+	 */
+	int RELATION_DEF = 38;
+
+	/**
+	 * The number of structural features of the '<em>Relation Def</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION_DEF_FEATURE_COUNT = 0;
+
+	/**
+	 * The number of operations of the '<em>Relation Def</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION_DEF_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link id.ac.itb.ee.lskk.relexid.core.impl.SubjectRelationDefImpl <em>Subject Relation Def</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see id.ac.itb.ee.lskk.relexid.core.impl.SubjectRelationDefImpl
+	 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getSubjectRelationDef()
+	 * @generated
+	 */
+	int SUBJECT_RELATION_DEF = 37;
+
+	/**
+	 * The feature id for the '<em><b>Verb</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUBJECT_RELATION_DEF__VERB = RELATION_DEF_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Subject</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUBJECT_RELATION_DEF__SUBJECT = RELATION_DEF_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Subject Relation Def</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUBJECT_RELATION_DEF_FEATURE_COUNT = RELATION_DEF_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>Subject Relation Def</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUBJECT_RELATION_DEF_OPERATION_COUNT = RELATION_DEF_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link id.ac.itb.ee.lskk.relexid.core.impl.ObjectRelationDefImpl <em>Object Relation Def</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see id.ac.itb.ee.lskk.relexid.core.impl.ObjectRelationDefImpl
+	 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getObjectRelationDef()
+	 * @generated
+	 */
+	int OBJECT_RELATION_DEF = 39;
+
+	/**
+	 * The feature id for the '<em><b>Verb</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OBJECT_RELATION_DEF__VERB = RELATION_DEF_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Object</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OBJECT_RELATION_DEF__OBJECT = RELATION_DEF_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Object Relation Def</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OBJECT_RELATION_DEF_FEATURE_COUNT = RELATION_DEF_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>Object Relation Def</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OBJECT_RELATION_DEF_OPERATION_COUNT = RELATION_DEF_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link id.ac.itb.ee.lskk.relexid.core.PartOfSpeechType <em>Part Of Speech Type</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1663,7 +2078,7 @@ public interface RelexidPackage extends EPackage {
 	 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getPartOfSpeechType()
 	 * @generated
 	 */
-	int PART_OF_SPEECH_TYPE = 30;
+	int PART_OF_SPEECH_TYPE = 40;
 
 	/**
 	 * The meta object id for the '{@link id.ac.itb.ee.lskk.relexid.core.Punctuation <em>Punctuation</em>}' enum.
@@ -1673,7 +2088,7 @@ public interface RelexidPackage extends EPackage {
 	 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getPunctuation()
 	 * @generated
 	 */
-	int PUNCTUATION = 31;
+	int PUNCTUATION = 41;
 
 	/**
 	 * The meta object id for the '{@link id.ac.itb.ee.lskk.relexid.core.Question <em>Question</em>}' enum.
@@ -1683,7 +2098,7 @@ public interface RelexidPackage extends EPackage {
 	 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getQuestion()
 	 * @generated
 	 */
-	int QUESTION = 32;
+	int QUESTION = 42;
 
 	/**
 	 * The meta object id for the '{@link id.ac.itb.ee.lskk.relexid.core.PronounPerson <em>Pronoun Person</em>}' enum.
@@ -1693,7 +2108,7 @@ public interface RelexidPackage extends EPackage {
 	 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getPronounPerson()
 	 * @generated
 	 */
-	int PRONOUN_PERSON = 33;
+	int PRONOUN_PERSON = 43;
 
 	/**
 	 * The meta object id for the '{@link id.ac.itb.ee.lskk.relexid.core.PronounNumber <em>Pronoun Number</em>}' enum.
@@ -1703,7 +2118,7 @@ public interface RelexidPackage extends EPackage {
 	 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getPronounNumber()
 	 * @generated
 	 */
-	int PRONOUN_NUMBER = 34;
+	int PRONOUN_NUMBER = 44;
 
 	/**
 	 * The meta object id for the '{@link id.ac.itb.ee.lskk.relexid.core.PronounCase <em>Pronoun Case</em>}' enum.
@@ -1713,7 +2128,7 @@ public interface RelexidPackage extends EPackage {
 	 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getPronounCase()
 	 * @generated
 	 */
-	int PRONOUN_CASE = 35;
+	int PRONOUN_CASE = 45;
 
 	/**
 	 * The meta object id for the '<em>QName</em>' data type.
@@ -1723,7 +2138,7 @@ public interface RelexidPackage extends EPackage {
 	 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getQName()
 	 * @generated
 	 */
-	int QNAME = 36;
+	int QNAME = 46;
 
 
 	/**
@@ -1734,7 +2149,7 @@ public interface RelexidPackage extends EPackage {
 	 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getLocale()
 	 * @generated
 	 */
-	int LOCALE = 37;
+	int LOCALE = 47;
 
 
 	/**
@@ -1757,6 +2172,17 @@ public interface RelexidPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getSentence_Literal();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link id.ac.itb.ee.lskk.relexid.core.Sentence#getRelations <em>Relations</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Relations</em>'.
+	 * @see id.ac.itb.ee.lskk.relexid.core.Sentence#getRelations()
+	 * @see #getSentence()
+	 * @generated
+	 */
+	EReference getSentence_Relations();
 
 	/**
 	 * Returns the meta object for the '{@link id.ac.itb.ee.lskk.relexid.core.Sentence#generate(java.util.Locale, java.util.Map) <em>Generate</em>}' operation.
@@ -2113,6 +2539,249 @@ public interface RelexidPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getReplacementContainer_Replacements();
+
+	/**
+	 * Returns the meta object for class '{@link id.ac.itb.ee.lskk.relexid.core.SubjectRelation <em>Subject Relation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Subject Relation</em>'.
+	 * @see id.ac.itb.ee.lskk.relexid.core.SubjectRelation
+	 * @generated
+	 */
+	EClass getSubjectRelation();
+
+	/**
+	 * Returns the meta object for the reference '{@link id.ac.itb.ee.lskk.relexid.core.SubjectRelation#getSubject <em>Subject</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Subject</em>'.
+	 * @see id.ac.itb.ee.lskk.relexid.core.SubjectRelation#getSubject()
+	 * @see #getSubjectRelation()
+	 * @generated
+	 */
+	EReference getSubjectRelation_Subject();
+
+	/**
+	 * Returns the meta object for the reference '{@link id.ac.itb.ee.lskk.relexid.core.SubjectRelation#getVerb <em>Verb</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Verb</em>'.
+	 * @see id.ac.itb.ee.lskk.relexid.core.SubjectRelation#getVerb()
+	 * @see #getSubjectRelation()
+	 * @generated
+	 */
+	EReference getSubjectRelation_Verb();
+
+	/**
+	 * Returns the meta object for class '{@link id.ac.itb.ee.lskk.relexid.core.ObjectRelation <em>Object Relation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Object Relation</em>'.
+	 * @see id.ac.itb.ee.lskk.relexid.core.ObjectRelation
+	 * @generated
+	 */
+	EClass getObjectRelation();
+
+	/**
+	 * Returns the meta object for the reference '{@link id.ac.itb.ee.lskk.relexid.core.ObjectRelation#getVerb <em>Verb</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Verb</em>'.
+	 * @see id.ac.itb.ee.lskk.relexid.core.ObjectRelation#getVerb()
+	 * @see #getObjectRelation()
+	 * @generated
+	 */
+	EReference getObjectRelation_Verb();
+
+	/**
+	 * Returns the meta object for the reference '{@link id.ac.itb.ee.lskk.relexid.core.ObjectRelation#getObject <em>Object</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Object</em>'.
+	 * @see id.ac.itb.ee.lskk.relexid.core.ObjectRelation#getObject()
+	 * @see #getObjectRelation()
+	 * @generated
+	 */
+	EReference getObjectRelation_Object();
+
+	/**
+	 * Returns the meta object for class '{@link id.ac.itb.ee.lskk.relexid.core.Relation <em>Relation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Relation</em>'.
+	 * @see id.ac.itb.ee.lskk.relexid.core.Relation
+	 * @generated
+	 */
+	EClass getRelation();
+
+	/**
+	 * Returns the meta object for class '{@link id.ac.itb.ee.lskk.relexid.core.RelationRule <em>Relation Rule</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Relation Rule</em>'.
+	 * @see id.ac.itb.ee.lskk.relexid.core.RelationRule
+	 * @generated
+	 */
+	EClass getRelationRule();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link id.ac.itb.ee.lskk.relexid.core.RelationRule#getMatchers <em>Matchers</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Matchers</em>'.
+	 * @see id.ac.itb.ee.lskk.relexid.core.RelationRule#getMatchers()
+	 * @see #getRelationRule()
+	 * @generated
+	 */
+	EReference getRelationRule_Matchers();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link id.ac.itb.ee.lskk.relexid.core.RelationRule#getRelationDefs <em>Relation Defs</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Relation Defs</em>'.
+	 * @see id.ac.itb.ee.lskk.relexid.core.RelationRule#getRelationDefs()
+	 * @see #getRelationRule()
+	 * @generated
+	 */
+	EReference getRelationRule_RelationDefs();
+
+	/**
+	 * Returns the meta object for class '{@link id.ac.itb.ee.lskk.relexid.core.RelationRules <em>Relation Rules</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Relation Rules</em>'.
+	 * @see id.ac.itb.ee.lskk.relexid.core.RelationRules
+	 * @generated
+	 */
+	EClass getRelationRules();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link id.ac.itb.ee.lskk.relexid.core.RelationRules#getRules <em>Rules</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Rules</em>'.
+	 * @see id.ac.itb.ee.lskk.relexid.core.RelationRules#getRules()
+	 * @see #getRelationRules()
+	 * @generated
+	 */
+	EReference getRelationRules_Rules();
+
+	/**
+	 * Returns the meta object for class '{@link id.ac.itb.ee.lskk.relexid.core.TypedPartMatcher <em>Typed Part Matcher</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Typed Part Matcher</em>'.
+	 * @see id.ac.itb.ee.lskk.relexid.core.TypedPartMatcher
+	 * @generated
+	 */
+	EClass getTypedPartMatcher();
+
+	/**
+	 * Returns the meta object for the attribute '{@link id.ac.itb.ee.lskk.relexid.core.TypedPartMatcher#getPartOfSpeech <em>Part Of Speech</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Part Of Speech</em>'.
+	 * @see id.ac.itb.ee.lskk.relexid.core.TypedPartMatcher#getPartOfSpeech()
+	 * @see #getTypedPartMatcher()
+	 * @generated
+	 */
+	EAttribute getTypedPartMatcher_PartOfSpeech();
+
+	/**
+	 * Returns the meta object for class '{@link id.ac.itb.ee.lskk.relexid.core.PartMatcher <em>Part Matcher</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Part Matcher</em>'.
+	 * @see id.ac.itb.ee.lskk.relexid.core.PartMatcher
+	 * @generated
+	 */
+	EClass getPartMatcher();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link id.ac.itb.ee.lskk.relexid.core.PartMatcher#getMatchers <em>Matchers</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Matchers</em>'.
+	 * @see id.ac.itb.ee.lskk.relexid.core.PartMatcher#getMatchers()
+	 * @see #getPartMatcher()
+	 * @generated
+	 */
+	EReference getPartMatcher_Matchers();
+
+	/**
+	 * Returns the meta object for class '{@link id.ac.itb.ee.lskk.relexid.core.SubjectRelationDef <em>Subject Relation Def</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Subject Relation Def</em>'.
+	 * @see id.ac.itb.ee.lskk.relexid.core.SubjectRelationDef
+	 * @generated
+	 */
+	EClass getSubjectRelationDef();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link id.ac.itb.ee.lskk.relexid.core.SubjectRelationDef#getVerb <em>Verb</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Verb</em>'.
+	 * @see id.ac.itb.ee.lskk.relexid.core.SubjectRelationDef#getVerb()
+	 * @see #getSubjectRelationDef()
+	 * @generated
+	 */
+	EAttribute getSubjectRelationDef_Verb();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link id.ac.itb.ee.lskk.relexid.core.SubjectRelationDef#getSubject <em>Subject</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Subject</em>'.
+	 * @see id.ac.itb.ee.lskk.relexid.core.SubjectRelationDef#getSubject()
+	 * @see #getSubjectRelationDef()
+	 * @generated
+	 */
+	EAttribute getSubjectRelationDef_Subject();
+
+	/**
+	 * Returns the meta object for class '{@link id.ac.itb.ee.lskk.relexid.core.RelationDef <em>Relation Def</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Relation Def</em>'.
+	 * @see id.ac.itb.ee.lskk.relexid.core.RelationDef
+	 * @generated
+	 */
+	EClass getRelationDef();
+
+	/**
+	 * Returns the meta object for class '{@link id.ac.itb.ee.lskk.relexid.core.ObjectRelationDef <em>Object Relation Def</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Object Relation Def</em>'.
+	 * @see id.ac.itb.ee.lskk.relexid.core.ObjectRelationDef
+	 * @generated
+	 */
+	EClass getObjectRelationDef();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link id.ac.itb.ee.lskk.relexid.core.ObjectRelationDef#getVerb <em>Verb</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Verb</em>'.
+	 * @see id.ac.itb.ee.lskk.relexid.core.ObjectRelationDef#getVerb()
+	 * @see #getObjectRelationDef()
+	 * @generated
+	 */
+	EAttribute getObjectRelationDef_Verb();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link id.ac.itb.ee.lskk.relexid.core.ObjectRelationDef#getObject <em>Object</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Object</em>'.
+	 * @see id.ac.itb.ee.lskk.relexid.core.ObjectRelationDef#getObject()
+	 * @see #getObjectRelationDef()
+	 * @generated
+	 */
+	EAttribute getObjectRelationDef_Object();
 
 	/**
 	 * Returns the meta object for class '{@link id.ac.itb.ee.lskk.relexid.core.Questionable <em>Questionable</em>}'.
@@ -2511,6 +3180,14 @@ public interface RelexidPackage extends EPackage {
 		EAttribute SENTENCE__LITERAL = eINSTANCE.getSentence_Literal();
 
 		/**
+		 * The meta object literal for the '<em><b>Relations</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SENTENCE__RELATIONS = eINSTANCE.getSentence_Relations();
+
+		/**
 		 * The meta object literal for the '<em><b>Generate</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2813,6 +3490,210 @@ public interface RelexidPackage extends EPackage {
 		 * @generated
 		 */
 		EReference REPLACEMENT_CONTAINER__REPLACEMENTS = eINSTANCE.getReplacementContainer_Replacements();
+
+		/**
+		 * The meta object literal for the '{@link id.ac.itb.ee.lskk.relexid.core.impl.SubjectRelationImpl <em>Subject Relation</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see id.ac.itb.ee.lskk.relexid.core.impl.SubjectRelationImpl
+		 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getSubjectRelation()
+		 * @generated
+		 */
+		EClass SUBJECT_RELATION = eINSTANCE.getSubjectRelation();
+
+		/**
+		 * The meta object literal for the '<em><b>Subject</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SUBJECT_RELATION__SUBJECT = eINSTANCE.getSubjectRelation_Subject();
+
+		/**
+		 * The meta object literal for the '<em><b>Verb</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SUBJECT_RELATION__VERB = eINSTANCE.getSubjectRelation_Verb();
+
+		/**
+		 * The meta object literal for the '{@link id.ac.itb.ee.lskk.relexid.core.impl.ObjectRelationImpl <em>Object Relation</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see id.ac.itb.ee.lskk.relexid.core.impl.ObjectRelationImpl
+		 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getObjectRelation()
+		 * @generated
+		 */
+		EClass OBJECT_RELATION = eINSTANCE.getObjectRelation();
+
+		/**
+		 * The meta object literal for the '<em><b>Verb</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference OBJECT_RELATION__VERB = eINSTANCE.getObjectRelation_Verb();
+
+		/**
+		 * The meta object literal for the '<em><b>Object</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference OBJECT_RELATION__OBJECT = eINSTANCE.getObjectRelation_Object();
+
+		/**
+		 * The meta object literal for the '{@link id.ac.itb.ee.lskk.relexid.core.Relation <em>Relation</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see id.ac.itb.ee.lskk.relexid.core.Relation
+		 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getRelation()
+		 * @generated
+		 */
+		EClass RELATION = eINSTANCE.getRelation();
+
+		/**
+		 * The meta object literal for the '{@link id.ac.itb.ee.lskk.relexid.core.impl.RelationRuleImpl <em>Relation Rule</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelationRuleImpl
+		 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getRelationRule()
+		 * @generated
+		 */
+		EClass RELATION_RULE = eINSTANCE.getRelationRule();
+
+		/**
+		 * The meta object literal for the '<em><b>Matchers</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RELATION_RULE__MATCHERS = eINSTANCE.getRelationRule_Matchers();
+
+		/**
+		 * The meta object literal for the '<em><b>Relation Defs</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RELATION_RULE__RELATION_DEFS = eINSTANCE.getRelationRule_RelationDefs();
+
+		/**
+		 * The meta object literal for the '{@link id.ac.itb.ee.lskk.relexid.core.impl.RelationRulesImpl <em>Relation Rules</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelationRulesImpl
+		 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getRelationRules()
+		 * @generated
+		 */
+		EClass RELATION_RULES = eINSTANCE.getRelationRules();
+
+		/**
+		 * The meta object literal for the '<em><b>Rules</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RELATION_RULES__RULES = eINSTANCE.getRelationRules_Rules();
+
+		/**
+		 * The meta object literal for the '{@link id.ac.itb.ee.lskk.relexid.core.impl.TypedPartMatcherImpl <em>Typed Part Matcher</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see id.ac.itb.ee.lskk.relexid.core.impl.TypedPartMatcherImpl
+		 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getTypedPartMatcher()
+		 * @generated
+		 */
+		EClass TYPED_PART_MATCHER = eINSTANCE.getTypedPartMatcher();
+
+		/**
+		 * The meta object literal for the '<em><b>Part Of Speech</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TYPED_PART_MATCHER__PART_OF_SPEECH = eINSTANCE.getTypedPartMatcher_PartOfSpeech();
+
+		/**
+		 * The meta object literal for the '{@link id.ac.itb.ee.lskk.relexid.core.PartMatcher <em>Part Matcher</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see id.ac.itb.ee.lskk.relexid.core.PartMatcher
+		 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getPartMatcher()
+		 * @generated
+		 */
+		EClass PART_MATCHER = eINSTANCE.getPartMatcher();
+
+		/**
+		 * The meta object literal for the '<em><b>Matchers</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PART_MATCHER__MATCHERS = eINSTANCE.getPartMatcher_Matchers();
+
+		/**
+		 * The meta object literal for the '{@link id.ac.itb.ee.lskk.relexid.core.impl.SubjectRelationDefImpl <em>Subject Relation Def</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see id.ac.itb.ee.lskk.relexid.core.impl.SubjectRelationDefImpl
+		 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getSubjectRelationDef()
+		 * @generated
+		 */
+		EClass SUBJECT_RELATION_DEF = eINSTANCE.getSubjectRelationDef();
+
+		/**
+		 * The meta object literal for the '<em><b>Verb</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SUBJECT_RELATION_DEF__VERB = eINSTANCE.getSubjectRelationDef_Verb();
+
+		/**
+		 * The meta object literal for the '<em><b>Subject</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SUBJECT_RELATION_DEF__SUBJECT = eINSTANCE.getSubjectRelationDef_Subject();
+
+		/**
+		 * The meta object literal for the '{@link id.ac.itb.ee.lskk.relexid.core.RelationDef <em>Relation Def</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see id.ac.itb.ee.lskk.relexid.core.RelationDef
+		 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getRelationDef()
+		 * @generated
+		 */
+		EClass RELATION_DEF = eINSTANCE.getRelationDef();
+
+		/**
+		 * The meta object literal for the '{@link id.ac.itb.ee.lskk.relexid.core.impl.ObjectRelationDefImpl <em>Object Relation Def</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see id.ac.itb.ee.lskk.relexid.core.impl.ObjectRelationDefImpl
+		 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getObjectRelationDef()
+		 * @generated
+		 */
+		EClass OBJECT_RELATION_DEF = eINSTANCE.getObjectRelationDef();
+
+		/**
+		 * The meta object literal for the '<em><b>Verb</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute OBJECT_RELATION_DEF__VERB = eINSTANCE.getObjectRelationDef_Verb();
+
+		/**
+		 * The meta object literal for the '<em><b>Object</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute OBJECT_RELATION_DEF__OBJECT = eINSTANCE.getObjectRelationDef_Object();
 
 		/**
 		 * The meta object literal for the '{@link id.ac.itb.ee.lskk.relexid.core.Questionable <em>Questionable</em>}' class.

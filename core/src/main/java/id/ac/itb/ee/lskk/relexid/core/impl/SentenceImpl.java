@@ -4,6 +4,7 @@ package id.ac.itb.ee.lskk.relexid.core.impl;
 
 import id.ac.itb.ee.lskk.relexid.core.GeneratedLiteral;
 import id.ac.itb.ee.lskk.relexid.core.PartOfSpeech;
+import id.ac.itb.ee.lskk.relexid.core.Relation;
 import id.ac.itb.ee.lskk.relexid.core.RelexidPackage;
 import id.ac.itb.ee.lskk.relexid.core.Sentence;
 
@@ -36,6 +37,7 @@ import com.google.common.collect.FluentIterable;
  * <ul>
  *   <li>{@link id.ac.itb.ee.lskk.relexid.core.impl.SentenceImpl#getParts <em>Parts</em>}</li>
  *   <li>{@link id.ac.itb.ee.lskk.relexid.core.impl.SentenceImpl#getLiteral <em>Literal</em>}</li>
+ *   <li>{@link id.ac.itb.ee.lskk.relexid.core.impl.SentenceImpl#getRelations <em>Relations</em>}</li>
  * </ul>
  * </p>
  *
@@ -74,6 +76,16 @@ public class SentenceImpl extends MinimalEObjectImpl.Container implements Senten
 	 * @ordered
 	 */
 	protected String literal = LITERAL_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getRelations() <em>Relations</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRelations()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Relation> relations;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -133,6 +145,18 @@ public class SentenceImpl extends MinimalEObjectImpl.Container implements Senten
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Relation> getRelations() {
+		if (relations == null) {
+			relations = new EObjectContainmentEList<Relation>(Relation.class, this, RelexidPackage.SENTENCE__RELATIONS);
+		}
+		return relations;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 */
 	@Override
 	public String generate(Locale locale, Map<String, String> dict) {
@@ -159,6 +183,8 @@ public class SentenceImpl extends MinimalEObjectImpl.Container implements Senten
 		switch (featureID) {
 			case RelexidPackage.SENTENCE__PARTS:
 				return ((InternalEList<?>)getParts()).basicRemove(otherEnd, msgs);
+			case RelexidPackage.SENTENCE__RELATIONS:
+				return ((InternalEList<?>)getRelations()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -175,6 +201,8 @@ public class SentenceImpl extends MinimalEObjectImpl.Container implements Senten
 				return getParts();
 			case RelexidPackage.SENTENCE__LITERAL:
 				return getLiteral();
+			case RelexidPackage.SENTENCE__RELATIONS:
+				return getRelations();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -195,6 +223,10 @@ public class SentenceImpl extends MinimalEObjectImpl.Container implements Senten
 			case RelexidPackage.SENTENCE__LITERAL:
 				setLiteral((String)newValue);
 				return;
+			case RelexidPackage.SENTENCE__RELATIONS:
+				getRelations().clear();
+				getRelations().addAll((Collection<? extends Relation>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -213,6 +245,9 @@ public class SentenceImpl extends MinimalEObjectImpl.Container implements Senten
 			case RelexidPackage.SENTENCE__LITERAL:
 				setLiteral(LITERAL_EDEFAULT);
 				return;
+			case RelexidPackage.SENTENCE__RELATIONS:
+				getRelations().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -229,6 +264,8 @@ public class SentenceImpl extends MinimalEObjectImpl.Container implements Senten
 				return parts != null && !parts.isEmpty();
 			case RelexidPackage.SENTENCE__LITERAL:
 				return LITERAL_EDEFAULT == null ? literal != null : !LITERAL_EDEFAULT.equals(literal);
+			case RelexidPackage.SENTENCE__RELATIONS:
+				return relations != null && !relations.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

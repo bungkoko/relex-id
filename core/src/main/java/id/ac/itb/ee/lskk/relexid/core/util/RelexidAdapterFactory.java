@@ -188,6 +188,46 @@ public class RelexidAdapterFactory extends AdapterFactoryImpl {
 				return createReplacementContainerAdapter();
 			}
 			@Override
+			public Adapter caseSubjectRelation(SubjectRelation object) {
+				return createSubjectRelationAdapter();
+			}
+			@Override
+			public Adapter caseObjectRelation(ObjectRelation object) {
+				return createObjectRelationAdapter();
+			}
+			@Override
+			public Adapter caseRelation(Relation object) {
+				return createRelationAdapter();
+			}
+			@Override
+			public Adapter caseRelationRule(RelationRule object) {
+				return createRelationRuleAdapter();
+			}
+			@Override
+			public Adapter caseRelationRules(RelationRules object) {
+				return createRelationRulesAdapter();
+			}
+			@Override
+			public Adapter caseTypedPartMatcher(TypedPartMatcher object) {
+				return createTypedPartMatcherAdapter();
+			}
+			@Override
+			public Adapter casePartMatcher(PartMatcher object) {
+				return createPartMatcherAdapter();
+			}
+			@Override
+			public Adapter caseSubjectRelationDef(SubjectRelationDef object) {
+				return createSubjectRelationDefAdapter();
+			}
+			@Override
+			public Adapter caseRelationDef(RelationDef object) {
+				return createRelationDefAdapter();
+			}
+			@Override
+			public Adapter caseObjectRelationDef(ObjectRelationDef object) {
+				return createObjectRelationDefAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -442,6 +482,146 @@ public class RelexidAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createReplacementContainerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link id.ac.itb.ee.lskk.relexid.core.SubjectRelation <em>Subject Relation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see id.ac.itb.ee.lskk.relexid.core.SubjectRelation
+	 * @generated
+	 */
+	public Adapter createSubjectRelationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link id.ac.itb.ee.lskk.relexid.core.ObjectRelation <em>Object Relation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see id.ac.itb.ee.lskk.relexid.core.ObjectRelation
+	 * @generated
+	 */
+	public Adapter createObjectRelationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link id.ac.itb.ee.lskk.relexid.core.Relation <em>Relation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see id.ac.itb.ee.lskk.relexid.core.Relation
+	 * @generated
+	 */
+	public Adapter createRelationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link id.ac.itb.ee.lskk.relexid.core.RelationRule <em>Relation Rule</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see id.ac.itb.ee.lskk.relexid.core.RelationRule
+	 * @generated
+	 */
+	public Adapter createRelationRuleAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link id.ac.itb.ee.lskk.relexid.core.RelationRules <em>Relation Rules</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see id.ac.itb.ee.lskk.relexid.core.RelationRules
+	 * @generated
+	 */
+	public Adapter createRelationRulesAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link id.ac.itb.ee.lskk.relexid.core.TypedPartMatcher <em>Typed Part Matcher</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see id.ac.itb.ee.lskk.relexid.core.TypedPartMatcher
+	 * @generated
+	 */
+	public Adapter createTypedPartMatcherAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link id.ac.itb.ee.lskk.relexid.core.PartMatcher <em>Part Matcher</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see id.ac.itb.ee.lskk.relexid.core.PartMatcher
+	 * @generated
+	 */
+	public Adapter createPartMatcherAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link id.ac.itb.ee.lskk.relexid.core.SubjectRelationDef <em>Subject Relation Def</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see id.ac.itb.ee.lskk.relexid.core.SubjectRelationDef
+	 * @generated
+	 */
+	public Adapter createSubjectRelationDefAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link id.ac.itb.ee.lskk.relexid.core.RelationDef <em>Relation Def</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see id.ac.itb.ee.lskk.relexid.core.RelationDef
+	 * @generated
+	 */
+	public Adapter createRelationDefAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link id.ac.itb.ee.lskk.relexid.core.ObjectRelationDef <em>Object Relation Def</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see id.ac.itb.ee.lskk.relexid.core.ObjectRelationDef
+	 * @generated
+	 */
+	public Adapter createObjectRelationDefAdapter() {
 		return null;
 	}
 
