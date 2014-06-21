@@ -52,8 +52,8 @@
         xsi:type="relexid:PartOfSpeechMatcher"
         partOfSpeech="verb"/>
     <matchers
-        xsi:type="relexid:ResourceMatcher"
-        resource="wn31:102506148-n"/>
+        xsi:type="relexid:PartOfSpeechMatcher"
+        partOfSpeech="noun"/>
   </rules>
   <rules>
     <replacements

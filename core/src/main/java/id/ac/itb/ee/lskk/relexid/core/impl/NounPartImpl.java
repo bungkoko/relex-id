@@ -4,6 +4,7 @@ package id.ac.itb.ee.lskk.relexid.core.impl;
 
 import id.ac.itb.ee.lskk.relexid.core.GeneratedLiteral;
 import id.ac.itb.ee.lskk.relexid.core.NounPart;
+import id.ac.itb.ee.lskk.relexid.core.RelEx;
 import id.ac.itb.ee.lskk.relexid.core.RelexidFactory;
 import id.ac.itb.ee.lskk.relexid.core.RelexidPackage;
 import id.ac.itb.ee.lskk.relexid.core.Translator;
@@ -193,6 +194,7 @@ public class NounPartImpl extends MinimalEObjectImpl.Container implements NounPa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public QName getWord() {
 		return word;
 	}
@@ -202,6 +204,7 @@ public class NounPartImpl extends MinimalEObjectImpl.Container implements NounPa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setWord(QName newWord) {
 		QName oldWord = word;
 		word = newWord;
@@ -214,6 +217,7 @@ public class NounPartImpl extends MinimalEObjectImpl.Container implements NounPa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getName() {
 		return name;
 	}
@@ -223,6 +227,7 @@ public class NounPartImpl extends MinimalEObjectImpl.Container implements NounPa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
@@ -241,9 +246,10 @@ public class NounPartImpl extends MinimalEObjectImpl.Container implements NounPa
 		if (dict.containsKey(resourceUri)) {
 			result += dict.get(resourceUri);
 		} else {
-			result += getResource().toString();
-			log.warn("Resource {} not in dictionary for {} with {} entries",
-					getResource(), locale, dict.size());
+			result += translator.getTranslation(getResource());
+//			result += getResource().toString();
+//			log.warn("Resource {} not in dictionary for {} with {} entries",
+//					getResource(), locale, dict.size());
 		}
 //		for (PartOfSpeech part : getParts()) {
 //			final GeneratedLiteral literal = part.generate(locale, dict);
@@ -366,7 +372,8 @@ public class NounPartImpl extends MinimalEObjectImpl.Container implements NounPa
 	 */
 	@Override
 	public String toString() {
-		return "(NP " + getResource().getPrefix() + ":" + getResource().getLocalPart() + /*" " +
+		final String selfName = name != null ? name : RelEx.shortQName(this);
+		return "(NP " + selfName + /*" " +
 				Joiner.on(' ').join(FluentIterable.from(getParts()).transform(new ToStringFunction<>())) +*/ ")";
 	}
 

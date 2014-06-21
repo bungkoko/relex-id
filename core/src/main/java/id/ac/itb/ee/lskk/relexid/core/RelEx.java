@@ -78,8 +78,15 @@ public class RelEx implements Translator, LabelProvider {
 	 * to be explictly supported, e.g. {@code wn31} for nvarps.
 	 * @todo These aren't sorted/prioritized in any way.
 	 */
-	private ListMultimap<String, String> verbTranslations;
-	private Dataset wn31tdb;
+	private ListMultimap<String, String> verbSenses;
+	/**
+	 * Mapping from {@code ind} translations to WordNet senses for noun part-of-speech.
+	 * The value is String to save memory, it is short QName, where nsPrefix needs
+	 * to be explictly supported, e.g. {@code wn31} for nvarps.
+	 * @todo These aren't sorted/prioritized in any way.
+	 */
+	private ListMultimap<String, String> nounSenses;
+	private final Dataset wn31tdb;
 	
 	public static class Tokenizer {
 		enum CharType {
@@ -142,6 +149,10 @@ public class RelEx implements Translator, LabelProvider {
 		model.setNsPrefix("schema", SCHEMA_NS);
 		model.setNsPrefix("wordnet-ontology", WORDNET_ONTOLOGY_NS);
 		model.setNsPrefix("wn31", WN31_NS);
+		
+		final String wn31loc = System.getProperty("user.home") + "/wn31_tdb";
+		log.info("Initializing WordNet 3.1 TDB database at {}", wn31loc);
+		wn31tdb = TDBFactory.createDataset(wn31loc);
 	}
 
 	public void loadLexRules(Class<?> clazz, String resourcePath) {
@@ -229,12 +240,15 @@ public class RelEx implements Translator, LabelProvider {
 			qexec.close();
 		}
 	}
-	
+
+	/**
+	 * @deprecated We should not do this on every load, but we should put this
+	 * 	into a precomputable (but live updateable) index. Probably in CouchDB
+	 * 	or any <a href="https://jira.mongodb.org/browse/SERVER-153">function-based index</a> support (PostgreSQL has it, but it's not scalable).
+	 */
+	@Deprecated
 	public void loadTranslations() {
-		verbTranslations = ArrayListMultimap.create();
-		final String wn31loc = System.getProperty("user.home") + "/wn31_tdb";
-		log.info("Initializing WordNet 3.1 TDB database at {}", wn31loc);
-		wn31tdb = TDBFactory.createDataset(wn31loc);
+		verbSenses = ArrayListMultimap.create();
 		log.info("Loading verb translations...");
 		final String sparql = SPARQL_PREFIXES
 				+ "SELECT ?translation ?sense\n"
@@ -254,12 +268,12 @@ public class RelEx implements Translator, LabelProvider {
 				String translation = soln.get("translation").asLiteral().getString();
 				Resource senseRes = soln.get("sense").asResource();
 				String senseShort = model.shortForm(senseRes.getURI());
-				verbTranslations.put(translation, senseShort);
+				verbSenses.put(translation, senseShort);
 			}
 		} finally {
 			qexec.close();
 		}
-		log.info("Loaded {} verb translations", verbTranslations.size());
+		log.info("Loaded {} verb translations", verbSenses.size());
 	}
 	
 	public QName expandRef(String ref) {
@@ -284,6 +298,24 @@ public class RelEx implements Translator, LabelProvider {
 			return ref;
 		} else {
 			return expandRef(ref.toString());
+		}
+	}
+	
+	/**
+	 * Canonicalize a Jena {@link Resource} into a {@link QName} with prefix, nsURI, and localPart.
+	 * @param res
+	 * @return
+	 */
+	public QName toQName(Resource res) {
+		final String resUri = res.getURI();
+		String shortForm = model.shortForm(resUri);
+		if (shortForm.equals(resUri)) {
+			return new QName(resUri);
+		} else {
+			String nsPrefix = StringUtils.substringBefore(shortForm, ":");
+			String localPart = StringUtils.substringAfter(shortForm, ":");
+			String nsUri = model.getNsPrefixURI(nsPrefix);
+			return new QName(nsUri, localPart, nsPrefix); 
 		}
 	}
 	
@@ -497,22 +529,25 @@ public class RelEx implements Translator, LabelProvider {
 				} else if (matcher instanceof PartOfSpeechMatcher) {
 					PartOfSpeechMatcher posMatcher = (PartOfSpeechMatcher) matcher;
 					PartOfSpeechType pos = posMatcher.getPartOfSpeech();
-					final List<String> senses;
+					final List<QName> senses;
 					switch (pos) {
 					case VERB:
-						senses = verbTranslations.get(unrecognizedPart.getLiteral().toLowerCase());
+						senses = getVerbSenses(unrecognizedPart.getLiteral());
+						break;
+					case NOUN:
+						senses = getNounSenses(unrecognizedPart.getLiteral());
 						break;
 					default:
 						throw new IllegalArgumentException("Lex matcher PartOfSpeech does not support " + pos);
 					}
 					if (!senses.isEmpty()) {
 						matches = true;
-						final QName enhancedRes = expandRef(senses.get(0));
-						capturingGroups.add(new CapturingGroup(enhancedRes));
+						QName sense = senses.get(0);
+						capturingGroups.add(new CapturingGroup(sense));
 						nextPartIdx = unrecognizedPartIdx + 1;
 						if (senses.size() > 1) {
 							log.warn("PartOfSpeech matcher for {} '{}' chose the first sense {} but matched {} senses: {}",
-									pos, unrecognizedPart.getLiteral(), enhancedRes, senses.size(), senses);
+									pos, unrecognizedPart.getLiteral(), shortQName(sense), senses.size(), senses);
 						}
 					} else {
 						matches = false;
@@ -577,6 +612,86 @@ public class RelEx implements Translator, LabelProvider {
 		sentence.getRelations().addAll(relations);
 		
 		return sentence;
+	}
+
+	/**
+	 * Mapping from {@code ind} translations to WordNet senses for verb part-of-speech.
+	 * The value is String to save memory, it is short QName, where nsPrefix needs
+	 * to be explictly supported, e.g. {@code wn31} for nvarps.
+	 * 
+	 * @param verbLiteral Verb literal, please preserve capitalization because case-normalization will be performed here.
+	 * @return
+	 * @todo These aren't sorted/prioritized in any way.
+	 * @todo Need Cached by EHCache or something (never expire but with invalidation), or function-based index.
+	 */
+	protected List<QName> getVerbSenses(final String verbLiteral) {
+		List<QName> senses = new ArrayList<>();
+		log.info("Loading verb translations...");
+		ParameterizedSparqlString sparql = new ParameterizedSparqlString(
+				"SELECT ?sense\n"
+				+ "WHERE {\n"
+				+ "	?sense wordnet-ontology:translation ?verbLiteral ;"
+				+ "		wordnet-ontology:part_of_speech wordnet-ontology:verb\n"
+				+ "} LIMIT 10", model);
+		sparql.setLiteral("verbLiteral", verbLiteral.toLowerCase(), "ind");
+		log.trace("getVerbSenses '{}' SPARQL: {}", verbLiteral, sparql);
+		Query verbTxQuery = QueryFactory.create(sparql.toString());
+		QueryExecution qexec = QueryExecutionFactory.create(verbTxQuery, wn31tdb);
+		try {
+			ResultSet rs = qexec.execSelect();
+			for (; rs.hasNext(); ) {
+				QuerySolution soln = rs.next();
+				QName senseRes = toQName(soln.get("sense").asResource());
+				senses.add(senseRes);
+			}
+		} finally {
+			qexec.close();
+		}
+		return senses;
+		
+//		return FluentIterable.from( verbSenses.get(verbLiteral.toLowerCase()) )
+//				.transform(new Function<String, QName>() {
+//					@Override
+//					public QName apply(String input) {
+//						return RelEx.this.expandRef(input);
+//					}
+//				}).toList();
+	}
+	
+	/**
+	 * Mapping from {@code ind} translations to WordNet senses for noun part-of-speech.
+	 * The value is String to save memory, it is short QName, where nsPrefix needs
+	 * to be explictly supported, e.g. {@code wn31} for nvarps.
+	 * 
+	 * @param nounLiteral Verb literal, please preserve capitalization because case-normalization will be performed here.
+	 * @return
+	 * @todo These aren't sorted/prioritized in any way.
+	 * @todo Need Cached by EHCache or something (never expire but with invalidation), or function-based index.
+	 */
+	protected List<QName> getNounSenses(final String nounLiteral) {
+		List<QName> senses = new ArrayList<>();
+		log.info("Loading verb translations...");
+		ParameterizedSparqlString sparql = new ParameterizedSparqlString(
+				"SELECT ?sense\n"
+				+ "WHERE {\n"
+				+ "	?sense wordnet-ontology:translation ?nounLiteral ;"
+				+ "		wordnet-ontology:part_of_speech wordnet-ontology:noun\n"
+				+ "} LIMIT 10", model);
+		sparql.setLiteral("nounLiteral", nounLiteral.toLowerCase(), "ind");
+		log.trace("getNounSenses '{}' SPARQL: {}", nounLiteral, sparql);
+		Query verbTxQuery = QueryFactory.create(sparql.toString());
+		QueryExecution qexec = QueryExecutionFactory.create(verbTxQuery, wn31tdb);
+		try {
+			ResultSet rs = qexec.execSelect();
+			for (; rs.hasNext(); ) {
+				QuerySolution soln = rs.next();
+				QName senseRes = toQName(soln.get("sense").asResource());
+				senses.add(senseRes);
+			}
+		} finally {
+			qexec.close();
+		}
+		return senses;
 	}
 	
 	/**

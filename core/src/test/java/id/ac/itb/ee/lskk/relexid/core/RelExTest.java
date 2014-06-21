@@ -49,7 +49,7 @@ public class RelExTest {
 		relex = new RelEx();
 		relex.setDictionary(DICT_ID_ID);
 		
-		relex.loadTranslations();
+//		relex.loadTranslations();
 		relex.loadLexRules(RelExTest.class, "lumen.LexRules.xmi");
 		relex.loadRelationRules(RelExTest.class, "lumen.RelationRules.xmi");
 	}
@@ -131,6 +131,39 @@ public class RelExTest {
 		log.info("Sentence in Indonesian: {}", indonesian);
 		assertEquals("(S (PP i) (VP dbpedia:Like (NP dbpedia:Elephant)) . )", sentence.toString());
 		assertEquals("Aku suka gajah.", indonesian);
+	}
+	
+	@Test
+	public void akuSayangUntaGenerate() {
+		final Sentence sentence = relex.parse("Aku sayang unta.");
+		log.info("Sentence structure: {}", sentence);
+//		log.info("Sentence in English: {}", sentence.generate(Locale.ENGLISH, DICT_EN_US, relex));
+		final String indonesian = sentence.generate(RelEx.INDONESIAN, DICT_ID_ID, relex);
+		log.info("Sentence in Indonesian: {}", indonesian);
+		assertEquals("(S (PP i) (VP love-v (NP camel-n)) . )", sentence.toString());
+		assertEquals("Aku sayang unta.", indonesian);
+	}
+	
+	@Test
+	public void akuMenaikiJerapahGenerate() {
+		final Sentence sentence = relex.parse("Aku menaiki jerapah.");
+		log.info("Sentence structure: {}", sentence);
+//		log.info("Sentence in English: {}", sentence.generate(Locale.ENGLISH, DICT_EN_US, relex));
+		final String indonesian = sentence.generate(RelEx.INDONESIAN, DICT_ID_ID, relex);
+		log.info("Sentence in Indonesian: {}", indonesian);
+		assertEquals("(S (PP i) (VP drive-v (NP camelopard-n)) . )", sentence.toString());
+		assertEquals("Aku pandu jerapah.", indonesian);
+	}
+	
+	@Test
+	public void akuMengendaraiJerapahGenerate() {
+		final Sentence sentence = relex.parse("Aku mengendarai mobil.");
+		log.info("Sentence structure: {}", sentence);
+//		log.info("Sentence in English: {}", sentence.generate(Locale.ENGLISH, DICT_EN_US, relex));
+		final String indonesian = sentence.generate(RelEx.INDONESIAN, DICT_ID_ID, relex);
+		log.info("Sentence in Indonesian: {}", indonesian);
+		assertEquals("(S (PP i) (VP ride-v (NP car-n)) . )", sentence.toString());
+		assertEquals("Aku berjalan motokar.", indonesian);
 	}
 	
 	@Test
