@@ -39,9 +39,10 @@ import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.tdb.TDBFactory;
 
-public class RelEx implements Translator {
+public class RelEx implements Translator, LabelProvider {
 	
-	private static final String WORDNET_ONTOLOGY_NS = "http://wordnet-rdf.princeton.edu/ontology#";
+	private static final Logger log = LoggerFactory.getLogger(RelEx.class);
+	@Deprecated
 	private static final String SPARQL_PREFIXES =
 					"PREFIX rdf:					<http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n"
 					+ "PREFIX rdfs:				<http://www.w3.org/2000/01/rdf-schema#>\n"
@@ -51,10 +52,18 @@ public class RelEx implements Translator {
 					+ "PREFIX wordnet-ontology:	<http://wordnet-rdf.princeton.edu/ontology#>\n"
 					+ "PREFIX wn20:				<http://www.w3.org/2006/03/wn/wn20/instances/>\n"
 					+ "PREFIX uby:					<http://lemon-model.net/lexica/uby/wn/>\n";
-	private static final Logger log = LoggerFactory.getLogger(RelEx.class);
 	public static final Locale INDONESIAN = Locale.forLanguageTag("id-ID");
 	public static final String DBPEDIA_NS = "http://dbpedia.org/resource/";
+	public static final String RDF_NS = "http://www.w3.org/1999/02/22-rdf-syntax-ns#";
+	public static final String RDFS_NS = "http://www.w3.org/2000/01/rdf-schema#";
+	public static final String OWL_NS = "http://www.w3.org/2002/07/owl#";
+	public static final String LEMON_NS = "http://lemon-model.net/lemon#";
+	public static final String DBPEDIA_OWL_NS = "http://dbpedia.org/ontology/";
+	public static final String SCHEMA_NS = "http://schema.org";
+	public static final String WORDNET_ONTOLOGY_NS = "http://wordnet-rdf.princeton.edu/ontology#";
+	public static final String WN20_NS = "http://www.w3.org/2006/03/wn/wn20/instances/";
 	public static final String WN31_NS = "http://wordnet-rdf.princeton.edu/wn31/";
+	public static final String UBY_NS = "http://lemon-model.net/lexica/uby/wn/";
 	
 	private LexRules lexRules;
 	private RelationRules relationRules;
@@ -125,9 +134,12 @@ public class RelEx implements Translator {
 	public RelEx() {
 		tokenizer = new Tokenizer();
 		model = ModelFactory.createDefaultModel();
-		model.setNsPrefix("dbpedia", "http://dbpedia.org/resource/");
-		model.setNsPrefix("dbpedia-owl", "http://dbpedia.org/ontology/");
-		model.setNsPrefix("schema", "http://schema.org/");
+		model.setNsPrefix("rdfs", RDFS_NS);
+		model.setNsPrefix("rdf", RDF_NS);
+		model.setNsPrefix("owl", OWL_NS);
+		model.setNsPrefix("dbpedia", DBPEDIA_NS);
+		model.setNsPrefix("dbpedia-owl", DBPEDIA_OWL_NS);
+		model.setNsPrefix("schema", SCHEMA_NS);
 		model.setNsPrefix("wordnet-ontology", WORDNET_ONTOLOGY_NS);
 		model.setNsPrefix("wn31", WN31_NS);
 	}
@@ -150,7 +162,7 @@ public class RelEx implements Translator {
 				+ "}", model);
 		stmt.setIri("sense", this.asRef(ref));
 		final String sparql = stmt.toString();
-		log.debug("select SPARQL: {}", sparql);
+		log.debug("getTranslation SPARQL: {}", sparql);
 		Query verbTxQuery = QueryFactory.create(sparql);
 		QueryExecution qexec = QueryExecutionFactory.create(verbTxQuery, wn31tdb);
 		try {
@@ -166,20 +178,74 @@ public class RelEx implements Translator {
 		}
 	}
 	
+	/* (non-Javadoc)
+	 * @see id.ac.itb.ee.lskk.relexid.core.Labeler#getSenseLabel(javax.xml.namespace.QName)
+	 */
+	@Override
+	public String getSenseLabel(QName ref) {
+		ParameterizedSparqlString stmt = new ParameterizedSparqlString(
+				"SELECT ?word WHERE {\n"
+				+ "?sense wordnet-ontology:synset_member ?word\n"
+				+ "}", model);
+		stmt.setIri("sense", this.asRef(ref));
+		final String sparql = stmt.toString();
+		log.trace("getSenseLabel SPARQL: {}", sparql);
+		Query verbTxQuery = QueryFactory.create(sparql);
+		QueryExecution qexec = QueryExecutionFactory.create(verbTxQuery, wn31tdb);
+		try {
+			ResultSet rs = qexec.execSelect();
+			for (; rs.hasNext(); ) {
+				QuerySolution soln = rs.next();
+				String wordLocalName = soln.get("word").asResource().getLocalName();
+				return wordLocalName;
+			}
+			log.warn("No wordnet-ontology:synset_member for sense " + ref);
+			return shortQName(ref);
+		} finally {
+			qexec.close();
+		}
+	}
+	
+	public String getSenseRdfsLabel(QName ref) {
+		ParameterizedSparqlString stmt = new ParameterizedSparqlString(
+				"SELECT ?label WHERE {\n"
+				+ "?sense rdfs:label ?label\n"
+				+ "}", model);
+		stmt.setIri("sense", this.asRef(ref));
+		final String sparql = stmt.toString();
+		log.trace("getSenseLabel SPARQL: {}", sparql);
+		Query verbTxQuery = QueryFactory.create(sparql);
+		QueryExecution qexec = QueryExecutionFactory.create(verbTxQuery, wn31tdb);
+		try {
+			ResultSet rs = qexec.execSelect();
+			for (; rs.hasNext(); ) {
+				QuerySolution soln = rs.next();
+				String translation = soln.get("label").asLiteral().getString();
+				return translation;
+			}
+			log.warn("No rdfs:label for sense " + ref);
+			return shortQName(ref);
+		} finally {
+			qexec.close();
+		}
+	}
+	
 	public void loadTranslations() {
 		verbTranslations = ArrayListMultimap.create();
 		final String wn31loc = System.getProperty("user.home") + "/wn31_tdb";
 		log.info("Initializing WordNet 3.1 TDB database at {}", wn31loc);
 		wn31tdb = TDBFactory.createDataset(wn31loc);
 		log.info("Loading verb translations...");
-		Query verbTxQuery = QueryFactory.create(SPARQL_PREFIXES
+		final String sparql = SPARQL_PREFIXES
 				+ "SELECT ?translation ?sense\n"
 				+ "WHERE {\n"
 				+ "	?sense wordnet-ontology:translation ?t ;"
 				+ "		wordnet-ontology:part_of_speech wordnet-ontology:verb\n"
 				+ "	BIND( lcase(?t) AS ?translation )\n"
 				+ "	FILTER ( lang(?translation) = 'ind' )\n"
-				+ "} LIMIT 50000");
+				+ "} LIMIT 50000";
+		log.debug("loadTranslations SPARQL: {}", sparql);
+		Query verbTxQuery = QueryFactory.create(sparql);
 		QueryExecution qexec = QueryExecutionFactory.create(verbTxQuery, wn31tdb);
 		try {
 			ResultSet rs = qexec.execSelect();
@@ -305,6 +371,7 @@ public class RelEx implements Translator {
 							"Capture group for %s must have resource", resourceRepl );
 					part.setResource(capturingGroup.getResource());
 				}
+				part.setName(getSenseLabel(part.getResource()));
 				part.setLiteral(part.getResource().toString());
 				
 				// sub-replacements

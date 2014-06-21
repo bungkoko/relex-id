@@ -5,6 +5,7 @@ package id.ac.itb.ee.lskk.relexid.core.impl;
 import id.ac.itb.ee.lskk.relexid.core.GeneratedLiteral;
 import id.ac.itb.ee.lskk.relexid.core.PartContainer;
 import id.ac.itb.ee.lskk.relexid.core.PartOfSpeech;
+import id.ac.itb.ee.lskk.relexid.core.RelEx;
 import id.ac.itb.ee.lskk.relexid.core.RelexidFactory;
 import id.ac.itb.ee.lskk.relexid.core.RelexidPackage;
 import id.ac.itb.ee.lskk.relexid.core.Translator;
@@ -43,6 +44,7 @@ import com.google.common.collect.FluentIterable;
  *   <li>{@link id.ac.itb.ee.lskk.relexid.core.impl.VerbPartImpl#getLiteral <em>Literal</em>}</li>
  *   <li>{@link id.ac.itb.ee.lskk.relexid.core.impl.VerbPartImpl#getResource <em>Resource</em>}</li>
  *   <li>{@link id.ac.itb.ee.lskk.relexid.core.impl.VerbPartImpl#getWord <em>Word</em>}</li>
+ *   <li>{@link id.ac.itb.ee.lskk.relexid.core.impl.VerbPartImpl#getName <em>Name</em>}</li>
  *   <li>{@link id.ac.itb.ee.lskk.relexid.core.impl.VerbPartImpl#getParts <em>Parts</em>}</li>
  * </ul>
  * </p>
@@ -113,6 +115,26 @@ public class VerbPartImpl extends MinimalEObjectImpl.Container implements VerbPa
 	 * @ordered
 	 */
 	protected QName word = WORD_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String name = NAME_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getParts() <em>Parts</em>}' containment reference list.
@@ -218,6 +240,29 @@ public class VerbPartImpl extends MinimalEObjectImpl.Container implements VerbPa
 	 * @generated
 	 */
 	@Override
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, RelexidPackage.VERB_PART__NAME, oldName, name));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EList<PartOfSpeech> getParts() {
 		if (parts == null) {
 			parts = new EObjectContainmentEList<PartOfSpeech>(PartOfSpeech.class, this, RelexidPackage.VERB_PART__PARTS);
@@ -281,6 +326,8 @@ public class VerbPartImpl extends MinimalEObjectImpl.Container implements VerbPa
 				return getResource();
 			case RelexidPackage.VERB_PART__WORD:
 				return getWord();
+			case RelexidPackage.VERB_PART__NAME:
+				return getName();
 			case RelexidPackage.VERB_PART__PARTS:
 				return getParts();
 		}
@@ -304,6 +351,9 @@ public class VerbPartImpl extends MinimalEObjectImpl.Container implements VerbPa
 				return;
 			case RelexidPackage.VERB_PART__WORD:
 				setWord((QName)newValue);
+				return;
+			case RelexidPackage.VERB_PART__NAME:
+				setName((String)newValue);
 				return;
 			case RelexidPackage.VERB_PART__PARTS:
 				getParts().clear();
@@ -330,6 +380,9 @@ public class VerbPartImpl extends MinimalEObjectImpl.Container implements VerbPa
 			case RelexidPackage.VERB_PART__WORD:
 				setWord(WORD_EDEFAULT);
 				return;
+			case RelexidPackage.VERB_PART__NAME:
+				setName(NAME_EDEFAULT);
+				return;
 			case RelexidPackage.VERB_PART__PARTS:
 				getParts().clear();
 				return;
@@ -351,6 +404,8 @@ public class VerbPartImpl extends MinimalEObjectImpl.Container implements VerbPa
 				return RESOURCE_EDEFAULT == null ? resource != null : !RESOURCE_EDEFAULT.equals(resource);
 			case RelexidPackage.VERB_PART__WORD:
 				return WORD_EDEFAULT == null ? word != null : !WORD_EDEFAULT.equals(word);
+			case RelexidPackage.VERB_PART__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case RelexidPackage.VERB_PART__PARTS:
 				return parts != null && !parts.isEmpty();
 		}
@@ -410,7 +465,8 @@ public class VerbPartImpl extends MinimalEObjectImpl.Container implements VerbPa
 	 */
 	@Override
 	public String toString() {
-		return "(VP " + getResource().getPrefix() + ":" + getResource().getLocalPart() + " " +
+		final String selfName = name != null ? name : RelEx.shortQName(this);
+		return "(VP " + selfName + " " +
 				Joiner.on(' ').join(FluentIterable.from(getParts()).transform(new ToStringFunction<>())) + ")";
 	}
 

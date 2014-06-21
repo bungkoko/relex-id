@@ -31,6 +31,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link id.ac.itb.ee.lskk.relexid.core.impl.PunctuationPartImpl#getLiteral <em>Literal</em>}</li>
  *   <li>{@link id.ac.itb.ee.lskk.relexid.core.impl.PunctuationPartImpl#getResource <em>Resource</em>}</li>
  *   <li>{@link id.ac.itb.ee.lskk.relexid.core.impl.PunctuationPartImpl#getWord <em>Word</em>}</li>
+ *   <li>{@link id.ac.itb.ee.lskk.relexid.core.impl.PunctuationPartImpl#getName <em>Name</em>}</li>
  *   <li>{@link id.ac.itb.ee.lskk.relexid.core.impl.PunctuationPartImpl#getPunctuation <em>Punctuation</em>}</li>
  * </ul>
  * </p>
@@ -121,6 +122,24 @@ public class PunctuationPartImpl extends MinimalEObjectImpl.Container implements
 	 * @ordered
 	 */
 	protected QName word = WORD_EDEFAULT;
+	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = null;
+	/**
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String name = NAME_EDEFAULT;
 	/**
 	 * The default value of the '{@link #getPunctuation() <em>Punctuation</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -232,6 +251,27 @@ public class PunctuationPartImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, RelexidPackage.PUNCTUATION_PART__NAME, oldName, name));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Punctuation getPunctuation() {
 		return punctuation;
@@ -276,6 +316,8 @@ public class PunctuationPartImpl extends MinimalEObjectImpl.Container implements
 				return getResource();
 			case RelexidPackage.PUNCTUATION_PART__WORD:
 				return getWord();
+			case RelexidPackage.PUNCTUATION_PART__NAME:
+				return getName();
 			case RelexidPackage.PUNCTUATION_PART__PUNCTUATION:
 				return getPunctuation();
 		}
@@ -298,6 +340,9 @@ public class PunctuationPartImpl extends MinimalEObjectImpl.Container implements
 				return;
 			case RelexidPackage.PUNCTUATION_PART__WORD:
 				setWord((QName)newValue);
+				return;
+			case RelexidPackage.PUNCTUATION_PART__NAME:
+				setName((String)newValue);
 				return;
 			case RelexidPackage.PUNCTUATION_PART__PUNCTUATION:
 				setPunctuation((Punctuation)newValue);
@@ -323,6 +368,9 @@ public class PunctuationPartImpl extends MinimalEObjectImpl.Container implements
 			case RelexidPackage.PUNCTUATION_PART__WORD:
 				setWord(WORD_EDEFAULT);
 				return;
+			case RelexidPackage.PUNCTUATION_PART__NAME:
+				setName(NAME_EDEFAULT);
+				return;
 			case RelexidPackage.PUNCTUATION_PART__PUNCTUATION:
 				setPunctuation(PUNCTUATION_EDEFAULT);
 				return;
@@ -344,6 +392,8 @@ public class PunctuationPartImpl extends MinimalEObjectImpl.Container implements
 				return RESOURCE_EDEFAULT == null ? resource != null : !RESOURCE_EDEFAULT.equals(resource);
 			case RelexidPackage.PUNCTUATION_PART__WORD:
 				return WORD_EDEFAULT == null ? word != null : !WORD_EDEFAULT.equals(word);
+			case RelexidPackage.PUNCTUATION_PART__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case RelexidPackage.PUNCTUATION_PART__PUNCTUATION:
 				return punctuation != PUNCTUATION_EDEFAULT;
 		}

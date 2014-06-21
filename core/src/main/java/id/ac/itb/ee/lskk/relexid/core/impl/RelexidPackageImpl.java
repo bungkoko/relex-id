@@ -8,6 +8,7 @@ import id.ac.itb.ee.lskk.relexid.core.ClassMatcher;
 import id.ac.itb.ee.lskk.relexid.core.ConjunctionPart;
 import id.ac.itb.ee.lskk.relexid.core.GeneratedLiteral;
 import id.ac.itb.ee.lskk.relexid.core.InterjectionPart;
+import id.ac.itb.ee.lskk.relexid.core.LabelProvider;
 import id.ac.itb.ee.lskk.relexid.core.LexMatcher;
 import id.ac.itb.ee.lskk.relexid.core.LexReplacement;
 import id.ac.itb.ee.lskk.relexid.core.LexRule;
@@ -53,6 +54,7 @@ import id.ac.itb.ee.lskk.relexid.core.UnrecognizedPart;
 import id.ac.itb.ee.lskk.relexid.core.VerbPart;
 
 import java.util.Locale;
+
 import javax.xml.namespace.QName;
 
 import org.eclipse.emf.ecore.EAttribute;
@@ -63,7 +65,6 @@ import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 /**
@@ -417,6 +418,13 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	private EDataType translatorEDataType = null;
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EDataType labelProviderEDataType = null;
+
+	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
 	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
 	 * package URI value.
@@ -482,6 +490,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getSentence() {
 		return sentenceEClass;
 	}
@@ -491,6 +500,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getSentence_Literal() {
 		return (EAttribute)sentenceEClass.getEStructuralFeatures().get(0);
 	}
@@ -500,6 +510,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getSentence_Relations() {
 		return (EReference)sentenceEClass.getEStructuralFeatures().get(1);
 	}
@@ -509,7 +520,8 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getSentence__Generate__Locale_Map() {
+	@Override
+	public EOperation getSentence__Generate__Locale_Map_Translator() {
 		return sentenceEClass.getEOperations().get(0);
 	}
 
@@ -518,6 +530,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getPartOfSpeech() {
 		return partOfSpeechEClass;
 	}
@@ -527,6 +540,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getPartOfSpeech_Literal() {
 		return (EAttribute)partOfSpeechEClass.getEStructuralFeatures().get(0);
 	}
@@ -536,6 +550,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getPartOfSpeech_Resource() {
 		return (EAttribute)partOfSpeechEClass.getEStructuralFeatures().get(1);
 	}
@@ -545,6 +560,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getPartOfSpeech_Word() {
 		return (EAttribute)partOfSpeechEClass.getEStructuralFeatures().get(2);
 	}
@@ -554,6 +570,17 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public EAttribute getPartOfSpeech_Name() {
+		return (EAttribute)partOfSpeechEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EOperation getPartOfSpeech__Generate__Locale_Map_Translator() {
 		return partOfSpeechEClass.getEOperations().get(0);
 	}
@@ -563,6 +590,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getNounPart() {
 		return nounPartEClass;
 	}
@@ -572,6 +600,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getPronounPart() {
 		return pronounPartEClass;
 	}
@@ -581,6 +610,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getPronounPart_Person() {
 		return (EAttribute)pronounPartEClass.getEStructuralFeatures().get(0);
 	}
@@ -590,6 +620,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getPronounPart_Number() {
 		return (EAttribute)pronounPartEClass.getEStructuralFeatures().get(1);
 	}
@@ -599,6 +630,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getPronounPart_Case() {
 		return (EAttribute)pronounPartEClass.getEStructuralFeatures().get(2);
 	}
@@ -608,6 +640,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getVerbPart() {
 		return verbPartEClass;
 	}
@@ -617,6 +650,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getLexRule() {
 		return lexRuleEClass;
 	}
@@ -626,6 +660,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getLexRule_Matchers() {
 		return (EReference)lexRuleEClass.getEStructuralFeatures().get(0);
 	}
@@ -635,6 +670,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getPrepositionPart() {
 		return prepositionPartEClass;
 	}
@@ -644,6 +680,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getConjunctionPart() {
 		return conjunctionPartEClass;
 	}
@@ -653,6 +690,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getInterjectionPart() {
 		return interjectionPartEClass;
 	}
@@ -662,6 +700,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getLexMatcher() {
 		return lexMatcherEClass;
 	}
@@ -671,6 +710,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getPartOfSpeechMatcher() {
 		return partOfSpeechMatcherEClass;
 	}
@@ -680,6 +720,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getPartOfSpeechMatcher_PartOfSpeech() {
 		return (EAttribute)partOfSpeechMatcherEClass.getEStructuralFeatures().get(0);
 	}
@@ -689,6 +730,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getTypedResourceMatcher() {
 		return typedResourceMatcherEClass;
 	}
@@ -698,6 +740,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getTypedResourceMatcher_SemanticClass() {
 		return (EAttribute)typedResourceMatcherEClass.getEStructuralFeatures().get(0);
 	}
@@ -707,6 +750,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getLiteralMatcher() {
 		return literalMatcherEClass;
 	}
@@ -716,6 +760,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getLiteralMatcher_Literals() {
 		return (EAttribute)literalMatcherEClass.getEStructuralFeatures().get(0);
 	}
@@ -725,6 +770,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getLiteralMatcher_CaseSensitive() {
 		return (EAttribute)literalMatcherEClass.getEStructuralFeatures().get(1);
 	}
@@ -734,6 +780,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getClassMatcher() {
 		return classMatcherEClass;
 	}
@@ -743,6 +790,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getClassMatcher_SemanticClass() {
 		return (EAttribute)classMatcherEClass.getEStructuralFeatures().get(0);
 	}
@@ -752,6 +800,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getPronounReplacement() {
 		return pronounReplacementEClass;
 	}
@@ -761,6 +810,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getPronounReplacement_Person() {
 		return (EAttribute)pronounReplacementEClass.getEStructuralFeatures().get(0);
 	}
@@ -770,6 +820,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getPronounReplacement_Number() {
 		return (EAttribute)pronounReplacementEClass.getEStructuralFeatures().get(1);
 	}
@@ -779,6 +830,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getPronounReplacement_Case() {
 		return (EAttribute)pronounReplacementEClass.getEStructuralFeatures().get(2);
 	}
@@ -788,6 +840,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getUnrecognizedPart() {
 		return unrecognizedPartEClass;
 	}
@@ -797,6 +850,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getReplacementContainer() {
 		return replacementContainerEClass;
 	}
@@ -806,6 +860,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getReplacementContainer_Replacements() {
 		return (EReference)replacementContainerEClass.getEStructuralFeatures().get(0);
 	}
@@ -815,6 +870,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getSubjectRelation() {
 		return subjectRelationEClass;
 	}
@@ -824,6 +880,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getSubjectRelation_Subject() {
 		return (EReference)subjectRelationEClass.getEStructuralFeatures().get(0);
 	}
@@ -833,6 +890,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getSubjectRelation_Verb() {
 		return (EReference)subjectRelationEClass.getEStructuralFeatures().get(1);
 	}
@@ -842,6 +900,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getObjectRelation() {
 		return objectRelationEClass;
 	}
@@ -851,6 +910,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getObjectRelation_Verb() {
 		return (EReference)objectRelationEClass.getEStructuralFeatures().get(0);
 	}
@@ -860,6 +920,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getObjectRelation_Object() {
 		return (EReference)objectRelationEClass.getEStructuralFeatures().get(1);
 	}
@@ -869,6 +930,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getRelation() {
 		return relationEClass;
 	}
@@ -878,6 +940,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getRelationRule() {
 		return relationRuleEClass;
 	}
@@ -887,6 +950,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getRelationRule_Matchers() {
 		return (EReference)relationRuleEClass.getEStructuralFeatures().get(0);
 	}
@@ -896,6 +960,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getRelationRule_RelationDefs() {
 		return (EReference)relationRuleEClass.getEStructuralFeatures().get(1);
 	}
@@ -905,6 +970,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getRelationRules() {
 		return relationRulesEClass;
 	}
@@ -914,6 +980,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getRelationRules_Rules() {
 		return (EReference)relationRulesEClass.getEStructuralFeatures().get(0);
 	}
@@ -923,6 +990,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getTypedPartMatcher() {
 		return typedPartMatcherEClass;
 	}
@@ -932,6 +1000,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getTypedPartMatcher_PartOfSpeech() {
 		return (EAttribute)typedPartMatcherEClass.getEStructuralFeatures().get(0);
 	}
@@ -941,6 +1010,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getPartMatcher() {
 		return partMatcherEClass;
 	}
@@ -950,6 +1020,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getPartMatcher_Matchers() {
 		return (EReference)partMatcherEClass.getEStructuralFeatures().get(0);
 	}
@@ -959,6 +1030,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getSubjectRelationDef() {
 		return subjectRelationDefEClass;
 	}
@@ -968,6 +1040,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getSubjectRelationDef_Verb() {
 		return (EAttribute)subjectRelationDefEClass.getEStructuralFeatures().get(0);
 	}
@@ -977,6 +1050,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getSubjectRelationDef_Subject() {
 		return (EAttribute)subjectRelationDefEClass.getEStructuralFeatures().get(1);
 	}
@@ -986,6 +1060,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getRelationDef() {
 		return relationDefEClass;
 	}
@@ -995,6 +1070,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getObjectRelationDef() {
 		return objectRelationDefEClass;
 	}
@@ -1004,6 +1080,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getObjectRelationDef_Verb() {
 		return (EAttribute)objectRelationDefEClass.getEStructuralFeatures().get(0);
 	}
@@ -1013,6 +1090,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getObjectRelationDef_Object() {
 		return (EAttribute)objectRelationDefEClass.getEStructuralFeatures().get(1);
 	}
@@ -1022,6 +1100,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getQuestionable() {
 		return questionableEClass;
 	}
@@ -1031,6 +1110,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getQuestionable_Questioning() {
 		return (EAttribute)questionableEClass.getEStructuralFeatures().get(0);
 	}
@@ -1040,6 +1120,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getLexReplacement() {
 		return lexReplacementEClass;
 	}
@@ -1049,6 +1130,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getLexReplacement_PartOfSpeech() {
 		return (EAttribute)lexReplacementEClass.getEStructuralFeatures().get(0);
 	}
@@ -1058,6 +1140,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getLiteralReplacement() {
 		return literalReplacementEClass;
 	}
@@ -1067,6 +1150,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getLiteralReplacement_Literal() {
 		return (EAttribute)literalReplacementEClass.getEStructuralFeatures().get(0);
 	}
@@ -1076,6 +1160,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getPunctuationPart() {
 		return punctuationPartEClass;
 	}
@@ -1085,6 +1170,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getPunctuationPart_Punctuation() {
 		return (EAttribute)punctuationPartEClass.getEStructuralFeatures().get(0);
 	}
@@ -1094,6 +1180,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getPunctuationReplacement() {
 		return punctuationReplacementEClass;
 	}
@@ -1103,6 +1190,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getPunctuationReplacement_Punctuation() {
 		return (EAttribute)punctuationReplacementEClass.getEStructuralFeatures().get(0);
 	}
@@ -1112,6 +1200,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getResourceReplacement() {
 		return resourceReplacementEClass;
 	}
@@ -1121,6 +1210,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getResourceReplacement_Resource() {
 		return (EAttribute)resourceReplacementEClass.getEStructuralFeatures().get(0);
 	}
@@ -1130,6 +1220,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getResourceReplacement_CaptureGroup() {
 		return (EAttribute)resourceReplacementEClass.getEStructuralFeatures().get(1);
 	}
@@ -1139,6 +1230,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getQuestionReplacement() {
 		return questionReplacementEClass;
 	}
@@ -1148,6 +1240,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getQuestionReplacement_Question() {
 		return (EAttribute)questionReplacementEClass.getEStructuralFeatures().get(0);
 	}
@@ -1157,6 +1250,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getAdverbPart() {
 		return adverbPartEClass;
 	}
@@ -1166,6 +1260,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getAdjectivePart() {
 		return adjectivePartEClass;
 	}
@@ -1175,6 +1270,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getPartContainer() {
 		return partContainerEClass;
 	}
@@ -1184,6 +1280,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getPartContainer_Parts() {
 		return (EReference)partContainerEClass.getEStructuralFeatures().get(0);
 	}
@@ -1193,6 +1290,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getGeneratedLiteral() {
 		return generatedLiteralEClass;
 	}
@@ -1202,6 +1300,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getGeneratedLiteral_Literal() {
 		return (EAttribute)generatedLiteralEClass.getEStructuralFeatures().get(0);
 	}
@@ -1211,6 +1310,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getGeneratedLiteral_PreSeparated() {
 		return (EAttribute)generatedLiteralEClass.getEStructuralFeatures().get(1);
 	}
@@ -1220,6 +1320,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getLexRules() {
 		return lexRulesEClass;
 	}
@@ -1229,6 +1330,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getLexRules_Rules() {
 		return (EReference)lexRulesEClass.getEStructuralFeatures().get(0);
 	}
@@ -1238,6 +1340,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getResourceMatcher() {
 		return resourceMatcherEClass;
 	}
@@ -1247,6 +1350,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getResourceMatcher_Resource() {
 		return (EAttribute)resourceMatcherEClass.getEStructuralFeatures().get(0);
 	}
@@ -1256,6 +1360,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EEnum getPartOfSpeechType() {
 		return partOfSpeechTypeEEnum;
 	}
@@ -1265,6 +1370,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EEnum getPunctuation() {
 		return punctuationEEnum;
 	}
@@ -1274,6 +1380,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EEnum getQuestion() {
 		return questionEEnum;
 	}
@@ -1283,6 +1390,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EEnum getPronounPerson() {
 		return pronounPersonEEnum;
 	}
@@ -1292,6 +1400,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EEnum getPronounNumber() {
 		return pronounNumberEEnum;
 	}
@@ -1301,6 +1410,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EEnum getPronounCase() {
 		return pronounCaseEEnum;
 	}
@@ -1310,6 +1420,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EDataType getQName() {
 		return qNameEDataType;
 	}
@@ -1319,6 +1430,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EDataType getLocale() {
 		return localeEDataType;
 	}
@@ -1328,6 +1440,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EDataType getTranslator() {
 		return translatorEDataType;
 	}
@@ -1337,6 +1450,17 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public EDataType getLabelProvider() {
+		return labelProviderEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public RelexidFactory getRelexidFactory() {
 		return (RelexidFactory)getEFactoryInstance();
 	}
@@ -1363,12 +1487,13 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 		sentenceEClass = createEClass(SENTENCE);
 		createEAttribute(sentenceEClass, SENTENCE__LITERAL);
 		createEReference(sentenceEClass, SENTENCE__RELATIONS);
-		createEOperation(sentenceEClass, SENTENCE___GENERATE__LOCALE_MAP);
+		createEOperation(sentenceEClass, SENTENCE___GENERATE__LOCALE_MAP_TRANSLATOR);
 
 		partOfSpeechEClass = createEClass(PART_OF_SPEECH);
 		createEAttribute(partOfSpeechEClass, PART_OF_SPEECH__LITERAL);
 		createEAttribute(partOfSpeechEClass, PART_OF_SPEECH__RESOURCE);
 		createEAttribute(partOfSpeechEClass, PART_OF_SPEECH__WORD);
+		createEAttribute(partOfSpeechEClass, PART_OF_SPEECH__NAME);
 		createEOperation(partOfSpeechEClass, PART_OF_SPEECH___GENERATE__LOCALE_MAP_TRANSLATOR);
 
 		nounPartEClass = createEClass(NOUN_PART);
@@ -1498,6 +1623,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 		qNameEDataType = createEDataType(QNAME);
 		localeEDataType = createEDataType(LOCALE);
 		translatorEDataType = createEDataType(TRANSLATOR);
+		labelProviderEDataType = createEDataType(LABEL_PROVIDER);
 	}
 
 	/**
@@ -1566,7 +1692,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 		initEAttribute(getSentence_Literal(), ecorePackage.getEString(), "literal", null, 1, 1, Sentence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSentence_Relations(), this.getRelation(), null, "relations", null, 1, -1, Sentence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		EOperation op = initEOperation(getSentence__Generate__Locale_Map(), ecorePackage.getEString(), "generate", 1, 1, IS_UNIQUE, IS_ORDERED);
+		EOperation op = initEOperation(getSentence__Generate__Locale_Map_Translator(), ecorePackage.getEString(), "generate", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getLocale(), "locale", 0, 1, IS_UNIQUE, IS_ORDERED);
 		EGenericType g1 = createEGenericType(ecorePackage.getEMap());
 		EGenericType g2 = createEGenericType(ecorePackage.getEString());
@@ -1580,6 +1706,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 		initEAttribute(getPartOfSpeech_Literal(), ecorePackage.getEString(), "literal", null, 1, 1, PartOfSpeech.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPartOfSpeech_Resource(), this.getQName(), "resource", null, 0, 1, PartOfSpeech.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPartOfSpeech_Word(), this.getQName(), "word", null, 0, 1, PartOfSpeech.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPartOfSpeech_Name(), ecorePackage.getEString(), "name", null, 1, 1, PartOfSpeech.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getPartOfSpeech__Generate__Locale_Map_Translator(), this.getGeneratedLiteral(), "generate", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getLocale(), "locale", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -1747,6 +1874,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 		initEDataType(qNameEDataType, QName.class, "QName", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(localeEDataType, Locale.class, "Locale", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(translatorEDataType, Translator.class, "Translator", !IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(labelProviderEDataType, LabelProvider.class, "LabelProvider", !IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);
@@ -1765,7 +1893,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	protected void createGenModelAnnotations() {
 		String source = "http://www.eclipse.org/emf/2002/GenModel";		
 		addAnnotation
-		  (getSentence__Generate__Locale_Map(), 
+		  (getSentence__Generate__Locale_Map_Translator(), 
 		   source, 
 		   new String[] {
 			 "documentation", "Generate a readable sentence in the specified locale.\n\n@param The translations of resources in this locale\'s language/variant. Note that informal dictionaries (i.e. bahasa gaul/alay) is a valid use case. Key is resource URI and value is literal."
@@ -1799,6 +1927,12 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 		   source, 
 		   new String[] {
 			 "documentation", "Exact word resource (if known). Available word namespaces are:\n\n<ul>\n<li>wn30: http://purl.org/vocabularies/princeton/wn30/</li>\n<li>wn30-msa: http://wn-msa.sourceforge.net/wn30-msa/ from <a href=\"http://wn-msa.sourceforge.net/\">WordNet Bahasa</a></li>\n</ul>"
+		   });		
+		addAnnotation
+		  (getPartOfSpeech_Name(), 
+		   source, 
+		   new String[] {
+			 "documentation", "{@code rdfs:label} for the {@link #resource}. Usually retrieved from a {@link LabelProvider}."
 		   });		
 		addAnnotation
 		  (getLexRule_Matchers(), 

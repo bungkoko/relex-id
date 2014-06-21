@@ -149,7 +149,7 @@ public interface RelexidPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SENTENCE___GENERATE__LOCALE_MAP = PART_CONTAINER_OPERATION_COUNT + 0;
+	int SENTENCE___GENERATE__LOCALE_MAP_TRANSLATOR = PART_CONTAINER_OPERATION_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Sentence</em>' class.
@@ -198,13 +198,22 @@ public interface RelexidPackage extends EPackage {
 	int PART_OF_SPEECH__WORD = 2;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PART_OF_SPEECH__NAME = 3;
+
+	/**
 	 * The number of structural features of the '<em>Part Of Speech</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PART_OF_SPEECH_FEATURE_COUNT = 3;
+	int PART_OF_SPEECH_FEATURE_COUNT = 4;
 
 	/**
 	 * The operation id for the '<em>Generate</em>' operation.
@@ -260,6 +269,15 @@ public interface RelexidPackage extends EPackage {
 	 * @ordered
 	 */
 	int NOUN_PART__WORD = PART_OF_SPEECH__WORD;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NOUN_PART__NAME = PART_OF_SPEECH__NAME;
 
 	/**
 	 * The number of structural features of the '<em>Noun Part</em>' class.
@@ -324,6 +342,15 @@ public interface RelexidPackage extends EPackage {
 	 * @ordered
 	 */
 	int PRONOUN_PART__WORD = PART_OF_SPEECH__WORD;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRONOUN_PART__NAME = PART_OF_SPEECH__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Questioning</b></em>' attribute.
@@ -424,6 +451,15 @@ public interface RelexidPackage extends EPackage {
 	 * @ordered
 	 */
 	int VERB_PART__WORD = PART_OF_SPEECH__WORD;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VERB_PART__NAME = PART_OF_SPEECH__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Parts</b></em>' containment reference list.
@@ -582,6 +618,15 @@ public interface RelexidPackage extends EPackage {
 	int PREPOSITION_PART__WORD = PART_OF_SPEECH__WORD;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PREPOSITION_PART__NAME = PART_OF_SPEECH__NAME;
+
+	/**
 	 * The number of structural features of the '<em>Preposition Part</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -646,6 +691,15 @@ public interface RelexidPackage extends EPackage {
 	int CONJUNCTION_PART__WORD = PART_OF_SPEECH__WORD;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONJUNCTION_PART__NAME = PART_OF_SPEECH__NAME;
+
+	/**
 	 * The number of structural features of the '<em>Conjunction Part</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -708,6 +762,15 @@ public interface RelexidPackage extends EPackage {
 	 * @ordered
 	 */
 	int INTERJECTION_PART__WORD = PART_OF_SPEECH__WORD;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERJECTION_PART__NAME = PART_OF_SPEECH__NAME;
 
 	/**
 	 * The number of structural features of the '<em>Interjection Part</em>' class.
@@ -1079,6 +1142,15 @@ public interface RelexidPackage extends EPackage {
 	int PUNCTUATION_PART__WORD = PART_OF_SPEECH__WORD;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PUNCTUATION_PART__NAME = PART_OF_SPEECH__NAME;
+
+	/**
 	 * The feature id for the '<em><b>Punctuation</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1308,6 +1380,15 @@ public interface RelexidPackage extends EPackage {
 	int ADVERB_PART__WORD = PART_OF_SPEECH__WORD;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ADVERB_PART__NAME = PART_OF_SPEECH__NAME;
+
+	/**
 	 * The feature id for the '<em><b>Questioning</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1379,6 +1460,15 @@ public interface RelexidPackage extends EPackage {
 	 * @ordered
 	 */
 	int ADJECTIVE_PART__WORD = PART_OF_SPEECH__WORD;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ADJECTIVE_PART__NAME = PART_OF_SPEECH__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Questioning</b></em>' attribute.
@@ -1636,6 +1726,15 @@ public interface RelexidPackage extends EPackage {
 	 * @ordered
 	 */
 	int UNRECOGNIZED_PART__WORD = PART_OF_SPEECH__WORD;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNRECOGNIZED_PART__NAME = PART_OF_SPEECH__NAME;
 
 	/**
 	 * The number of structural features of the '<em>Unrecognized Part</em>' class.
@@ -2164,6 +2263,17 @@ public interface RelexidPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '<em>Label Provider</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see id.ac.itb.ee.lskk.relexid.core
+	 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getLabelProvider()
+	 * @generated
+	 */
+	int LABEL_PROVIDER = 49;
+
+
+	/**
 	 * Returns the meta object for class '{@link id.ac.itb.ee.lskk.relexid.core.Sentence <em>Sentence</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2203,7 +2313,7 @@ public interface RelexidPackage extends EPackage {
 	 * @see id.ac.itb.ee.lskk.relexid.core.Sentence#generate(java.util.Locale, java.util.Map, id.ac.itb.ee.lskk.relexid.core.Translator)
 	 * @generated
 	 */
-	EOperation getSentence__Generate__Locale_Map();
+	EOperation getSentence__Generate__Locale_Map_Translator();
 
 	/**
 	 * Returns the meta object for class '{@link id.ac.itb.ee.lskk.relexid.core.PartOfSpeech <em>Part Of Speech</em>}'.
@@ -2247,6 +2357,17 @@ public interface RelexidPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getPartOfSpeech_Word();
+
+	/**
+	 * Returns the meta object for the attribute '{@link id.ac.itb.ee.lskk.relexid.core.PartOfSpeech#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see id.ac.itb.ee.lskk.relexid.core.PartOfSpeech#getName()
+	 * @see #getPartOfSpeech()
+	 * @generated
+	 */
+	EAttribute getPartOfSpeech_Name();
 
 	/**
 	 * Returns the meta object for the '{@link id.ac.itb.ee.lskk.relexid.core.PartOfSpeech#generate(java.util.Locale, java.util.Map, id.ac.itb.ee.lskk.relexid.core.Translator) <em>Generate</em>}' operation.
@@ -3161,6 +3282,17 @@ public interface RelexidPackage extends EPackage {
 	EDataType getTranslator();
 
 	/**
+	 * Returns the meta object for data type '{@link id.ac.itb.ee.lskk.relexid.core <em>Label Provider</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>Label Provider</em>'.
+	 * @see id.ac.itb.ee.lskk.relexid.core
+	 * @model instanceClass="id.ac.itb.ee.lskk.relexid.core" serializeable="false"
+	 * @generated
+	 */
+	EDataType getLabelProvider();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3215,7 +3347,7 @@ public interface RelexidPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation SENTENCE___GENERATE__LOCALE_MAP = eINSTANCE.getSentence__Generate__Locale_Map();
+		EOperation SENTENCE___GENERATE__LOCALE_MAP_TRANSLATOR = eINSTANCE.getSentence__Generate__Locale_Map_Translator();
 
 		/**
 		 * The meta object literal for the '{@link id.ac.itb.ee.lskk.relexid.core.PartOfSpeech <em>Part Of Speech</em>}' class.
@@ -3250,6 +3382,14 @@ public interface RelexidPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute PART_OF_SPEECH__WORD = eINSTANCE.getPartOfSpeech_Word();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PART_OF_SPEECH__NAME = eINSTANCE.getPartOfSpeech_Name();
 
 		/**
 		 * The meta object literal for the '<em><b>Generate</b></em>' operation.
@@ -4040,6 +4180,16 @@ public interface RelexidPackage extends EPackage {
 		 * @generated
 		 */
 		EDataType TRANSLATOR = eINSTANCE.getTranslator();
+
+		/**
+		 * The meta object literal for the '<em>Label Provider</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see id.ac.itb.ee.lskk.relexid.core
+		 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getLabelProvider()
+		 * @generated
+		 */
+		EDataType LABEL_PROVIDER = eINSTANCE.getLabelProvider();
 
 	}
 

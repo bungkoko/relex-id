@@ -74,8 +74,19 @@ public class RelExTest {
 //		log.info("Sentence in English: {}", sentence.generate(Locale.ENGLISH, DICT_EN_US, relex));
 		final String indonesian = sentence.generate(RelEx.INDONESIAN, DICT_ID_ID, relex);
 		log.info("Sentence in Indonesian: {}", indonesian);
-		assertEquals("(S (PP i) (VP wn31:201779456-v (PP you_o)) . )", sentence.toString());
+		assertEquals("(S (PP i) (VP love-v (PP you_o)) . )", sentence.toString());
 		assertEquals("Aku sayang kamu.", indonesian);
+	}
+	
+	@Test
+	public void akuMengagumiKamuGenerate() {
+		final Sentence sentence = relex.parse("Aku mengagumi kamu.");
+		log.info("Sentence structure: {}", sentence);
+//		log.info("Sentence in English: {}", sentence.generate(Locale.ENGLISH, DICT_EN_US, relex));
+		final String indonesian = sentence.generate(RelEx.INDONESIAN, DICT_ID_ID, relex);
+		log.info("Sentence in Indonesian: {}", indonesian);
+		assertEquals("(S (PP i) (VP admire-v (PP you_o)) . )", sentence.toString());
+		assertEquals("Aku menggemari kamu.", indonesian);
 	}
 	
 	@Test

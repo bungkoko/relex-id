@@ -29,6 +29,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link id.ac.itb.ee.lskk.relexid.core.impl.PrepositionPartImpl#getLiteral <em>Literal</em>}</li>
  *   <li>{@link id.ac.itb.ee.lskk.relexid.core.impl.PrepositionPartImpl#getResource <em>Resource</em>}</li>
  *   <li>{@link id.ac.itb.ee.lskk.relexid.core.impl.PrepositionPartImpl#getWord <em>Word</em>}</li>
+ *   <li>{@link id.ac.itb.ee.lskk.relexid.core.impl.PrepositionPartImpl#getName <em>Name</em>}</li>
  * </ul>
  * </p>
  *
@@ -94,6 +95,26 @@ public class PrepositionPartImpl extends MinimalEObjectImpl.Container implements
 	 * @ordered
 	 */
 	protected QName word = WORD_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String name = NAME_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -182,6 +203,27 @@ public class PrepositionPartImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, RelexidPackage.PREPOSITION_PART__NAME, oldName, name));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public GeneratedLiteral generate(Locale locale, Map<String, String> dict, Translator translator) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
@@ -202,6 +244,8 @@ public class PrepositionPartImpl extends MinimalEObjectImpl.Container implements
 				return getResource();
 			case RelexidPackage.PREPOSITION_PART__WORD:
 				return getWord();
+			case RelexidPackage.PREPOSITION_PART__NAME:
+				return getName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -222,6 +266,9 @@ public class PrepositionPartImpl extends MinimalEObjectImpl.Container implements
 				return;
 			case RelexidPackage.PREPOSITION_PART__WORD:
 				setWord((QName)newValue);
+				return;
+			case RelexidPackage.PREPOSITION_PART__NAME:
+				setName((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -244,6 +291,9 @@ public class PrepositionPartImpl extends MinimalEObjectImpl.Container implements
 			case RelexidPackage.PREPOSITION_PART__WORD:
 				setWord(WORD_EDEFAULT);
 				return;
+			case RelexidPackage.PREPOSITION_PART__NAME:
+				setName(NAME_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -262,6 +312,8 @@ public class PrepositionPartImpl extends MinimalEObjectImpl.Container implements
 				return RESOURCE_EDEFAULT == null ? resource != null : !RESOURCE_EDEFAULT.equals(resource);
 			case RelexidPackage.PREPOSITION_PART__WORD:
 				return WORD_EDEFAULT == null ? word != null : !WORD_EDEFAULT.equals(word);
+			case RelexidPackage.PREPOSITION_PART__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -297,6 +349,8 @@ public class PrepositionPartImpl extends MinimalEObjectImpl.Container implements
 		result.append(resource);
 		result.append(", word: ");
 		result.append(word);
+		result.append(", name: ");
+		result.append(name);
 		result.append(')');
 		return result.toString();
 	}

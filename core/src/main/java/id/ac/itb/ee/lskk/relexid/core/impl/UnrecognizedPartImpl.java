@@ -30,6 +30,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link id.ac.itb.ee.lskk.relexid.core.impl.UnrecognizedPartImpl#getLiteral <em>Literal</em>}</li>
  *   <li>{@link id.ac.itb.ee.lskk.relexid.core.impl.UnrecognizedPartImpl#getResource <em>Resource</em>}</li>
  *   <li>{@link id.ac.itb.ee.lskk.relexid.core.impl.UnrecognizedPartImpl#getWord <em>Word</em>}</li>
+ *   <li>{@link id.ac.itb.ee.lskk.relexid.core.impl.UnrecognizedPartImpl#getName <em>Name</em>}</li>
  * </ul>
  * </p>
  *
@@ -95,6 +96,26 @@ public class UnrecognizedPartImpl extends MinimalEObjectImpl.Container implement
 	 * @ordered
 	 */
 	protected QName word = WORD_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String name = NAME_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -187,6 +208,27 @@ public class UnrecognizedPartImpl extends MinimalEObjectImpl.Container implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, RelexidPackage.UNRECOGNIZED_PART__NAME, oldName, name));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 */
 	@Override
 	public GeneratedLiteral generate(Locale locale, Map<String, String> dict, Translator translator) {
@@ -209,6 +251,8 @@ public class UnrecognizedPartImpl extends MinimalEObjectImpl.Container implement
 				return getResource();
 			case RelexidPackage.UNRECOGNIZED_PART__WORD:
 				return getWord();
+			case RelexidPackage.UNRECOGNIZED_PART__NAME:
+				return getName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -229,6 +273,9 @@ public class UnrecognizedPartImpl extends MinimalEObjectImpl.Container implement
 				return;
 			case RelexidPackage.UNRECOGNIZED_PART__WORD:
 				setWord((QName)newValue);
+				return;
+			case RelexidPackage.UNRECOGNIZED_PART__NAME:
+				setName((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -251,6 +298,9 @@ public class UnrecognizedPartImpl extends MinimalEObjectImpl.Container implement
 			case RelexidPackage.UNRECOGNIZED_PART__WORD:
 				setWord(WORD_EDEFAULT);
 				return;
+			case RelexidPackage.UNRECOGNIZED_PART__NAME:
+				setName(NAME_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -269,6 +319,8 @@ public class UnrecognizedPartImpl extends MinimalEObjectImpl.Container implement
 				return RESOURCE_EDEFAULT == null ? resource != null : !RESOURCE_EDEFAULT.equals(resource);
 			case RelexidPackage.UNRECOGNIZED_PART__WORD:
 				return WORD_EDEFAULT == null ? word != null : !WORD_EDEFAULT.equals(word);
+			case RelexidPackage.UNRECOGNIZED_PART__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		}
 		return super.eIsSet(featureID);
 	}

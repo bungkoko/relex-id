@@ -54,6 +54,11 @@
         <details key="documentation" value="Exact word resource (if known). Available word namespaces are:&#xA;&#xA;&lt;ul>&#xA;&lt;li>wn30: http://purl.org/vocabularies/princeton/wn30/&lt;/li>&#xA;&lt;li>wn30-msa: http://wn-msa.sourceforge.net/wn30-msa/ from &lt;a href=&quot;http://wn-msa.sourceforge.net/&quot;>WordNet Bahasa&lt;/a>&lt;/li>&#xA;&lt;/ul>"/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="{@code rdfs:label} for the {@link #resource}. Usually retrieved from a {@link LabelProvider}."/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="NounPart" eSuperTypes="#//PartOfSpeech"/>
   <eClassifiers xsi:type="ecore:EClass" name="PronounPart" eSuperTypes="#//PartOfSpeech #//Questionable">
@@ -312,5 +317,7 @@
         upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="Translator" instanceClassName="id.ac.itb.ee.lskk.relexid.core.Translator"
+      serializable="false"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="LabelProvider" instanceClassName="id.ac.itb.ee.lskk.relexid.core.LabelProvider"
       serializable="false"/>
 </ecore:EPackage>

@@ -36,6 +36,7 @@ import com.google.common.collect.ImmutableSet;
  *   <li>{@link id.ac.itb.ee.lskk.relexid.core.impl.PronounPartImpl#getLiteral <em>Literal</em>}</li>
  *   <li>{@link id.ac.itb.ee.lskk.relexid.core.impl.PronounPartImpl#getResource <em>Resource</em>}</li>
  *   <li>{@link id.ac.itb.ee.lskk.relexid.core.impl.PronounPartImpl#getWord <em>Word</em>}</li>
+ *   <li>{@link id.ac.itb.ee.lskk.relexid.core.impl.PronounPartImpl#getName <em>Name</em>}</li>
  *   <li>{@link id.ac.itb.ee.lskk.relexid.core.impl.PronounPartImpl#isQuestioning <em>Questioning</em>}</li>
  *   <li>{@link id.ac.itb.ee.lskk.relexid.core.impl.PronounPartImpl#getPerson <em>Person</em>}</li>
  *   <li>{@link id.ac.itb.ee.lskk.relexid.core.impl.PronounPartImpl#getNumber <em>Number</em>}</li>
@@ -103,62 +104,74 @@ public class PronounPartImpl extends MinimalEObjectImpl.Container implements Pro
 	
 	static {
 		I = new PronounPartImpl();
+		I.setName("i");
 		I.setPerson(PronounPerson.FIRST);
 		I.setNumber(PronounNumber.SINGULAR);
 		I.setCase(PronounCase.SUBJECT);
 		I.setLiteral("I");
 		ME = new PronounPartImpl();
+		ME.setName("me");
 		ME.setPerson(PronounPerson.FIRST);
 		ME.setNumber(PronounNumber.SINGULAR);
 		ME.setCase(PronounCase.OBJECT);
 		ME.setLiteral("me");
 		YOU_S = new PronounPartImpl();
+		YOU_S.setName("you");
 		YOU_S.setPerson(PronounPerson.SECOND);
 		YOU_S.setNumber(PronounNumber.SINGULAR);
 		YOU_S.setCase(PronounCase.SUBJECT);
 		YOU_S.setLiteral("you");
 		YOU_O = new PronounPartImpl();
+		YOU_O.setName("you_o");
 		YOU_O.setPerson(PronounPerson.SECOND);
 		YOU_O.setNumber(PronounNumber.SINGULAR);
 		YOU_O.setCase(PronounCase.OBJECT);
 		YOU_O.setLiteral("you");
 		IT_S = new PronounPartImpl();
+		IT_S.setName("it_s");
 		IT_S.setPerson(PronounPerson.THIRD);
 		IT_S.setNumber(PronounNumber.SINGULAR);
 		IT_S.setCase(PronounCase.SUBJECT);
 		IT_S.setLiteral("it_s");
 		IT_O = new PronounPartImpl();
+		IT_O.setName("it_o");
 		IT_O.setPerson(PronounPerson.THIRD);
 		IT_O.setNumber(PronounNumber.SINGULAR);
 		IT_O.setCase(PronounCase.OBJECT);
 		IT_O.setLiteral("it_o");
 		
 		WE = new PronounPartImpl();
+		WE.setName("we");
 		WE.setPerson(PronounPerson.FIRST);
 		WE.setNumber(PronounNumber.PLURAL);
 		WE.setCase(PronounCase.SUBJECT);
 		WE.setLiteral("WE");
 		US = new PronounPartImpl();
+		US.setName("us");
 		US.setPerson(PronounPerson.FIRST);
 		US.setNumber(PronounNumber.PLURAL);
 		US.setCase(PronounCase.OBJECT);
 		US.setLiteral("me");
 		YOUS_S = new PronounPartImpl();
+		YOUS_S.setName("yous_s");
 		YOUS_S.setPerson(PronounPerson.SECOND);
 		YOUS_S.setNumber(PronounNumber.PLURAL);
 		YOUS_S.setCase(PronounCase.SUBJECT);
 		YOUS_S.setLiteral("you");
 		YOUS_O = new PronounPartImpl();
+		YOUS_O.setName("yous_o");
 		YOUS_O.setPerson(PronounPerson.SECOND);
 		YOUS_O.setNumber(PronounNumber.PLURAL);
 		YOUS_O.setCase(PronounCase.OBJECT);
 		YOUS_O.setLiteral("you");
 		THEY = new PronounPartImpl();
+		THEY.setName("they");
 		THEY.setPerson(PronounPerson.THIRD);
 		THEY.setNumber(PronounNumber.PLURAL);
 		THEY.setCase(PronounCase.SUBJECT);
 		THEY.setLiteral("it_s");
 		THEM = new PronounPartImpl();
+		THEM.setName("them");
 		THEM.setPerson(PronounPerson.THIRD);
 		THEM.setNumber(PronounNumber.PLURAL);
 		THEM.setCase(PronounCase.OBJECT);
@@ -226,6 +239,24 @@ public class PronounPartImpl extends MinimalEObjectImpl.Container implements Pro
 	 * @ordered
 	 */
 	protected QName word = WORD_EDEFAULT;
+	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = null;
+	/**
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String name = NAME_EDEFAULT;
 	/**
 	 * The default value of the '{@link #isQuestioning() <em>Questioning</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -392,6 +423,29 @@ public class PronounPartImpl extends MinimalEObjectImpl.Container implements Pro
 		word = newWord;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, RelexidPackage.PRONOUN_PART__WORD, oldWord, word));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, RelexidPackage.PRONOUN_PART__NAME, oldName, name));
 	}
 
 	/**
@@ -669,6 +723,8 @@ public class PronounPartImpl extends MinimalEObjectImpl.Container implements Pro
 				return getResource();
 			case RelexidPackage.PRONOUN_PART__WORD:
 				return getWord();
+			case RelexidPackage.PRONOUN_PART__NAME:
+				return getName();
 			case RelexidPackage.PRONOUN_PART__QUESTIONING:
 				return isQuestioning();
 			case RelexidPackage.PRONOUN_PART__PERSON:
@@ -697,6 +753,9 @@ public class PronounPartImpl extends MinimalEObjectImpl.Container implements Pro
 				return;
 			case RelexidPackage.PRONOUN_PART__WORD:
 				setWord((QName)newValue);
+				return;
+			case RelexidPackage.PRONOUN_PART__NAME:
+				setName((String)newValue);
 				return;
 			case RelexidPackage.PRONOUN_PART__QUESTIONING:
 				setQuestioning((Boolean)newValue);
@@ -731,6 +790,9 @@ public class PronounPartImpl extends MinimalEObjectImpl.Container implements Pro
 			case RelexidPackage.PRONOUN_PART__WORD:
 				setWord(WORD_EDEFAULT);
 				return;
+			case RelexidPackage.PRONOUN_PART__NAME:
+				setName(NAME_EDEFAULT);
+				return;
 			case RelexidPackage.PRONOUN_PART__QUESTIONING:
 				setQuestioning(QUESTIONING_EDEFAULT);
 				return;
@@ -761,6 +823,8 @@ public class PronounPartImpl extends MinimalEObjectImpl.Container implements Pro
 				return RESOURCE_EDEFAULT == null ? resource != null : !RESOURCE_EDEFAULT.equals(resource);
 			case RelexidPackage.PRONOUN_PART__WORD:
 				return WORD_EDEFAULT == null ? word != null : !WORD_EDEFAULT.equals(word);
+			case RelexidPackage.PRONOUN_PART__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case RelexidPackage.PRONOUN_PART__QUESTIONING:
 				return questioning != QUESTIONING_EDEFAULT;
 			case RelexidPackage.PRONOUN_PART__PERSON:

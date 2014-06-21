@@ -44,11 +44,17 @@ Question variable extraction digunakan untuk mendapatkan variabel apa yang ditan
 === Namespaces
 
 ----
+@prefix rdf:				<http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:				<http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:				<http://www.w3.org/2002/07/owl#> .
+@prefix lemon:				<http://lemon-model.net/lemon#> . 
 @prefix dbpedia-owl:		<http://dbpedia.org/ontology/> .
 @prefix dbpedia:			<http://dbpedia.org/resource/> .
 @prefix schema:				<http://schema.org> .
 @prefix wordnet-ontology:	<http://wordnet-rdf.princeton.edu/ontology#>
 @prefix wn31: 				<http://wordnet-rdf.princeton.edu/wn31/> .
+@prefix wn20:				<http://www.w3.org/2006/03/wn/wn20/instances/> .
+@prefix uby:				<http://lemon-model.net/lexica/uby/wn/> .
 ----
 
 Note: it's hard to find dataset for `@prefix wn30: <http://wordnet-rdf.princeton.edu/wn30/> .`
@@ -232,11 +238,13 @@ For other part-of-speeches, we need to use something else (probably [DBpedia Wik
 4. [WordNet Bahasa Melayu/Malaysia/Indonesia](http://wn-msa.sourceforge.net/)
 5. [NLP resource yang tersedia untuk bahasa Indonesia](http://alfan-farizki.blogspot.com/2010/04/nlp-resource-yang-tersedia-untuk-bahasa.html)
 6. [Open Multilingual Wordnet](http://compling.hss.ntu.edu.sg/omw/)
+7. [ConceptNet](http://conceptnet5.media.mit.edu/) is a semantic network containing lots of things computers should know about the world, especially when understanding text written by people.
 
 === Lexical resources
 
 1. [Indonesian WordNet](http://bahasa.cs.ui.ac.id/iwn)
 2. [Indonesian Dictionary (Kamus Besar Bahasa Indonesia)](http://bahasa.cs.ui.ac.id/kbbi)
+3. [LexInfo](http://lexinfo.net/) builds on the [lemon model](http://lemon-model.net/) to represent lexical information attached to ontologies on the semantic web.
 
 === NLP tools
 
@@ -247,3 +255,8 @@ For other part-of-speeches, we need to use something else (probably [DBpedia Wik
 5. [Semantic Analyzer](http://bahasa.cs.ui.ac.id/tools/SemanticAnalyzer.zip) -- Bahasa Indonesia Semantic Analyzer is a tool that will create a semantic representation of Bahasa Indonesia sentences in first order predicate logic form. This Semantic Analyzer uses Syntax-Driven Semantic Analysis approach and developed using Indonesian Grammar (Symbolic Parser) that has been translated into PROLOG source. It runs in SWI-PROLOG application available at "http://www.swi-prolog.org/".
 6. Semantic Analyzer with Axioms
 7. [Morphological Analyzer](http://bahasa.cs.ui.ac.id/tools/MorphologicalAnalyzerIndonesia.zip) -- Morphological Analyzer is a words recognition tools that split word into one or more morphems and also make the corresponding morphological analysis.
+
+=== Semantic Reasoning
+
+1. [Reasoning over Semantic Networks](http://ileriseviye.wordpress.com/2009/03/28/reasoning-over-semantic-networks/)
+2. [OpenCog Concept formation](http://wiki.opencog.org/w/Concept_formation)
