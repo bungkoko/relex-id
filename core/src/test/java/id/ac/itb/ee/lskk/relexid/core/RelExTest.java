@@ -145,8 +145,19 @@ public class RelExTest {
 	}
 	
 	@Test
-	public void untaBesarGenerate() {
+	public void untaJinggaGenerate() {
 		final Sentence sentence = relex.parse("Unta jingga.");
+		log.info("Sentence structure: {}", sentence);
+		log.info("Sentence in English: {}", sentence.generate(Locale.ENGLISH, DICT_EN_US, relex));
+		final String indonesian = sentence.generate(RelEx.INDONESIAN, DICT_ID_ID, relex);
+		log.info("Sentence in Indonesian: {}", indonesian);
+		assertEquals("(S (NP (SP orange-s) camel-n) . )", sentence.toString());
+		assertEquals("Unta jingga.", indonesian);
+	}
+	
+	@Test
+	public void akuMenyayangiUntaJinggaGenerate() {
+		final Sentence sentence = relex.parse("Aku menyayangi unta jingga.");
 		log.info("Sentence structure: {}", sentence);
 		log.info("Sentence in English: {}", sentence.generate(Locale.ENGLISH, DICT_EN_US, relex));
 		final String indonesian = sentence.generate(RelEx.INDONESIAN, DICT_ID_ID, relex);

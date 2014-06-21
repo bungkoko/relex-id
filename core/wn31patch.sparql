@@ -1,0 +1,12 @@
+# s-update --service http://localhost:3030/ds/update --file ~/git/relex-id/core/wn31patch.sparql
+PREFIX wn31: <http://wordnet-rdf.princeton.edu/wn31/> 
+PREFIX wordnet-ontology: <http://wordnet-rdf.princeton.edu/ontology#>
+
+DELETE DATA {
+	wn31:109115069-n wordnet-ontology:translation
+		"aku"@ind, "saya"@ind, "ME"@ind, "Me"@ind, "Maine"@ind, "Pine Tree State"@ind,
+		"aku"@zsm, "saya"@zsm, "ME"@zsm, "Me"@zsm, "Maine"@zsm, "Pine Tree State"@zsm,
+		"moi"@fra, "メーン"@jpn, "มลรัฐเมน"@tha, "マツの州"@jpn, "รัฐเมน"@tha, "aidez"@fra,
+		"Maine"@por, "Maine"@fra, "ME"@fin, "Pine Tree State"@fin, "メーン州"@jpn, "Maine"@fin,
+		"松の州"@jpn, "me"@fra .		
+}

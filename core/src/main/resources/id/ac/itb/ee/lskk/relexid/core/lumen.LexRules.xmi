@@ -7,6 +7,23 @@
     xsi:schemaLocation="http://relexid/1.0 relexid.ecore">
   <rules>
     <replacements
+        xsi:type="relexid:ResourceReplacement"
+        partOfSpeech="noun"
+        captureGroup="1">
+      <replacements
+          xsi:type="relexid:ResourceReplacement"
+          partOfSpeech="adjective_satellite"
+          captureGroup="2"/>
+    </replacements>
+    <matchers
+        xsi:type="relexid:PartOfSpeechMatcher"
+        partOfSpeech="noun"/>
+    <matchers
+        xsi:type="relexid:PartOfSpeechMatcher"
+        partOfSpeech="adjective_satellite"/>
+  </rules>
+  <rules>
+    <replacements
         xsi:type="relexid:PronounReplacement"
         partOfSpeech="pronoun"/>
     <replacements
@@ -54,23 +71,6 @@
     <matchers
         xsi:type="relexid:PartOfSpeechMatcher"
         partOfSpeech="noun"/>
-  </rules>
-  <rules>
-    <replacements
-        xsi:type="relexid:ResourceReplacement"
-        partOfSpeech="noun"
-        captureGroup="1">
-      <replacements
-          xsi:type="relexid:ResourceReplacement"
-          partOfSpeech="adjective_satellite"
-          captureGroup="2"/>
-    </replacements>
-    <matchers
-        xsi:type="relexid:PartOfSpeechMatcher"
-        partOfSpeech="noun"/>
-    <matchers
-        xsi:type="relexid:PartOfSpeechMatcher"
-        partOfSpeech="adjective_satellite"/>
   </rules>
   <rules>
     <replacements

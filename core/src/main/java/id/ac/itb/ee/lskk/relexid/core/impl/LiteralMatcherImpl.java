@@ -6,14 +6,15 @@ import id.ac.itb.ee.lskk.relexid.core.LiteralMatcher;
 import id.ac.itb.ee.lskk.relexid.core.RelexidPackage;
 
 import java.util.Collection;
-import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
+
+import com.google.common.base.Joiner;
 
 /**
  * <!-- begin-user-doc -->
@@ -84,6 +85,7 @@ public class LiteralMatcherImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isCaseSensitive() {
 		return caseSensitive;
 	}
@@ -93,6 +95,7 @@ public class LiteralMatcherImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setCaseSensitive(boolean newCaseSensitive) {
 		boolean oldCaseSensitive = caseSensitive;
 		caseSensitive = newCaseSensitive;
@@ -105,6 +108,7 @@ public class LiteralMatcherImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<String> getLiterals() {
 		if (literals == null) {
 			literals = new EDataTypeUniqueEList<String>(String.class, this, RelexidPackage.LITERAL_MATCHER__LITERALS);
@@ -185,19 +189,10 @@ public class LiteralMatcherImpl extends MinimalEObjectImpl.Container implements 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (literals: ");
-		result.append(literals);
-		result.append(", caseSensitive: ");
-		result.append(caseSensitive);
-		result.append(')');
-		return result.toString();
+		return "'" + Joiner.on('|').join(literals) + "'";
 	}
 
 } //LiteralElementImpl

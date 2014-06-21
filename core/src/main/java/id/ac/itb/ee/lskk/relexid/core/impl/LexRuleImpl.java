@@ -10,16 +10,14 @@ import id.ac.itb.ee.lskk.relexid.core.RelexidPackage;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+
+import com.google.common.base.Joiner;
 
 /**
  * <!-- begin-user-doc -->
@@ -80,6 +78,7 @@ public class LexRuleImpl extends MinimalEObjectImpl.Container implements LexRule
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<LexReplacement> getReplacements() {
 		if (replacements == null) {
 			replacements = new EObjectContainmentEList<LexReplacement>(LexReplacement.class, this, RelexidPackage.LEX_RULE__REPLACEMENTS);
@@ -92,6 +91,7 @@ public class LexRuleImpl extends MinimalEObjectImpl.Container implements LexRule
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<LexMatcher> getMatchers() {
 		if (matchers == null) {
 			matchers = new EObjectContainmentEList<LexMatcher>(LexMatcher.class, this, RelexidPackage.LEX_RULE__MATCHERS);
@@ -184,6 +184,11 @@ public class LexRuleImpl extends MinimalEObjectImpl.Container implements LexRule
 				return matchers != null && !matchers.isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+	
+	@Override
+	public String toString() {
+		return Joiner.on(' ').join(getMatchers());
 	}
 
 } //LexRuleImpl

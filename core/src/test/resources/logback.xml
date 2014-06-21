@@ -9,7 +9,7 @@
 	</appender>
 
 	<logger name="id.ac" level="DEBUG" />
-	<logger name="id.ac.itb.ee.lskk.relexid.core" level="TRACE" />
+<!-- 	<logger name="id.ac.itb.ee.lskk.relexid.core" level="TRACE" /> -->
 
 	<root level="INFO">
 		<appender-ref ref="STDOUT" />

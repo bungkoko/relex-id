@@ -7,9 +7,7 @@ import id.ac.itb.ee.lskk.relexid.core.PartOfSpeechType;
 import id.ac.itb.ee.lskk.relexid.core.RelexidPackage;
 
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
@@ -71,6 +69,7 @@ public class PartOfSpeechMatcherImpl extends MinimalEObjectImpl.Container implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public PartOfSpeechType getPartOfSpeech() {
 		return partOfSpeech;
 	}
@@ -80,6 +79,7 @@ public class PartOfSpeechMatcherImpl extends MinimalEObjectImpl.Container implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setPartOfSpeech(PartOfSpeechType newPartOfSpeech) {
 		PartOfSpeechType oldPartOfSpeech = partOfSpeech;
 		partOfSpeech = newPartOfSpeech == null ? PART_OF_SPEECH_EDEFAULT : newPartOfSpeech;
@@ -148,17 +148,10 @@ public class PartOfSpeechMatcherImpl extends MinimalEObjectImpl.Container implem
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (partOfSpeech: ");
-		result.append(partOfSpeech);
-		result.append(')');
-		return result.toString();
+		return partOfSpeech.toString();
 	}
 
 } //PartOfSpeechElementImpl

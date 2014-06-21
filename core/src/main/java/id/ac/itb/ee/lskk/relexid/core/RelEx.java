@@ -4,6 +4,7 @@ import id.ac.itb.ee.lskk.relexid.core.impl.PronounPartImpl;
 import id.ac.itb.ee.lskk.relexid.core.impl.PunctuationPartImpl;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 
@@ -17,6 +18,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.soluvas.commons.OnDemandXmiLoader;
 
+import com.google.common.base.Function;
 import com.google.common.base.Preconditions;
 import com.google.common.base.Predicate;
 import com.google.common.base.Strings;
@@ -24,6 +26,7 @@ import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.FluentIterable;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.Iterators;
 import com.google.common.collect.ListMultimap;
 import com.google.common.collect.Range;
 import com.hp.hpl.jena.query.Dataset;
@@ -451,161 +454,201 @@ public class RelEx implements Translator, LabelProvider {
 		}
 		return replacementParts;
 	}
+	
+	/**
+	 * Find indexes of start of words, in order to support partial sentence matching
+	 * @param parts
+	 * @return
+	 */
+	protected List<Integer> findWalls(List<PartOfSpeech> parts) {
+		List<Integer> walls = new ArrayList<>();
+		for (int i = 0; i < parts.size(); i++) {
+			final PartOfSpeech part = parts.get(i);
+			if (part instanceof UnrecognizedPart && !part.getLiteral().trim().isEmpty()) {
+				walls.add(i);
+			}
+		}
+		return walls;
+	}
 
 	public Sentence parse(String originalLiteral) {
 //		StrTokenizer tokenizer = new StrTokenizer(originalLiteral);
 		List<String> tokens = tokenizer.tokenize(originalLiteral);
 		log.debug("Tokens: {}", tokens);
 		
+		
 		Sentence sentence = RelexidFactory.eINSTANCE.createSentence();
-		for (String token : tokens) {
+		for (int i = 0; i < tokens.size(); i++) {
 			UnrecognizedPart part = RelexidFactory.eINSTANCE.createUnrecognizedPart();
-			part.setLiteral(token);
+			part.setLiteral(tokens.get(i));
 			sentence.getParts().add(part);
 		}
+		List<Integer> walls = findWalls(sentence.getParts()); // initial walls
 		
 		@Nullable
 		LexRule matchedRule = null;
 		
-		for (LexRule rule : lexRules.getRules()) {
-			boolean ruleMatches = true;
-			int unrecognizedPartIdx = 0;
-			@Nullable
-			Integer startMatchIdx = null;
-			@Nullable
-			Integer endMatchIdx = null;
+		Iterator<LexRule> ruleIter = lexRules.getRules().iterator();
+		while (ruleIter.hasNext()) {
+			LexRule rule = ruleIter.next();
+			boolean resetRuleIter = false;
 			
-			List<CapturingGroup> capturingGroups = new ArrayList<>();
-			
-			for (LexMatcher matcher : rule.getMatchers()) {
+			Iterator<Integer> wallIter = walls.iterator();
+			while (wallIter.hasNext()) {
+				int wall = wallIter.next();
 				
-				// next valid unrecognized token, please
-				while (unrecognizedPartIdx < sentence.getParts().size()) {
-					PartOfSpeech part = sentence.getParts().get(unrecognizedPartIdx);
-					if (!(part instanceof UnrecognizedPart)) {
-						unrecognizedPartIdx++;
-					} else if (part.getLiteral().trim().isEmpty()) {
-						unrecognizedPartIdx++;
-					} else {
-						// stop right there, we need to process this unrecognized part
+				boolean wallMatches = true;
+				int unrecognizedPartIdx = wall;
+				@Nullable
+				Integer startMatchIdx = null;
+				@Nullable
+				Integer endMatchIdx = null;
+				
+				List<CapturingGroup> capturingGroups = new ArrayList<>();
+				
+				for (LexMatcher matcher : rule.getMatchers()) {
+					
+					// next valid unrecognized token, please
+					while (unrecognizedPartIdx < sentence.getParts().size()) {
+						PartOfSpeech part = sentence.getParts().get(unrecognizedPartIdx);
+						if (!(part instanceof UnrecognizedPart)) {
+							unrecognizedPartIdx++;
+						} else if (part.getLiteral().trim().isEmpty()) {
+							unrecognizedPartIdx++;
+						} else {
+							// stop right there, we need to process this unrecognized part
+							break;
+						}
+					}
+					if (unrecognizedPartIdx >= sentence.getParts().size()) {
+						// EOL!
+						wallMatches = false;
 						break;
 					}
-				}
-				if (unrecognizedPartIdx >= sentence.getParts().size()) {
-					// EOL!
-					ruleMatches = false;
-					break;
-				}
-				if (startMatchIdx == null) {
-					startMatchIdx = unrecognizedPartIdx;
-				}
-				
-				final UnrecognizedPart unrecognizedPart = (UnrecognizedPart) sentence.getParts().get(unrecognizedPartIdx);
-				@Nullable
-				Integer nextPartIdx = null;
-				final boolean matches;
-				if (matcher instanceof LiteralMatcher) {
-					LiteralMatcher literalEl = (LiteralMatcher) matcher;
-					if (literalEl.isCaseSensitive()) {
-						matches = FluentIterable.from(literalEl.getLiterals()).anyMatch(new Predicate<String>() {
-							@Override
-							public boolean apply(String input) {
-								return unrecognizedPart.getLiteral().equals(input);
-							}
-						});
-					} else {
-						matches = FluentIterable.from(literalEl.getLiterals()).anyMatch(new Predicate<String>() {
-							@Override
-							public boolean apply(String input) {
-								return unrecognizedPart.getLiteral().equalsIgnoreCase(input);
-							}
-						});
+					if (startMatchIdx == null) {
+						startMatchIdx = unrecognizedPartIdx;
 					}
-					if (matches) {
-						capturingGroups.add(new CapturingGroup(null));
-						nextPartIdx = unrecognizedPartIdx + 1;
-					}
-				} else if (matcher instanceof ResourceMatcher) {
-					ResourceMatcher resEl = (ResourceMatcher) matcher;
-					final QName enhancedRes = expandRef(resEl.getResource());
-					String resourceUri = asRef(enhancedRes);
+					
+					final UnrecognizedPart unrecognizedPart = (UnrecognizedPart) sentence.getParts().get(unrecognizedPartIdx);
 					@Nullable
-					String word = dictionary.get(resourceUri);
-					if (word != null) {
-						matches = word.equalsIgnoreCase(unrecognizedPart.getLiteral());
+					Integer nextPartIdx = null;
+					final boolean matches;
+					if (matcher instanceof LiteralMatcher) {
+						LiteralMatcher literalEl = (LiteralMatcher) matcher;
+						if (literalEl.isCaseSensitive()) {
+							matches = FluentIterable.from(literalEl.getLiterals()).anyMatch(new Predicate<String>() {
+								@Override
+								public boolean apply(String input) {
+									return unrecognizedPart.getLiteral().equals(input);
+								}
+							});
+						} else {
+							matches = FluentIterable.from(literalEl.getLiterals()).anyMatch(new Predicate<String>() {
+								@Override
+								public boolean apply(String input) {
+									return unrecognizedPart.getLiteral().equalsIgnoreCase(input);
+								}
+							});
+						}
 						if (matches) {
-							capturingGroups.add(new CapturingGroup(enhancedRes));
+							capturingGroups.add(new CapturingGroup(null));
 							nextPartIdx = unrecognizedPartIdx + 1;
 						}
-					} else {
-						log.warn("No word for {} in dictionary with {} entries", resourceUri, dictionary.size());
-						matches = false;
-					}
-				} else if (matcher instanceof PartOfSpeechMatcher) {
-					PartOfSpeechMatcher posMatcher = (PartOfSpeechMatcher) matcher;
-					PartOfSpeechType pos = posMatcher.getPartOfSpeech();
-					final List<QName> senses;
-					switch (pos) {
-					case VERB:
-						senses = getVerbSenses(unrecognizedPart.getLiteral());
-						break;
-					case NOUN:
-						senses = getNounSenses(unrecognizedPart.getLiteral());
-						break;
-					case ADJECTIVE:
-						senses = getAdjectiveSenses(unrecognizedPart.getLiteral());
-						break;
-					case ADJECTIVE_SATELLITE:
-						senses = getAdjectiveSatelliteSenses(unrecognizedPart.getLiteral());
-						break;
-					default:
-						throw new IllegalArgumentException("Lex matcher PartOfSpeech does not support " + pos);
-					}
-					if (!senses.isEmpty()) {
-						matches = true;
-						QName sense = senses.get(0);
-						capturingGroups.add(new CapturingGroup(sense));
-						nextPartIdx = unrecognizedPartIdx + 1;
-						if (senses.size() > 1) {
-							log.warn("PartOfSpeech matcher for {} '{}' chose the first sense {} but matched {} senses: {}",
-									pos, unrecognizedPart.getLiteral(), shortQName(sense), senses.size(), senses);
+					} else if (matcher instanceof ResourceMatcher) {
+						ResourceMatcher resEl = (ResourceMatcher) matcher;
+						final QName enhancedRes = expandRef(resEl.getResource());
+						String resourceUri = asRef(enhancedRes);
+						@Nullable
+						String word = dictionary.get(resourceUri);
+						if (word != null) {
+							matches = word.equalsIgnoreCase(unrecognizedPart.getLiteral());
+							if (matches) {
+								capturingGroups.add(new CapturingGroup(enhancedRes));
+								nextPartIdx = unrecognizedPartIdx + 1;
+							}
+						} else {
+							log.warn("No word for {} in dictionary with {} entries", resourceUri, dictionary.size());
+							matches = false;
+						}
+					} else if (matcher instanceof PartOfSpeechMatcher) {
+						PartOfSpeechMatcher posMatcher = (PartOfSpeechMatcher) matcher;
+						PartOfSpeechType pos = posMatcher.getPartOfSpeech();
+						final List<QName> senses;
+						switch (pos) {
+						case VERB:
+							senses = getVerbSenses(unrecognizedPart.getLiteral());
+							break;
+						case NOUN:
+							senses = getNounSenses(unrecognizedPart.getLiteral());
+							break;
+						case ADJECTIVE:
+							senses = getAdjectiveSenses(unrecognizedPart.getLiteral());
+							break;
+						case ADJECTIVE_SATELLITE:
+							senses = getAdjectiveSatelliteSenses(unrecognizedPart.getLiteral());
+							break;
+						default:
+							throw new IllegalArgumentException("Lex matcher PartOfSpeech does not support " + pos);
+						}
+						if (!senses.isEmpty()) {
+							matches = true;
+							QName sense = senses.get(0);
+							capturingGroups.add(new CapturingGroup(sense));
+							nextPartIdx = unrecognizedPartIdx + 1;
+							if (senses.size() > 1) {
+								log.warn("PartOfSpeech matcher for {} '{}' chose the first sense {} but matched {} senses: {}",
+										pos, unrecognizedPart.getLiteral(), shortQName(sense), senses.size(), 
+										FluentIterable.from(senses).transform(new Function<QName, String>() {
+											@Override
+											public String apply(QName input) {
+												return shortQName(input);
+											}
+										}) );
+							}
+						} else {
+							matches = false;
 						}
 					} else {
 						matches = false;
 					}
-				} else {
-					matches = false;
+					
+					// match?
+					if (matches) {
+						log.debug("  Lex «{}» match for #{}: {}", matcher, unrecognizedPartIdx, unrecognizedPart);
+						endMatchIdx = unrecognizedPartIdx;
+						unrecognizedPartIdx = nextPartIdx;
+					} else {
+						log.debug("  Lex «{}» not match for #{}: {}", matcher, unrecognizedPartIdx, unrecognizedPart);
+						wallMatches = false;
+						break;
+					}
 				}
 				
-				// match?
-				if (matches) {
-					log.debug("Element {} match for #{}: {}", matcher, unrecognizedPartIdx, unrecognizedPart);
-					endMatchIdx = unrecognizedPartIdx;
-					unrecognizedPartIdx = nextPartIdx;
-				} else {
-					log.debug("Element {} not match for #{}: {}", matcher, unrecognizedPartIdx, unrecognizedPart);
-					ruleMatches = false;
-					break;
-				}
-			}
-			
-			if (ruleMatches) {
-				Range<Integer> matchRange = Range.closed(startMatchIdx, endMatchIdx);
-				List<PartOfSpeech> replacedParts = ImmutableList.copyOf(
-						sentence.getParts().subList(matchRange.lowerEndpoint(), matchRange.upperEndpoint() + 1));
-				log.info("Rule {} match for {}: {}", rule, matchRange, replacedParts);
-				for (int i = matchRange.upperEndpoint(); i >= matchRange.lowerEndpoint(); i--) {
-					sentence.getParts().remove(i);
-				}
-				
-				List<PartOfSpeech> replacementParts = createReplacementParts(
-						rule.getReplacements(), rule.getMatchers(), capturingGroups);
+				if (wallMatches) {
+					Range<Integer> matchRange = Range.closed(startMatchIdx, endMatchIdx);
+					List<PartOfSpeech> replacedParts = ImmutableList.copyOf(
+							sentence.getParts().subList(matchRange.lowerEndpoint(), matchRange.upperEndpoint() + 1));
+					log.info("Rule {} match for {}: {}", rule, matchRange, replacedParts);
+					for (int i = matchRange.upperEndpoint(); i >= matchRange.lowerEndpoint(); i--) {
+						sentence.getParts().remove(i);
+					}
+					
+					List<PartOfSpeech> replacementParts = createReplacementParts(
+							rule.getReplacements(), rule.getMatchers(), capturingGroups);
 
-				log.debug("Replacing with {} parts at index #{}: {}",
-						replacementParts.size(), startMatchIdx, replacementParts);
-				sentence.getParts().addAll(startMatchIdx, replacementParts);
-			} else {
-				log.debug("Rule {} not match for {}", rule, tokens);
+					log.debug("Replacing with {} parts at index #{}: {}",
+							replacementParts.size(), startMatchIdx, replacementParts);
+					sentence.getParts().addAll(startMatchIdx, replacementParts);
+					
+					// regenerate walls, reset ruleIter and wallIter
+					walls = findWalls(sentence.getParts());
+					wallIter = Iterators.emptyIterator();
+					resetRuleIter = true;
+					break;
+				} else {
+					log.debug("Rule «{}» not match for any sublist of {}", rule, tokens);
+				}
+				
 			}
 			
 			// stop if we already recognized everything (ignoring whitespace)
@@ -625,6 +668,10 @@ public class RelEx implements Translator, LabelProvider {
 				}
 				// finish parsing
 				break;
+			}
+			
+			if (resetRuleIter) {
+				ruleIter = lexRules.getRules().iterator();
 			}
 		}
 		
@@ -647,7 +694,6 @@ public class RelEx implements Translator, LabelProvider {
 	 */
 	protected List<QName> getVerbSenses(final String verbLiteral) {
 		List<QName> senses = new ArrayList<>();
-		log.info("Loading verb translations...");
 		ParameterizedSparqlString sparql = new ParameterizedSparqlString(
 				"SELECT ?sense\n"
 				+ "WHERE {\n"
@@ -691,7 +737,6 @@ public class RelEx implements Translator, LabelProvider {
 	 */
 	protected List<QName> getNounSenses(final String nounLiteral) {
 		List<QName> senses = new ArrayList<>();
-		log.info("Loading verb translations...");
 		ParameterizedSparqlString sparql = new ParameterizedSparqlString(
 				"SELECT ?sense\n"
 				+ "WHERE {\n"
@@ -727,7 +772,6 @@ public class RelEx implements Translator, LabelProvider {
 	 */
 	protected List<QName> getAdjectiveSenses(final String adjectiveLiteral) {
 		List<QName> senses = new ArrayList<>();
-		log.info("Loading verb translations...");
 		ParameterizedSparqlString sparql = new ParameterizedSparqlString(
 				"SELECT ?sense\n"
 				+ "WHERE {\n"
@@ -763,7 +807,6 @@ public class RelEx implements Translator, LabelProvider {
 	 */
 	protected List<QName> getAdjectiveSatelliteSenses(final String adjectiveSatelliteLiteral) {
 		List<QName> senses = new ArrayList<>();
-		log.info("Loading verb translations...");
 		ParameterizedSparqlString sparql = new ParameterizedSparqlString(
 				"SELECT ?sense\n"
 				+ "WHERE {\n"
