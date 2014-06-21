@@ -1,130 +1,85 @@
 <?xml version="1.0" encoding="ASCII"?>
-<relexid:LexRules
-    xmi:version="2.0"
-    xmlns:xmi="http://www.omg.org/XMI"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:relexid="http://relexid/1.0"
-    xsi:schemaLocation="http://relexid/1.0 relexid.ecore">
-  <rules>
-    <replacements
-        xsi:type="relexid:ResourceReplacement"
-        partOfSpeech="noun"
-        captureGroup="1">
-      <replacements
-          xsi:type="relexid:ResourceReplacement"
-          partOfSpeech="noun"
-          captureGroup="2"/>
-    </replacements>
-    <replacements
-        xsi:type="relexid:ResourceReplacement"
-        partOfSpeech="adjective"
-        captureGroup="3"/>
-    <matchers
-        xsi:type="relexid:PartOfSpeechMatcher"
-        partOfSpeech="noun"/>
-    <matchers
-        xsi:type="relexid:PartOfSpeechMatcher"
-        partOfSpeech="noun"/>
-    <matchers
-        xsi:type="relexid:PartOfSpeechMatcher"
-        partOfSpeech="adjective"/>
-  </rules>
-  <rules>
-    <replacements
-        xsi:type="relexid:ResourceReplacement"
-        partOfSpeech="noun"
-        captureGroup="1">
-      <replacements
-          xsi:type="relexid:ResourceReplacement"
-          partOfSpeech="adjective_satellite"
-          captureGroup="2"/>
-    </replacements>
-    <matchers
-        xsi:type="relexid:PartOfSpeechMatcher"
-        partOfSpeech="noun"/>
-    <matchers
-        xsi:type="relexid:PartOfSpeechMatcher"
-        partOfSpeech="adjective_satellite"/>
-  </rules>
-  <rules>
-    <replacements
-        xsi:type="relexid:PronounReplacement"
-        partOfSpeech="pronoun"/>
-    <replacements
-        xsi:type="relexid:ResourceReplacement"
-        partOfSpeech="verb"
-        captureGroup="2">
-      <replacements
-          xsi:type="relexid:PronounReplacement"
-          partOfSpeech="pronoun"
-          person="second"
-          case="object"/>
-    </replacements>
-    <matchers
-        xsi:type="relexid:LiteralMatcher">
-      <literals>aku</literals>
-    </matchers>
-    <matchers
-        xsi:type="relexid:PartOfSpeechMatcher"
-        partOfSpeech="verb"/>
-    <matchers
-        xsi:type="relexid:LiteralMatcher">
-      <literals>kamu</literals>
-    </matchers>
-  </rules>
-  <rules>
-    <replacements
-        xsi:type="relexid:PronounReplacement"
-        partOfSpeech="pronoun"/>
-    <replacements
-        xsi:type="relexid:ResourceReplacement"
-        partOfSpeech="verb"
-        captureGroup="2">
-      <replacements
-          xsi:type="relexid:RecognizedReplacement"
-          capturingGroup="3"/>
-    </replacements>
-    <matchers
-        xsi:type="relexid:LiteralMatcher">
-      <literals>aku</literals>
-    </matchers>
-    <matchers
-        xsi:type="relexid:PartOfSpeechMatcher"
-        partOfSpeech="verb"/>
-    <matchers
-        xsi:type="relexid:RecognizedMatcher"
-        partOfSpeech="noun"/>
-  </rules>
-  <rules>
-    <replacements
-        xsi:type="relexid:PronounReplacement"
-        partOfSpeech="pronoun"/>
-    <replacements
-        xsi:type="relexid:ResourceReplacement"
-        partOfSpeech="verb"
-        captureGroup="2">
-      <replacements
-          xsi:type="relexid:ResourceReplacement"
-          partOfSpeech="noun"
-          captureGroup="3"/>
-    </replacements>
-    <matchers
-        xsi:type="relexid:LiteralMatcher">
-      <literals>aku</literals>
-    </matchers>
-    <matchers
-        xsi:type="relexid:PartOfSpeechMatcher"
-        partOfSpeech="verb"/>
-    <matchers
-        xsi:type="relexid:PartOfSpeechMatcher"
-        partOfSpeech="noun"/>
-  </rules>
-  <rules>
-    <replacements
-        xsi:type="relexid:PunctuationReplacement"/>
-    <matchers
-        xsi:type="relexid:LiteralMatcher">
-      <literals>.</literals>
-    </matchers>
-  </rules>
+<relexid:LexRules xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:relexid="http://relexid/1.0"
+	xsi:schemaLocation="http://relexid/1.0 relexid.ecore">
+	<rules>
+		<replacements xsi:type="relexid:ResourceReplacement"
+			partOfSpeech="noun" captureGroup="1">
+			<replacements xsi:type="relexid:ResourceReplacement"
+				partOfSpeech="noun" captureGroup="2" />
+		</replacements>
+		<replacements xsi:type="relexid:ResourceReplacement"
+			partOfSpeech="adjective" captureGroup="3" />
+		<matchers xsi:type="relexid:PartOfSpeechMatcher"
+			partOfSpeech="noun" />
+		<matchers xsi:type="relexid:PartOfSpeechMatcher"
+			partOfSpeech="noun" />
+		<matchers xsi:type="relexid:PartOfSpeechMatcher"
+			partOfSpeech="adjective" />
+	</rules>
+	<rules>
+		<replacements xsi:type="relexid:ResourceReplacement"
+			partOfSpeech="noun" captureGroup="1">
+			<replacements xsi:type="relexid:ResourceReplacement"
+				partOfSpeech="adjective_satellite" captureGroup="2" />
+		</replacements>
+		<matchers xsi:type="relexid:PartOfSpeechMatcher"
+			partOfSpeech="noun" />
+		<matchers xsi:type="relexid:PartOfSpeechMatcher"
+			partOfSpeech="adjective_satellite" />
+	</rules>
+	<rules>
+		<replacements xsi:type="relexid:PronounReplacement"
+			partOfSpeech="pronoun" />
+		<replacements xsi:type="relexid:ResourceReplacement"
+			partOfSpeech="verb" captureGroup="2">
+			<replacements xsi:type="relexid:PronounReplacement"
+				partOfSpeech="pronoun" person="second" case="object" />
+		</replacements>
+		<matchers xsi:type="relexid:LiteralMatcher">
+			<literals>aku</literals>
+		</matchers>
+		<matchers xsi:type="relexid:PartOfSpeechMatcher"
+			partOfSpeech="verb" />
+		<matchers xsi:type="relexid:LiteralMatcher">
+			<literals>kamu</literals>
+		</matchers>
+	</rules>
+	<rules>
+		<replacements xsi:type="relexid:PronounReplacement"
+			partOfSpeech="pronoun" />
+		<replacements xsi:type="relexid:ResourceReplacement"
+			partOfSpeech="verb" captureGroup="2">
+			<replacements xsi:type="relexid:RecognizedReplacement"
+				capturingGroup="3" />
+		</replacements>
+		<matchers xsi:type="relexid:LiteralMatcher">
+			<literals>aku</literals>
+		</matchers>
+		<matchers xsi:type="relexid:PartOfSpeechMatcher"
+			partOfSpeech="verb" />
+		<matchers xsi:type="relexid:RecognizedMatcher" partOfSpeech="noun" />
+	</rules>
+	<rules>
+		<replacements xsi:type="relexid:PronounReplacement"
+			partOfSpeech="pronoun" />
+		<replacements xsi:type="relexid:ResourceReplacement"
+			partOfSpeech="verb" captureGroup="2">
+			<replacements xsi:type="relexid:ResourceReplacement"
+				partOfSpeech="noun" captureGroup="3" />
+		</replacements>
+		<matchers xsi:type="relexid:LiteralMatcher">
+			<literals>aku</literals>
+		</matchers>
+		<matchers xsi:type="relexid:PartOfSpeechMatcher"
+			partOfSpeech="verb" />
+		<matchers xsi:type="relexid:PartOfSpeechMatcher"
+			partOfSpeech="noun" />
+	</rules>
+	<rules>
+		<replacements xsi:type="relexid:PunctuationReplacement" />
+		<matchers xsi:type="relexid:LiteralMatcher">
+			<literals>.</literals>
+		</matchers>
+	</rules>
 </relexid:LexRules>
