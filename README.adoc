@@ -164,7 +164,7 @@ You need to use `tdbloader2` to load the WordNet 3.1 data.
 ceefour@amanah:/media/ceefour/passport/project_passport/Lumen/wn31 > tdbloader2 --loc ~/tmp/wn31 wn31.nt
 ----
 
-This took 108 seconds on i7 :) and generates 735 MB data.
+This took 108 seconds on i7 :) (8,574,807 tuples!) and generates 735 MB data.
 
 Test:
 
@@ -320,8 +320,22 @@ For other part-of-speeches, we need to use something else (probably [DBpedia Wik
 
 However there still needs to be corrections, especially false inclusions:
 
+TDB:
+
 ----
-s-update --service http://localhost:3030/ds/update --file ~/git/relex-id/core/wn31patch.sparql
+tdbupdate -v --loc ~/wn31_tdb --update ~/git/relex-id/core/wn31patch.sparql
+----
+
+Fuseki:
+
+----
+s-update -v --service http://localhost:3030/ds/update --file ~/git/relex-id/core/wn31patch.sparql
+----
+
+Check:
+
+----
+tdbquery --results text --loc ~/wn31_tdb --file ~/git/relex-id/core/me.sparql
 ----
 
 == References

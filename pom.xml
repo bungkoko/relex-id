@@ -41,8 +41,20 @@
 		</license>
 	</licenses>
 
+	<properties>
+		<!-- http://stackoverflow.com/a/3018152 -->
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+	</properties>
+
 	<dependencyManagement>
 		<dependencies>
+			<dependency>
+				<groupId>id.ac.itb.ee.lskk</groupId>
+				<artifactId>id.ac.itb.ee.lskk.relexid.core</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+		
 			<dependency>
 				<groupId>org.soluvas</groupId>
 				<artifactId>org.soluvas.parent</artifactId>
