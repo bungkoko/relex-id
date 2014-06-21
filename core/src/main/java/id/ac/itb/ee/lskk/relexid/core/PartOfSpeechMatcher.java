@@ -8,6 +8,12 @@ package id.ac.itb.ee.lskk.relexid.core;
  * A representation of the model object '<em><b>Part Of Speech Element</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * Matches WordNet senses based on {@code wordnet-ontology:part_of_speech}, the only supported
+ * {@link PartOfSpeechType}s are NOUN, VERB, ADJECTIVE, ADVERB, adjective satellite and phrase.
+ * To get literal representation it will use {@code wordnet-ontology:translation} using alpha-3 ISO language tag.
+ * <!-- end-model-doc -->
+ *
  * <p>
  * The following features are supported:
  * <ul>

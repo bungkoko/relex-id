@@ -1,0 +1,92 @@
+@prefix lemon: <http://lemon-model.net/lemon#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wordnet-ontology: <http://wordnet-rdf.princeton.edu/ontology#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<> a lemon:LexicalEntry ;
+    lemon:canonicalForm <#CanonicalForm> ;
+    lemon:sense <#1-n>,
+        <#2-n>,
+        <#3-n>,
+        <#4-n>,
+        <#5-n>,
+        <#6-n> ;
+    wordnet-ontology:part_of_speech wordnet-ontology:noun .
+
+<#1-n> a lemon:LexicalSense ;
+    lemon:reference <http://wordnet-rdf.princeton.edu/wn31/107558676-n> ;
+    wordnet-ontology:antonym <http://wordnet-rdf.princeton.edu/wn31/hate-n#1-n> ;
+    wordnet-ontology:derivation <http://wordnet-rdf.princeton.edu/wn31/love-v#1-v>,
+        <http://wordnet-rdf.princeton.edu/wn31/love-v#2-v>,
+        <http://wordnet-rdf.princeton.edu/wn31/love-v#3-v> ;
+    wordnet-ontology:gloss "a strong positive emotion of regard and affection"@eng ;
+    wordnet-ontology:lex_id 0 ;
+    wordnet-ontology:old_sense_key "love%1:12:00::" ;
+    wordnet-ontology:sense_number 1 ;
+    wordnet-ontology:tag_count 42 ;
+    owl:sameAs <http://lemon-model.net/lexica/uby/wn/WN_Sense_93731>,
+        <http://www.lexvo.org/page/wordnet/30/noun/love_1_12_00> .
+
+<#2-n> a lemon:LexicalSense ;
+    lemon:reference <http://wordnet-rdf.princeton.edu/wn31/105821331-n> ;
+    wordnet-ontology:derivation <http://wordnet-rdf.princeton.edu/wn31/love-v#1-v>,
+        <http://wordnet-rdf.princeton.edu/wn31/love-v#2-v>,
+        <http://wordnet-rdf.princeton.edu/wn31/love-v#3-v> ;
+    wordnet-ontology:gloss "any object of warm affection or devotion"@eng ;
+    wordnet-ontology:lex_id 0 ;
+    wordnet-ontology:old_sense_key "love%1:09:00::" ;
+    wordnet-ontology:sense_number 2 ;
+    wordnet-ontology:tag_count 3 ;
+    owl:sameAs <http://lemon-model.net/lexica/uby/wn/WN_Sense_93729>,
+        <http://www.lexvo.org/page/wordnet/30/noun/love_1_09_00> .
+
+<#3-n> a lemon:LexicalSense ;
+    lemon:reference <http://wordnet-rdf.princeton.edu/wn31/109869006-n> ;
+    wordnet-ontology:derivation <http://wordnet-rdf.princeton.edu/wn31/love-v#1-v>,
+        <http://wordnet-rdf.princeton.edu/wn31/love-v#3-v> ;
+    wordnet-ontology:gloss "a beloved person; used as terms of endearment"@eng ;
+    wordnet-ontology:lex_id 0 ;
+    wordnet-ontology:old_sense_key "love%1:18:00::" ;
+    wordnet-ontology:sense_number 3 ;
+    wordnet-ontology:tag_count 2 ;
+    owl:sameAs <http://lemon-model.net/lexica/uby/wn/WN_Sense_93732>,
+        <http://www.lexvo.org/page/wordnet/30/noun/love_1_18_00> .
+
+<#4-n> a lemon:LexicalSense ;
+    lemon:reference <http://wordnet-rdf.princeton.edu/wn31/107503480-n> ;
+    wordnet-ontology:derivation <http://wordnet-rdf.princeton.edu/wn31/love-v#4-v> ;
+    wordnet-ontology:gloss "a deep feeling of sexual desire and attraction"@eng ;
+    wordnet-ontology:lex_id 1 ;
+    wordnet-ontology:old_sense_key "love%1:12:01::" ;
+    wordnet-ontology:sense_number 4 ;
+    wordnet-ontology:tag_count 1 ;
+    owl:sameAs <http://lemon-model.net/lexica/uby/wn/WN_Sense_93728>,
+        <http://www.lexvo.org/page/wordnet/30/noun/love_1_12_01> .
+
+<#5-n> a lemon:LexicalSense ;
+    lemon:reference <http://wordnet-rdf.princeton.edu/wn31/113617812-n> ;
+    wordnet-ontology:gloss "a score of zero in tennis or squash"@eng ;
+    wordnet-ontology:lex_id 0 ;
+    wordnet-ontology:old_sense_key "love%1:23:00::" ;
+    wordnet-ontology:sense_number 5 ;
+    wordnet-ontology:tag_count 0 ;
+    owl:sameAs <http://lemon-model.net/lexica/uby/wn/WN_Sense_93727>,
+        <http://www.lexvo.org/page/wordnet/30/noun/love_1_23_00> .
+
+<#6-n> a lemon:LexicalSense ;
+    lemon:reference <http://wordnet-rdf.princeton.edu/wn31/100848145-n> ;
+    wordnet-ontology:derivation <http://wordnet-rdf.princeton.edu/wn31/love-v#4-v> ;
+    wordnet-ontology:gloss "sexual activities (often including sexual intercourse) between two people"@eng ;
+    wordnet-ontology:lex_id 0 ;
+    wordnet-ontology:old_sense_key "love%1:04:00::" ;
+    wordnet-ontology:sense_number 6 ;
+    wordnet-ontology:tag_count 0 ;
+    owl:sameAs <http://lemon-model.net/lexica/uby/wn/WN_Sense_93730>,
+        <http://www.lexvo.org/page/wordnet/30/noun/love_1_04_00> .
+
+<#CanonicalForm> a lemon:Form ;
+    lemon:writtenRep "love"@eng .
+

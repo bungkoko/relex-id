@@ -1,5 +1,4 @@
-# arq --data /media/ceefour/passport/project_passport/Lumen/wn31/wn31test.ttl --file ~/git/relex-id/core/elephant.sparql
-# tdbquery --loc=$HOME/tmp/wn31 --file ~/git/relex-id/core/elephant.sparql
+# tdbquery --loc=$HOME/tmp/wn31 --file ~/git/relex-id/core/kamu.sparql
 PREFIX rdf:					<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs:				<http://www.w3.org/2000/01/rdf-schema#>
 PREFIX owl:					<http://www.w3.org/2002/07/owl#>
@@ -10,8 +9,7 @@ PREFIX wn20:				<http://www.w3.org/2006/03/wn/wn20/instances/>
 PREFIX uby:					<http://lemon-model.net/lexica/uby/wn/>
 
 
-SELECT ?s ?p ?o
-WHERE {
-	{ wn31:102506148-n ?p ?o }
-	UNION { ?s ?p wn31:102506148-n }
+select ?s ?p ?o where {
+ ?s ?p ?o ;
+ 	wordnet-ontology:translation "kamu"@ind .
 }

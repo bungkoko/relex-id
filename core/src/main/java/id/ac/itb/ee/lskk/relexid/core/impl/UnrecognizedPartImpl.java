@@ -3,6 +3,7 @@
 package id.ac.itb.ee.lskk.relexid.core.impl;
 
 import id.ac.itb.ee.lskk.relexid.core.GeneratedLiteral;
+import id.ac.itb.ee.lskk.relexid.core.RelexidFactory;
 import id.ac.itb.ee.lskk.relexid.core.RelexidPackage;
 import id.ac.itb.ee.lskk.relexid.core.UnrecognizedPart;
 
@@ -185,13 +186,12 @@ public class UnrecognizedPartImpl extends MinimalEObjectImpl.Container implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	@Override
 	public GeneratedLiteral generate(Locale locale, Map<String, String> dict) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		GeneratedLiteral genLit = RelexidFactory.eINSTANCE.createGeneratedLiteral();
+		genLit.setLiteral(getLiteral());
+		return genLit;
 	}
 
 	/**

@@ -1,0 +1,82 @@
+@prefix lemon: <http://lemon-model.net/lemon#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wordnet-ontology: <http://wordnet-rdf.princeton.edu/ontology#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<> a lemon:LexicalEntry ;
+    lemon:canonicalForm <#CanonicalForm> ;
+    lemon:sense <#1-v>,
+        <#2-v>,
+        <#3-v>,
+        <#4-v> ;
+    wordnet-ontology:part_of_speech wordnet-ontology:verb .
+
+<#1-v> a lemon:LexicalSense ;
+    lemon:reference <http://wordnet-rdf.princeton.edu/wn31/201779085-v> ;
+    wordnet-ontology:antonym <http://wordnet-rdf.princeton.edu/wn31/hate-v#1-v> ;
+    wordnet-ontology:derivation <http://wordnet-rdf.princeton.edu/wn31/lovable-a#1-a>,
+        <http://wordnet-rdf.princeton.edu/wn31/love-n#1-n>,
+        <http://wordnet-rdf.princeton.edu/wn31/love-n#2-n>,
+        <http://wordnet-rdf.princeton.edu/wn31/love-n#3-n>,
+        <http://wordnet-rdf.princeton.edu/wn31/loveable-a#1-a>,
+        <http://wordnet-rdf.princeton.edu/wn31/lover-n#1-n>,
+        <http://wordnet-rdf.princeton.edu/wn31/lover-n#2-n> ;
+    wordnet-ontology:gloss "have a great affection or liking for"@eng ;
+    wordnet-ontology:lex_id 0 ;
+    wordnet-ontology:old_sense_key "love%2:37:00::" ;
+    wordnet-ontology:sense_number 1 ;
+    wordnet-ontology:tag_count 43 ;
+    owl:sameAs <http://lemon-model.net/lexica/uby/wn/WN_Sense_137317>,
+        <http://www.lexvo.org/page/wordnet/30/verb/love_2_37_00> .
+
+<#2-v> a lemon:LexicalSense ;
+    lemon:reference <http://wordnet-rdf.princeton.edu/wn31/201832678-v> ;
+    wordnet-ontology:derivation <http://wordnet-rdf.princeton.edu/wn31/love-n#1-n>,
+        <http://wordnet-rdf.princeton.edu/wn31/love-n#2-n>,
+        <http://wordnet-rdf.princeton.edu/wn31/lover-n#1-n>,
+        <http://wordnet-rdf.princeton.edu/wn31/lover-n#2-n> ;
+    wordnet-ontology:gloss "get pleasure from"@eng ;
+    wordnet-ontology:lex_id 2 ;
+    wordnet-ontology:old_sense_key "love%2:37:02::" ;
+    wordnet-ontology:sense_number 2 ;
+    wordnet-ontology:tag_count 26 ;
+    wordnet-ontology:verb_frame_sentence "They %s him to write the letter"@eng ;
+    owl:sameAs <http://lemon-model.net/lexica/uby/wn/WN_Sense_137315>,
+        <http://www.lexvo.org/page/wordnet/30/verb/love_2_37_02> .
+
+<#3-v> a lemon:LexicalSense ;
+    lemon:reference <http://wordnet-rdf.princeton.edu/wn31/201779456-v> ;
+    wordnet-ontology:derivation <http://wordnet-rdf.princeton.edu/wn31/lovable-a#1-a>,
+        <http://wordnet-rdf.princeton.edu/wn31/love-n#1-n>,
+        <http://wordnet-rdf.princeton.edu/wn31/love-n#2-n>,
+        <http://wordnet-rdf.princeton.edu/wn31/love-n#3-n>,
+        <http://wordnet-rdf.princeton.edu/wn31/loveable-a#1-a>,
+        <http://wordnet-rdf.princeton.edu/wn31/lover-n#1-n> ;
+    wordnet-ontology:gloss "be enamored or in love with"@eng ;
+    wordnet-ontology:lex_id 1 ;
+    wordnet-ontology:old_sense_key "love%2:37:01::" ;
+    wordnet-ontology:sense_number 3 ;
+    wordnet-ontology:tag_count 13 ;
+    wordnet-ontology:verb_frame_sentence "Sam cannot %s Sue "@eng ;
+    owl:sameAs <http://lemon-model.net/lexica/uby/wn/WN_Sense_137314>,
+        <http://www.lexvo.org/page/wordnet/30/verb/love_2_37_01> .
+
+<#4-v> a lemon:LexicalSense ;
+    lemon:reference <http://wordnet-rdf.princeton.edu/wn31/201429048-v> ;
+    wordnet-ontology:derivation <http://wordnet-rdf.princeton.edu/wn31/love-n#4-n>,
+        <http://wordnet-rdf.princeton.edu/wn31/love-n#6-n>,
+        <http://wordnet-rdf.princeton.edu/wn31/lover-n#3-n> ;
+    wordnet-ontology:gloss "have sexual intercourse with"@eng ;
+    wordnet-ontology:lex_id 0 ;
+    wordnet-ontology:old_sense_key "love%2:35:00::" ;
+    wordnet-ontology:sense_number 4 ;
+    wordnet-ontology:tag_count 0 ;
+    owl:sameAs <http://lemon-model.net/lexica/uby/wn/WN_Sense_137316>,
+        <http://www.lexvo.org/page/wordnet/30/verb/love_2_35_00> .
+
+<#CanonicalForm> a lemon:Form ;
+    lemon:writtenRep "love"@eng .
+

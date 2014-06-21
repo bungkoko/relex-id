@@ -1777,7 +1777,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 		  (getPartOfSpeech_Word(), 
 		   source, 
 		   new String[] {
-			 "documentation", "Exact word resource (if known). Available word namespaces are:\n\n<ul>\n<li>wn30: http://purl.org/vocabularies/princeton/wn30/</li>\n<li>wn-msa: http://wn-msa.sourceforge.net/vocabularies/wn-msa/ from <a href=\"http://wn-msa.sourceforge.net/\">WordNet Bahasa</a></li>\n</ul>"
+			 "documentation", "Exact word resource (if known). Available word namespaces are:\n\n<ul>\n<li>wn30: http://purl.org/vocabularies/princeton/wn30/</li>\n<li>wn30-msa: http://wn-msa.sourceforge.net/wn30-msa/ from <a href=\"http://wn-msa.sourceforge.net/\">WordNet Bahasa</a></li>\n</ul>"
 		   });		
 		addAnnotation
 		  (getLexRule_Matchers(), 
@@ -1796,6 +1796,12 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 		   source, 
 		   new String[] {
 			 "documentation", "any emotional greeting (or \"exclamation\") (ow)"
+		   });		
+		addAnnotation
+		  (partOfSpeechMatcherEClass, 
+		   source, 
+		   new String[] {
+			 "documentation", "Matches WordNet senses based on {@code wordnet-ontology:part_of_speech}, the only supported\n{@link PartOfSpeechType}s are NOUN, VERB, ADJECTIVE, ADVERB, adjective satellite and phrase.\nTo get literal representation it will use {@code wordnet-ontology:translation} using alpha-3 ISO language tag."
 		   });		
 		addAnnotation
 		  (typedResourceMatcherEClass, 

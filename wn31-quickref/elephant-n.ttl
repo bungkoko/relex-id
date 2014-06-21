@@ -1,0 +1,37 @@
+@prefix lemon: <http://lemon-model.net/lemon#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wordnet-ontology: <http://wordnet-rdf.princeton.edu/ontology#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<> a lemon:LexicalEntry ;
+    lemon:canonicalForm <#CanonicalForm> ;
+    lemon:sense <#1-n>,
+        <#2-n> ;
+    wordnet-ontology:part_of_speech wordnet-ontology:noun .
+
+<#1-n> a lemon:LexicalSense ;
+    lemon:reference <http://wordnet-rdf.princeton.edu/wn31/102506148-n> ;
+    wordnet-ontology:gloss "five-toed pachyderm"@eng ;
+    wordnet-ontology:lex_id 0 ;
+    wordnet-ontology:old_sense_key "elephant%1:05:00::" ;
+    wordnet-ontology:sense_number 1 ;
+    wordnet-ontology:tag_count 3 ;
+    owl:sameAs <http://lemon-model.net/lexica/uby/wn/WN_Sense_158093>,
+        <http://www.lexvo.org/page/wordnet/30/noun/elephant_1_05_00> .
+
+<#2-n> a lemon:LexicalSense ;
+    lemon:reference <http://wordnet-rdf.princeton.edu/wn31/106894712-n> ;
+    wordnet-ontology:gloss "the symbol of the Republican Party; introduced in cartoons by Thomas Nast in 1874"@eng ;
+    wordnet-ontology:lex_id 0 ;
+    wordnet-ontology:old_sense_key "elephant%1:10:00::" ;
+    wordnet-ontology:sense_number 2 ;
+    wordnet-ontology:tag_count 0 ;
+    owl:sameAs <http://lemon-model.net/lexica/uby/wn/WN_Sense_158094>,
+        <http://www.lexvo.org/page/wordnet/30/noun/elephant_1_10_00> .
+
+<#CanonicalForm> a lemon:Form ;
+    lemon:writtenRep "elephant"@eng .
+

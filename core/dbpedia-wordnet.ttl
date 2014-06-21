@@ -1,0 +1,5 @@
+# Links DBpedia concepts with wn31 senses
+# this is not used yet, and Lumen's primary way of knowing concepts is via WN31 sense ID
+# but maybe someday it gets DBpedia concepts, Freebase concepts etc.
+# but I think DBpedia concepts already include Freeebase owl:sameAs links 
+dbpedia:Elephant owl:sameAs wn31:102506148-n .

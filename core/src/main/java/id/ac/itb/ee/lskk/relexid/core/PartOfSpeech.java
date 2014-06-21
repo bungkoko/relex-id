@@ -86,7 +86,7 @@ public interface PartOfSpeech extends EObject {
 	 * 
 	 * <ul>
 	 * <li>wn30: http://purl.org/vocabularies/princeton/wn30/</li>
-	 * <li>wn-msa: http://wn-msa.sourceforge.net/vocabularies/wn-msa/ from <a href="http://wn-msa.sourceforge.net/">WordNet Bahasa</a></li>
+	 * <li>wn30-msa: http://wn-msa.sourceforge.net/wn30-msa/ from <a href="http://wn-msa.sourceforge.net/">WordNet Bahasa</a></li>
 	 * </ul>
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Word</em>' attribute.

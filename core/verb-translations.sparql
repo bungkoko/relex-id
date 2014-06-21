@@ -1,0 +1,33 @@
+# tdbquery --loc=$HOME/wn31_tdb --file ~/git/relex-id/core/verb-translations.sparql
+# -----------------------------------------------
+# | translation              | sense            |
+# ===============================================
+# | "mengawal"@ind           | wn31:200302911-v |
+# | "menjinakkan"@ind        | wn31:200302911-v |
+# | "menaruko"@ind           | wn31:200302911-v |
+# | "memperoleh kembali"@ind | wn31:200302911-v |
+# | "menahan diri"@ind       | wn31:200302911-v |
+# | "mendisiplinkan"@ind     | wn31:200302911-v |
+# | "menjinakkan"@ind        | wn31:200302637-v |
+# | "meragut"@ind            | wn31:201579309-v |
+# | "memakan"@ind            | wn31:201579309-v |
+# | "menggores"@ind          | wn31:201579309-v |
+# -----------------------------------------------
+PREFIX rdf:					<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs:				<http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl:					<http://www.w3.org/2002/07/owl#>
+PREFIX lemon:				<http://lemon-model.net/lemon#> 
+PREFIX wn31:				<http://wordnet-rdf.princeton.edu/wn31/> 
+PREFIX wordnet-ontology:	<http://wordnet-rdf.princeton.edu/ontology#>
+PREFIX wn20:				<http://www.w3.org/2006/03/wn/wn20/instances/>
+PREFIX uby:					<http://lemon-model.net/lexica/uby/wn/>
+
+
+SELECT ?translation ?sense
+WHERE {
+	?sense wordnet-ontology:translation ?t ;
+		wordnet-ontology:part_of_speech wordnet-ontology:verb
+	BIND( lcase(?t) AS ?translation )
+	FILTER ( lang(?translation) = 'ind' )
+}
+LIMIT 10

@@ -1,0 +1,74 @@
+@prefix lemon: <http://lemon-model.net/lemon#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wordnet-ontology: <http://wordnet-rdf.princeton.edu/ontology#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://wordnet-rdf.princeton.edu/wn31/107558676-n> a wordnet-ontology:Synset ;
+    rdfs:label "love"@eng ;
+    wordnet-ontology:gloss "a strong positive emotion of regard and affection"@eng ;
+    wordnet-ontology:hypernym <http://wordnet-rdf.princeton.edu/wn31/107495208-n> ;
+    wordnet-ontology:hyponym <http://wordnet-rdf.princeton.edu/wn31/107516659-n>,
+        <http://wordnet-rdf.princeton.edu/wn31/107559120-n>,
+        <http://wordnet-rdf.princeton.edu/wn31/107559298-n>,
+        <http://wordnet-rdf.princeton.edu/wn31/107559427-n>,
+        <http://wordnet-rdf.princeton.edu/wn31/107559517-n>,
+        <http://wordnet-rdf.princeton.edu/wn31/107559601-n>,
+        <http://wordnet-rdf.princeton.edu/wn31/107559739-n>,
+        <http://wordnet-rdf.princeton.edu/wn31/107559879-n>,
+        <http://wordnet-rdf.princeton.edu/wn31/107561087-n>,
+        <http://wordnet-rdf.princeton.edu/wn31/107561327-n>,
+        <http://wordnet-rdf.princeton.edu/wn31/107561495-n>,
+        <http://wordnet-rdf.princeton.edu/wn31/107561759-n> ;
+    wordnet-ontology:lexical_domain wordnet-ontology:noun.feeling ;
+    wordnet-ontology:part_of_speech wordnet-ontology:noun ;
+    wordnet-ontology:sample "children need a lot of love"@eng,
+        "his love for his work"@eng ;
+    wordnet-ontology:synset_member <http://wordnet-rdf.princeton.edu/wn31/love-n> ;
+    wordnet-ontology:translation "حُبّ"@ara,
+        "amor"@cat,
+        "kærlighed"@dan,
+        "amodio"@eus,
+        "maitasun"@eus,
+        "rakkaus"@fin,
+        "amour"@fra,
+        "amor"@glg,
+        "cinta"@ind,
+        "kasih"@ind,
+        "kasih sayang"@ind,
+        "sayang"@ind,
+        "amore"@ita,
+        "ラブ"@jpn,
+        "ラヴ"@jpn,
+        "仁愛"@jpn,
+        "傾慕"@jpn,
+        "恵愛"@jpn,
+        "情愛"@jpn,
+        "愛"@jpn,
+        "愛しみ"@jpn,
+        "愛心"@jpn,
+        "愛念"@jpn,
+        "愛情"@jpn,
+        "愛着"@jpn,
+        "慈"@jpn,
+        "慈しみ"@jpn,
+        "慈愛"@jpn,
+        "kjærleik"@nno,
+        "kjærlighet"@nob,
+        "afekt"@pol,
+        "miłość"@pol,
+        "uczucie"@pol,
+        "afeição"@por,
+        "amor"@por,
+        "amor"@spa,
+        "dashuri"@sqi,
+        "ความรัก"@tha,
+        "cinta"@zsm,
+        "kasih"@zsm,
+        "kasih sayang"@zsm,
+        "sayang"@zsm ;
+    owl:sameAs <http://lemon-model.net/lexica/uby/wn/WN_Synset_40850>,
+        <http://www.w3.org/2006/03/wn/wn20/instances/synset-love-noun-1> .
+

@@ -5,6 +5,7 @@ package id.ac.itb.ee.lskk.relexid.core.impl;
 import id.ac.itb.ee.lskk.relexid.core.GeneratedLiteral;
 import id.ac.itb.ee.lskk.relexid.core.PartContainer;
 import id.ac.itb.ee.lskk.relexid.core.PartOfSpeech;
+import id.ac.itb.ee.lskk.relexid.core.RelEx;
 import id.ac.itb.ee.lskk.relexid.core.RelexidFactory;
 import id.ac.itb.ee.lskk.relexid.core.RelexidPackage;
 import id.ac.itb.ee.lskk.relexid.core.VerbPart;
@@ -193,6 +194,7 @@ public class VerbPartImpl extends MinimalEObjectImpl.Container implements VerbPa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public QName getWord() {
 		return word;
 	}
@@ -202,6 +204,7 @@ public class VerbPartImpl extends MinimalEObjectImpl.Container implements VerbPa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setWord(QName newWord) {
 		QName oldWord = word;
 		word = newWord;
@@ -233,9 +236,9 @@ public class VerbPartImpl extends MinimalEObjectImpl.Container implements VerbPa
 		if (dict.containsKey(resourceUri)) {
 			result += dict.get(resourceUri);
 		} else {
-			result += getResource().toString();
+			result += RelEx.shortQName(getResource());
 			log.warn("Resource {} not in dictionary for {} with {} entries",
-					getResource(), locale, dict.size());
+					RelEx.shortQName(getResource()), locale, dict.size());
 		}
 		for (PartOfSpeech part : getParts()) {
 			final GeneratedLiteral literal = part.generate(locale, dict);

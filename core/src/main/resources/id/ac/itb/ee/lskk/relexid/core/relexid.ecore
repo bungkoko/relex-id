@@ -81,6 +81,9 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="LexMatcher" abstract="true" interface="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="PartOfSpeechMatcher" eSuperTypes="#//LexMatcher">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Matches WordNet senses based on {@code wordnet-ontology:part_of_speech}, the only supported&#xA;{@link PartOfSpeechType}s are NOUN, VERB, ADJECTIVE, ADVERB, adjective satellite and phrase.&#xA;To get literal representation it will use {@code wordnet-ontology:translation} using alpha-3 ISO language tag."/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="partOfSpeech" lowerBound="1"
         eType="#//PartOfSpeechType"/>
   </eClassifiers>

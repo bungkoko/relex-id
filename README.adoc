@@ -215,6 +215,12 @@ Test:
 
 Yay! :)
 
+=== WordNet 3.1 RDF "bugs"
+
+WordNet only contains nouns, verbs, adjectives, and adverbs.
+For other part-of-speeches, we need to use something else (probably [DBpedia Wiktionary](http://datahub.io/dataset/wiktionary-dbpedia-org)) or create our own data
+(but still using lemon-model.net ontology).
+
 == References
 
 1. [WordNet 3.1 RDF](http://wordnet-rdf.princeton.edu/)

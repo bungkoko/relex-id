@@ -1,0 +1,57 @@
+@prefix lemon: <http://lemon-model.net/lemon#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wordnet-ontology: <http://wordnet-rdf.princeton.edu/ontology#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://wordnet-rdf.princeton.edu/wn31/102506148-n> a wordnet-ontology:Synset ;
+    rdfs:label "elephant"@eng ;
+    wordnet-ontology:gloss "five-toed pachyderm"@eng ;
+    wordnet-ontology:hypernym <http://wordnet-rdf.princeton.edu/wn31/102455739-n>,
+        <http://wordnet-rdf.princeton.edu/wn31/102505758-n> ;
+    wordnet-ontology:hyponym <http://wordnet-rdf.princeton.edu/wn31/102506387-n>,
+        <http://wordnet-rdf.princeton.edu/wn31/102506644-n>,
+        <http://wordnet-rdf.princeton.edu/wn31/102507089-n>,
+        <http://wordnet-rdf.princeton.edu/wn31/102507401-n>,
+        <http://wordnet-rdf.princeton.edu/wn31/102509414-n> ;
+    wordnet-ontology:lexical_domain wordnet-ontology:noun.animal ;
+    wordnet-ontology:member_meronym <http://wordnet-rdf.princeton.edu/wn31/102505944-n> ;
+    wordnet-ontology:part_holonym <http://wordnet-rdf.princeton.edu/wn31/101468354-n>,
+        <http://wordnet-rdf.princeton.edu/wn31/102455598-n> ;
+    wordnet-ontology:part_of_speech wordnet-ontology:noun ;
+    wordnet-ontology:synset_member <http://wordnet-rdf.princeton.edu/wn31/elephant-n> ;
+    wordnet-ontology:translation "elefant"@cat,
+        "elefant"@dan,
+        "elefante"@eus,
+        "فیل"@fas,
+        "پیل"@fas,
+        "elefantti"@fin,
+        "norsu"@fin,
+        "éléphant"@fra,
+        "éléphantidés"@fra,
+        "elefante"@glg,
+        "פִּיל"@heb,
+        "biram"@ind,
+        "gajah"@ind,
+        "elefante"@ita,
+        "ゾウ"@jpn,
+        "象"@jpn,
+        "象さん"@jpn,
+        "elefant"@nno,
+        "elefant"@nob,
+        "Elefantes"@por,
+        "elefanta"@por,
+        "elefante"@por,
+        "elefante"@spa,
+        "elephantidae"@spa,
+        "ช้าง"@tha,
+        "ช้างสาร"@tha,
+        "หัตถี"@tha,
+        "象"@zho,
+        "biram"@zsm,
+        "gajah"@zsm ;
+    owl:sameAs <http://lemon-model.net/lexica/uby/wn/WN_Synset_13287>,
+        <http://www.w3.org/2006/03/wn/wn20/instances/synset-elephant-noun-1> .
+

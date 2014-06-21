@@ -20,17 +20,30 @@ import org.soluvas.commons.OnDemandXmiLoader;
 import com.google.common.base.Preconditions;
 import com.google.common.base.Predicate;
 import com.google.common.base.Strings;
+import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.FluentIterable;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.ListMultimap;
 import com.google.common.collect.Range;
+import com.hp.hpl.jena.query.Dataset;
+import com.hp.hpl.jena.query.Query;
+import com.hp.hpl.jena.query.QueryExecution;
+import com.hp.hpl.jena.query.QueryExecutionFactory;
+import com.hp.hpl.jena.query.QueryFactory;
+import com.hp.hpl.jena.query.QuerySolution;
+import com.hp.hpl.jena.query.ResultSet;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
+import com.hp.hpl.jena.rdf.model.Resource;
+import com.hp.hpl.jena.tdb.TDBFactory;
 
 public class RelEx {
 	
 	private static final Logger log = LoggerFactory.getLogger(RelEx.class);
 	public static final Locale INDONESIAN = Locale.forLanguageTag("id-ID");
+	public static final String DBPEDIA_NS = "http://dbpedia.org/resource/";
+	public static final String WN31_NS = "http://wordnet-rdf.princeton.edu/wn31/";
 	
 	private LexRules lexRules;
 	private RelationRules relationRules;
@@ -39,6 +52,13 @@ public class RelEx {
 	private final Tokenizer tokenizer;
 
 	private final Model model;
+	/**
+	 * Mapping from {@code ind} translations to WordNet senses for verb part-of-speech.
+	 * The value is String to save memory, it is short QName, where nsPrefix needs
+	 * to be explictly supported, e.g. {@code wn31} for nvarps.
+	 * @todo These aren't sorted/prioritized in any way.
+	 */
+	private ListMultimap<String, String> verbTranslations;
 	
 	public static class Tokenizer {
 		enum CharType {
@@ -96,6 +116,7 @@ public class RelEx {
 		model.setNsPrefix("dbpedia", "http://dbpedia.org/resource/");
 		model.setNsPrefix("dbpedia-owl", "http://dbpedia.org/ontology/");
 		model.setNsPrefix("schema", "http://schema.org/");
+		model.setNsPrefix("wn31", WN31_NS);
 	}
 
 	public void loadLexRules(Class<?> clazz, String resourcePath) {
@@ -106,6 +127,43 @@ public class RelEx {
 	public void loadRelationRules(Class<?> clazz, String resourcePath) {
 		log.debug("Loading RelationRules from {} > {}", clazz, resourcePath);
 		relationRules = new OnDemandXmiLoader<RelationRules>(RelexidPackage.eINSTANCE, clazz, resourcePath).get();
+	}
+	
+	public void loadTranslations() {
+		verbTranslations = ArrayListMultimap.create();
+		final String wn31loc = System.getProperty("user.home") + "/wn31_tdb";
+		log.info("Initializing WordNet 3.1 TDB database at {}", wn31loc);
+		Dataset wn31tdb = TDBFactory.createDataset(wn31loc);
+		log.info("Loading verb translations...");
+		Query verbTxQuery = QueryFactory.create("PREFIX rdf:					<http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n"
+				+ "PREFIX rdfs:				<http://www.w3.org/2000/01/rdf-schema#>\n"
+				+ "PREFIX owl:					<http://www.w3.org/2002/07/owl#>\n"
+				+ "PREFIX lemon:				<http://lemon-model.net/lemon#>\n"
+				+ "PREFIX wn31:				<http://wordnet-rdf.princeton.edu/wn31/>\n"
+				+ "PREFIX wordnet-ontology:	<http://wordnet-rdf.princeton.edu/ontology#>\n"
+				+ "PREFIX wn20:				<http://www.w3.org/2006/03/wn/wn20/instances/>\n"
+				+ "PREFIX uby:					<http://lemon-model.net/lexica/uby/wn/>\n"
+				+ "SELECT ?translation ?sense\n"
+				+ "WHERE {\n"
+				+ "	?sense wordnet-ontology:translation ?t ;"
+				+ "		wordnet-ontology:part_of_speech wordnet-ontology:verb\n"
+				+ "	BIND( lcase(?t) AS ?translation )\n"
+				+ "	FILTER ( lang(?translation) = 'ind' )\n"
+				+ "} LIMIT 50000");
+		QueryExecution qexec = QueryExecutionFactory.create(verbTxQuery, wn31tdb);
+		try {
+			ResultSet rs = qexec.execSelect();
+			for (; rs.hasNext(); ) {
+				QuerySolution soln = rs.next();
+				String translation = soln.get("translation").asLiteral().getString();
+				Resource senseRes = soln.get("sense").asResource();
+				String senseShort = model.shortForm(senseRes.getURI());
+				verbTranslations.put(translation, senseShort);
+			}
+		} finally {
+			qexec.close();
+		}
+		log.info("Loaded {} verb translations", verbTranslations.size());
 	}
 	
 	public QName expandRef(String ref) {
@@ -176,7 +234,7 @@ public class RelEx {
 	}
 	
 	protected List<PartOfSpeech> createReplacementParts(EList<LexReplacement> replacements,
-			List<LexMatcher> matchers) {
+			List<LexMatcher> matchers, List<CapturingGroup> capturingGroups) {
 		List<PartOfSpeech> replacementParts = new ArrayList<>();
 		for (int replacementIdx = 0; replacementIdx < replacements.size(); replacementIdx++) {
 			final LexReplacement replacement = replacements.get(replacementIdx);
@@ -211,9 +269,11 @@ public class RelEx {
 				if (resourceRepl.getResource() != null) {
 					part.setResource(expandRef(resourceRepl.getResource()));
 				} else {
-					final ResourceMatcher resMatcher = (ResourceMatcher) matchers.get(resourceRepl.getCaptureGroup() - 1);
-					log.trace("resourceMatcher.resource = {}", resMatcher.getResource());
-					part.setResource(expandRef(resMatcher.getResource()));
+					final CapturingGroup capturingGroup = capturingGroups.get( resourceRepl.getCaptureGroup() - 1 );
+					log.trace("capturingGroup[{}] = {}", resourceRepl.getCaptureGroup(), capturingGroup);
+					Preconditions.checkState(capturingGroup.getResource() != null, 
+							"Capture group for %s must have resource", resourceRepl );
+					part.setResource(capturingGroup.getResource());
 				}
 				part.setLiteral(part.getResource().toString());
 				
@@ -221,7 +281,7 @@ public class RelEx {
 				if (!resourceRepl.getReplacements().isEmpty()) {
 					Preconditions.checkArgument(part instanceof PartContainer,
 							"Cannot create sub-replacements because {} is not a PartContainer", part);
-					List<PartOfSpeech> subParts = createReplacementParts(resourceRepl.getReplacements(), matchers);
+					List<PartOfSpeech> subParts = createReplacementParts(resourceRepl.getReplacements(), matchers, capturingGroups);
 					((PartContainer) part).getParts().addAll(subParts);
 				}
 				
@@ -270,6 +330,9 @@ public class RelEx {
 			Integer startMatchIdx = null;
 			@Nullable
 			Integer endMatchIdx = null;
+			
+			List<CapturingGroup> capturingGroups = new ArrayList<>();
+			
 			for (LexMatcher matcher : rule.getMatchers()) {
 				
 				// next valid unrecognized token, please
@@ -315,20 +378,46 @@ public class RelEx {
 						});
 					}
 					if (matches) {
+						capturingGroups.add(new CapturingGroup(null));
 						nextPartIdx = unrecognizedPartIdx + 1;
 					}
 				} else if (matcher instanceof ResourceMatcher) {
 					ResourceMatcher resEl = (ResourceMatcher) matcher;
-					String resourceUri = asRef(expandRef(resEl.getResource()));
+					final QName enhancedRes = expandRef(resEl.getResource());
+					String resourceUri = asRef(enhancedRes);
 					@Nullable
 					String word = dictionary.get(resourceUri);
 					if (word != null) {
 						matches = word.equalsIgnoreCase(unrecognizedPart.getLiteral());
 						if (matches) {
+							capturingGroups.add(new CapturingGroup(enhancedRes));
 							nextPartIdx = unrecognizedPartIdx + 1;
 						}
 					} else {
 						log.warn("No word for {} in dictionary with {} entries", resourceUri, dictionary.size());
+						matches = false;
+					}
+				} else if (matcher instanceof PartOfSpeechMatcher) {
+					PartOfSpeechMatcher posMatcher = (PartOfSpeechMatcher) matcher;
+					PartOfSpeechType pos = posMatcher.getPartOfSpeech();
+					final List<String> senses;
+					switch (pos) {
+					case VERB:
+						senses = verbTranslations.get(unrecognizedPart.getLiteral().toLowerCase());
+						break;
+					default:
+						throw new IllegalArgumentException("Lex matcher PartOfSpeech does not support " + pos);
+					}
+					if (!senses.isEmpty()) {
+						matches = true;
+						final QName enhancedRes = expandRef(senses.get(0));
+						capturingGroups.add(new CapturingGroup(enhancedRes));
+						nextPartIdx = unrecognizedPartIdx + 1;
+						if (senses.size() > 1) {
+							log.warn("PartOfSpeech matcher for {} '{}' chose the first sense {} but matched {} senses: {}",
+									pos, unrecognizedPart.getLiteral(), enhancedRes, senses.size(), senses);
+						}
+					} else {
 						matches = false;
 					}
 				} else {
@@ -356,7 +445,8 @@ public class RelEx {
 					sentence.getParts().remove(i);
 				}
 				
-				List<PartOfSpeech> replacementParts = createReplacementParts(rule.getReplacements(), rule.getMatchers());
+				List<PartOfSpeech> replacementParts = createReplacementParts(
+						rule.getReplacements(), rule.getMatchers(), capturingGroups);
 
 				log.debug("Replacing with {} parts at index #{}: {}",
 						replacementParts.size(), startMatchIdx, replacementParts);
