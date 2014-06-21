@@ -232,6 +232,14 @@ public class RelexidAdapterFactory extends AdapterFactoryImpl {
 				return createAdjectiveSatellitePartAdapter();
 			}
 			@Override
+			public Adapter caseRecognizedMatcher(RecognizedMatcher object) {
+				return createRecognizedMatcherAdapter();
+			}
+			@Override
+			public Adapter caseRecognizedReplacement(RecognizedReplacement object) {
+				return createRecognizedReplacementAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -640,6 +648,34 @@ public class RelexidAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createAdjectiveSatellitePartAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link id.ac.itb.ee.lskk.relexid.core.RecognizedMatcher <em>Recognized Matcher</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see id.ac.itb.ee.lskk.relexid.core.RecognizedMatcher
+	 * @generated
+	 */
+	public Adapter createRecognizedMatcherAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link id.ac.itb.ee.lskk.relexid.core.RecognizedReplacement <em>Recognized Replacement</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see id.ac.itb.ee.lskk.relexid.core.RecognizedReplacement
+	 * @generated
+	 */
+	public Adapter createRecognizedReplacementAdapter() {
 		return null;
 	}
 

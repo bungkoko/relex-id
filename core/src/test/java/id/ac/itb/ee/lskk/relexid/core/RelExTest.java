@@ -162,8 +162,8 @@ public class RelExTest {
 		log.info("Sentence in English: {}", sentence.generate(Locale.ENGLISH, DICT_EN_US, relex));
 		final String indonesian = sentence.generate(RelEx.INDONESIAN, DICT_ID_ID, relex);
 		log.info("Sentence in Indonesian: {}", indonesian);
-		assertEquals("(S (PP i) (VP love-v (NP camel-n)) . )", sentence.toString());
-		assertEquals("Aku sayang unta.", indonesian);
+		assertEquals("(S (PP i) (VP love-v (NP (SP orange-s) camel-n)) . )", sentence.toString());
+		assertEquals("Aku sayang unta jingga.", indonesian);
 	}
 	
 	@Test
@@ -186,6 +186,17 @@ public class RelExTest {
 		log.info("Sentence in Indonesian: {}", indonesian);
 		assertEquals("(S (PP i) (VP ride-v (NP car-n)) . )", sentence.toString());
 		assertEquals("Aku berjalan motokar.", indonesian);
+	}
+	
+	@Test
+	public void akuMenginginkanTasBiruGenerate() {
+		final Sentence sentence = relex.parse("Aku menginginkan tas biru.");
+		log.info("Sentence structure: {}", sentence);
+		log.info("Sentence in English: {}", sentence.generate(Locale.ENGLISH, DICT_EN_US, relex));
+		final String indonesian = sentence.generate(RelEx.INDONESIAN, DICT_ID_ID, relex);
+		log.info("Sentence in Indonesian: {}", indonesian);
+		assertEquals("(S (PP i) (VP want-v (NP (SP blue-s) bag-n)) . )", sentence.toString());
+		assertEquals("Aku hendak tas biru.", indonesian);
 	}
 	
 	@Test

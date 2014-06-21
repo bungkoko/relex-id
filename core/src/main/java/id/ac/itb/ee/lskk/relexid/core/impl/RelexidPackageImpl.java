@@ -10,6 +10,7 @@ import id.ac.itb.ee.lskk.relexid.core.ConjunctionPart;
 import id.ac.itb.ee.lskk.relexid.core.GeneratedLiteral;
 import id.ac.itb.ee.lskk.relexid.core.InterjectionPart;
 import id.ac.itb.ee.lskk.relexid.core.LabelProvider;
+import id.ac.itb.ee.lskk.relexid.core.LexMatchResult;
 import id.ac.itb.ee.lskk.relexid.core.LexMatcher;
 import id.ac.itb.ee.lskk.relexid.core.LexReplacement;
 import id.ac.itb.ee.lskk.relexid.core.LexRule;
@@ -36,6 +37,9 @@ import id.ac.itb.ee.lskk.relexid.core.PunctuationReplacement;
 import id.ac.itb.ee.lskk.relexid.core.Question;
 import id.ac.itb.ee.lskk.relexid.core.QuestionReplacement;
 import id.ac.itb.ee.lskk.relexid.core.Questionable;
+import id.ac.itb.ee.lskk.relexid.core.RecognizedMatcher;
+import id.ac.itb.ee.lskk.relexid.core.RecognizedReplacement;
+import id.ac.itb.ee.lskk.relexid.core.RelEx;
 import id.ac.itb.ee.lskk.relexid.core.Relation;
 import id.ac.itb.ee.lskk.relexid.core.RelationDef;
 import id.ac.itb.ee.lskk.relexid.core.RelationRule;
@@ -276,6 +280,20 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass recognizedMatcherEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass recognizedReplacementEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass questionableEClass = null;
 
 	/**
@@ -431,6 +449,20 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * @generated
 	 */
 	private EDataType labelProviderEDataType = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EDataType lexMatchResultEDataType = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EDataType relExEDataType = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -711,6 +743,15 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	@Override
 	public EClass getLexMatcher() {
 		return lexMatcherEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getLexMatcher__Match__PartOfSpeech() {
+		return lexMatcherEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -1117,6 +1158,42 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getRecognizedMatcher() {
+		return recognizedMatcherEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getRecognizedMatcher_PartOfSpeech() {
+		return (EAttribute)recognizedMatcherEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getRecognizedReplacement() {
+		return recognizedReplacementEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getRecognizedReplacement_CapturingGroup() {
+		return (EAttribute)recognizedReplacementEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public EClass getQuestionable() {
 		return questionableEClass;
@@ -1477,6 +1554,24 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EDataType getLexMatchResult() {
+		return lexMatchResultEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EDataType getRelEx() {
+		return relExEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public RelexidFactory getRelexidFactory() {
 		return (RelexidFactory)getEFactoryInstance();
@@ -1532,6 +1627,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 		interjectionPartEClass = createEClass(INTERJECTION_PART);
 
 		lexMatcherEClass = createEClass(LEX_MATCHER);
+		createEOperation(lexMatcherEClass, LEX_MATCHER___MATCH__PARTOFSPEECH);
 
 		partOfSpeechMatcherEClass = createEClass(PART_OF_SPEECH_MATCHER);
 		createEAttribute(partOfSpeechMatcherEClass, PART_OF_SPEECH_MATCHER__PART_OF_SPEECH);
@@ -1630,6 +1726,12 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 
 		adjectiveSatellitePartEClass = createEClass(ADJECTIVE_SATELLITE_PART);
 
+		recognizedMatcherEClass = createEClass(RECOGNIZED_MATCHER);
+		createEAttribute(recognizedMatcherEClass, RECOGNIZED_MATCHER__PART_OF_SPEECH);
+
+		recognizedReplacementEClass = createEClass(RECOGNIZED_REPLACEMENT);
+		createEAttribute(recognizedReplacementEClass, RECOGNIZED_REPLACEMENT__CAPTURING_GROUP);
+
 		// Create enums
 		partOfSpeechTypeEEnum = createEEnum(PART_OF_SPEECH_TYPE);
 		punctuationEEnum = createEEnum(PUNCTUATION);
@@ -1643,6 +1745,8 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 		localeEDataType = createEDataType(LOCALE);
 		translatorEDataType = createEDataType(TRANSLATOR);
 		labelProviderEDataType = createEDataType(LABEL_PROVIDER);
+		lexMatchResultEDataType = createEDataType(LEX_MATCH_RESULT);
+		relExEDataType = createEDataType(REL_EX);
 	}
 
 	/**
@@ -1707,6 +1811,8 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 		subjectRelationDefEClass.getESuperTypes().add(this.getRelationDef());
 		objectRelationDefEClass.getESuperTypes().add(this.getRelationDef());
 		adjectiveSatellitePartEClass.getESuperTypes().add(this.getPartOfSpeech());
+		recognizedMatcherEClass.getESuperTypes().add(this.getLexMatcher());
+		recognizedReplacementEClass.getESuperTypes().add(this.getLexReplacement());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(sentenceEClass, Sentence.class, "Sentence", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1758,6 +1864,10 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 		initEClass(interjectionPartEClass, InterjectionPart.class, "InterjectionPart", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(lexMatcherEClass, LexMatcher.class, "LexMatcher", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		op = initEOperation(getLexMatcher__Match__PartOfSpeech(), this.getLexMatchResult(), "match", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getRelEx(), "relex", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getPartOfSpeech(), "part", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(partOfSpeechMatcherEClass, PartOfSpeechMatcher.class, "PartOfSpeechMatcher", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPartOfSpeechMatcher_PartOfSpeech(), this.getPartOfSpeechType(), "partOfSpeech", null, 1, 1, PartOfSpeechMatcher.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1856,6 +1966,12 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 
 		initEClass(adjectiveSatellitePartEClass, AdjectiveSatellitePart.class, "AdjectiveSatellitePart", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
+		initEClass(recognizedMatcherEClass, RecognizedMatcher.class, "RecognizedMatcher", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getRecognizedMatcher_PartOfSpeech(), this.getPartOfSpeechType(), "partOfSpeech", null, 0, 1, RecognizedMatcher.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(recognizedReplacementEClass, RecognizedReplacement.class, "RecognizedReplacement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getRecognizedReplacement_CapturingGroup(), ecorePackage.getEInt(), "capturingGroup", null, 1, 1, RecognizedReplacement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		// Initialize enums and add enum literals
 		initEEnum(partOfSpeechTypeEEnum, PartOfSpeechType.class, "PartOfSpeechType");
 		addEEnumLiteral(partOfSpeechTypeEEnum, PartOfSpeechType.UNKNOWN);
@@ -1901,6 +2017,8 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 		initEDataType(localeEDataType, Locale.class, "Locale", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(translatorEDataType, Translator.class, "Translator", !IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(labelProviderEDataType, LabelProvider.class, "LabelProvider", !IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(lexMatchResultEDataType, LexMatchResult.class, "LexMatchResult", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(relExEDataType, RelEx.class, "RelEx", !IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);
@@ -1977,6 +2095,12 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 		   source, 
 		   new String[] {
 			 "documentation", "any emotional greeting (or \"exclamation\") (ow)"
+		   });		
+		addAnnotation
+		  (getLexMatcher__Match__PartOfSpeech(), 
+		   source, 
+		   new String[] {
+			 "documentation", "Determines whether the given {@code part} (which is usually {@link UnrecognizedPath}, but not always in case of {@link RecognizedMatcher}) matches\n\n@todo For now it has {@code relex} parameter for convenience, but later it should be replaced with a clean {@code context} interface."
 		   });		
 		addAnnotation
 		  (partOfSpeechMatcherEClass, 
@@ -2103,6 +2227,18 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 		   source, 
 		   new String[] {
 			 "documentation", "Defines an {@link ObjectRelation}."
+		   });		
+		addAnnotation
+		  (recognizedMatcherEClass, 
+		   source, 
+		   new String[] {
+			 "documentation", "Matches an already recognized part of particular part-of-speech. Due to the nature of relex-id\'s lex parser, cannot be used as the first {@link LexMatcher} in a {@link LexRule}."
+		   });		
+		addAnnotation
+		  (recognizedReplacementEClass, 
+		   source, 
+		   new String[] {
+			 "documentation", "\"Replaces\" with already recognized Part. Basically it\'s a way to specify noop."
 		   });
 	}
 

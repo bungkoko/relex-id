@@ -220,6 +220,24 @@ public interface RelexidFactory extends EFactory {
 	AdjectiveSatellitePart createAdjectiveSatellitePart();
 
 	/**
+	 * Returns a new object of class '<em>Recognized Matcher</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Recognized Matcher</em>'.
+	 * @generated
+	 */
+	RecognizedMatcher createRecognizedMatcher();
+
+	/**
+	 * Returns a new object of class '<em>Recognized Replacement</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Recognized Replacement</em>'.
+	 * @generated
+	 */
+	RecognizedReplacement createRecognizedReplacement();
+
+	/**
 	 * Returns a new object of class '<em>Literal Replacement</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -92,6 +92,8 @@ public class RelexidFactoryImpl extends EFactoryImpl implements RelexidFactory {
 			case RelexidPackage.SUBJECT_RELATION_DEF: return createSubjectRelationDef();
 			case RelexidPackage.OBJECT_RELATION_DEF: return createObjectRelationDef();
 			case RelexidPackage.ADJECTIVE_SATELLITE_PART: return createAdjectiveSatellitePart();
+			case RelexidPackage.RECOGNIZED_MATCHER: return createRecognizedMatcher();
+			case RelexidPackage.RECOGNIZED_REPLACEMENT: return createRecognizedReplacement();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -121,6 +123,8 @@ public class RelexidFactoryImpl extends EFactoryImpl implements RelexidFactory {
 				return createQNameFromString(eDataType, initialValue);
 			case RelexidPackage.LOCALE:
 				return createLocaleFromString(eDataType, initialValue);
+			case RelexidPackage.LEX_MATCH_RESULT:
+				return createLexMatchResultFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -150,6 +154,8 @@ public class RelexidFactoryImpl extends EFactoryImpl implements RelexidFactory {
 				return convertQNameToString(eDataType, instanceValue);
 			case RelexidPackage.LOCALE:
 				return convertLocaleToString(eDataType, instanceValue);
+			case RelexidPackage.LEX_MATCH_RESULT:
+				return convertLexMatchResultToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -373,6 +379,26 @@ public class RelexidFactoryImpl extends EFactoryImpl implements RelexidFactory {
 	public AdjectiveSatellitePart createAdjectiveSatellitePart() {
 		AdjectiveSatellitePartImpl adjectiveSatellitePart = new AdjectiveSatellitePartImpl();
 		return adjectiveSatellitePart;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RecognizedMatcher createRecognizedMatcher() {
+		RecognizedMatcherImpl recognizedMatcher = new RecognizedMatcherImpl();
+		return recognizedMatcher;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RecognizedReplacement createRecognizedReplacement() {
+		RecognizedReplacementImpl recognizedReplacement = new RecognizedReplacementImpl();
+		return recognizedReplacement;
 	}
 
 	/**
@@ -628,6 +654,24 @@ public class RelexidFactoryImpl extends EFactoryImpl implements RelexidFactory {
 	 * @generated
 	 */
 	public String convertLocaleToString(EDataType eDataType, Object instanceValue) {
+		return super.convertToString(eDataType, instanceValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public LexMatchResult createLexMatchResultFromString(EDataType eDataType, String initialValue) {
+		return (LexMatchResult)super.createFromString(eDataType, initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertLexMatchResultToString(EDataType eDataType, Object instanceValue) {
 		return super.convertToString(eDataType, instanceValue);
 	}
 

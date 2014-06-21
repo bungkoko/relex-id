@@ -346,6 +346,20 @@ public class RelexidSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case RelexidPackage.RECOGNIZED_MATCHER: {
+				RecognizedMatcher recognizedMatcher = (RecognizedMatcher)theEObject;
+				T result = caseRecognizedMatcher(recognizedMatcher);
+				if (result == null) result = caseLexMatcher(recognizedMatcher);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case RelexidPackage.RECOGNIZED_REPLACEMENT: {
+				RecognizedReplacement recognizedReplacement = (RecognizedReplacement)theEObject;
+				T result = caseRecognizedReplacement(recognizedReplacement);
+				if (result == null) result = caseLexReplacement(recognizedReplacement);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -767,6 +781,36 @@ public class RelexidSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseAdjectiveSatellitePart(AdjectiveSatellitePart object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Recognized Matcher</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Recognized Matcher</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseRecognizedMatcher(RecognizedMatcher object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Recognized Replacement</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Recognized Replacement</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseRecognizedReplacement(RecognizedReplacement object) {
 		return null;
 	}
 

@@ -828,13 +828,22 @@ public interface RelexidPackage extends EPackage {
 	int LEX_MATCHER_FEATURE_COUNT = 0;
 
 	/**
+	 * The operation id for the '<em>Match</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LEX_MATCHER___MATCH__PARTOFSPEECH = 0;
+
+	/**
 	 * The number of operations of the '<em>Lex Matcher</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LEX_MATCHER_OPERATION_COUNT = 0;
+	int LEX_MATCHER_OPERATION_COUNT = 1;
 
 	/**
 	 * The meta object id for the '{@link id.ac.itb.ee.lskk.relexid.core.impl.PartOfSpeechMatcherImpl <em>Part Of Speech Matcher</em>}' class.
@@ -863,6 +872,15 @@ public interface RelexidPackage extends EPackage {
 	 * @ordered
 	 */
 	int PART_OF_SPEECH_MATCHER_FEATURE_COUNT = LEX_MATCHER_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Match</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PART_OF_SPEECH_MATCHER___MATCH__PARTOFSPEECH = LEX_MATCHER___MATCH__PARTOFSPEECH;
 
 	/**
 	 * The number of operations of the '<em>Part Of Speech Matcher</em>' class.
@@ -900,6 +918,15 @@ public interface RelexidPackage extends EPackage {
 	 * @ordered
 	 */
 	int TYPED_RESOURCE_MATCHER_FEATURE_COUNT = LEX_MATCHER_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Match</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPED_RESOURCE_MATCHER___MATCH__PARTOFSPEECH = LEX_MATCHER___MATCH__PARTOFSPEECH;
 
 	/**
 	 * The number of operations of the '<em>Typed Resource Matcher</em>' class.
@@ -948,6 +975,15 @@ public interface RelexidPackage extends EPackage {
 	int LITERAL_MATCHER_FEATURE_COUNT = LEX_MATCHER_FEATURE_COUNT + 2;
 
 	/**
+	 * The operation id for the '<em>Match</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_MATCHER___MATCH__PARTOFSPEECH = LEX_MATCHER___MATCH__PARTOFSPEECH;
+
+	/**
 	 * The number of operations of the '<em>Literal Matcher</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -983,6 +1019,15 @@ public interface RelexidPackage extends EPackage {
 	 * @ordered
 	 */
 	int CLASS_MATCHER_FEATURE_COUNT = LEX_MATCHER_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Match</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS_MATCHER___MATCH__PARTOFSPEECH = LEX_MATCHER___MATCH__PARTOFSPEECH;
 
 	/**
 	 * The number of operations of the '<em>Class Matcher</em>' class.
@@ -1627,6 +1672,15 @@ public interface RelexidPackage extends EPackage {
 	int RESOURCE_MATCHER_FEATURE_COUNT = LEX_MATCHER_FEATURE_COUNT + 1;
 
 	/**
+	 * The operation id for the '<em>Match</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_MATCHER___MATCH__PARTOFSPEECH = LEX_MATCHER___MATCH__PARTOFSPEECH;
+
+	/**
 	 * The number of operations of the '<em>Resource Matcher</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2252,6 +2306,98 @@ public interface RelexidPackage extends EPackage {
 	int ADJECTIVE_SATELLITE_PART_OPERATION_COUNT = PART_OF_SPEECH_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link id.ac.itb.ee.lskk.relexid.core.impl.RecognizedMatcherImpl <em>Recognized Matcher</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see id.ac.itb.ee.lskk.relexid.core.impl.RecognizedMatcherImpl
+	 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getRecognizedMatcher()
+	 * @generated
+	 */
+	int RECOGNIZED_MATCHER = 41;
+
+	/**
+	 * The feature id for the '<em><b>Part Of Speech</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RECOGNIZED_MATCHER__PART_OF_SPEECH = LEX_MATCHER_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Recognized Matcher</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RECOGNIZED_MATCHER_FEATURE_COUNT = LEX_MATCHER_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Match</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RECOGNIZED_MATCHER___MATCH__PARTOFSPEECH = LEX_MATCHER___MATCH__PARTOFSPEECH;
+
+	/**
+	 * The number of operations of the '<em>Recognized Matcher</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RECOGNIZED_MATCHER_OPERATION_COUNT = LEX_MATCHER_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link id.ac.itb.ee.lskk.relexid.core.impl.RecognizedReplacementImpl <em>Recognized Replacement</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see id.ac.itb.ee.lskk.relexid.core.impl.RecognizedReplacementImpl
+	 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getRecognizedReplacement()
+	 * @generated
+	 */
+	int RECOGNIZED_REPLACEMENT = 42;
+
+	/**
+	 * The feature id for the '<em><b>Part Of Speech</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RECOGNIZED_REPLACEMENT__PART_OF_SPEECH = LEX_REPLACEMENT__PART_OF_SPEECH;
+
+	/**
+	 * The feature id for the '<em><b>Capturing Group</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RECOGNIZED_REPLACEMENT__CAPTURING_GROUP = LEX_REPLACEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Recognized Replacement</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RECOGNIZED_REPLACEMENT_FEATURE_COUNT = LEX_REPLACEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Recognized Replacement</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RECOGNIZED_REPLACEMENT_OPERATION_COUNT = LEX_REPLACEMENT_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link id.ac.itb.ee.lskk.relexid.core.PartOfSpeechType <em>Part Of Speech Type</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2259,7 +2405,7 @@ public interface RelexidPackage extends EPackage {
 	 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getPartOfSpeechType()
 	 * @generated
 	 */
-	int PART_OF_SPEECH_TYPE = 41;
+	int PART_OF_SPEECH_TYPE = 43;
 
 	/**
 	 * The meta object id for the '{@link id.ac.itb.ee.lskk.relexid.core.Punctuation <em>Punctuation</em>}' enum.
@@ -2269,7 +2415,7 @@ public interface RelexidPackage extends EPackage {
 	 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getPunctuation()
 	 * @generated
 	 */
-	int PUNCTUATION = 42;
+	int PUNCTUATION = 44;
 
 	/**
 	 * The meta object id for the '{@link id.ac.itb.ee.lskk.relexid.core.Question <em>Question</em>}' enum.
@@ -2279,7 +2425,7 @@ public interface RelexidPackage extends EPackage {
 	 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getQuestion()
 	 * @generated
 	 */
-	int QUESTION = 43;
+	int QUESTION = 45;
 
 	/**
 	 * The meta object id for the '{@link id.ac.itb.ee.lskk.relexid.core.PronounPerson <em>Pronoun Person</em>}' enum.
@@ -2289,7 +2435,7 @@ public interface RelexidPackage extends EPackage {
 	 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getPronounPerson()
 	 * @generated
 	 */
-	int PRONOUN_PERSON = 44;
+	int PRONOUN_PERSON = 46;
 
 	/**
 	 * The meta object id for the '{@link id.ac.itb.ee.lskk.relexid.core.PronounNumber <em>Pronoun Number</em>}' enum.
@@ -2299,7 +2445,7 @@ public interface RelexidPackage extends EPackage {
 	 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getPronounNumber()
 	 * @generated
 	 */
-	int PRONOUN_NUMBER = 45;
+	int PRONOUN_NUMBER = 47;
 
 	/**
 	 * The meta object id for the '{@link id.ac.itb.ee.lskk.relexid.core.PronounCase <em>Pronoun Case</em>}' enum.
@@ -2309,7 +2455,7 @@ public interface RelexidPackage extends EPackage {
 	 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getPronounCase()
 	 * @generated
 	 */
-	int PRONOUN_CASE = 46;
+	int PRONOUN_CASE = 48;
 
 	/**
 	 * The meta object id for the '<em>QName</em>' data type.
@@ -2319,7 +2465,7 @@ public interface RelexidPackage extends EPackage {
 	 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getQName()
 	 * @generated
 	 */
-	int QNAME = 47;
+	int QNAME = 49;
 
 
 	/**
@@ -2330,7 +2476,7 @@ public interface RelexidPackage extends EPackage {
 	 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getLocale()
 	 * @generated
 	 */
-	int LOCALE = 48;
+	int LOCALE = 50;
 
 
 	/**
@@ -2341,7 +2487,7 @@ public interface RelexidPackage extends EPackage {
 	 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getTranslator()
 	 * @generated
 	 */
-	int TRANSLATOR = 49;
+	int TRANSLATOR = 51;
 
 
 	/**
@@ -2352,7 +2498,29 @@ public interface RelexidPackage extends EPackage {
 	 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getLabelProvider()
 	 * @generated
 	 */
-	int LABEL_PROVIDER = 50;
+	int LABEL_PROVIDER = 52;
+
+
+	/**
+	 * The meta object id for the '<em>Lex Match Result</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see id.ac.itb.ee.lskk.relexid.core.LexMatchResult
+	 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getLexMatchResult()
+	 * @generated
+	 */
+	int LEX_MATCH_RESULT = 53;
+
+
+	/**
+	 * The meta object id for the '<em>Rel Ex</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see id.ac.itb.ee.lskk.relexid.core.RelEx
+	 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getRelEx()
+	 * @generated
+	 */
+	int REL_EX = 54;
 
 
 	/**
@@ -2584,6 +2752,16 @@ public interface RelexidPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getLexMatcher();
+
+	/**
+	 * Returns the meta object for the '{@link id.ac.itb.ee.lskk.relexid.core.LexMatcher#match(id.ac.itb.ee.lskk.relexid.core.RelEx, id.ac.itb.ee.lskk.relexid.core.PartOfSpeech) <em>Match</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Match</em>' operation.
+	 * @see id.ac.itb.ee.lskk.relexid.core.LexMatcher#match(id.ac.itb.ee.lskk.relexid.core.RelEx, id.ac.itb.ee.lskk.relexid.core.PartOfSpeech)
+	 * @generated
+	 */
+	EOperation getLexMatcher__Match__PartOfSpeech();
 
 	/**
 	 * Returns the meta object for class '{@link id.ac.itb.ee.lskk.relexid.core.PartOfSpeechMatcher <em>Part Of Speech Matcher</em>}'.
@@ -3008,6 +3186,48 @@ public interface RelexidPackage extends EPackage {
 	EClass getAdjectiveSatellitePart();
 
 	/**
+	 * Returns the meta object for class '{@link id.ac.itb.ee.lskk.relexid.core.RecognizedMatcher <em>Recognized Matcher</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Recognized Matcher</em>'.
+	 * @see id.ac.itb.ee.lskk.relexid.core.RecognizedMatcher
+	 * @generated
+	 */
+	EClass getRecognizedMatcher();
+
+	/**
+	 * Returns the meta object for the attribute '{@link id.ac.itb.ee.lskk.relexid.core.RecognizedMatcher#getPartOfSpeech <em>Part Of Speech</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Part Of Speech</em>'.
+	 * @see id.ac.itb.ee.lskk.relexid.core.RecognizedMatcher#getPartOfSpeech()
+	 * @see #getRecognizedMatcher()
+	 * @generated
+	 */
+	EAttribute getRecognizedMatcher_PartOfSpeech();
+
+	/**
+	 * Returns the meta object for class '{@link id.ac.itb.ee.lskk.relexid.core.RecognizedReplacement <em>Recognized Replacement</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Recognized Replacement</em>'.
+	 * @see id.ac.itb.ee.lskk.relexid.core.RecognizedReplacement
+	 * @generated
+	 */
+	EClass getRecognizedReplacement();
+
+	/**
+	 * Returns the meta object for the attribute '{@link id.ac.itb.ee.lskk.relexid.core.RecognizedReplacement#getCapturingGroup <em>Capturing Group</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Capturing Group</em>'.
+	 * @see id.ac.itb.ee.lskk.relexid.core.RecognizedReplacement#getCapturingGroup()
+	 * @see #getRecognizedReplacement()
+	 * @generated
+	 */
+	EAttribute getRecognizedReplacement_CapturingGroup();
+
+	/**
 	 * Returns the meta object for class '{@link id.ac.itb.ee.lskk.relexid.core.Questionable <em>Questionable</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3385,6 +3605,28 @@ public interface RelexidPackage extends EPackage {
 	EDataType getLabelProvider();
 
 	/**
+	 * Returns the meta object for data type '{@link id.ac.itb.ee.lskk.relexid.core.LexMatchResult <em>Lex Match Result</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>Lex Match Result</em>'.
+	 * @see id.ac.itb.ee.lskk.relexid.core.LexMatchResult
+	 * @model instanceClass="id.ac.itb.ee.lskk.relexid.core.LexMatchResult"
+	 * @generated
+	 */
+	EDataType getLexMatchResult();
+
+	/**
+	 * Returns the meta object for data type '{@link id.ac.itb.ee.lskk.relexid.core.RelEx <em>Rel Ex</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>Rel Ex</em>'.
+	 * @see id.ac.itb.ee.lskk.relexid.core.RelEx
+	 * @model instanceClass="id.ac.itb.ee.lskk.relexid.core.RelEx" serializeable="false"
+	 * @generated
+	 */
+	EDataType getRelEx();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3602,6 +3844,14 @@ public interface RelexidPackage extends EPackage {
 		 * @generated
 		 */
 		EClass LEX_MATCHER = eINSTANCE.getLexMatcher();
+
+		/**
+		 * The meta object literal for the '<em><b>Match</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation LEX_MATCHER___MATCH__PARTOFSPEECH = eINSTANCE.getLexMatcher__Match__PartOfSpeech();
 
 		/**
 		 * The meta object literal for the '{@link id.ac.itb.ee.lskk.relexid.core.impl.PartOfSpeechMatcherImpl <em>Part Of Speech Matcher</em>}' class.
@@ -3960,6 +4210,42 @@ public interface RelexidPackage extends EPackage {
 		EClass ADJECTIVE_SATELLITE_PART = eINSTANCE.getAdjectiveSatellitePart();
 
 		/**
+		 * The meta object literal for the '{@link id.ac.itb.ee.lskk.relexid.core.impl.RecognizedMatcherImpl <em>Recognized Matcher</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see id.ac.itb.ee.lskk.relexid.core.impl.RecognizedMatcherImpl
+		 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getRecognizedMatcher()
+		 * @generated
+		 */
+		EClass RECOGNIZED_MATCHER = eINSTANCE.getRecognizedMatcher();
+
+		/**
+		 * The meta object literal for the '<em><b>Part Of Speech</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RECOGNIZED_MATCHER__PART_OF_SPEECH = eINSTANCE.getRecognizedMatcher_PartOfSpeech();
+
+		/**
+		 * The meta object literal for the '{@link id.ac.itb.ee.lskk.relexid.core.impl.RecognizedReplacementImpl <em>Recognized Replacement</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see id.ac.itb.ee.lskk.relexid.core.impl.RecognizedReplacementImpl
+		 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getRecognizedReplacement()
+		 * @generated
+		 */
+		EClass RECOGNIZED_REPLACEMENT = eINSTANCE.getRecognizedReplacement();
+
+		/**
+		 * The meta object literal for the '<em><b>Capturing Group</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RECOGNIZED_REPLACEMENT__CAPTURING_GROUP = eINSTANCE.getRecognizedReplacement_CapturingGroup();
+
+		/**
 		 * The meta object literal for the '{@link id.ac.itb.ee.lskk.relexid.core.Questionable <em>Questionable</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4292,6 +4578,26 @@ public interface RelexidPackage extends EPackage {
 		 * @generated
 		 */
 		EDataType LABEL_PROVIDER = eINSTANCE.getLabelProvider();
+
+		/**
+		 * The meta object literal for the '<em>Lex Match Result</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see id.ac.itb.ee.lskk.relexid.core.LexMatchResult
+		 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getLexMatchResult()
+		 * @generated
+		 */
+		EDataType LEX_MATCH_RESULT = eINSTANCE.getLexMatchResult();
+
+		/**
+		 * The meta object literal for the '<em>Rel Ex</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see id.ac.itb.ee.lskk.relexid.core.RelEx
+		 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getRelEx()
+		 * @generated
+		 */
+		EDataType REL_EX = eINSTANCE.getRelEx();
 
 	}
 

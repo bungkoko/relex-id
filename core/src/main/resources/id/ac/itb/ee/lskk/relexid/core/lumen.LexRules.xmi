@@ -57,6 +57,29 @@
         partOfSpeech="verb"
         captureGroup="2">
       <replacements
+          xsi:type="relexid:RecognizedReplacement"
+          capturingGroup="3"/>
+    </replacements>
+    <matchers
+        xsi:type="relexid:LiteralMatcher">
+      <literals>aku</literals>
+    </matchers>
+    <matchers
+        xsi:type="relexid:PartOfSpeechMatcher"
+        partOfSpeech="verb"/>
+    <matchers
+        xsi:type="relexid:RecognizedMatcher"
+        partOfSpeech="noun"/>
+  </rules>
+  <rules>
+    <replacements
+        xsi:type="relexid:PronounReplacement"
+        partOfSpeech="pronoun"/>
+    <replacements
+        xsi:type="relexid:ResourceReplacement"
+        partOfSpeech="verb"
+        captureGroup="2">
+      <replacements
           xsi:type="relexid:ResourceReplacement"
           partOfSpeech="noun"
           captureGroup="3"/>

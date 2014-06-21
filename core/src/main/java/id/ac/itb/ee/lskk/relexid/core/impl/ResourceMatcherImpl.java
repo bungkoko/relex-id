@@ -2,13 +2,26 @@
  */
 package id.ac.itb.ee.lskk.relexid.core.impl;
 
+import id.ac.itb.ee.lskk.relexid.core.CapturingGroup;
+import id.ac.itb.ee.lskk.relexid.core.LexMatchResult;
+import id.ac.itb.ee.lskk.relexid.core.PartOfSpeech;
+import id.ac.itb.ee.lskk.relexid.core.RelEx;
 import id.ac.itb.ee.lskk.relexid.core.RelexidPackage;
 import id.ac.itb.ee.lskk.relexid.core.ResourceMatcher;
+import id.ac.itb.ee.lskk.relexid.core.UnrecognizedPart;
+
+import java.lang.reflect.InvocationTargetException;
+
+import javax.annotation.Nullable;
 import javax.xml.namespace.QName;
+
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,6 +37,10 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * @generated
  */
 public class ResourceMatcherImpl extends MinimalEObjectImpl.Container implements ResourceMatcher {
+	
+	private static final Logger log = LoggerFactory
+			.getLogger(ResourceMatcherImpl.class);
+	
 	/**
 	 * The default value of the '{@link #getResource() <em>Resource</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -68,6 +85,7 @@ public class ResourceMatcherImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public QName getResource() {
 		return resource;
 	}
@@ -77,11 +95,38 @@ public class ResourceMatcherImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setResource(QName newResource) {
 		QName oldResource = resource;
 		resource = newResource;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, RelexidPackage.RESOURCE_MATCHER__RESOURCE, oldResource, resource));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	@Override
+	public LexMatchResult match(RelEx relex, PartOfSpeech part) {
+		if (!(part instanceof UnrecognizedPart)) {
+			return LexMatchResult.MISMATCH;
+		}
+		
+		final QName enhancedRes = relex.expandRef(getResource());
+		String resourceUri = relex.asRef(enhancedRes);
+		@Nullable
+		String word = relex.getDictionary().get(resourceUri);
+		if (word != null) {
+			if (word.equalsIgnoreCase(part.getLiteral())) {
+				return new LexMatchResult(1, new CapturingGroup(enhancedRes));
+			} else {
+				return LexMatchResult.MISMATCH;
+			}
+		} else {
+			log.warn("No word for {} in dictionary with {} entries", resourceUri, relex.getDictionary().size());
+			return LexMatchResult.MISMATCH;
+		}
 	}
 
 	/**
@@ -140,6 +185,20 @@ public class ResourceMatcherImpl extends MinimalEObjectImpl.Container implements
 				return RESOURCE_EDEFAULT == null ? resource != null : !RESOURCE_EDEFAULT.equals(resource);
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case RelexidPackage.RESOURCE_MATCHER___MATCH__PARTOFSPEECH:
+				return match((RelEx)arguments.get(0), (PartOfSpeech)arguments.get(1));
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	/**

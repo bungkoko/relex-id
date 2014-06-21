@@ -2,9 +2,15 @@
  */
 package id.ac.itb.ee.lskk.relexid.core.impl;
 
+import id.ac.itb.ee.lskk.relexid.core.CapturingGroup;
+import id.ac.itb.ee.lskk.relexid.core.LexMatchResult;
 import id.ac.itb.ee.lskk.relexid.core.LiteralMatcher;
+import id.ac.itb.ee.lskk.relexid.core.PartOfSpeech;
+import id.ac.itb.ee.lskk.relexid.core.RelEx;
 import id.ac.itb.ee.lskk.relexid.core.RelexidPackage;
+import id.ac.itb.ee.lskk.relexid.core.UnrecognizedPart;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -15,6 +21,8 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 
 import com.google.common.base.Joiner;
+import com.google.common.base.Predicate;
+import com.google.common.collect.FluentIterable;
 
 /**
  * <!-- begin-user-doc -->
@@ -106,6 +114,39 @@ public class LiteralMatcherImpl extends MinimalEObjectImpl.Container implements 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 */
+	@Override
+	public LexMatchResult match(RelEx relex, final PartOfSpeech part) {
+		if (!(part instanceof UnrecognizedPart)) {
+			return LexMatchResult.MISMATCH;
+		}
+		
+		final boolean matches;
+		if (isCaseSensitive()) {
+			matches = FluentIterable.from(getLiterals()).anyMatch(new Predicate<String>() {
+				@Override
+				public boolean apply(String input) {
+					return part.getLiteral().equals(input);
+				}
+			});
+		} else {
+			matches = FluentIterable.from(getLiterals()).anyMatch(new Predicate<String>() {
+				@Override
+				public boolean apply(String input) {
+					return part.getLiteral().equalsIgnoreCase(input);
+				}
+			});
+		}
+		if (matches) {
+			return new LexMatchResult(1, new CapturingGroup());
+		} else {
+			return LexMatchResult.MISMATCH;
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -184,6 +225,20 @@ public class LiteralMatcherImpl extends MinimalEObjectImpl.Container implements 
 				return caseSensitive != CASE_SENSITIVE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case RelexidPackage.LITERAL_MATCHER___MATCH__PARTOFSPEECH:
+				return match((RelEx)arguments.get(0), (PartOfSpeech)arguments.get(1));
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	/**
