@@ -91,6 +91,7 @@ public class RelexidFactoryImpl extends EFactoryImpl implements RelexidFactory {
 			case RelexidPackage.TYPED_PART_MATCHER: return createTypedPartMatcher();
 			case RelexidPackage.SUBJECT_RELATION_DEF: return createSubjectRelationDef();
 			case RelexidPackage.OBJECT_RELATION_DEF: return createObjectRelationDef();
+			case RelexidPackage.ADJECTIVE_SATELLITE_PART: return createAdjectiveSatellitePart();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -362,6 +363,16 @@ public class RelexidFactoryImpl extends EFactoryImpl implements RelexidFactory {
 	public ObjectRelationDef createObjectRelationDef() {
 		ObjectRelationDefImpl objectRelationDef = new ObjectRelationDefImpl();
 		return objectRelationDef;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public AdjectiveSatellitePart createAdjectiveSatellitePart() {
+		AdjectiveSatellitePartImpl adjectiveSatellitePart = new AdjectiveSatellitePartImpl();
+		return adjectiveSatellitePart;
 	}
 
 	/**

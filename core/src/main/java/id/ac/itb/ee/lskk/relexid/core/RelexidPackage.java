@@ -280,13 +280,22 @@ public interface RelexidPackage extends EPackage {
 	int NOUN_PART__NAME = PART_OF_SPEECH__NAME;
 
 	/**
+	 * The feature id for the '<em><b>Parts</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NOUN_PART__PARTS = PART_OF_SPEECH_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Noun Part</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NOUN_PART_FEATURE_COUNT = PART_OF_SPEECH_FEATURE_COUNT + 0;
+	int NOUN_PART_FEATURE_COUNT = PART_OF_SPEECH_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Generate</em>' operation.
@@ -2170,6 +2179,79 @@ public interface RelexidPackage extends EPackage {
 	int OBJECT_RELATION_DEF_OPERATION_COUNT = RELATION_DEF_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link id.ac.itb.ee.lskk.relexid.core.impl.AdjectiveSatellitePartImpl <em>Adjective Satellite Part</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see id.ac.itb.ee.lskk.relexid.core.impl.AdjectiveSatellitePartImpl
+	 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getAdjectiveSatellitePart()
+	 * @generated
+	 */
+	int ADJECTIVE_SATELLITE_PART = 40;
+
+	/**
+	 * The feature id for the '<em><b>Literal</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ADJECTIVE_SATELLITE_PART__LITERAL = PART_OF_SPEECH__LITERAL;
+
+	/**
+	 * The feature id for the '<em><b>Resource</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ADJECTIVE_SATELLITE_PART__RESOURCE = PART_OF_SPEECH__RESOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Word</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ADJECTIVE_SATELLITE_PART__WORD = PART_OF_SPEECH__WORD;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ADJECTIVE_SATELLITE_PART__NAME = PART_OF_SPEECH__NAME;
+
+	/**
+	 * The number of structural features of the '<em>Adjective Satellite Part</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ADJECTIVE_SATELLITE_PART_FEATURE_COUNT = PART_OF_SPEECH_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Generate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ADJECTIVE_SATELLITE_PART___GENERATE__LOCALE_MAP_TRANSLATOR = PART_OF_SPEECH___GENERATE__LOCALE_MAP_TRANSLATOR;
+
+	/**
+	 * The number of operations of the '<em>Adjective Satellite Part</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ADJECTIVE_SATELLITE_PART_OPERATION_COUNT = PART_OF_SPEECH_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link id.ac.itb.ee.lskk.relexid.core.PartOfSpeechType <em>Part Of Speech Type</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2177,7 +2259,7 @@ public interface RelexidPackage extends EPackage {
 	 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getPartOfSpeechType()
 	 * @generated
 	 */
-	int PART_OF_SPEECH_TYPE = 40;
+	int PART_OF_SPEECH_TYPE = 41;
 
 	/**
 	 * The meta object id for the '{@link id.ac.itb.ee.lskk.relexid.core.Punctuation <em>Punctuation</em>}' enum.
@@ -2187,7 +2269,7 @@ public interface RelexidPackage extends EPackage {
 	 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getPunctuation()
 	 * @generated
 	 */
-	int PUNCTUATION = 41;
+	int PUNCTUATION = 42;
 
 	/**
 	 * The meta object id for the '{@link id.ac.itb.ee.lskk.relexid.core.Question <em>Question</em>}' enum.
@@ -2197,7 +2279,7 @@ public interface RelexidPackage extends EPackage {
 	 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getQuestion()
 	 * @generated
 	 */
-	int QUESTION = 42;
+	int QUESTION = 43;
 
 	/**
 	 * The meta object id for the '{@link id.ac.itb.ee.lskk.relexid.core.PronounPerson <em>Pronoun Person</em>}' enum.
@@ -2207,7 +2289,7 @@ public interface RelexidPackage extends EPackage {
 	 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getPronounPerson()
 	 * @generated
 	 */
-	int PRONOUN_PERSON = 43;
+	int PRONOUN_PERSON = 44;
 
 	/**
 	 * The meta object id for the '{@link id.ac.itb.ee.lskk.relexid.core.PronounNumber <em>Pronoun Number</em>}' enum.
@@ -2217,7 +2299,7 @@ public interface RelexidPackage extends EPackage {
 	 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getPronounNumber()
 	 * @generated
 	 */
-	int PRONOUN_NUMBER = 44;
+	int PRONOUN_NUMBER = 45;
 
 	/**
 	 * The meta object id for the '{@link id.ac.itb.ee.lskk.relexid.core.PronounCase <em>Pronoun Case</em>}' enum.
@@ -2227,7 +2309,7 @@ public interface RelexidPackage extends EPackage {
 	 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getPronounCase()
 	 * @generated
 	 */
-	int PRONOUN_CASE = 45;
+	int PRONOUN_CASE = 46;
 
 	/**
 	 * The meta object id for the '<em>QName</em>' data type.
@@ -2237,7 +2319,7 @@ public interface RelexidPackage extends EPackage {
 	 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getQName()
 	 * @generated
 	 */
-	int QNAME = 46;
+	int QNAME = 47;
 
 
 	/**
@@ -2248,7 +2330,7 @@ public interface RelexidPackage extends EPackage {
 	 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getLocale()
 	 * @generated
 	 */
-	int LOCALE = 47;
+	int LOCALE = 48;
 
 
 	/**
@@ -2259,18 +2341,18 @@ public interface RelexidPackage extends EPackage {
 	 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getTranslator()
 	 * @generated
 	 */
-	int TRANSLATOR = 48;
+	int TRANSLATOR = 49;
 
 
 	/**
 	 * The meta object id for the '<em>Label Provider</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see id.ac.itb.ee.lskk.relexid.core
+	 * @see id.ac.itb.ee.lskk.relexid.core.LabelProvider
 	 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getLabelProvider()
 	 * @generated
 	 */
-	int LABEL_PROVIDER = 49;
+	int LABEL_PROVIDER = 50;
 
 
 	/**
@@ -2916,6 +2998,16 @@ public interface RelexidPackage extends EPackage {
 	EAttribute getObjectRelationDef_Object();
 
 	/**
+	 * Returns the meta object for class '{@link id.ac.itb.ee.lskk.relexid.core.AdjectiveSatellitePart <em>Adjective Satellite Part</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Adjective Satellite Part</em>'.
+	 * @see id.ac.itb.ee.lskk.relexid.core.AdjectiveSatellitePart
+	 * @generated
+	 */
+	EClass getAdjectiveSatellitePart();
+
+	/**
 	 * Returns the meta object for class '{@link id.ac.itb.ee.lskk.relexid.core.Questionable <em>Questionable</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3282,12 +3374,12 @@ public interface RelexidPackage extends EPackage {
 	EDataType getTranslator();
 
 	/**
-	 * Returns the meta object for data type '{@link id.ac.itb.ee.lskk.relexid.core <em>Label Provider</em>}'.
+	 * Returns the meta object for data type '{@link id.ac.itb.ee.lskk.relexid.core.LabelProvider <em>Label Provider</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for data type '<em>Label Provider</em>'.
-	 * @see id.ac.itb.ee.lskk.relexid.core
-	 * @model instanceClass="id.ac.itb.ee.lskk.relexid.core" serializeable="false"
+	 * @see id.ac.itb.ee.lskk.relexid.core.LabelProvider
+	 * @model instanceClass="id.ac.itb.ee.lskk.relexid.core.LabelProvider" serializeable="false"
 	 * @generated
 	 */
 	EDataType getLabelProvider();
@@ -3858,6 +3950,16 @@ public interface RelexidPackage extends EPackage {
 		EAttribute OBJECT_RELATION_DEF__OBJECT = eINSTANCE.getObjectRelationDef_Object();
 
 		/**
+		 * The meta object literal for the '{@link id.ac.itb.ee.lskk.relexid.core.impl.AdjectiveSatellitePartImpl <em>Adjective Satellite Part</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see id.ac.itb.ee.lskk.relexid.core.impl.AdjectiveSatellitePartImpl
+		 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getAdjectiveSatellitePart()
+		 * @generated
+		 */
+		EClass ADJECTIVE_SATELLITE_PART = eINSTANCE.getAdjectiveSatellitePart();
+
+		/**
 		 * The meta object literal for the '{@link id.ac.itb.ee.lskk.relexid.core.Questionable <em>Questionable</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4185,7 +4287,7 @@ public interface RelexidPackage extends EPackage {
 		 * The meta object literal for the '<em>Label Provider</em>' data type.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see id.ac.itb.ee.lskk.relexid.core
+		 * @see id.ac.itb.ee.lskk.relexid.core.LabelProvider
 		 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getLabelProvider()
 		 * @generated
 		 */

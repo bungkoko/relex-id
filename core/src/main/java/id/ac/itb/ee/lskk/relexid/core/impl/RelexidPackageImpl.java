@@ -3,6 +3,7 @@
 package id.ac.itb.ee.lskk.relexid.core.impl;
 
 import id.ac.itb.ee.lskk.relexid.core.AdjectivePart;
+import id.ac.itb.ee.lskk.relexid.core.AdjectiveSatellitePart;
 import id.ac.itb.ee.lskk.relexid.core.AdverbPart;
 import id.ac.itb.ee.lskk.relexid.core.ClassMatcher;
 import id.ac.itb.ee.lskk.relexid.core.ConjunctionPart;
@@ -262,6 +263,13 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * @generated
 	 */
 	private EClass objectRelationDefEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass adjectiveSatellitePartEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1100,6 +1108,15 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getAdjectiveSatellitePart() {
+		return adjectiveSatellitePartEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public EClass getQuestionable() {
 		return questionableEClass;
@@ -1611,6 +1628,8 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 		createEAttribute(objectRelationDefEClass, OBJECT_RELATION_DEF__VERB);
 		createEAttribute(objectRelationDefEClass, OBJECT_RELATION_DEF__OBJECT);
 
+		adjectiveSatellitePartEClass = createEClass(ADJECTIVE_SATELLITE_PART);
+
 		// Create enums
 		partOfSpeechTypeEEnum = createEEnum(PART_OF_SPEECH_TYPE);
 		punctuationEEnum = createEEnum(PUNCTUATION);
@@ -1656,6 +1675,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 		// Add supertypes to classes
 		sentenceEClass.getESuperTypes().add(this.getPartContainer());
 		nounPartEClass.getESuperTypes().add(this.getPartOfSpeech());
+		nounPartEClass.getESuperTypes().add(this.getPartContainer());
 		pronounPartEClass.getESuperTypes().add(this.getPartOfSpeech());
 		pronounPartEClass.getESuperTypes().add(this.getQuestionable());
 		verbPartEClass.getESuperTypes().add(this.getPartOfSpeech());
@@ -1686,6 +1706,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 		typedPartMatcherEClass.getESuperTypes().add(this.getPartMatcher());
 		subjectRelationDefEClass.getESuperTypes().add(this.getRelationDef());
 		objectRelationDefEClass.getESuperTypes().add(this.getRelationDef());
+		adjectiveSatellitePartEClass.getESuperTypes().add(this.getPartOfSpeech());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(sentenceEClass, Sentence.class, "Sentence", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1833,6 +1854,8 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 		initEAttribute(getObjectRelationDef_Verb(), ecorePackage.getEInt(), "verb", null, 1, -1, ObjectRelationDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getObjectRelationDef_Object(), ecorePackage.getEInt(), "object", null, 1, -1, ObjectRelationDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(adjectiveSatellitePartEClass, AdjectiveSatellitePart.class, "AdjectiveSatellitePart", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
 		// Initialize enums and add enum literals
 		initEEnum(partOfSpeechTypeEEnum, PartOfSpeechType.class, "PartOfSpeechType");
 		addEEnumLiteral(partOfSpeechTypeEEnum, PartOfSpeechType.UNKNOWN);
@@ -1843,6 +1866,9 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 		addEEnumLiteral(partOfSpeechTypeEEnum, PartOfSpeechType.CONJUNCTION);
 		addEEnumLiteral(partOfSpeechTypeEEnum, PartOfSpeechType.INTERJECTION);
 		addEEnumLiteral(partOfSpeechTypeEEnum, PartOfSpeechType.QUESTION);
+		addEEnumLiteral(partOfSpeechTypeEEnum, PartOfSpeechType.ADJECTIVE);
+		addEEnumLiteral(partOfSpeechTypeEEnum, PartOfSpeechType.ADJECTIVE_SATELLITE);
+		addEEnumLiteral(partOfSpeechTypeEEnum, PartOfSpeechType.ADVERB);
 
 		initEEnum(punctuationEEnum, Punctuation.class, "Punctuation");
 		addEEnumLiteral(punctuationEEnum, Punctuation.FULL_STOP);

@@ -96,7 +96,31 @@ public enum PartOfSpeechType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	QUESTION(6, "question", "question");
+	QUESTION(6, "question", "question"), /**
+	 * The '<em><b>Adjective</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #ADJECTIVE_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	ADJECTIVE(8, "adjective", "adjective"), /**
+	 * The '<em><b>Adjective satellite</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #ADJECTIVE_SATELLITE_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	ADJECTIVE_SATELLITE(9, "adjective_satellite", "adjective_satellite"), /**
+	 * The '<em><b>Adverb</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #ADVERB_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	ADVERB(10, "adverb", "adverb");
 
 	/**
 	 * The '<em><b>Unknown</b></em>' literal value.
@@ -219,6 +243,51 @@ public enum PartOfSpeechType implements Enumerator {
 	public static final int QUESTION_VALUE = 6;
 
 	/**
+	 * The '<em><b>Adjective</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>Adjective</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #ADJECTIVE
+	 * @model name="adjective"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int ADJECTIVE_VALUE = 8;
+
+	/**
+	 * The '<em><b>Adjective satellite</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>Adjective satellite</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #ADJECTIVE_SATELLITE
+	 * @model name="adjective_satellite"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int ADJECTIVE_SATELLITE_VALUE = 9;
+
+	/**
+	 * The '<em><b>Adverb</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>Adverb</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #ADVERB
+	 * @model name="adverb"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int ADVERB_VALUE = 10;
+
+	/**
 	 * An array of all the '<em><b>Part Of Speech Type</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -234,6 +303,9 @@ public enum PartOfSpeechType implements Enumerator {
 			CONJUNCTION,
 			INTERJECTION,
 			QUESTION,
+			ADJECTIVE,
+			ADJECTIVE_SATELLITE,
+			ADVERB,
 		};
 
 	/**
@@ -292,6 +364,9 @@ public enum PartOfSpeechType implements Enumerator {
 			case CONJUNCTION_VALUE: return CONJUNCTION;
 			case INTERJECTION_VALUE: return INTERJECTION;
 			case QUESTION_VALUE: return QUESTION;
+			case ADJECTIVE_VALUE: return ADJECTIVE;
+			case ADJECTIVE_SATELLITE_VALUE: return ADJECTIVE_SATELLITE;
+			case ADVERB_VALUE: return ADVERB;
 		}
 		return null;
 	}

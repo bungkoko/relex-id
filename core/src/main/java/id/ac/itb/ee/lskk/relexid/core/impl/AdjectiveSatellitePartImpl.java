@@ -2,9 +2,8 @@
  */
 package id.ac.itb.ee.lskk.relexid.core.impl;
 
-import id.ac.itb.ee.lskk.relexid.core.AdjectivePart;
+import id.ac.itb.ee.lskk.relexid.core.AdjectiveSatellitePart;
 import id.ac.itb.ee.lskk.relexid.core.GeneratedLiteral;
-import id.ac.itb.ee.lskk.relexid.core.Questionable;
 import id.ac.itb.ee.lskk.relexid.core.RelEx;
 import id.ac.itb.ee.lskk.relexid.core.RelexidFactory;
 import id.ac.itb.ee.lskk.relexid.core.RelexidPackage;
@@ -24,22 +23,21 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Adjective Part</b></em>'.
+ * An implementation of the model object '<em><b>Adjective Satellite Part</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link id.ac.itb.ee.lskk.relexid.core.impl.AdjectivePartImpl#getLiteral <em>Literal</em>}</li>
- *   <li>{@link id.ac.itb.ee.lskk.relexid.core.impl.AdjectivePartImpl#getResource <em>Resource</em>}</li>
- *   <li>{@link id.ac.itb.ee.lskk.relexid.core.impl.AdjectivePartImpl#getWord <em>Word</em>}</li>
- *   <li>{@link id.ac.itb.ee.lskk.relexid.core.impl.AdjectivePartImpl#getName <em>Name</em>}</li>
- *   <li>{@link id.ac.itb.ee.lskk.relexid.core.impl.AdjectivePartImpl#isQuestioning <em>Questioning</em>}</li>
+ *   <li>{@link id.ac.itb.ee.lskk.relexid.core.impl.AdjectiveSatellitePartImpl#getLiteral <em>Literal</em>}</li>
+ *   <li>{@link id.ac.itb.ee.lskk.relexid.core.impl.AdjectiveSatellitePartImpl#getResource <em>Resource</em>}</li>
+ *   <li>{@link id.ac.itb.ee.lskk.relexid.core.impl.AdjectiveSatellitePartImpl#getWord <em>Word</em>}</li>
+ *   <li>{@link id.ac.itb.ee.lskk.relexid.core.impl.AdjectiveSatellitePartImpl#getName <em>Name</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class AdjectivePartImpl extends MinimalEObjectImpl.Container implements AdjectivePart {
+public class AdjectiveSatellitePartImpl extends MinimalEObjectImpl.Container implements AdjectiveSatellitePart {
 	/**
 	 * The default value of the '{@link #getLiteral() <em>Literal</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -121,31 +119,11 @@ public class AdjectivePartImpl extends MinimalEObjectImpl.Container implements A
 	protected String name = NAME_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #isQuestioning() <em>Questioning</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isQuestioning()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final boolean QUESTIONING_EDEFAULT = false;
-
-	/**
-	 * The cached value of the '{@link #isQuestioning() <em>Questioning</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isQuestioning()
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean questioning = QUESTIONING_EDEFAULT;
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected AdjectivePartImpl() {
+	protected AdjectiveSatellitePartImpl() {
 		super();
 	}
 
@@ -156,7 +134,7 @@ public class AdjectivePartImpl extends MinimalEObjectImpl.Container implements A
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return RelexidPackage.Literals.ADJECTIVE_PART;
+		return RelexidPackage.Literals.ADJECTIVE_SATELLITE_PART;
 	}
 
 	/**
@@ -179,7 +157,7 @@ public class AdjectivePartImpl extends MinimalEObjectImpl.Container implements A
 		String oldLiteral = literal;
 		literal = newLiteral;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RelexidPackage.ADJECTIVE_PART__LITERAL, oldLiteral, literal));
+			eNotify(new ENotificationImpl(this, Notification.SET, RelexidPackage.ADJECTIVE_SATELLITE_PART__LITERAL, oldLiteral, literal));
 	}
 
 	/**
@@ -202,7 +180,7 @@ public class AdjectivePartImpl extends MinimalEObjectImpl.Container implements A
 		QName oldResource = resource;
 		resource = newResource;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RelexidPackage.ADJECTIVE_PART__RESOURCE, oldResource, resource));
+			eNotify(new ENotificationImpl(this, Notification.SET, RelexidPackage.ADJECTIVE_SATELLITE_PART__RESOURCE, oldResource, resource));
 	}
 
 	/**
@@ -225,7 +203,7 @@ public class AdjectivePartImpl extends MinimalEObjectImpl.Container implements A
 		QName oldWord = word;
 		word = newWord;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RelexidPackage.ADJECTIVE_PART__WORD, oldWord, word));
+			eNotify(new ENotificationImpl(this, Notification.SET, RelexidPackage.ADJECTIVE_SATELLITE_PART__WORD, oldWord, word));
 	}
 
 	/**
@@ -248,30 +226,7 @@ public class AdjectivePartImpl extends MinimalEObjectImpl.Container implements A
 		String oldName = name;
 		name = newName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RelexidPackage.ADJECTIVE_PART__NAME, oldName, name));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public boolean isQuestioning() {
-		return questioning;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setQuestioning(boolean newQuestioning) {
-		boolean oldQuestioning = questioning;
-		questioning = newQuestioning;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RelexidPackage.ADJECTIVE_PART__QUESTIONING, oldQuestioning, questioning));
+			eNotify(new ENotificationImpl(this, Notification.SET, RelexidPackage.ADJECTIVE_SATELLITE_PART__NAME, oldName, name));
 	}
 
 	/**
@@ -281,12 +236,7 @@ public class AdjectivePartImpl extends MinimalEObjectImpl.Container implements A
 	@Override
 	public GeneratedLiteral generate(Locale locale, Map<String, String> dict, Translator translator) {
 		String result = "";
-		final String resourceUri = getResource().getNamespaceURI() + getResource().getLocalPart();
-		if (dict.containsKey(resourceUri)) {
-			result += dict.get(resourceUri);
-		} else {
-			result += translator.getTranslation(locale, getResource());
-		}
+		result += translator.getTranslation(locale, getResource());
 //		for (PartOfSpeech part : getParts()) {
 //			final GeneratedLiteral literal = part.generate(locale, dict, translator);
 //			if (literal.isPreSeparated() && !result.isEmpty()) {
@@ -307,16 +257,14 @@ public class AdjectivePartImpl extends MinimalEObjectImpl.Container implements A
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case RelexidPackage.ADJECTIVE_PART__LITERAL:
+			case RelexidPackage.ADJECTIVE_SATELLITE_PART__LITERAL:
 				return getLiteral();
-			case RelexidPackage.ADJECTIVE_PART__RESOURCE:
+			case RelexidPackage.ADJECTIVE_SATELLITE_PART__RESOURCE:
 				return getResource();
-			case RelexidPackage.ADJECTIVE_PART__WORD:
+			case RelexidPackage.ADJECTIVE_SATELLITE_PART__WORD:
 				return getWord();
-			case RelexidPackage.ADJECTIVE_PART__NAME:
+			case RelexidPackage.ADJECTIVE_SATELLITE_PART__NAME:
 				return getName();
-			case RelexidPackage.ADJECTIVE_PART__QUESTIONING:
-				return isQuestioning();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -329,20 +277,17 @@ public class AdjectivePartImpl extends MinimalEObjectImpl.Container implements A
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case RelexidPackage.ADJECTIVE_PART__LITERAL:
+			case RelexidPackage.ADJECTIVE_SATELLITE_PART__LITERAL:
 				setLiteral((String)newValue);
 				return;
-			case RelexidPackage.ADJECTIVE_PART__RESOURCE:
+			case RelexidPackage.ADJECTIVE_SATELLITE_PART__RESOURCE:
 				setResource((QName)newValue);
 				return;
-			case RelexidPackage.ADJECTIVE_PART__WORD:
+			case RelexidPackage.ADJECTIVE_SATELLITE_PART__WORD:
 				setWord((QName)newValue);
 				return;
-			case RelexidPackage.ADJECTIVE_PART__NAME:
+			case RelexidPackage.ADJECTIVE_SATELLITE_PART__NAME:
 				setName((String)newValue);
-				return;
-			case RelexidPackage.ADJECTIVE_PART__QUESTIONING:
-				setQuestioning((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -356,20 +301,17 @@ public class AdjectivePartImpl extends MinimalEObjectImpl.Container implements A
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case RelexidPackage.ADJECTIVE_PART__LITERAL:
+			case RelexidPackage.ADJECTIVE_SATELLITE_PART__LITERAL:
 				setLiteral(LITERAL_EDEFAULT);
 				return;
-			case RelexidPackage.ADJECTIVE_PART__RESOURCE:
+			case RelexidPackage.ADJECTIVE_SATELLITE_PART__RESOURCE:
 				setResource(RESOURCE_EDEFAULT);
 				return;
-			case RelexidPackage.ADJECTIVE_PART__WORD:
+			case RelexidPackage.ADJECTIVE_SATELLITE_PART__WORD:
 				setWord(WORD_EDEFAULT);
 				return;
-			case RelexidPackage.ADJECTIVE_PART__NAME:
+			case RelexidPackage.ADJECTIVE_SATELLITE_PART__NAME:
 				setName(NAME_EDEFAULT);
-				return;
-			case RelexidPackage.ADJECTIVE_PART__QUESTIONING:
-				setQuestioning(QUESTIONING_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -383,50 +325,16 @@ public class AdjectivePartImpl extends MinimalEObjectImpl.Container implements A
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case RelexidPackage.ADJECTIVE_PART__LITERAL:
+			case RelexidPackage.ADJECTIVE_SATELLITE_PART__LITERAL:
 				return LITERAL_EDEFAULT == null ? literal != null : !LITERAL_EDEFAULT.equals(literal);
-			case RelexidPackage.ADJECTIVE_PART__RESOURCE:
+			case RelexidPackage.ADJECTIVE_SATELLITE_PART__RESOURCE:
 				return RESOURCE_EDEFAULT == null ? resource != null : !RESOURCE_EDEFAULT.equals(resource);
-			case RelexidPackage.ADJECTIVE_PART__WORD:
+			case RelexidPackage.ADJECTIVE_SATELLITE_PART__WORD:
 				return WORD_EDEFAULT == null ? word != null : !WORD_EDEFAULT.equals(word);
-			case RelexidPackage.ADJECTIVE_PART__NAME:
+			case RelexidPackage.ADJECTIVE_SATELLITE_PART__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case RelexidPackage.ADJECTIVE_PART__QUESTIONING:
-				return questioning != QUESTIONING_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-		if (baseClass == Questionable.class) {
-			switch (derivedFeatureID) {
-				case RelexidPackage.ADJECTIVE_PART__QUESTIONING: return RelexidPackage.QUESTIONABLE__QUESTIONING;
-				default: return -1;
-			}
-		}
-		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-		if (baseClass == Questionable.class) {
-			switch (baseFeatureID) {
-				case RelexidPackage.QUESTIONABLE__QUESTIONING: return RelexidPackage.ADJECTIVE_PART__QUESTIONING;
-				default: return -1;
-			}
-		}
-		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
 	/**
@@ -438,7 +346,7 @@ public class AdjectivePartImpl extends MinimalEObjectImpl.Container implements A
 	@SuppressWarnings("unchecked")
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case RelexidPackage.ADJECTIVE_PART___GENERATE__LOCALE_MAP_TRANSLATOR:
+			case RelexidPackage.ADJECTIVE_SATELLITE_PART___GENERATE__LOCALE_MAP_TRANSLATOR:
 				return generate((Locale)arguments.get(0), (Map<String, String>)arguments.get(1), (Translator)arguments.get(2));
 		}
 		return super.eInvoke(operationID, arguments);
@@ -451,9 +359,9 @@ public class AdjectivePartImpl extends MinimalEObjectImpl.Container implements A
 	@Override
 	public String toString() {
 		final String selfName = name != null ? name : RelEx.shortQName(this);
-		return "(AP " + 
+		return "(SP " + 
 //				Joiner.on(' ').join(FluentIterable.from(getParts()).transform(new ToStringFunction<>())) + 
 				selfName + ")";
 	}
 
-} //AdjectivePartImpl
+} //AdjectiveSatellitePartImpl

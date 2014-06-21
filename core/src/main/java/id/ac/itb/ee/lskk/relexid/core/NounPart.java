@@ -13,5 +13,5 @@ package id.ac.itb.ee.lskk.relexid.core;
  * @model
  * @generated
  */
-public interface NounPart extends PartOfSpeech {
+public interface NounPart extends PartOfSpeech, PartContainer {
 } // NounPart

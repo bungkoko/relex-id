@@ -228,6 +228,10 @@ public class RelexidAdapterFactory extends AdapterFactoryImpl {
 				return createObjectRelationDefAdapter();
 			}
 			@Override
+			public Adapter caseAdjectiveSatellitePart(AdjectiveSatellitePart object) {
+				return createAdjectiveSatellitePartAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -622,6 +626,20 @@ public class RelexidAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createObjectRelationDefAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link id.ac.itb.ee.lskk.relexid.core.AdjectiveSatellitePart <em>Adjective Satellite Part</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see id.ac.itb.ee.lskk.relexid.core.AdjectiveSatellitePart
+	 * @generated
+	 */
+	public Adapter createAdjectiveSatellitePartAdapter() {
 		return null;
 	}
 

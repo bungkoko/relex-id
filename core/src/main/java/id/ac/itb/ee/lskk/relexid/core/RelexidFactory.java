@@ -211,6 +211,15 @@ public interface RelexidFactory extends EFactory {
 	ObjectRelationDef createObjectRelationDef();
 
 	/**
+	 * Returns a new object of class '<em>Adjective Satellite Part</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Adjective Satellite Part</em>'.
+	 * @generated
+	 */
+	AdjectiveSatellitePart createAdjectiveSatellitePart();
+
+	/**
 	 * Returns a new object of class '<em>Literal Replacement</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

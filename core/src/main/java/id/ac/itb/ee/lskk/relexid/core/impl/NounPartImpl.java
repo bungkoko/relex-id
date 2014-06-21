@@ -4,24 +4,35 @@ package id.ac.itb.ee.lskk.relexid.core.impl;
 
 import id.ac.itb.ee.lskk.relexid.core.GeneratedLiteral;
 import id.ac.itb.ee.lskk.relexid.core.NounPart;
+import id.ac.itb.ee.lskk.relexid.core.PartContainer;
+import id.ac.itb.ee.lskk.relexid.core.PartOfSpeech;
 import id.ac.itb.ee.lskk.relexid.core.RelEx;
 import id.ac.itb.ee.lskk.relexid.core.RelexidFactory;
 import id.ac.itb.ee.lskk.relexid.core.RelexidPackage;
 import id.ac.itb.ee.lskk.relexid.core.Translator;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.Collection;
 import java.util.Locale;
 import java.util.Map;
 
 import javax.xml.namespace.QName;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.soluvas.commons.ToStringFunction;
+
+import com.google.common.base.Joiner;
+import com.google.common.collect.FluentIterable;
 
 /**
  * <!-- begin-user-doc -->
@@ -34,6 +45,7 @@ import org.slf4j.LoggerFactory;
  *   <li>{@link id.ac.itb.ee.lskk.relexid.core.impl.NounPartImpl#getResource <em>Resource</em>}</li>
  *   <li>{@link id.ac.itb.ee.lskk.relexid.core.impl.NounPartImpl#getWord <em>Word</em>}</li>
  *   <li>{@link id.ac.itb.ee.lskk.relexid.core.impl.NounPartImpl#getName <em>Name</em>}</li>
+ *   <li>{@link id.ac.itb.ee.lskk.relexid.core.impl.NounPartImpl#getParts <em>Parts</em>}</li>
  * </ul>
  * </p>
  *
@@ -123,6 +135,16 @@ public class NounPartImpl extends MinimalEObjectImpl.Container implements NounPa
 	 * @ordered
 	 */
 	protected String name = NAME_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getParts() <em>Parts</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getParts()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<PartOfSpeech> parts;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -238,29 +260,81 @@ public class NounPartImpl extends MinimalEObjectImpl.Container implements NounPa
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<PartOfSpeech> getParts() {
+		if (parts == null) {
+			parts = new EObjectContainmentEList<PartOfSpeech>(PartOfSpeech.class, this, RelexidPackage.NOUN_PART__PARTS);
+		}
+		return parts;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 */
 	@Override
 	public GeneratedLiteral generate(Locale locale, Map<String, String> dict, Translator translator) {
 		String result = "";
 		final String resourceUri = getResource().getNamespaceURI() + getResource().getLocalPart();
-		if (dict.containsKey(resourceUri)) {
-			result += dict.get(resourceUri);
+		
+		if (RelEx.INDONESIAN.getLanguage().equals(locale.getLanguage())) {
+			// D-M
+			if (dict.containsKey(resourceUri)) {
+				result += dict.get(resourceUri);
+			} else {
+				result += translator.getTranslation(locale, getResource());
+//				result += getResource().toString();
+//				log.warn("Resource {} not in dictionary for {} with {} entries",
+//						getResource(), locale, dict.size());
+			}
+			for (PartOfSpeech part : getParts()) {
+				final GeneratedLiteral literal = part.generate(locale, dict, translator);
+				if (literal.isPreSeparated() && !result.isEmpty()) {
+					result += " ";
+				}
+				result += literal.getLiteral();
+			}
 		} else {
-			result += translator.getTranslation(locale, getResource());
-//			result += getResource().toString();
-//			log.warn("Resource {} not in dictionary for {} with {} entries",
-//					getResource(), locale, dict.size());
+			// M-D
+			for (PartOfSpeech part : getParts()) {
+				final GeneratedLiteral literal = part.generate(locale, dict, translator);
+				if (literal.isPreSeparated() && !result.isEmpty()) {
+					result += " ";
+				}
+				result += literal.getLiteral();
+			}
+			if (!result.isEmpty()) {
+				result += " ";
+			}
+			if (dict.containsKey(resourceUri)) {
+				result += dict.get(resourceUri);
+			} else {
+				result += translator.getTranslation(locale, getResource());
+//				result += getResource().toString();
+//				log.warn("Resource {} not in dictionary for {} with {} entries",
+//						getResource(), locale, dict.size());
+			}
 		}
-//		for (PartOfSpeech part : getParts()) {
-//			final GeneratedLiteral literal = part.generate(locale, dict);
-//			if (literal.isPreSeparated() && !result.isEmpty()) {
-//				result += " ";
-//			}
-//			result += literal.getLiteral();
-//		}
+		
 		GeneratedLiteral generatedLiteral = RelexidFactory.eINSTANCE.createGeneratedLiteral();
 		generatedLiteral.setLiteral(result);
 		return generatedLiteral;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case RelexidPackage.NOUN_PART__PARTS:
+				return ((InternalEList<?>)getParts()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -279,6 +353,8 @@ public class NounPartImpl extends MinimalEObjectImpl.Container implements NounPa
 				return getWord();
 			case RelexidPackage.NOUN_PART__NAME:
 				return getName();
+			case RelexidPackage.NOUN_PART__PARTS:
+				return getParts();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -288,6 +364,7 @@ public class NounPartImpl extends MinimalEObjectImpl.Container implements NounPa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -302,6 +379,10 @@ public class NounPartImpl extends MinimalEObjectImpl.Container implements NounPa
 				return;
 			case RelexidPackage.NOUN_PART__NAME:
 				setName((String)newValue);
+				return;
+			case RelexidPackage.NOUN_PART__PARTS:
+				getParts().clear();
+				getParts().addAll((Collection<? extends PartOfSpeech>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -327,6 +408,9 @@ public class NounPartImpl extends MinimalEObjectImpl.Container implements NounPa
 			case RelexidPackage.NOUN_PART__NAME:
 				setName(NAME_EDEFAULT);
 				return;
+			case RelexidPackage.NOUN_PART__PARTS:
+				getParts().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -347,8 +431,42 @@ public class NounPartImpl extends MinimalEObjectImpl.Container implements NounPa
 				return WORD_EDEFAULT == null ? word != null : !WORD_EDEFAULT.equals(word);
 			case RelexidPackage.NOUN_PART__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case RelexidPackage.NOUN_PART__PARTS:
+				return parts != null && !parts.isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == PartContainer.class) {
+			switch (derivedFeatureID) {
+				case RelexidPackage.NOUN_PART__PARTS: return RelexidPackage.PART_CONTAINER__PARTS;
+				default: return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == PartContainer.class) {
+			switch (baseFeatureID) {
+				case RelexidPackage.PART_CONTAINER__PARTS: return RelexidPackage.NOUN_PART__PARTS;
+				default: return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
 	/**
@@ -373,8 +491,8 @@ public class NounPartImpl extends MinimalEObjectImpl.Container implements NounPa
 	@Override
 	public String toString() {
 		final String selfName = name != null ? name : RelEx.shortQName(this);
-		return "(NP " + selfName + /*" " +
-				Joiner.on(' ').join(FluentIterable.from(getParts()).transform(new ToStringFunction<>())) +*/ ")";
+		final String partsStr = Joiner.on(' ').join(FluentIterable.from(getParts()).transform(new ToStringFunction<>()));
+		return "(NP " + (!partsStr.isEmpty() ? partsStr + " " : "") + selfName + ")";
 	}
 
 } //NounPartImpl

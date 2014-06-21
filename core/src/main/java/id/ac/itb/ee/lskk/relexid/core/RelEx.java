@@ -399,6 +399,12 @@ public class RelEx implements Translator, LabelProvider {
 				case VERB:
 					part = RelexidFactory.eINSTANCE.createVerbPart();
 					break;
+				case ADJECTIVE:
+					part = RelexidFactory.eINSTANCE.createAdjectivePart();
+					break;
+				case ADJECTIVE_SATELLITE:
+					part = RelexidFactory.eINSTANCE.createAdjectiveSatellitePart();
+					break;
 				default:
 					throw new UnsupportedOperationException("Unhandled part of speech: " +replacement.getPartOfSpeech());
 				}
@@ -418,7 +424,7 @@ public class RelEx implements Translator, LabelProvider {
 				// sub-replacements
 				if (!resourceRepl.getReplacements().isEmpty()) {
 					Preconditions.checkArgument(part instanceof PartContainer,
-							"Cannot create sub-replacements because {} is not a PartContainer", part);
+							"Cannot create sub-replacements because %s is not a PartContainer", part);
 					List<PartOfSpeech> subParts = createReplacementParts(resourceRepl.getReplacements(), matchers, capturingGroups);
 					((PartContainer) part).getParts().addAll(subParts);
 				}
@@ -546,6 +552,12 @@ public class RelEx implements Translator, LabelProvider {
 					case NOUN:
 						senses = getNounSenses(unrecognizedPart.getLiteral());
 						break;
+					case ADJECTIVE:
+						senses = getAdjectiveSenses(unrecognizedPart.getLiteral());
+						break;
+					case ADJECTIVE_SATELLITE:
+						senses = getAdjectiveSatelliteSenses(unrecognizedPart.getLiteral());
+						break;
 					default:
 						throw new IllegalArgumentException("Lex matcher PartOfSpeech does not support " + pos);
 					}
@@ -641,7 +653,7 @@ public class RelEx implements Translator, LabelProvider {
 				+ "WHERE {\n"
 				+ "	?sense wordnet-ontology:translation ?verbLiteral ;"
 				+ "		wordnet-ontology:part_of_speech wordnet-ontology:verb\n"
-				+ "} LIMIT 10", model);
+				+ "} LIMIT 100", model);
 		sparql.setLiteral("verbLiteral", verbLiteral.toLowerCase(), "ind");
 		log.trace("getVerbSenses '{}' SPARQL: {}", verbLiteral, sparql);
 		Query verbTxQuery = QueryFactory.create(sparql.toString());
@@ -685,9 +697,81 @@ public class RelEx implements Translator, LabelProvider {
 				+ "WHERE {\n"
 				+ "	?sense wordnet-ontology:translation ?nounLiteral ;"
 				+ "		wordnet-ontology:part_of_speech wordnet-ontology:noun\n"
-				+ "} LIMIT 10", model);
+				+ "} LIMIT 100", model);
 		sparql.setLiteral("nounLiteral", nounLiteral.toLowerCase(), "ind");
 		log.trace("getNounSenses '{}' SPARQL: {}", nounLiteral, sparql);
+		Query verbTxQuery = QueryFactory.create(sparql.toString());
+		QueryExecution qexec = QueryExecutionFactory.create(verbTxQuery, wn31tdb);
+		try {
+			ResultSet rs = qexec.execSelect();
+			for (; rs.hasNext(); ) {
+				QuerySolution soln = rs.next();
+				QName senseRes = toQName(soln.get("sense").asResource());
+				senses.add(senseRes);
+			}
+		} finally {
+			qexec.close();
+		}
+		return senses;
+	}
+	
+	/**
+	 * Mapping from {@code ind} translations to WordNet senses for adjective part-of-speech.
+	 * The value is String to save memory, it is short QName, where nsPrefix needs
+	 * to be explictly supported, e.g. {@code wn31} for nvarps.
+	 * 
+	 * @param adjectiveLiteral Verb literal, please preserve capitalization because case-normalization will be performed here.
+	 * @return
+	 * @todo These aren't sorted/prioritized in any way.
+	 * @todo Need Cached by EHCache or something (never expire but with invalidation), or function-based index.
+	 */
+	protected List<QName> getAdjectiveSenses(final String adjectiveLiteral) {
+		List<QName> senses = new ArrayList<>();
+		log.info("Loading verb translations...");
+		ParameterizedSparqlString sparql = new ParameterizedSparqlString(
+				"SELECT ?sense\n"
+				+ "WHERE {\n"
+				+ "	?sense wordnet-ontology:translation ?adjectiveLiteral ;"
+				+ "		wordnet-ontology:part_of_speech wordnet-ontology:adjective\n"
+				+ "} LIMIT 100", model);
+		sparql.setLiteral("adjectiveLiteral", adjectiveLiteral.toLowerCase(), "ind");
+		log.trace("getAdjectiveSenses '{}' SPARQL: {}", adjectiveLiteral, sparql);
+		Query verbTxQuery = QueryFactory.create(sparql.toString());
+		QueryExecution qexec = QueryExecutionFactory.create(verbTxQuery, wn31tdb);
+		try {
+			ResultSet rs = qexec.execSelect();
+			for (; rs.hasNext(); ) {
+				QuerySolution soln = rs.next();
+				QName senseRes = toQName(soln.get("sense").asResource());
+				senses.add(senseRes);
+			}
+		} finally {
+			qexec.close();
+		}
+		return senses;
+	}
+	
+	/**
+	 * Mapping from {@code ind} translations to WordNet senses for {@link PartOfSpeechType#ADJECTIVE_SATELLITE} part-of-speech.
+	 * The value is String to save memory, it is short QName, where nsPrefix needs
+	 * to be explictly supported, e.g. {@code wn31} for nvarps.
+	 * 
+	 * @param adjectiveSatelliteLiteral Verb literal, please preserve capitalization because case-normalization will be performed here.
+	 * @return
+	 * @todo These aren't sorted/prioritized in any way.
+	 * @todo Need Cached by EHCache or something (never expire but with invalidation), or function-based index.
+	 */
+	protected List<QName> getAdjectiveSatelliteSenses(final String adjectiveSatelliteLiteral) {
+		List<QName> senses = new ArrayList<>();
+		log.info("Loading verb translations...");
+		ParameterizedSparqlString sparql = new ParameterizedSparqlString(
+				"SELECT ?sense\n"
+				+ "WHERE {\n"
+				+ "	?sense wordnet-ontology:translation ?adjectiveSatelliteLiteral ;"
+				+ "		wordnet-ontology:part_of_speech wordnet-ontology:adjective_satellite\n"
+				+ "} LIMIT 100", model);
+		sparql.setLiteral("adjectiveSatelliteLiteral", adjectiveSatelliteLiteral.toLowerCase(), "ind");
+		log.trace("getAdjectiveSatelliteSenses '{}' SPARQL: {}", adjectiveSatelliteLiteral, sparql);
 		Query verbTxQuery = QueryFactory.create(sparql.toString());
 		QueryExecution qexec = QueryExecutionFactory.create(verbTxQuery, wn31tdb);
 		try {

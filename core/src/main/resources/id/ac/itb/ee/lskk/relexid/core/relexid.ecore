@@ -60,7 +60,7 @@
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="NounPart" eSuperTypes="#//PartOfSpeech"/>
+  <eClassifiers xsi:type="ecore:EClass" name="NounPart" eSuperTypes="#//PartOfSpeech #//PartContainer"/>
   <eClassifiers xsi:type="ecore:EClass" name="PronounPart" eSuperTypes="#//PartOfSpeech #//Questionable">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="person" eType="#//PronounPerson"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="number" eType="#//PronounNumber"/>
@@ -126,6 +126,9 @@
     <eLiterals name="conjunction" value="4"/>
     <eLiterals name="interjection" value="5"/>
     <eLiterals name="question" value="6"/>
+    <eLiterals name="adjective" value="8"/>
+    <eLiterals name="adjective_satellite" value="9"/>
+    <eLiterals name="adverb" value="10"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Questionable" abstract="true" interface="true">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -320,4 +323,5 @@
       serializable="false"/>
   <eClassifiers xsi:type="ecore:EDataType" name="LabelProvider" instanceClassName="id.ac.itb.ee.lskk.relexid.core.LabelProvider"
       serializable="false"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AdjectiveSatellitePart" eSuperTypes="#//PartOfSpeech"/>
 </ecore:EPackage>

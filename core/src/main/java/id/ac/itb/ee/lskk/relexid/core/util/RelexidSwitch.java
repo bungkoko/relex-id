@@ -83,6 +83,7 @@ public class RelexidSwitch<T> extends Switch<T> {
 				NounPart nounPart = (NounPart)theEObject;
 				T result = caseNounPart(nounPart);
 				if (result == null) result = casePartOfSpeech(nounPart);
+				if (result == null) result = casePartContainer(nounPart);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -335,6 +336,13 @@ public class RelexidSwitch<T> extends Switch<T> {
 				ObjectRelationDef objectRelationDef = (ObjectRelationDef)theEObject;
 				T result = caseObjectRelationDef(objectRelationDef);
 				if (result == null) result = caseRelationDef(objectRelationDef);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case RelexidPackage.ADJECTIVE_SATELLITE_PART: {
+				AdjectiveSatellitePart adjectiveSatellitePart = (AdjectiveSatellitePart)theEObject;
+				T result = caseAdjectiveSatellitePart(adjectiveSatellitePart);
+				if (result == null) result = casePartOfSpeech(adjectiveSatellitePart);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -744,6 +752,21 @@ public class RelexidSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseObjectRelationDef(ObjectRelationDef object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Adjective Satellite Part</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Adjective Satellite Part</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAdjectiveSatellitePart(AdjectiveSatellitePart object) {
 		return null;
 	}
 
