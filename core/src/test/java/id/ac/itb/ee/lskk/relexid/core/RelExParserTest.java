@@ -67,8 +67,8 @@ public class RelExParserTest {
 	public void akuCintaKamu() {
 		final Sentence sentence = relex.parse("Aku cinta kamu.");
 		log.info("Sentence structure: {}", sentence);
-		log.info("Sentence in English: {}", sentence.generate(Locale.ENGLISH, DICT_EN_US));
-		log.info("Sentence in Indonesian: {}", sentence.generate(RelEx.INDONESIAN, DICT_ID_ID));
+		log.info("Sentence in English: {}", sentence.generate(Locale.ENGLISH, DICT_EN_US, relex));
+		log.info("Sentence in Indonesian: {}", sentence.generate(RelEx.INDONESIAN, DICT_ID_ID, relex));
 		assertEquals("(S (PP i) (VP dbpedia:Love (PP you_o)) . )", sentence.toString());
 	}
 	
@@ -100,8 +100,8 @@ public class RelExParserTest {
 	public void akuSukaGajah() {
 		final Sentence sentence = relex.parse("Aku suka gajah.");
 		log.info("Sentence structure: {}", sentence);
-		log.info("Sentence in English: {}", sentence.generate(Locale.ENGLISH, DICT_EN_US));
-		log.info("Sentence in Indonesian: {}", sentence.generate(RelEx.INDONESIAN, DICT_ID_ID));
+		log.info("Sentence in English: {}", sentence.generate(Locale.ENGLISH, DICT_EN_US, relex));
+		log.info("Sentence in Indonesian: {}", sentence.generate(RelEx.INDONESIAN, DICT_ID_ID, relex));
 		assertEquals("(S (PP i) (VP dbpedia:Like (NP dbpedia:Elephant)) . )", sentence.toString());
 	}
 	
@@ -109,8 +109,8 @@ public class RelExParserTest {
 	public void akuCintaKamuRelations() {
 		final Sentence sentence = relex.parse("Aku cinta kamu.");
 		log.info("Sentence structure: {}", sentence);
-		log.info("Sentence in English: {}", sentence.generate(Locale.ENGLISH, DICT_EN_US));
-		log.info("Sentence in Indonesian: {}", sentence.generate(RelEx.INDONESIAN, DICT_ID_ID));
+		log.info("Sentence in English: {}", sentence.generate(Locale.ENGLISH, DICT_EN_US, relex));
+		log.info("Sentence in Indonesian: {}", sentence.generate(RelEx.INDONESIAN, DICT_ID_ID, relex));
 		assertEquals("(S (PP i) (VP dbpedia:Love (PP you_o)) . )", sentence.toString());
 
 		List<Relation> relations = sentence.getRelations();
@@ -129,8 +129,8 @@ public class RelExParserTest {
 		relex.loadLexRules(RelExParserTest.class, "lumen.LexRules.xmi");
 		final Sentence sentence = relex.parse("Aku suka gajah.");
 		log.info("Sentence structure: {}", sentence);
-		log.info("Sentence in English: {}", sentence.generate(Locale.ENGLISH, DICT_EN_US));
-		log.info("Sentence in Indonesian: {}", sentence.generate(RelEx.INDONESIAN, DICT_ID_ID));
+		log.info("Sentence in English: {}", sentence.generate(Locale.ENGLISH, DICT_EN_US, relex));
+		log.info("Sentence in Indonesian: {}", sentence.generate(RelEx.INDONESIAN, DICT_ID_ID, relex));
 		assertEquals("(S (PP i) (VP dbpedia:Like (NP dbpedia:Elephant)) . )", sentence.toString());
 		
 		List<Relation> relations = sentence.getRelations();

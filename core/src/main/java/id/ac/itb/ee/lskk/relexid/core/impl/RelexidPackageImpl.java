@@ -46,6 +46,7 @@ import id.ac.itb.ee.lskk.relexid.core.ResourceReplacement;
 import id.ac.itb.ee.lskk.relexid.core.Sentence;
 import id.ac.itb.ee.lskk.relexid.core.SubjectRelation;
 import id.ac.itb.ee.lskk.relexid.core.SubjectRelationDef;
+import id.ac.itb.ee.lskk.relexid.core.Translator;
 import id.ac.itb.ee.lskk.relexid.core.TypedPartMatcher;
 import id.ac.itb.ee.lskk.relexid.core.TypedResourceMatcher;
 import id.ac.itb.ee.lskk.relexid.core.UnrecognizedPart;
@@ -409,6 +410,13 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	private EDataType localeEDataType = null;
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EDataType translatorEDataType = null;
+
+	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
 	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
 	 * package URI value.
@@ -546,7 +554,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getPartOfSpeech__Generate__Locale_Map() {
+	public EOperation getPartOfSpeech__Generate__Locale_Map_Translator() {
 		return partOfSpeechEClass.getEOperations().get(0);
 	}
 
@@ -1320,6 +1328,15 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EDataType getTranslator() {
+		return translatorEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public RelexidFactory getRelexidFactory() {
 		return (RelexidFactory)getEFactoryInstance();
 	}
@@ -1352,7 +1369,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 		createEAttribute(partOfSpeechEClass, PART_OF_SPEECH__LITERAL);
 		createEAttribute(partOfSpeechEClass, PART_OF_SPEECH__RESOURCE);
 		createEAttribute(partOfSpeechEClass, PART_OF_SPEECH__WORD);
-		createEOperation(partOfSpeechEClass, PART_OF_SPEECH___GENERATE__LOCALE_MAP);
+		createEOperation(partOfSpeechEClass, PART_OF_SPEECH___GENERATE__LOCALE_MAP_TRANSLATOR);
 
 		nounPartEClass = createEClass(NOUN_PART);
 
@@ -1480,6 +1497,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 		// Create data types
 		qNameEDataType = createEDataType(QNAME);
 		localeEDataType = createEDataType(LOCALE);
+		translatorEDataType = createEDataType(TRANSLATOR);
 	}
 
 	/**
@@ -1556,13 +1574,14 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 		g2 = createEGenericType(ecorePackage.getEString());
 		g1.getETypeArguments().add(g2);
 		addEParameter(op, g1, "dict", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getTranslator(), "translator", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(partOfSpeechEClass, PartOfSpeech.class, "PartOfSpeech", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPartOfSpeech_Literal(), ecorePackage.getEString(), "literal", null, 1, 1, PartOfSpeech.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPartOfSpeech_Resource(), this.getQName(), "resource", null, 0, 1, PartOfSpeech.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPartOfSpeech_Word(), this.getQName(), "word", null, 0, 1, PartOfSpeech.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		op = initEOperation(getPartOfSpeech__Generate__Locale_Map(), this.getGeneratedLiteral(), "generate", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getPartOfSpeech__Generate__Locale_Map_Translator(), this.getGeneratedLiteral(), "generate", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getLocale(), "locale", 0, 1, IS_UNIQUE, IS_ORDERED);
 		g1 = createEGenericType(ecorePackage.getEMap());
 		g2 = createEGenericType(ecorePackage.getEString());
@@ -1570,6 +1589,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 		g2 = createEGenericType(ecorePackage.getEString());
 		g1.getETypeArguments().add(g2);
 		addEParameter(op, g1, "dict", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getTranslator(), "translator", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(nounPartEClass, NounPart.class, "NounPart", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1726,6 +1746,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 		// Initialize data types
 		initEDataType(qNameEDataType, QName.class, "QName", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(localeEDataType, Locale.class, "Locale", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(translatorEDataType, Translator.class, "Translator", !IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);
@@ -1756,7 +1777,7 @@ public class RelexidPackageImpl extends EPackageImpl implements RelexidPackage {
 			 "documentation", "Raw literal sentence without preprocessing."
 		   });		
 		addAnnotation
-		  (getPartOfSpeech__Generate__Locale_Map(), 
+		  (getPartOfSpeech__Generate__Locale_Map_Translator(), 
 		   source, 
 		   new String[] {
 			 "documentation", "Generate a readable {@link GeneratedLiteral} in the specified locale.\n\n@param The translations of resources in this locale\'s language. Note that informal dictionaries (i.e. bahasa gaul/alay) is a valid use case. Key is resource URI and value is literal."

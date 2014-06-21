@@ -213,7 +213,7 @@ public interface RelexidPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PART_OF_SPEECH___GENERATE__LOCALE_MAP = 0;
+	int PART_OF_SPEECH___GENERATE__LOCALE_MAP_TRANSLATOR = 0;
 
 	/**
 	 * The number of operations of the '<em>Part Of Speech</em>' class.
@@ -277,7 +277,7 @@ public interface RelexidPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NOUN_PART___GENERATE__LOCALE_MAP = PART_OF_SPEECH___GENERATE__LOCALE_MAP;
+	int NOUN_PART___GENERATE__LOCALE_MAP_TRANSLATOR = PART_OF_SPEECH___GENERATE__LOCALE_MAP_TRANSLATOR;
 
 	/**
 	 * The number of operations of the '<em>Noun Part</em>' class.
@@ -377,7 +377,7 @@ public interface RelexidPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PRONOUN_PART___GENERATE__LOCALE_MAP = PART_OF_SPEECH___GENERATE__LOCALE_MAP;
+	int PRONOUN_PART___GENERATE__LOCALE_MAP_TRANSLATOR = PART_OF_SPEECH___GENERATE__LOCALE_MAP_TRANSLATOR;
 
 	/**
 	 * The number of operations of the '<em>Pronoun Part</em>' class.
@@ -450,7 +450,7 @@ public interface RelexidPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VERB_PART___GENERATE__LOCALE_MAP = PART_OF_SPEECH___GENERATE__LOCALE_MAP;
+	int VERB_PART___GENERATE__LOCALE_MAP_TRANSLATOR = PART_OF_SPEECH___GENERATE__LOCALE_MAP_TRANSLATOR;
 
 	/**
 	 * The number of operations of the '<em>Verb Part</em>' class.
@@ -597,7 +597,7 @@ public interface RelexidPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PREPOSITION_PART___GENERATE__LOCALE_MAP = PART_OF_SPEECH___GENERATE__LOCALE_MAP;
+	int PREPOSITION_PART___GENERATE__LOCALE_MAP_TRANSLATOR = PART_OF_SPEECH___GENERATE__LOCALE_MAP_TRANSLATOR;
 
 	/**
 	 * The number of operations of the '<em>Preposition Part</em>' class.
@@ -661,7 +661,7 @@ public interface RelexidPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONJUNCTION_PART___GENERATE__LOCALE_MAP = PART_OF_SPEECH___GENERATE__LOCALE_MAP;
+	int CONJUNCTION_PART___GENERATE__LOCALE_MAP_TRANSLATOR = PART_OF_SPEECH___GENERATE__LOCALE_MAP_TRANSLATOR;
 
 	/**
 	 * The number of operations of the '<em>Conjunction Part</em>' class.
@@ -725,7 +725,7 @@ public interface RelexidPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INTERJECTION_PART___GENERATE__LOCALE_MAP = PART_OF_SPEECH___GENERATE__LOCALE_MAP;
+	int INTERJECTION_PART___GENERATE__LOCALE_MAP_TRANSLATOR = PART_OF_SPEECH___GENERATE__LOCALE_MAP_TRANSLATOR;
 
 	/**
 	 * The number of operations of the '<em>Interjection Part</em>' class.
@@ -1103,7 +1103,7 @@ public interface RelexidPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PUNCTUATION_PART___GENERATE__LOCALE_MAP = PART_OF_SPEECH___GENERATE__LOCALE_MAP;
+	int PUNCTUATION_PART___GENERATE__LOCALE_MAP_TRANSLATOR = PART_OF_SPEECH___GENERATE__LOCALE_MAP_TRANSLATOR;
 
 	/**
 	 * The number of operations of the '<em>Punctuation Part</em>' class.
@@ -1332,7 +1332,7 @@ public interface RelexidPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ADVERB_PART___GENERATE__LOCALE_MAP = PART_OF_SPEECH___GENERATE__LOCALE_MAP;
+	int ADVERB_PART___GENERATE__LOCALE_MAP_TRANSLATOR = PART_OF_SPEECH___GENERATE__LOCALE_MAP_TRANSLATOR;
 
 	/**
 	 * The number of operations of the '<em>Adverb Part</em>' class.
@@ -1405,7 +1405,7 @@ public interface RelexidPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ADJECTIVE_PART___GENERATE__LOCALE_MAP = PART_OF_SPEECH___GENERATE__LOCALE_MAP;
+	int ADJECTIVE_PART___GENERATE__LOCALE_MAP_TRANSLATOR = PART_OF_SPEECH___GENERATE__LOCALE_MAP_TRANSLATOR;
 
 	/**
 	 * The number of operations of the '<em>Adjective Part</em>' class.
@@ -1653,7 +1653,7 @@ public interface RelexidPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNRECOGNIZED_PART___GENERATE__LOCALE_MAP = PART_OF_SPEECH___GENERATE__LOCALE_MAP;
+	int UNRECOGNIZED_PART___GENERATE__LOCALE_MAP_TRANSLATOR = PART_OF_SPEECH___GENERATE__LOCALE_MAP_TRANSLATOR;
 
 	/**
 	 * The number of operations of the '<em>Unrecognized Part</em>' class.
@@ -2153,6 +2153,17 @@ public interface RelexidPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '<em>Translator</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see id.ac.itb.ee.lskk.relexid.core.Translator
+	 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getTranslator()
+	 * @generated
+	 */
+	int TRANSLATOR = 48;
+
+
+	/**
 	 * Returns the meta object for class '{@link id.ac.itb.ee.lskk.relexid.core.Sentence <em>Sentence</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2185,11 +2196,11 @@ public interface RelexidPackage extends EPackage {
 	EReference getSentence_Relations();
 
 	/**
-	 * Returns the meta object for the '{@link id.ac.itb.ee.lskk.relexid.core.Sentence#generate(java.util.Locale, java.util.Map) <em>Generate</em>}' operation.
+	 * Returns the meta object for the '{@link id.ac.itb.ee.lskk.relexid.core.Sentence#generate(java.util.Locale, java.util.Map, id.ac.itb.ee.lskk.relexid.core.Translator) <em>Generate</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Generate</em>' operation.
-	 * @see id.ac.itb.ee.lskk.relexid.core.Sentence#generate(java.util.Locale, java.util.Map)
+	 * @see id.ac.itb.ee.lskk.relexid.core.Sentence#generate(java.util.Locale, java.util.Map, id.ac.itb.ee.lskk.relexid.core.Translator)
 	 * @generated
 	 */
 	EOperation getSentence__Generate__Locale_Map();
@@ -2238,14 +2249,14 @@ public interface RelexidPackage extends EPackage {
 	EAttribute getPartOfSpeech_Word();
 
 	/**
-	 * Returns the meta object for the '{@link id.ac.itb.ee.lskk.relexid.core.PartOfSpeech#generate(java.util.Locale, java.util.Map) <em>Generate</em>}' operation.
+	 * Returns the meta object for the '{@link id.ac.itb.ee.lskk.relexid.core.PartOfSpeech#generate(java.util.Locale, java.util.Map, id.ac.itb.ee.lskk.relexid.core.Translator) <em>Generate</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Generate</em>' operation.
-	 * @see id.ac.itb.ee.lskk.relexid.core.PartOfSpeech#generate(java.util.Locale, java.util.Map)
+	 * @see id.ac.itb.ee.lskk.relexid.core.PartOfSpeech#generate(java.util.Locale, java.util.Map, id.ac.itb.ee.lskk.relexid.core.Translator)
 	 * @generated
 	 */
-	EOperation getPartOfSpeech__Generate__Locale_Map();
+	EOperation getPartOfSpeech__Generate__Locale_Map_Translator();
 
 	/**
 	 * Returns the meta object for class '{@link id.ac.itb.ee.lskk.relexid.core.NounPart <em>Noun Part</em>}'.
@@ -3139,6 +3150,17 @@ public interface RelexidPackage extends EPackage {
 	EDataType getLocale();
 
 	/**
+	 * Returns the meta object for data type '{@link id.ac.itb.ee.lskk.relexid.core.Translator <em>Translator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>Translator</em>'.
+	 * @see id.ac.itb.ee.lskk.relexid.core.Translator
+	 * @model instanceClass="id.ac.itb.ee.lskk.relexid.core.Translator" serializeable="false"
+	 * @generated
+	 */
+	EDataType getTranslator();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3235,7 +3257,7 @@ public interface RelexidPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation PART_OF_SPEECH___GENERATE__LOCALE_MAP = eINSTANCE.getPartOfSpeech__Generate__Locale_Map();
+		EOperation PART_OF_SPEECH___GENERATE__LOCALE_MAP_TRANSLATOR = eINSTANCE.getPartOfSpeech__Generate__Locale_Map_Translator();
 
 		/**
 		 * The meta object literal for the '{@link id.ac.itb.ee.lskk.relexid.core.impl.NounPartImpl <em>Noun Part</em>}' class.
@@ -4008,6 +4030,16 @@ public interface RelexidPackage extends EPackage {
 		 * @generated
 		 */
 		EDataType LOCALE = eINSTANCE.getLocale();
+
+		/**
+		 * The meta object literal for the '<em>Translator</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see id.ac.itb.ee.lskk.relexid.core.Translator
+		 * @see id.ac.itb.ee.lskk.relexid.core.impl.RelexidPackageImpl#getTranslator()
+		 * @generated
+		 */
+		EDataType TRANSLATOR = eINSTANCE.getTranslator();
 
 	}
 

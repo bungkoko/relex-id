@@ -5,6 +5,7 @@ package id.ac.itb.ee.lskk.relexid.core.impl;
 import id.ac.itb.ee.lskk.relexid.core.GeneratedLiteral;
 import id.ac.itb.ee.lskk.relexid.core.RelexidFactory;
 import id.ac.itb.ee.lskk.relexid.core.RelexidPackage;
+import id.ac.itb.ee.lskk.relexid.core.Translator;
 import id.ac.itb.ee.lskk.relexid.core.UnrecognizedPart;
 
 import java.lang.reflect.InvocationTargetException;
@@ -188,7 +189,7 @@ public class UnrecognizedPartImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 */
 	@Override
-	public GeneratedLiteral generate(Locale locale, Map<String, String> dict) {
+	public GeneratedLiteral generate(Locale locale, Map<String, String> dict, Translator translator) {
 		GeneratedLiteral genLit = RelexidFactory.eINSTANCE.createGeneratedLiteral();
 		genLit.setLiteral(getLiteral());
 		return genLit;
@@ -281,8 +282,8 @@ public class UnrecognizedPartImpl extends MinimalEObjectImpl.Container implement
 	@SuppressWarnings("unchecked")
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case RelexidPackage.UNRECOGNIZED_PART___GENERATE__LOCALE_MAP:
-				return generate((Locale)arguments.get(0), (Map<String, String>)arguments.get(1));
+			case RelexidPackage.UNRECOGNIZED_PART___GENERATE__LOCALE_MAP_TRANSLATOR:
+				return generate((Locale)arguments.get(0), (Map<String, String>)arguments.get(1), (Translator)arguments.get(2));
 		}
 		return super.eInvoke(operationID, arguments);
 	}

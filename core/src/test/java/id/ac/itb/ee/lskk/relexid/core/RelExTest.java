@@ -49,6 +49,7 @@ public class RelExTest {
 		relex = new RelEx();
 		relex.setDictionary(DICT_ID_ID);
 		
+		relex.loadTranslations();
 		relex.loadLexRules(RelExTest.class, "lumen.LexRules.xmi");
 		relex.loadRelationRules(RelExTest.class, "lumen.RelationRules.xmi");
 	}
@@ -61,9 +62,20 @@ public class RelExTest {
 	public void akuCintaKamu() {
 		final Sentence sentence = relex.parse("Aku cinta kamu.");
 		log.info("Sentence structure: {}", sentence);
-		log.info("Sentence in English: {}", sentence.generate(Locale.ENGLISH, DICT_EN_US));
-		log.info("Sentence in Indonesian: {}", sentence.generate(RelEx.INDONESIAN, DICT_ID_ID));
+		log.info("Sentence in English: {}", sentence.generate(Locale.ENGLISH, DICT_EN_US, relex));
+		log.info("Sentence in Indonesian: {}", sentence.generate(RelEx.INDONESIAN, DICT_ID_ID, relex));
 		assertEquals("(S (PP i) (VP dbpedia:Love (PP you_o)) . )", sentence.toString());
+	}
+	
+	@Test
+	public void akuCintaKamuGenerate() {
+		final Sentence sentence = relex.parse("Aku cinta kamu.");
+		log.info("Sentence structure: {}", sentence);
+//		log.info("Sentence in English: {}", sentence.generate(Locale.ENGLISH, DICT_EN_US, relex));
+		final String indonesian = sentence.generate(RelEx.INDONESIAN, DICT_ID_ID, relex);
+		log.info("Sentence in Indonesian: {}", indonesian);
+		assertEquals("(S (PP i) (VP wn31:201779456-v (PP you_o)) . )", sentence.toString());
+		assertEquals("Aku sayang kamu.", indonesian);
 	}
 	
 	@Test
@@ -92,20 +104,30 @@ public class RelExTest {
 	
 	@Test
 	public void akuSukaGajah() {
-		relex.loadLexRules(RelExTest.class, "lumen.LexRules.xmi");
 		final Sentence sentence = relex.parse("Aku suka gajah.");
 		log.info("Sentence structure: {}", sentence);
-		log.info("Sentence in English: {}", sentence.generate(Locale.ENGLISH, DICT_EN_US));
-		log.info("Sentence in Indonesian: {}", sentence.generate(RelEx.INDONESIAN, DICT_ID_ID));
+		log.info("Sentence in English: {}", sentence.generate(Locale.ENGLISH, DICT_EN_US, relex));
+		log.info("Sentence in Indonesian: {}", sentence.generate(RelEx.INDONESIAN, DICT_ID_ID, relex));
 		assertEquals("(S (PP i) (VP dbpedia:Like (NP dbpedia:Elephant)) . )", sentence.toString());
+	}
+	
+	@Test
+	public void akuSukaGajahGenerate() {
+		final Sentence sentence = relex.parse("Aku suka gajah.");
+		log.info("Sentence structure: {}", sentence);
+//		log.info("Sentence in English: {}", sentence.generate(Locale.ENGLISH, DICT_EN_US, relex));
+		final String indonesian = sentence.generate(RelEx.INDONESIAN, DICT_ID_ID, relex);
+		log.info("Sentence in Indonesian: {}", indonesian);
+		assertEquals("(S (PP i) (VP dbpedia:Like (NP dbpedia:Elephant)) . )", sentence.toString());
+		assertEquals("Aku suka gajah.", indonesian);
 	}
 	
 	@Test
 	public void akuCintaKamuRelations() {
 		final Sentence sentence = relex.parse("Aku cinta kamu.");
 		log.info("Sentence structure: {}", sentence);
-		log.info("Sentence in English: {}", sentence.generate(Locale.ENGLISH, DICT_EN_US));
-		log.info("Sentence in Indonesian: {}", sentence.generate(RelEx.INDONESIAN, DICT_ID_ID));
+		log.info("Sentence in English: {}", sentence.generate(Locale.ENGLISH, DICT_EN_US, relex));
+		log.info("Sentence in Indonesian: {}", sentence.generate(RelEx.INDONESIAN, DICT_ID_ID, relex));
 		assertEquals("(S (PP i) (VP dbpedia:Love (PP you_o)) . )", sentence.toString());
 
 		List<Relation> relations = sentence.getRelations();
@@ -124,8 +146,8 @@ public class RelExTest {
 		relex.loadLexRules(RelExTest.class, "lumen.LexRules.xmi");
 		final Sentence sentence = relex.parse("Aku suka gajah.");
 		log.info("Sentence structure: {}", sentence);
-		log.info("Sentence in English: {}", sentence.generate(Locale.ENGLISH, DICT_EN_US));
-		log.info("Sentence in Indonesian: {}", sentence.generate(RelEx.INDONESIAN, DICT_ID_ID));
+		log.info("Sentence in English: {}", sentence.generate(Locale.ENGLISH, DICT_EN_US, relex));
+		log.info("Sentence in Indonesian: {}", sentence.generate(RelEx.INDONESIAN, DICT_ID_ID, relex));
 		assertEquals("(S (PP i) (VP dbpedia:Like (NP dbpedia:Elephant)) . )", sentence.toString());
 		
 		List<Relation> relations = sentence.getRelations();

@@ -1,4 +1,4 @@
-# tdbquery --loc=$HOME/wn31_tdb --file ~/git/relex-id/core/verb-translations.sparql
+# tdbquery --loc=$HOME/wn31_tdb --file ~/git/relex-id/core/verb-senses.sparql
 # -----------------------------------------------
 # | translation              | sense            |
 # ===============================================

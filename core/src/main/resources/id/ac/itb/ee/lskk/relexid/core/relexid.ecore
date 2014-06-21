@@ -13,6 +13,7 @@
           <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
         </eGenericType>
       </eParameters>
+      <eParameters name="translator" eType="#//Translator"/>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="literal" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
@@ -35,6 +36,7 @@
           <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
         </eGenericType>
       </eParameters>
+      <eParameters name="translator" eType="#//Translator"/>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="literal" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
@@ -309,4 +311,6 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="object" lowerBound="1"
         upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="Translator" instanceClassName="id.ac.itb.ee.lskk.relexid.core.Translator"
+      serializable="false"/>
 </ecore:EPackage>

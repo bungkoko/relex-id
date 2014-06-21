@@ -6,6 +6,7 @@ import id.ac.itb.ee.lskk.relexid.core.GeneratedLiteral;
 import id.ac.itb.ee.lskk.relexid.core.NounPart;
 import id.ac.itb.ee.lskk.relexid.core.RelexidFactory;
 import id.ac.itb.ee.lskk.relexid.core.RelexidPackage;
+import id.ac.itb.ee.lskk.relexid.core.Translator;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Locale;
@@ -192,7 +193,7 @@ public class NounPartImpl extends MinimalEObjectImpl.Container implements NounPa
 	 * <!-- end-user-doc -->
 	 */
 	@Override
-	public GeneratedLiteral generate(Locale locale, Map<String, String> dict) {
+	public GeneratedLiteral generate(Locale locale, Map<String, String> dict, Translator translator) {
 		String result = "";
 		final String resourceUri = getResource().getNamespaceURI() + getResource().getLocalPart();
 		if (dict.containsKey(resourceUri)) {
@@ -301,8 +302,8 @@ public class NounPartImpl extends MinimalEObjectImpl.Container implements NounPa
 	@SuppressWarnings("unchecked")
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case RelexidPackage.NOUN_PART___GENERATE__LOCALE_MAP:
-				return generate((Locale)arguments.get(0), (Map<String, String>)arguments.get(1));
+			case RelexidPackage.NOUN_PART___GENERATE__LOCALE_MAP_TRANSLATOR:
+				return generate((Locale)arguments.get(0), (Map<String, String>)arguments.get(1), (Translator)arguments.get(2));
 		}
 		return super.eInvoke(operationID, arguments);
 	}

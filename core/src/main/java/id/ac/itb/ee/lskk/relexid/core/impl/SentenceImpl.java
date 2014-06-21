@@ -7,6 +7,7 @@ import id.ac.itb.ee.lskk.relexid.core.PartOfSpeech;
 import id.ac.itb.ee.lskk.relexid.core.Relation;
 import id.ac.itb.ee.lskk.relexid.core.RelexidPackage;
 import id.ac.itb.ee.lskk.relexid.core.Sentence;
+import id.ac.itb.ee.lskk.relexid.core.Translator;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
@@ -147,6 +148,7 @@ public class SentenceImpl extends MinimalEObjectImpl.Container implements Senten
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Relation> getRelations() {
 		if (relations == null) {
 			relations = new EObjectContainmentEList<Relation>(Relation.class, this, RelexidPackage.SENTENCE__RELATIONS);
@@ -159,10 +161,10 @@ public class SentenceImpl extends MinimalEObjectImpl.Container implements Senten
 	 * <!-- end-user-doc -->
 	 */
 	@Override
-	public String generate(Locale locale, Map<String, String> dict) {
+	public String generate(Locale locale, Map<String, String> dict, Translator translator) {
 		String result = "";
 		for (PartOfSpeech part : getParts()) {
-			final GeneratedLiteral literal = part.generate(locale, dict);
+			final GeneratedLiteral literal = part.generate(locale, dict, translator);
 			if (literal.isPreSeparated() && !result.isEmpty()) {
 				result += " ";
 			}
@@ -280,7 +282,7 @@ public class SentenceImpl extends MinimalEObjectImpl.Container implements Senten
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
 			case RelexidPackage.SENTENCE___GENERATE__LOCALE_MAP:
-				return generate((Locale)arguments.get(0), (Map<String, String>)arguments.get(1));
+				return generate((Locale)arguments.get(0), (Map<String, String>)arguments.get(1), (Translator)arguments.get(2));
 		}
 		return super.eInvoke(operationID, arguments);
 	}

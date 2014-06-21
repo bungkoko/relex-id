@@ -44,14 +44,17 @@ Question variable extraction digunakan untuk mendapatkan variabel apa yang ditan
 === Namespaces
 
 ----
-@prefix dbpedia-owl:	<http://dbpedia.org/ontology/> .
-@prefix dbpedia:		<http://dbpedia.org/resource/> .
-@prefix schema:			<http://schema.org> .
-@prefix wn30:			<http://wordnet-rdf.princeton.edu/wn30/> .
+@prefix dbpedia-owl:		<http://dbpedia.org/ontology/> .
+@prefix dbpedia:			<http://dbpedia.org/resource/> .
+@prefix schema:				<http://schema.org> .
+@prefix wordnet-ontology:	<http://wordnet-rdf.princeton.edu/ontology#>
+@prefix wn31: 				<http://wordnet-rdf.princeton.edu/wn31/> .
 ----
 
-Note: Althought I wanted to use `@prefix wn31: <http://wordnet-rdf.princeton.edu/wn31/> .`,
-unfortunately WordNet Bahasa still uses WordNet 3.0 so that's why I'm using right now.
+Note: it's hard to find dataset for `@prefix wn30: <http://wordnet-rdf.princeton.edu/wn30/> .`
+and nobody uses the wn30 purl.org version, so we're using wn31.
+If we need to use wn-msa someday then we'll need to make it wn31-compliant.
+But currently wn31 already provides `ind` translations. :)
 BTW http://wordnet-rdf.princeton.edu/wn30/ namespace always redirects to `wn31`.
 
 === Animal

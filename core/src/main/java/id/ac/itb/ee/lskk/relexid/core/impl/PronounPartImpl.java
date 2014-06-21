@@ -10,6 +10,7 @@ import id.ac.itb.ee.lskk.relexid.core.PronounPerson;
 import id.ac.itb.ee.lskk.relexid.core.Questionable;
 import id.ac.itb.ee.lskk.relexid.core.RelexidFactory;
 import id.ac.itb.ee.lskk.relexid.core.RelexidPackage;
+import id.ac.itb.ee.lskk.relexid.core.Translator;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Locale;
@@ -490,7 +491,7 @@ public class PronounPartImpl extends MinimalEObjectImpl.Container implements Pro
 	 * <!-- end-user-doc -->
 	 */
 	@Override
-	public GeneratedLiteral generate(Locale locale, Map<String, String> dict) {
+	public GeneratedLiteral generate(Locale locale, Map<String, String> dict, Translator translator) {
 		GeneratedLiteral genLiteral = RelexidFactory.eINSTANCE.createGeneratedLiteral();
 		switch (locale.getLanguage()) {
 		case "en":
@@ -813,8 +814,8 @@ public class PronounPartImpl extends MinimalEObjectImpl.Container implements Pro
 	@SuppressWarnings("unchecked")
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case RelexidPackage.PRONOUN_PART___GENERATE__LOCALE_MAP:
-				return generate((Locale)arguments.get(0), (Map<String, String>)arguments.get(1));
+			case RelexidPackage.PRONOUN_PART___GENERATE__LOCALE_MAP_TRANSLATOR:
+				return generate((Locale)arguments.get(0), (Map<String, String>)arguments.get(1), (Translator)arguments.get(2));
 		}
 		return super.eInvoke(operationID, arguments);
 	}

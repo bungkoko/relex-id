@@ -115,9 +115,9 @@ public interface PartOfSpeech extends EObject {
 	 * 
 	 * @param The translations of resources in this locale's language. Note that informal dictionaries (i.e. bahasa gaul/alay) is a valid use case. Key is resource URI and value is literal.
 	 * <!-- end-model-doc -->
-	 * @model required="true" localeDataType="id.ac.itb.ee.lskk.relexid.core.Locale"
+	 * @model required="true" localeDataType="id.ac.itb.ee.lskk.relexid.core.Locale" translatorDataType="id.ac.itb.ee.lskk.relexid.core.Translator"
 	 * @generated
 	 */
-	GeneratedLiteral generate(Locale locale, Map<String, String> dict);
+	GeneratedLiteral generate(Locale locale, Map<String, String> dict, Translator translator);
 
 } // PartOfSpeech

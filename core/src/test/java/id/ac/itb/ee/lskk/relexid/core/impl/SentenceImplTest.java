@@ -53,8 +53,8 @@ public class SentenceImplTest {
 		sentence.getParts().add( PunctuationPartImpl.FULL_STOP );
 		log.info("iLoveYou: {}", sentence);
 		assertEquals("(S (PP i) (VP dbpedia:Love (PP you_o)) . )", sentence.toString());
-		assertEquals("I love you.", sentence.generate(Locale.ENGLISH, DICT_EN_US));
-		assertEquals("Aku cinta kamu.", sentence.generate(SentenceImpl.INDONESIAN, DICT_ID_ID));
+		assertEquals("I love you.", sentence.generate(Locale.ENGLISH, DICT_EN_US, null));
+		assertEquals("Aku cinta kamu.", sentence.generate(SentenceImpl.INDONESIAN, DICT_ID_ID, null));
 	}
 
 }

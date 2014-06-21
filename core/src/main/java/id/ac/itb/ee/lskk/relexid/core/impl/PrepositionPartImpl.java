@@ -5,17 +5,17 @@ package id.ac.itb.ee.lskk.relexid.core.impl;
 import id.ac.itb.ee.lskk.relexid.core.GeneratedLiteral;
 import id.ac.itb.ee.lskk.relexid.core.PrepositionPart;
 import id.ac.itb.ee.lskk.relexid.core.RelexidPackage;
+import id.ac.itb.ee.lskk.relexid.core.Translator;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Locale;
 import java.util.Map;
+
 import javax.xml.namespace.QName;
 
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
@@ -182,7 +182,7 @@ public class PrepositionPartImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public GeneratedLiteral generate(Locale locale, Map<String, String> dict) {
+	public GeneratedLiteral generate(Locale locale, Map<String, String> dict, Translator translator) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -275,8 +275,8 @@ public class PrepositionPartImpl extends MinimalEObjectImpl.Container implements
 	@SuppressWarnings("unchecked")
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case RelexidPackage.PREPOSITION_PART___GENERATE__LOCALE_MAP:
-				return generate((Locale)arguments.get(0), (Map<String, String>)arguments.get(1));
+			case RelexidPackage.PREPOSITION_PART___GENERATE__LOCALE_MAP_TRANSLATOR:
+				return generate((Locale)arguments.get(0), (Map<String, String>)arguments.get(1), (Translator)arguments.get(2));
 		}
 		return super.eInvoke(operationID, arguments);
 	}

@@ -5,9 +5,9 @@ package id.ac.itb.ee.lskk.relexid.core.impl;
 import id.ac.itb.ee.lskk.relexid.core.GeneratedLiteral;
 import id.ac.itb.ee.lskk.relexid.core.PartContainer;
 import id.ac.itb.ee.lskk.relexid.core.PartOfSpeech;
-import id.ac.itb.ee.lskk.relexid.core.RelEx;
 import id.ac.itb.ee.lskk.relexid.core.RelexidFactory;
 import id.ac.itb.ee.lskk.relexid.core.RelexidPackage;
+import id.ac.itb.ee.lskk.relexid.core.Translator;
 import id.ac.itb.ee.lskk.relexid.core.VerbPart;
 
 import java.lang.reflect.InvocationTargetException;
@@ -230,18 +230,19 @@ public class VerbPartImpl extends MinimalEObjectImpl.Container implements VerbPa
 	 * <!-- end-user-doc -->
 	 */
 	@Override
-	public GeneratedLiteral generate(Locale locale, Map<String, String> dict) {
+	public GeneratedLiteral generate(Locale locale, Map<String, String> dict, Translator translator) {
 		String result = "";
 		final String resourceUri = getResource().getNamespaceURI() + getResource().getLocalPart();
 		if (dict.containsKey(resourceUri)) {
 			result += dict.get(resourceUri);
 		} else {
-			result += RelEx.shortQName(getResource());
-			log.warn("Resource {} not in dictionary for {} with {} entries",
-					RelEx.shortQName(getResource()), locale, dict.size());
+			result += translator.getTranslation(getResource());
+//			result += RelEx.shortQName(getResource());
+//			log.warn("Resource {} not in dictionary for {} with {} entries",
+//					RelEx.shortQName(getResource()), locale, dict.size());
 		}
 		for (PartOfSpeech part : getParts()) {
-			final GeneratedLiteral literal = part.generate(locale, dict);
+			final GeneratedLiteral literal = part.generate(locale, dict, translator);
 			if (literal.isPreSeparated() && !result.isEmpty()) {
 				result += " ";
 			}
@@ -397,8 +398,8 @@ public class VerbPartImpl extends MinimalEObjectImpl.Container implements VerbPa
 	@SuppressWarnings("unchecked")
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case RelexidPackage.VERB_PART___GENERATE__LOCALE_MAP:
-				return generate((Locale)arguments.get(0), (Map<String, String>)arguments.get(1));
+			case RelexidPackage.VERB_PART___GENERATE__LOCALE_MAP_TRANSLATOR:
+				return generate((Locale)arguments.get(0), (Map<String, String>)arguments.get(1), (Translator)arguments.get(2));
 		}
 		return super.eInvoke(operationID, arguments);
 	}

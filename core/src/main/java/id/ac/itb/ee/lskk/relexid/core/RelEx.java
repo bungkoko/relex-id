@@ -27,6 +27,7 @@ import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ListMultimap;
 import com.google.common.collect.Range;
 import com.hp.hpl.jena.query.Dataset;
+import com.hp.hpl.jena.query.ParameterizedSparqlString;
 import com.hp.hpl.jena.query.Query;
 import com.hp.hpl.jena.query.QueryExecution;
 import com.hp.hpl.jena.query.QueryExecutionFactory;
@@ -38,8 +39,18 @@ import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.tdb.TDBFactory;
 
-public class RelEx {
+public class RelEx implements Translator {
 	
+	private static final String WORDNET_ONTOLOGY_NS = "http://wordnet-rdf.princeton.edu/ontology#";
+	private static final String SPARQL_PREFIXES =
+					"PREFIX rdf:					<http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n"
+					+ "PREFIX rdfs:				<http://www.w3.org/2000/01/rdf-schema#>\n"
+					+ "PREFIX owl:					<http://www.w3.org/2002/07/owl#>\n"
+					+ "PREFIX lemon:				<http://lemon-model.net/lemon#>\n"
+					+ "PREFIX wn31:				<http://wordnet-rdf.princeton.edu/wn31/>\n"
+					+ "PREFIX wordnet-ontology:	<http://wordnet-rdf.princeton.edu/ontology#>\n"
+					+ "PREFIX wn20:				<http://www.w3.org/2006/03/wn/wn20/instances/>\n"
+					+ "PREFIX uby:					<http://lemon-model.net/lexica/uby/wn/>\n";
 	private static final Logger log = LoggerFactory.getLogger(RelEx.class);
 	public static final Locale INDONESIAN = Locale.forLanguageTag("id-ID");
 	public static final String DBPEDIA_NS = "http://dbpedia.org/resource/";
@@ -59,6 +70,7 @@ public class RelEx {
 	 * @todo These aren't sorted/prioritized in any way.
 	 */
 	private ListMultimap<String, String> verbTranslations;
+	private Dataset wn31tdb;
 	
 	public static class Tokenizer {
 		enum CharType {
@@ -116,6 +128,7 @@ public class RelEx {
 		model.setNsPrefix("dbpedia", "http://dbpedia.org/resource/");
 		model.setNsPrefix("dbpedia-owl", "http://dbpedia.org/ontology/");
 		model.setNsPrefix("schema", "http://schema.org/");
+		model.setNsPrefix("wordnet-ontology", WORDNET_ONTOLOGY_NS);
 		model.setNsPrefix("wn31", WN31_NS);
 	}
 
@@ -129,20 +142,37 @@ public class RelEx {
 		relationRules = new OnDemandXmiLoader<RelationRules>(RelexidPackage.eINSTANCE, clazz, resourcePath).get();
 	}
 	
+	@Override
+	public String getTranslation(QName ref) {
+		ParameterizedSparqlString stmt = new ParameterizedSparqlString("SELECT ?translation WHERE {\n" +
+				"?sense wordnet-ontology:translation ?translation\n" +
+				"FILTER ( lang(?translation) = 'ind' )\n"
+				+ "}", model);
+		stmt.setIri("sense", this.asRef(ref));
+		final String sparql = stmt.toString();
+		log.debug("select SPARQL: {}", sparql);
+		Query verbTxQuery = QueryFactory.create(sparql);
+		QueryExecution qexec = QueryExecutionFactory.create(verbTxQuery, wn31tdb);
+		try {
+			ResultSet rs = qexec.execSelect();
+			for (; rs.hasNext(); ) {
+				QuerySolution soln = rs.next();
+				String translation = soln.get("translation").asLiteral().getString();
+				return translation;
+			}
+			throw new IllegalArgumentException("Cannot find Indonesian translation for sense " + ref);
+		} finally {
+			qexec.close();
+		}
+	}
+	
 	public void loadTranslations() {
 		verbTranslations = ArrayListMultimap.create();
 		final String wn31loc = System.getProperty("user.home") + "/wn31_tdb";
 		log.info("Initializing WordNet 3.1 TDB database at {}", wn31loc);
-		Dataset wn31tdb = TDBFactory.createDataset(wn31loc);
+		wn31tdb = TDBFactory.createDataset(wn31loc);
 		log.info("Loading verb translations...");
-		Query verbTxQuery = QueryFactory.create("PREFIX rdf:					<http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n"
-				+ "PREFIX rdfs:				<http://www.w3.org/2000/01/rdf-schema#>\n"
-				+ "PREFIX owl:					<http://www.w3.org/2002/07/owl#>\n"
-				+ "PREFIX lemon:				<http://lemon-model.net/lemon#>\n"
-				+ "PREFIX wn31:				<http://wordnet-rdf.princeton.edu/wn31/>\n"
-				+ "PREFIX wordnet-ontology:	<http://wordnet-rdf.princeton.edu/ontology#>\n"
-				+ "PREFIX wn20:				<http://www.w3.org/2006/03/wn/wn20/instances/>\n"
-				+ "PREFIX uby:					<http://lemon-model.net/lexica/uby/wn/>\n"
+		Query verbTxQuery = QueryFactory.create(SPARQL_PREFIXES
 				+ "SELECT ?translation ?sense\n"
 				+ "WHERE {\n"
 				+ "	?sense wordnet-ontology:translation ?t ;"

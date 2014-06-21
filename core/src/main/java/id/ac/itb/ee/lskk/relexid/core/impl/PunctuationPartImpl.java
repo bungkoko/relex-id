@@ -7,6 +7,7 @@ import id.ac.itb.ee.lskk.relexid.core.Punctuation;
 import id.ac.itb.ee.lskk.relexid.core.PunctuationPart;
 import id.ac.itb.ee.lskk.relexid.core.RelexidFactory;
 import id.ac.itb.ee.lskk.relexid.core.RelexidPackage;
+import id.ac.itb.ee.lskk.relexid.core.Translator;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Locale;
@@ -254,7 +255,7 @@ public class PunctuationPartImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 */
 	@Override
-	public GeneratedLiteral generate(Locale locale, Map<String, String> dict) {
+	public GeneratedLiteral generate(Locale locale, Map<String, String> dict, Translator translator) {
 		GeneratedLiteral genLiteral = RelexidFactory.eINSTANCE.createGeneratedLiteral();
 		genLiteral.setLiteral(getLiteral());
 		genLiteral.setPreSeparated(false);
@@ -358,8 +359,8 @@ public class PunctuationPartImpl extends MinimalEObjectImpl.Container implements
 	@SuppressWarnings("unchecked")
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case RelexidPackage.PUNCTUATION_PART___GENERATE__LOCALE_MAP:
-				return generate((Locale)arguments.get(0), (Map<String, String>)arguments.get(1));
+			case RelexidPackage.PUNCTUATION_PART___GENERATE__LOCALE_MAP_TRANSLATOR:
+				return generate((Locale)arguments.get(0), (Map<String, String>)arguments.get(1), (Translator)arguments.get(2));
 		}
 		return super.eInvoke(operationID, arguments);
 	}
