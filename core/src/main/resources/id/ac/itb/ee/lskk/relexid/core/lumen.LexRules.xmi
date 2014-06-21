@@ -12,6 +12,30 @@
         captureGroup="1">
       <replacements
           xsi:type="relexid:ResourceReplacement"
+          partOfSpeech="noun"
+          captureGroup="2"/>
+    </replacements>
+    <replacements
+        xsi:type="relexid:ResourceReplacement"
+        partOfSpeech="adjective"
+        captureGroup="3"/>
+    <matchers
+        xsi:type="relexid:PartOfSpeechMatcher"
+        partOfSpeech="noun"/>
+    <matchers
+        xsi:type="relexid:PartOfSpeechMatcher"
+        partOfSpeech="noun"/>
+    <matchers
+        xsi:type="relexid:PartOfSpeechMatcher"
+        partOfSpeech="adjective"/>
+  </rules>
+  <rules>
+    <replacements
+        xsi:type="relexid:ResourceReplacement"
+        partOfSpeech="noun"
+        captureGroup="1">
+      <replacements
+          xsi:type="relexid:ResourceReplacement"
           partOfSpeech="adjective_satellite"
           captureGroup="2"/>
     </replacements>

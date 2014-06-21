@@ -200,6 +200,17 @@ public class RelExTest {
 	}
 	
 	@Test
+	public void hatiIbuLembut() {
+		final Sentence sentence = relex.parse("Hati ibu lembut.");
+		log.info("Sentence structure: {}", sentence);
+		log.info("Sentence in English: {}", sentence.generate(Locale.ENGLISH, DICT_EN_US, relex));
+		final String indonesian = sentence.generate(RelEx.INDONESIAN, DICT_ID_ID, relex);
+		log.info("Sentence in Indonesian: {}", indonesian);
+		assertEquals("(S (NP (NP mother-n) heart-n) (AP kind-a) . )", sentence.toString());
+		assertEquals("Kebaikan hati ibu penyayang.", indonesian);
+	}
+	
+	@Test
 	public void akuCintaKamuRelations() {
 		final Sentence sentence = relex.parse("Aku cinta kamu.");
 		log.info("Sentence structure: {}", sentence);
