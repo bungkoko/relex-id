@@ -246,7 +246,7 @@ public class NounPartImpl extends MinimalEObjectImpl.Container implements NounPa
 		if (dict.containsKey(resourceUri)) {
 			result += dict.get(resourceUri);
 		} else {
-			result += translator.getTranslation(getResource());
+			result += translator.getTranslation(locale, getResource());
 //			result += getResource().toString();
 //			log.warn("Resource {} not in dictionary for {} with {} entries",
 //					getResource(), locale, dict.size());

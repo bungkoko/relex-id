@@ -166,14 +166,23 @@ public class RelEx implements Translator, LabelProvider {
 	}
 	
 	@Override
-	public String getTranslation(QName ref) {
-		ParameterizedSparqlString stmt = new ParameterizedSparqlString("SELECT ?translation WHERE {\n" +
-				"?sense wordnet-ontology:translation ?translation\n" +
-				"FILTER ( lang(?translation) = 'ind' )\n"
-				+ "}", model);
+	public String getTranslation(Locale locale, QName ref) {
+		String lang = locale.getISO3Language();
+		ParameterizedSparqlString stmt;
+		if (Locale.ENGLISH.getLanguage().equals(locale.getLanguage())) {
+			stmt = new ParameterizedSparqlString("SELECT ?translation WHERE {\n"
+					+ "?sense rdfs:label ?translation\n"
+					+ "}", model);
+		} else {
+			stmt = new ParameterizedSparqlString("SELECT ?translation WHERE {\n" +
+					"?sense wordnet-ontology:translation ?translation\n" +
+					"FILTER ( lang(?translation) = ?lang )\n"
+					+ "}", model);
+			stmt.setLiteral("lang", lang);
+		}
 		stmt.setIri("sense", this.asRef(ref));
 		final String sparql = stmt.toString();
-		log.debug("getTranslation SPARQL: {}", sparql);
+		log.debug("getTranslation {} {} SPARQL: {}", locale, ref, sparql);
 		Query verbTxQuery = QueryFactory.create(sparql);
 		QueryExecution qexec = QueryExecutionFactory.create(verbTxQuery, wn31tdb);
 		try {
@@ -183,7 +192,7 @@ public class RelEx implements Translator, LabelProvider {
 				String translation = soln.get("translation").asLiteral().getString();
 				return translation;
 			}
-			throw new IllegalArgumentException("Cannot find Indonesian translation for sense " + ref);
+			throw new IllegalArgumentException("Cannot find " + lang + " translation for sense " + ref);
 		} finally {
 			qexec.close();
 		}

@@ -281,7 +281,7 @@ public class VerbPartImpl extends MinimalEObjectImpl.Container implements VerbPa
 		if (dict.containsKey(resourceUri)) {
 			result += dict.get(resourceUri);
 		} else {
-			result += translator.getTranslation(getResource());
+			result += translator.getTranslation(locale, getResource());
 //			result += RelEx.shortQName(getResource());
 //			log.warn("Resource {} not in dictionary for {} with {} entries",
 //					RelEx.shortQName(getResource()), locale, dict.size());
