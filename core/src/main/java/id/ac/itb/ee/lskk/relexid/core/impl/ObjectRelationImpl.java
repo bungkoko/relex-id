@@ -4,6 +4,7 @@ package id.ac.itb.ee.lskk.relexid.core.impl;
 
 import id.ac.itb.ee.lskk.relexid.core.ObjectRelation;
 import id.ac.itb.ee.lskk.relexid.core.PartOfSpeech;
+import id.ac.itb.ee.lskk.relexid.core.RelEx;
 import id.ac.itb.ee.lskk.relexid.core.RelexidPackage;
 import id.ac.itb.ee.lskk.relexid.core.VerbPart;
 
@@ -219,7 +220,9 @@ public class ObjectRelationImpl extends MinimalEObjectImpl.Container implements 
 	
 	@Override
 	public String toString() {
-		return "_obj(" + getVerb() + ", " + getObject() + ")";		
+		final String verbName = getVerb().getName() != null ? getVerb().getName() : RelEx.shortQName(getVerb());
+		final String objectName = getObject().getName() != null ? getObject().getName() : RelEx.shortQName(getObject());
+		return "_subj(" + verbName + ", " + objectName + ")";		
 	}
 
 } //ObjectRelationImpl
