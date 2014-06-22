@@ -230,6 +230,25 @@ public class RelExTest {
 	}
 	
 	@Test
+	public void KamuSayangDia_DiaMengagumiPenyanyiRelations() {
+		final Sentence sentence = relex.parse("Kamu sayang dia.\nDia mengagumi penyanyi.");
+		log.info("Sentence structure: {}", sentence);
+		log.info("Sentence in English: {}", sentence.generate(Locale.ENGLISH, DICT_EN_US, relex));
+		log.info("Sentence in Indonesian: {}", sentence.generate(RelEx.INDONESIAN, DICT_ID_ID, relex));
+		assertEquals("(S (PP you_s) (VP love-v (PP him)) . (PP he) (VP admire-v (NP singer-n)) . )", sentence.toString());
+
+		List<Relation> relations = sentence.getRelations();
+		log.info("Relations: {}", relations);
+		for (Relation rel : relations) {
+			System.out.println(rel);
+		}
+		
+		assertThat(relations, hasSize(4));
+		assertThat(relations, Matchers.<Relation>hasItem( instanceOf(SubjectRelation.class) ));
+		assertThat(relations, Matchers.<Relation>hasItem( instanceOf(ObjectRelation.class) ));
+	}
+	
+	@Test
 	public void akuSukaGajahRelations() {
 		relex.loadLexRules(RelExTest.class, "lumen.LexRules.xmi");
 		final Sentence sentence = relex.parse("Aku suka gajah.");

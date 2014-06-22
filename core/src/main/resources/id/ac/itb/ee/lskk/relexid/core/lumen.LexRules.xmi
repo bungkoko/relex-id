@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ASCII"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <relexid:LexRules xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:relexid="http://relexid/1.0"
 	xsi:schemaLocation="http://relexid/1.0 relexid.ecore">
@@ -38,11 +38,163 @@
 		</replacements>
 		<matchers xsi:type="relexid:LiteralMatcher">
 			<literals>aku</literals>
+			<literals>saya</literals>
+			<literals>aq</literals>
+			<literals>ku</literals>
+			<literals>q</literals>
 		</matchers>
 		<matchers xsi:type="relexid:PartOfSpeechMatcher"
 			partOfSpeech="verb" />
 		<matchers xsi:type="relexid:LiteralMatcher">
 			<literals>kamu</literals>
+			<literals>anda</literals>
+			<literals>kau</literals>
+			<literals>km</literals>
+			<literals>kmu</literals>
+		</matchers>
+	</rules>
+	<rules>
+		<replacements xsi:type="relexid:PronounReplacement"
+			partOfSpeech="pronoun" />
+		<replacements xsi:type="relexid:ResourceReplacement"
+			partOfSpeech="verb" captureGroup="2">
+			<replacements xsi:type="relexid:PronounReplacement"
+				partOfSpeech="pronoun" person="third" case="object" />
+		</replacements>
+		<matchers xsi:type="relexid:LiteralMatcher">
+			<literals>aku</literals>
+			<literals>saya</literals>
+			<literals>aq</literals>
+			<literals>ku</literals>
+			<literals>q</literals>
+		</matchers>
+		<matchers xsi:type="relexid:PartOfSpeechMatcher"
+			partOfSpeech="verb" />
+		<matchers xsi:type="relexid:LiteralMatcher">
+			<literals>dia</literals>
+			<literals>ia</literals>
+			<literals>dya</literals>
+			<literals>dy</literals>
+		</matchers>
+	</rules>
+	<rules>
+		<replacements xsi:type="relexid:PronounReplacement"
+			partOfSpeech="pronoun" />
+		<replacements xsi:type="relexid:ResourceReplacement"
+			partOfSpeech="verb" captureGroup="2">
+			<replacements xsi:type="relexid:PronounReplacement"
+				partOfSpeech="pronoun" person="third" number="plural" case="object" />
+		</replacements>
+		<matchers xsi:type="relexid:LiteralMatcher">
+			<literals>aku</literals>
+			<literals>saya</literals>
+			<literals>aq</literals>
+			<literals>ku</literals>
+			<literals>q</literals>
+		</matchers>
+		<matchers xsi:type="relexid:PartOfSpeechMatcher"
+			partOfSpeech="verb" />
+		<matchers xsi:type="relexid:LiteralMatcher">
+			<literals>mereka</literals>
+			<literals>mrk</literals>
+			<literals>mrka</literals>
+		</matchers>
+	</rules>
+	<rules>
+		<replacements xsi:type="relexid:PronounReplacement"
+			partOfSpeech="pronoun" person="second"/>
+		<replacements xsi:type="relexid:ResourceReplacement"
+			partOfSpeech="verb" captureGroup="2">
+			<replacements xsi:type="relexid:PronounReplacement"
+				partOfSpeech="pronoun" person="first" case="object" />
+		</replacements>
+		<matchers xsi:type="relexid:LiteralMatcher">
+			<literals>kamu</literals>
+			<literals>anda</literals>
+			<literals>kau</literals>
+			<literals>km</literals>
+			<literals>kmu</literals>
+		</matchers>
+		<matchers xsi:type="relexid:PartOfSpeechMatcher"
+			partOfSpeech="verb" />
+		<matchers xsi:type="relexid:LiteralMatcher">
+			<literals>aku</literals>
+			<literals>saya</literals>
+			<literals>aq</literals>
+			<literals>ku</literals>
+			<literals>q</literals>
+		</matchers>
+	</rules>
+	<rules>
+		<replacements xsi:type="relexid:PronounReplacement"
+			partOfSpeech="pronoun" person="second"/>
+		<replacements xsi:type="relexid:ResourceReplacement"
+			partOfSpeech="verb" captureGroup="2">
+			<replacements xsi:type="relexid:PronounReplacement"
+				partOfSpeech="pronoun" person="third" case="object" />
+		</replacements>
+		<matchers xsi:type="relexid:LiteralMatcher">
+			<literals>kamu</literals>
+			<literals>anda</literals>
+			<literals>kau</literals>
+			<literals>km</literals>
+			<literals>kmu</literals>
+		</matchers>
+		<matchers xsi:type="relexid:PartOfSpeechMatcher"
+			partOfSpeech="verb" />
+		<matchers xsi:type="relexid:LiteralMatcher">
+			<literals>dia</literals>
+			<literals>ia</literals>
+			<literals>dya</literals>
+			<literals>dy</literals>
+		</matchers>
+	</rules>
+	<rules>
+		<replacements xsi:type="relexid:PronounReplacement"
+			partOfSpeech="pronoun" person="third"/>
+		<replacements xsi:type="relexid:ResourceReplacement"
+			partOfSpeech="verb" captureGroup="2">
+			<replacements xsi:type="relexid:PronounReplacement"
+				partOfSpeech="pronoun" person="first" case="object" />
+		</replacements>
+		<matchers xsi:type="relexid:LiteralMatcher">
+			<literals>dia</literals>
+			<literals>ia</literals>
+			<literals>dya</literals>
+			<literals>dy</literals>
+		</matchers>
+		<matchers xsi:type="relexid:PartOfSpeechMatcher"
+			partOfSpeech="verb" />
+		<matchers xsi:type="relexid:LiteralMatcher">
+			<literals>aku</literals>
+			<literals>saya</literals>
+			<literals>aq</literals>
+			<literals>ku</literals>
+			<literals>q</literals>
+		</matchers>
+	</rules>
+	<rules>
+		<replacements xsi:type="relexid:PronounReplacement"
+			partOfSpeech="pronoun" person="third"/>
+		<replacements xsi:type="relexid:ResourceReplacement"
+			partOfSpeech="verb" captureGroup="2">
+			<replacements xsi:type="relexid:PronounReplacement"
+				partOfSpeech="pronoun" person="second" case="object" />
+		</replacements>
+		<matchers xsi:type="relexid:LiteralMatcher">
+			<literals>dia</literals>
+			<literals>ia</literals>
+			<literals>dya</literals>
+			<literals>dy</literals>
+		</matchers>
+		<matchers xsi:type="relexid:PartOfSpeechMatcher"
+			partOfSpeech="verb" />
+		<matchers xsi:type="relexid:LiteralMatcher">
+			<literals>kamu</literals>
+			<literals>anda</literals>
+			<literals>kau</literals>
+			<literals>km</literals>
+			<literals>kmu</literals>
 		</matchers>
 	</rules>
 	<rules>
@@ -55,6 +207,10 @@
 		</replacements>
 		<matchers xsi:type="relexid:LiteralMatcher">
 			<literals>aku</literals>
+			<literals>saya</literals>
+			<literals>aq</literals>
+			<literals>ku</literals>
+			<literals>q</literals>
 		</matchers>
 		<matchers xsi:type="relexid:PartOfSpeechMatcher"
 			partOfSpeech="verb" />
@@ -70,6 +226,86 @@
 		</replacements>
 		<matchers xsi:type="relexid:LiteralMatcher">
 			<literals>aku</literals>
+			<literals>saya</literals>
+			<literals>aq</literals>
+			<literals>ku</literals>
+			<literals>q</literals>
+		</matchers>
+		<matchers xsi:type="relexid:PartOfSpeechMatcher"
+			partOfSpeech="verb" />
+		<matchers xsi:type="relexid:PartOfSpeechMatcher"
+			partOfSpeech="noun" />
+	</rules>
+	<rules>
+		<replacements xsi:type="relexid:PronounReplacement"
+			partOfSpeech="pronoun" person="second"/>
+		<replacements xsi:type="relexid:ResourceReplacement"
+			partOfSpeech="verb" captureGroup="2">
+			<replacements xsi:type="relexid:RecognizedReplacement"
+				capturingGroup="3" />
+		</replacements>
+		<matchers xsi:type="relexid:LiteralMatcher">
+			<literals>kamu</literals>
+			<literals>anda</literals>
+			<literals>kau</literals>
+			<literals>km</literals>
+			<literals>kmu</literals>
+		</matchers>
+		<matchers xsi:type="relexid:PartOfSpeechMatcher"
+			partOfSpeech="verb" />
+		<matchers xsi:type="relexid:RecognizedMatcher" partOfSpeech="noun" />
+	</rules>
+	<rules>
+		<replacements xsi:type="relexid:PronounReplacement"
+			partOfSpeech="pronoun" person="second" />
+		<replacements xsi:type="relexid:ResourceReplacement"
+			partOfSpeech="verb" captureGroup="2">
+			<replacements xsi:type="relexid:ResourceReplacement"
+				partOfSpeech="noun" captureGroup="3" />
+		</replacements>
+		<matchers xsi:type="relexid:LiteralMatcher">
+			<literals>kamu</literals>
+			<literals>anda</literals>
+			<literals>kau</literals>
+			<literals>km</literals>
+			<literals>kmu</literals>
+		</matchers>
+		<matchers xsi:type="relexid:PartOfSpeechMatcher"
+			partOfSpeech="verb" />
+		<matchers xsi:type="relexid:PartOfSpeechMatcher"
+			partOfSpeech="noun" />
+	</rules>
+	<rules>
+		<replacements xsi:type="relexid:PronounReplacement"
+			partOfSpeech="pronoun" person="third"/>
+		<replacements xsi:type="relexid:ResourceReplacement"
+			partOfSpeech="verb" captureGroup="2">
+			<replacements xsi:type="relexid:RecognizedReplacement"
+				capturingGroup="3" />
+		</replacements>
+		<matchers xsi:type="relexid:LiteralMatcher">
+			<literals>dia</literals>
+			<literals>ia</literals>
+			<literals>dya</literals>
+			<literals>dy</literals>
+		</matchers>
+		<matchers xsi:type="relexid:PartOfSpeechMatcher"
+			partOfSpeech="verb" />
+		<matchers xsi:type="relexid:RecognizedMatcher" partOfSpeech="noun" />
+	</rules>
+	<rules>
+		<replacements xsi:type="relexid:PronounReplacement"
+			partOfSpeech="pronoun" person="third" />
+		<replacements xsi:type="relexid:ResourceReplacement"
+			partOfSpeech="verb" captureGroup="2">
+			<replacements xsi:type="relexid:ResourceReplacement"
+				partOfSpeech="noun" captureGroup="3" />
+		</replacements>
+		<matchers xsi:type="relexid:LiteralMatcher">
+			<literals>dia</literals>
+			<literals>ia</literals>
+			<literals>dya</literals>
+			<literals>dy</literals>
 		</matchers>
 		<matchers xsi:type="relexid:PartOfSpeechMatcher"
 			partOfSpeech="verb" />

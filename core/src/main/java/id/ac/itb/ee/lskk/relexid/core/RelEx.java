@@ -18,6 +18,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.soluvas.commons.OnDemandXmiLoader;
 
+import com.google.common.base.CharMatcher;
 import com.google.common.base.Preconditions;
 import com.google.common.base.Strings;
 import com.google.common.collect.ArrayListMultimap;
@@ -106,7 +107,7 @@ public class RelEx implements Translator, LabelProvider {
 			for (int i = 0; i < input.length(); i++) {
 				char ch = input.charAt(i);
 				final CharType nextType;
-				if (ch == ' ') {
+				if (CharMatcher.BREAKING_WHITESPACE.matches(ch)) {
 					nextType = CharType.WHITESPACE;
 				} else if (ch == '.') {
 					nextType = CharType.PUNCTUATION_FULL_STOP;
