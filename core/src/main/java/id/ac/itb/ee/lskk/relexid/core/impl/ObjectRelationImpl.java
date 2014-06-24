@@ -222,7 +222,7 @@ public class ObjectRelationImpl extends MinimalEObjectImpl.Container implements 
 	public String toString() {
 		final String verbName = getVerb().getName() != null ? getVerb().getName() : RelEx.shortQName(getVerb());
 		final String objectName = getObject().getName() != null ? getObject().getName() : RelEx.shortQName(getObject());
-		return "_subj(" + verbName + ", " + objectName + ")";		
+		return "_obj(" + verbName + ", " + objectName + ")";		
 	}
 
 } //ObjectRelationImpl
