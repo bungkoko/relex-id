@@ -10,6 +10,8 @@
 
 	<logger name="id.ac" level="DEBUG" />
 <!-- 	<logger name="id.ac.itb.ee.lskk.relexid.core" level="TRACE" /> -->
+	<logger name="it.uniroma1" level="DEBUG" />
+	<logger name="org.apache.commons.configuration" level="DEBUG" />
 
 	<root level="INFO">
 		<appender-ref ref="STDOUT" />

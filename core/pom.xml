@@ -25,6 +25,48 @@
 		</dependency>
 		
 		<dependency>
+		    <groupId>commons-configuration</groupId>
+		    <artifactId>commons-configuration</artifactId>
+		    <version>1.10</version>
+		</dependency>		
+		<dependency>
+		    <groupId>net.sf.jung</groupId>
+		    <artifactId>jung-algorithms</artifactId>
+		    <version>2.0.1</version>
+		</dependency>		
+		<dependency>
+		    <groupId>edu.mit</groupId>
+		    <artifactId>jwi</artifactId>
+		    <version>2.2.3</version>
+		</dependency>
+		<dependency>
+		    <groupId>net.sourceforge.owlapi</groupId>
+		    <artifactId>owlapi-distribution</artifactId>
+		    <version>3.5.0</version>
+		</dependency>
+		<dependency>
+			<groupId>it.uniroma1.lcl</groupId>
+			<artifactId>jlt</artifactId>
+			<version>1.0.0</version>
+		</dependency>
+		<!-- already included below, but required by babelnet: dependency>
+			<groupId>org.apache.jena</groupId>
+			<artifactId>jena-arq</artifactId>
+			<version>2.11.2</version>
+		</dependency-->
+		<dependency>
+			<!-- TODO: babelnet needs to be upgraded to Lucene 4.9+ -->
+			<groupId>org.apache.lucene</groupId>
+			<artifactId>lucene-core</artifactId>
+			<version>2.9.4</version>
+		</dependency>
+		<dependency>
+			<groupId>org.babelnet</groupId>
+			<artifactId>babelnet-api</artifactId>
+			<version>2.5</version>
+		</dependency>
+
+		<dependency>
 			<groupId>org.apache.jena</groupId>
 			<artifactId>jena-tdb</artifactId>
 		</dependency>

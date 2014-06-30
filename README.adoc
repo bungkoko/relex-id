@@ -338,6 +338,23 @@ Check:
 tdbquery --results text --loc ~/wn31_tdb --file ~/git/relex-id/core/me.sparql
 ----
 
+== BabelNet
+
+Required to run `id.ac.itb.ee.lskk.relexid.core.BabelNetTest`
+
+1. Extract [BabelNet-API-2.5.zip](http://babelnet.org/download.jsp) to `$HOME/BabelNet-API-2.5`
+2. Extract the indexes to $HOME (will create subdirectories inside `$HOME/BabelNet-2.5`. For testing you can use the small indexes only:
+   a. babelnet-2.5-APACHE-20-index.tar.bz2
+   b. babelnet-2.5-CC-BY-30-index.tar.bz2
+   c. babelnet-2.5-CC-BY-NC-SA-30-index.tar.bz2
+   d. babelnet-2.5-CECILL-C-index.tar.bz2
+3. BabelNet API v1.0.1 + Path indexes v1.0.1: (I think we can use 1.1.1 instead, but not 2.0+)
+   a. http://lcl.uniroma1.it/babelnet/data/babelnet-api-1.0.1.tar.gz 
+   b. http://lcl.uniroma1.it/babelnet/data/babelnet-1.0.1-core-lucene.tar.bz2
+   See [Ciarán Ó Duibhín's article](http://www.smo.uhi.ac.uk/~oduibhin/oideasra/interfaces/winbabelnet.htm) for reason.
+4. Edit `$HOME/BabelNet-API-2.5/config/babelnet.var.properties` and set `babelnet.dir` to `${user.home}/BabelNet-2.5`.
+5. Edit `$HOME/BabelNet-API-2.5/config/knowledge.var.properties` and set `knowledge.graph.pathIndex` to `${user.home}/BabelNet-1.0.1`.
+
 == References
 
 1. [WordNet 3.1 RDF](http://wordnet-rdf.princeton.edu/)
