@@ -76,7 +76,7 @@ public class ConvertIndLemonToTtl2 {
 //		}
 		
 		Model model = ModelFactory.createDefaultModel();
-		model.setNsPrefix("wn30", "http://wordnet-rdf.princeton.edu/wn31/");
+		model.setNsPrefix("wn31", "http://wordnet-rdf.princeton.edu/wn31/");
 		model.setNsPrefix("wn30-msa", "http://wn-msa.sourceforge.net/wn30-msa/");
 		
 		// Convert to wn31
