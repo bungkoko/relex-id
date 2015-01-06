@@ -18,3 +18,10 @@ target
 build
 .gradle
 .directory
+
+# IntelliJ
+**/*.iml
+**/.idea/copyright
+**/.idea/scopes
+**/.idea/.name
+**/.idea/*.xml
