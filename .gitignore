@@ -20,8 +20,13 @@ build
 .directory
 
 # IntelliJ
-**/*.iml
 **/.idea/copyright
+**/.idea/libraries
 **/.idea/scopes
 **/.idea/.name
 **/.idea/*.xml
+**/*.iml
+**/*.ipr
+**/*.iws
+**/out/
+**/.idea_modules/
