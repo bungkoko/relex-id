@@ -30,3 +30,5 @@ build
 **/*.iws
 **/out/
 **/.idea_modules/
+atlassian-ide-plugin.xml
+
