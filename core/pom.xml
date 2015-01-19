@@ -11,7 +11,7 @@
 	</parent>
 	<artifactId>id.ac.itb.ee.lskk.relexid.core</artifactId>
 	<packaging>jar</packaging>
-	<name>ReLex-id Core</name>
+	<name>RelEx-id Core</name>
 	<description>Semantic dependency relationship extractor untuk bahasa Indonesia (termasuk bahasa gaul dan alay ;))</description>
 
 	<dependencies>

@@ -7,7 +7,7 @@
 	<artifactId>id.ac.itb.ee.lskk.relexid.parent</artifactId>
 	<version>0.1.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
-	<name>ReLex-id Parent</name>
+	<name>RelEx-id Parent</name>
 	<description>Semantic dependency relationship extractor untuk bahasa Indonesia (termasuk bahasa gaul dan alay ;))</description>
 	<url>http://lumen.hendyirawan.com/</url>
 
@@ -17,8 +17,8 @@
 	</modules>
 
 	<scm>
-		<connection>scm:git:git@github.com:ceefour/relex-id.git</connection>
-		<url>http://github.com/ceefour/relex-id</url>
+		<connection>scm:git:git@github.com:lumenitb/relex-id.git</connection>
+		<url>http://github.com/lumenitb/relex-id</url>
 	</scm>
 	<organization>
 		<name>LSKK EE ITB</name>
