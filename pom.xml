@@ -4,7 +4,7 @@
 	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.lskk</groupId>
-	<artifactId>org.relexid.parent</artifactId>
+	<artifactId>org.lskk.relexid.parent</artifactId>
 	<version>0.1.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>RelEx-id Parent</name>
@@ -50,8 +50,8 @@
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
-				<groupId>id.ac.itb.ee.lskk</groupId>
-				<artifactId>id.ac.itb.ee.lskk.relexid.core</artifactId>
+				<groupId>org.lskk</groupId>
+				<artifactId>org.lskk.relexid.core</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 		
