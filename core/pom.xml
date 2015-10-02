@@ -4,12 +4,12 @@
 	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<groupId>id.ac.itb.ee.lskk</groupId>
-		<artifactId>id.ac.itb.ee.lskk.relexid.parent</artifactId>
+		<groupId>org.lskk</groupId>
+		<artifactId>org.lskk.relexid.parent</artifactId>
 		<version>0.1.0-SNAPSHOT</version>
 		<relativePath>../pom.xml</relativePath>
 	</parent>
-	<artifactId>id.ac.itb.ee.lskk.relexid.core</artifactId>
+	<artifactId>org.lskk.relexid.core</artifactId>
 	<packaging>jar</packaging>
 	<name>RelEx-id Core</name>
 	<description>Semantic dependency relationship extractor untuk bahasa Indonesia (termasuk bahasa gaul dan alay ;))</description>
